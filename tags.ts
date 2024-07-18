@@ -1,22 +1,4 @@
-const VOID_HTML_TAGS = {
-  area: "area",
-  base: "base",
-  br: "br",
-  col: "col",
-  embed: "embed",
-  hr: "hr",
-  img: "img",
-  input: "input",
-  link: "link",
-  meta: "meta",
-  source: "source",
-  track: "track",
-  wbr: "wbr",
-} as const;
-
-export type VoidHTMLTag = keyof typeof VOID_HTML_TAGS;
-export const voidHTMLTags: Array<VoidHTMLTag> = Object.keys(VOID_HTML_TAGS) as Array<VoidHTMLTag>;
-
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 export const HTML_TAGS = {
   html: "html",
   base: "base",
@@ -137,3 +119,129 @@ export const HTML_TAGS = {
 
 export type HTMLTag = keyof typeof HTML_TAGS;
 export const htmlTags: Array<HTMLTag> = Object.keys(HTML_TAGS) as Array<HTMLTag>;
+
+// https://developer.mozilla.org/en-US/docs/Glossary/Void_element
+// Void elements close themselves, and can't have any content.
+const VOID_HTML_TAGS = {
+  area: "area",
+  base: "base",
+  br: "br",
+  col: "col",
+  embed: "embed",
+  hr: "hr",
+  img: "img",
+  input: "input",
+  link: "link",
+  meta: "meta",
+  source: "source",
+  track: "track",
+  wbr: "wbr",
+} as const;
+
+export type VoidHTMLTag = keyof typeof VOID_HTML_TAGS;
+export const voidHTMLTags: Array<VoidHTMLTag> = Object.keys(VOID_HTML_TAGS) as Array<VoidHTMLTag>;
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#metadata_content
+// Content that goes in the <head> tag
+export const METADATA_CONTENT = {
+  base: "base",
+  link: "link",
+  meta: "meta",
+  noscript: "noscript",
+  script: "script",
+  style: "style",
+  title: "title",
+} as const;
+export type MetadataContent = keyof typeof METADATA_CONTENT;
+export const metadataContentTags: Array<MetadataContent> = Object.keys(METADATA_CONTENT) as Array<MetadataContent>;
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#flow_content
+// Content that can go in the <body> tag
+export const FLOW_CONTENT = {
+  a: "a",
+  abbr: "abbr",
+  address: "address",
+  article: "article",
+  aside: "aside",
+  audio: "audio",
+  b: "b",
+  bdo: "bdo",
+  bdi: "bdi",
+  blockquote: "blockquote",
+  br: "br",
+  button: "button",
+  canvas: "canvas",
+  cite: "cite",
+  code: "code",
+  data: "data",
+  datalist: "datalist",
+  del: "del",
+  details: "details",
+  dfn: "dfn",
+  dialog: "dialog",
+  div: "div",
+  dl: "dl",
+  em: "em",
+  embed: "embed",
+  fieldset: "fieldset",
+  figure: "figure",
+  footer: "footer",
+  form: "form",
+  h1: "h1",
+  h2: "h2",
+  h3: "h3",
+  h4: "h4",
+  h5: "h5",
+  h6: "h6",
+  header: "header",
+  hgroup: "hgroup",
+  hr: "hr",
+  i: "i",
+  iframe: "iframe",
+  img: "img",
+  input: "input",
+  ins: "ins",
+  kbd: "kbd",
+  label: "label",
+  main: "main",
+  map: "map",
+  mark: "mark",
+  math: "math",
+  menu: "menu",
+  meter: "meter",
+  nav: "nav",
+  noscript: "noscript",
+  object: "object",
+  ol: "ol",
+  output: "output",
+  p: "p",
+  picture: "picture",
+  pre: "pre",
+  progress: "progress",
+  q: "q",
+  ruby: "ruby",
+  s: "s",
+  samp: "samp",
+  search: "search",
+  script: "script",
+  section: "section",
+  select: "select",
+  slot: "slot",
+  small: "small",
+  span: "span",
+  strong: "strong",
+  sub: "sub",
+  sup: "sup",
+  svg: "svg",
+  table: "table",
+  template: "template",
+  textarea: "textarea",
+  time: "time",
+  u: "u",
+  ul: "ul",
+  var: "var",
+  video: "video",
+  wbr: "wbr",
+} as const;
+export type FlowContent = keyof typeof FLOW_CONTENT;
+export const flowContentTags: Array<FlowContent> = Object.keys(FLOW_CONTENT) as Array<FlowContent>;
