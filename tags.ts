@@ -252,7 +252,7 @@ export const SECTION_CONTENT = {
   aside: "aside",
   nav: "nav",
   section: "section",
-};
+} as const;
 
 export type SectionContent = keyof typeof SECTION_CONTENT;
 export const sectionContentTags: Array<SectionContent> = Object.keys(SECTION_CONTENT) as Array<SectionContent>;
@@ -266,7 +266,7 @@ export const HEADING_CONTENT = {
   h5: "h5",
   h6: "h6",
   hgroup: "hgroup",
-};
+} as const;
 
 export type HeadingContent = keyof typeof HEADING_CONTENT;
 export const headingContentTags: Array<HeadingContent> = Object.keys(HEADING_CONTENT) as Array<HeadingContent>;
@@ -325,7 +325,7 @@ export const PHRASING_CONTENT = {
   a: "a",
   del: "del",
   ins: "ins",
-};
+} as const;
 
 export type PhrasingContent = keyof typeof PHRASING_CONTENT;
 export const phrasingContentTags: Array<PhrasingContent> = Object.keys(PHRASING_CONTENT) as Array<PhrasingContent>;
@@ -342,7 +342,7 @@ export const EMBEDDED_CONTENT = {
   picture: "picture",
   svg: "svg",
   video: "video",
-};
+} as const;
 
 export type EmbeddedContent = keyof typeof EMBEDDED_CONTENT;
 export const embeddedContentTags: Array<EmbeddedContent> = Object.keys(EMBEDDED_CONTENT) as Array<EmbeddedContent>;
@@ -358,7 +358,7 @@ export const INTERACTIVE_CONTENT = {
   select: "select",
   audio: "audio",
   video: "video",
-};
+} as const;
 
 export type InteractiveContent = keyof typeof INTERACTIVE_CONTENT;
 export const interactiveContentTags: Array<InteractiveContent> = Object.keys(INTERACTIVE_CONTENT) as Array<
@@ -431,7 +431,7 @@ export const PALPABLE_CONTENT = {
   input: "input",
   ol: "ol",
   ul: "ul",
-};
+} as const;
 
 export type PalpableContent = keyof typeof PALPABLE_CONTENT;
 export const palpableContentTags: Array<PalpableContent> = Object.keys(PALPABLE_CONTENT) as Array<PalpableContent>;
@@ -448,7 +448,7 @@ export const FORM_ASSOCIATED_CONTENT = {
   progress: "progress",
   select: "select",
   textarea: "textarea",
-};
+} as const;
 
 export type FormAssociatedContent = keyof typeof FORM_ASSOCIATED_CONTENT;
 export const formAssociatedContentTags: Array<FormAssociatedContent> = Object.keys(FORM_ASSOCIATED_CONTENT) as Array<
@@ -459,7 +459,7 @@ export const formAssociatedContentTags: Array<FormAssociatedContent> = Object.ke
 export const SCRIPT_SUPPORTING_ELEMENTS = {
   script: "script",
   template: "template",
-};
+} as const;
 
 export type ScriptSupportingElement = keyof typeof SCRIPT_SUPPORTING_ELEMENTS;
 export const scriptSupportingElementTags: Array<ScriptSupportingElement> = Object.keys(

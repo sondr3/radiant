@@ -2,34 +2,35 @@ import { HTML_TAGS, type VoidHTMLTag, voidHTMLTags } from "./tags.ts";
 
 const main = async () => {
   let result = `
+// deno-fmt-ignore-file
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See tag-generator.ts to make changes.
-import { type Child, type Children, type HTMLAttributes, HTMLElement, HTMLDocument, VoidHTMLElement, type TagBase } from "./html_element.ts";
-import type { HTMLTag } from "./tags.ts";
+import { type Children, type Child, type HTMLAttributes, HTMLElement, HTMLDocument, VoidHTMLElement, Doctype } from "./html_element.ts";
 
-export function document(...children: Array<TagBase>): HTMLDocument {
-  return new HTMLDocument(...children);
+export function document(doctype: Doctype, ...children: Array<HTMLElement<"html">>): HTMLDocument {
+  return new HTMLDocument(doctype, ...children);
 }
 
-export function doctype(): VoidHTMLElement {
-  return new VoidHTMLElement("!DOCTYPE" as unknown as HTMLTag, { html: true });
+export function doctype(): Doctype {
+  return new Doctype();
 }
+
 `.trimStart();
   for (const [tag, name] of Object.entries(HTML_TAGS)) {
     const isVoid = voidHTMLTags.includes(tag as unknown as VoidHTMLTag);
 
     if (isVoid) {
       result += `
-export function ${name}(attrs: HTMLAttributes): VoidHTMLElement {
+export function ${name}(attrs: HTMLAttributes): VoidHTMLElement<"${tag}"> {
   return new VoidHTMLElement("${tag}", attrs);
 }
 
 `.trimStart();
     } else {
       result += `
-export function ${name}(...children: Children): HTMLElement;
-export function ${name}(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function ${name}(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
+export function ${name}(...children: Children<"${tag}">): HTMLElement<"${tag}">;
+export function ${name}(attrs: HTMLAttributes, ...children: Children<"${tag}">): HTMLElement<"${tag}">;
+export function ${name}(childrenOrAttrs: Child<"${tag}"> | HTMLAttributes, ...children: Children<"${tag}">): HTMLElement<"${tag}"> {
   return HTMLElement.create("${tag}", childrenOrAttrs, ...children);
 }
 
