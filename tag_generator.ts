@@ -15,6 +15,16 @@ export function doctype(): HTMLElement {
 }
 `.trimStart();
   for (const [tag, name] of Object.entries(HTML_TAGS)) {
+    const isVoid = voidHTMLTags.includes(tag as unknown as VoidHTMLTag);
+
+    if (isVoid) {
+      result += `
+export function ${name}(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("${tag}", attrs);
+}
+
+`.trimStart();
+    } else {
       result += `
 export function ${name}(...children: Children): HTMLElement;
 export function ${name}(attrs: HTMLAttributes, ...children: Children): HTMLElement;
@@ -23,6 +33,7 @@ export function ${name}(childrenOrAttrs: Child | Children | HTMLAttributes, ...c
 }
 
 `.trimStart();
+    }
   }
 
   await Deno.writeTextFile("html_tags.ts", result);
