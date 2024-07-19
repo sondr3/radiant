@@ -1,13 +1,22 @@
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See tag-generator.ts to make changes.
-import { type Child, type Children, type HTMLAttributes, HTMLDocument, HTMLElement } from "./mod.ts";
+import {
+  type Child,
+  type Children,
+  type HTMLAttributes,
+  HTMLDocument,
+  HTMLElement,
+  type TagBase,
+  VoidHTMLElement,
+} from "./html_element.ts";
+import type { HTMLTag } from "./tags.ts";
 
-export function document(...children: Array<HTMLElement>): HTMLDocument {
+export function document(...children: Array<TagBase>): HTMLDocument {
   return new HTMLDocument(...children);
 }
 
-export function doctype(): HTMLElement {
-  return new HTMLElement("!DOCTYPE", true, { html: true });
+export function doctype(): VoidHTMLElement {
+  return new VoidHTMLElement("!DOCTYPE" as unknown as HTMLTag, { html: true });
 }
 export function html(...children: Children): HTMLElement;
 export function html(attrs: HTMLAttributes, ...children: Children): HTMLElement;
@@ -15,8 +24,8 @@ export function html(childrenOrAttrs: Child | Children | HTMLAttributes, ...chil
   return HTMLElement.create("html", childrenOrAttrs, ...children);
 }
 
-export function base(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("base", attrs);
+export function base(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("base", attrs);
 }
 
 export function head(...children: Children): HTMLElement;
@@ -25,12 +34,12 @@ export function head(childrenOrAttrs: Child | Children | HTMLAttributes, ...chil
   return HTMLElement.create("head", childrenOrAttrs, ...children);
 }
 
-export function link(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("link", attrs);
+export function link(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("link", attrs);
 }
 
-export function meta(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("meta", attrs);
+export function meta(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("meta", attrs);
 }
 
 export function style(...children: Children): HTMLElement;
@@ -189,8 +198,8 @@ export function figure(childrenOrAttrs: Child | Children | HTMLAttributes, ...ch
   return HTMLElement.create("figure", childrenOrAttrs, ...children);
 }
 
-export function hr(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("hr", attrs);
+export function hr(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("hr", attrs);
 }
 
 export function li(...children: Children): HTMLElement;
@@ -259,8 +268,8 @@ export function bdo(childrenOrAttrs: Child | Children | HTMLAttributes, ...child
   return HTMLElement.create("bdo", childrenOrAttrs, ...children);
 }
 
-export function br(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("br", attrs);
+export function br(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("br", attrs);
 }
 
 export function cite(...children: Children): HTMLElement;
@@ -395,12 +404,12 @@ export function var_(childrenOrAttrs: Child | Children | HTMLAttributes, ...chil
   return HTMLElement.create("var", childrenOrAttrs, ...children);
 }
 
-export function wbr(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("wbr", attrs);
+export function wbr(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("wbr", attrs);
 }
 
-export function area(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("area", attrs);
+export function area(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("area", attrs);
 }
 
 export function audio(...children: Children): HTMLElement;
@@ -409,8 +418,8 @@ export function audio(childrenOrAttrs: Child | Children | HTMLAttributes, ...chi
   return HTMLElement.create("audio", childrenOrAttrs, ...children);
 }
 
-export function img(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("img", attrs);
+export function img(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("img", attrs);
 }
 
 export function map(...children: Children): HTMLElement;
@@ -419,8 +428,8 @@ export function map(childrenOrAttrs: Child | Children | HTMLAttributes, ...child
   return HTMLElement.create("map", childrenOrAttrs, ...children);
 }
 
-export function track(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("track", attrs);
+export function track(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("track", attrs);
 }
 
 export function video(...children: Children): HTMLElement;
@@ -429,8 +438,8 @@ export function video(childrenOrAttrs: Child | Children | HTMLAttributes, ...chi
   return HTMLElement.create("video", childrenOrAttrs, ...children);
 }
 
-export function embed(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("embed", attrs);
+export function embed(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("embed", attrs);
 }
 
 export function iframe(...children: Children): HTMLElement;
@@ -457,8 +466,8 @@ export function portal(childrenOrAttrs: Child | Children | HTMLAttributes, ...ch
   return HTMLElement.create("portal", childrenOrAttrs, ...children);
 }
 
-export function source(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("source", attrs);
+export function source(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("source", attrs);
 }
 
 export function svg(...children: Children): HTMLElement;
@@ -509,8 +518,8 @@ export function caption(childrenOrAttrs: Child | Children | HTMLAttributes, ...c
   return HTMLElement.create("caption", childrenOrAttrs, ...children);
 }
 
-export function col(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("col", attrs);
+export function col(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("col", attrs);
 }
 
 export function colgroup(...children: Children): HTMLElement;
@@ -585,8 +594,8 @@ export function form(childrenOrAttrs: Child | Children | HTMLAttributes, ...chil
   return HTMLElement.create("form", childrenOrAttrs, ...children);
 }
 
-export function input(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("input", attrs);
+export function input(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("input", attrs);
 }
 
 export function label(...children: Children): HTMLElement;

@@ -4,14 +4,15 @@ const main = async () => {
   let result = `
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See tag-generator.ts to make changes.
-import { type Child, type Children, type HTMLAttributes, HTMLElement, HTMLDocument } from "./mod.ts";
+import { type Child, type Children, type HTMLAttributes, HTMLElement, HTMLDocument, VoidHTMLElement, type TagBase } from "./html_element.ts";
+import type { HTMLTag } from "./tags.ts";
 
-export function document(...children: Array<HTMLElement>): HTMLDocument {
+export function document(...children: Array<TagBase>): HTMLDocument {
   return new HTMLDocument(...children);
 }
 
-export function doctype(): HTMLElement {
-  return new HTMLElement("!DOCTYPE", true, { html: true });
+export function doctype(): VoidHTMLElement {
+  return new VoidHTMLElement("!DOCTYPE" as unknown as HTMLTag, { html: true });
 }
 `.trimStart();
   for (const [tag, name] of Object.entries(HTML_TAGS)) {
@@ -19,8 +20,8 @@ export function doctype(): HTMLElement {
 
     if (isVoid) {
       result += `
-export function ${name}(attrs: HTMLAttributes): HTMLElement {
-  return HTMLElement.create("${tag}", attrs);
+export function ${name}(attrs: HTMLAttributes): VoidHTMLElement {
+  return new VoidHTMLElement("${tag}", attrs);
 }
 
 `.trimStart();

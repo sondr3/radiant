@@ -1,46 +1,61 @@
-import { type VoidHTMLTag, voidHTMLTags } from "./tags.ts";
+import type { HTMLTag } from "./tags.ts";
 
-export type Child = string | HTMLElement;
+export type Child = string | TagBase;
 export type Children = Child[];
 
-export type HTMLAttributes = { [key: string]: string | Array<string> | boolean };
+export type HTMLAttributes = Record<string, string | Array<string> | boolean>;
 
-export class HTMLElement {
-  readonly tag: string;
+export interface TagBase {
+  readonly tag: HTMLTag;
+  readonly attributes: HTMLAttributes;
+}
+
+const isHtmlTag = (obj: unknown): obj is TagBase => {
+  return typeof obj === "object" && obj !== null && "tag" in obj;
+};
+
+export class HTMLElement implements TagBase {
+  readonly tag: HTMLTag;
   readonly attributes: HTMLAttributes;
   readonly children: Children;
-  readonly isVoid: boolean;
 
-  constructor(tag: string, isVoid: boolean, attributes: HTMLAttributes, ...children: Children) {
+  constructor(tag: HTMLTag, attributes: HTMLAttributes, ...children: Children) {
     this.tag = tag;
     this.attributes = attributes;
     this.children = children;
-    this.isVoid = isVoid;
   }
 
   static create = (
-    tag: string,
+    tag: HTMLTag,
     childrenOrAttrs: Child | Children | HTMLAttributes,
     ...children: Children
   ): HTMLElement => {
-    const isVoid = voidHTMLTags.includes(tag as unknown as VoidHTMLTag);
-
-    if (typeof childrenOrAttrs === "string" || childrenOrAttrs instanceof HTMLElement) {
-      return new HTMLElement(tag, isVoid, {}, childrenOrAttrs, ...children);
+    if (typeof childrenOrAttrs === "string" || isHtmlTag(childrenOrAttrs)) {
+      return new HTMLElement(tag, {}, childrenOrAttrs, ...children);
     }
 
     if (Array.isArray(childrenOrAttrs)) {
-      return new HTMLElement(tag, isVoid, {}, ...childrenOrAttrs);
+      return new HTMLElement(tag, {}, ...childrenOrAttrs);
     }
 
-    return new HTMLElement(tag, isVoid, childrenOrAttrs, ...children);
+    return new HTMLElement(tag, childrenOrAttrs, ...children);
   };
 }
 
-export class HTMLDocument {
-  readonly children: Array<HTMLElement>;
+export class VoidHTMLElement implements TagBase {
+  readonly tag: HTMLTag;
+  readonly attributes: HTMLAttributes;
 
-  constructor(...children: Array<HTMLElement>) {
+  constructor(tag: HTMLTag, attributes: HTMLAttributes) {
+    this.tag = tag;
+    this.attributes = attributes;
+  }
+}
+
+export class HTMLDocument {
+  readonly children: Array<TagBase>;
+
+  constructor(...children: Array<TagBase>) {
     this.children = children;
   }
 }
