@@ -31,23 +31,3 @@ export const render = (element: HTMLElement): string => {
 
   return result;
 };
-
-export const renderPretty = (element: HTMLElement, depth: number = 0): string => {
-  const indent = "  ".repeat(depth);
-
-  let result = `${indent}<${element.tag}${stringifyAttributes(element.attributes)}>\n`;
-
-  if (!element.isVoid) {
-    for (const child of element.children) {
-      if (typeof child === "string") {
-        result += `${indent}${child}`;
-      } else {
-        result += renderPretty(child, depth + 1);
-      }
-    }
-
-    result += `${indent}</${element.tag}>\n`;
-  }
-
-  return result;
-};
