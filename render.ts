@@ -8,6 +8,10 @@ const stringifyAttributes = (attributes: HTMLAttributes): string => {
       return `${escapedKey}="${escape(value.join(" "))}"`;
     }
 
+    if (typeof value === "boolean") {
+      return value ? escapedKey : "";
+    }
+
     return `${escapedKey}="${escape(value)}"`;
   });
 

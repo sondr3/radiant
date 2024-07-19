@@ -3,7 +3,7 @@ import { type VoidHTMLTag, voidHTMLTags } from "./tags.ts";
 export type Child = string | HTMLElement;
 export type Children = Child[];
 
-export type HTMLAttributes = { [key: string]: string | Array<string> };
+export type HTMLAttributes = { [key: string]: string | Array<string> | boolean };
 
 export class HTMLElement {
   readonly tag: string;
