@@ -245,3 +245,30 @@ export const FLOW_CONTENT = {
 } as const;
 export type FlowContent = keyof typeof FLOW_CONTENT;
 export const flowContentTags: Array<FlowContent> = Object.keys(FLOW_CONTENT) as Array<FlowContent>;
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#sectioning_content
+export const SECTION_CONTENT = {
+  article: "article",
+  aside: "aside",
+  nav: "nav",
+  section: "section",
+};
+
+export type SectionContent = keyof typeof SECTION_CONTENT;
+export const sectionContentTags: Array<SectionContent> = Object.keys(SECTION_CONTENT) as Array<SectionContent>;
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#heading_content
+export const HEADING_CONTENT = {
+  h1: "h1",
+  h2: "h2",
+  h3: "h3",
+  h4: "h4",
+  h5: "h5",
+  h6: "h6",
+  hgroup: "hgroup",
+};
+
+export type HeadingContent = keyof typeof HEADING_CONTENT;
+export const headingContentTags: Array<HeadingContent> = Object.keys(HEADING_CONTENT) as Array<HeadingContent>;
+
+// https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content
