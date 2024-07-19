@@ -36,3 +36,11 @@ export class HTMLElement {
     return new HTMLElement(tag, isVoid, childrenOrAttrs, ...children);
   };
 }
+
+export class HTMLDocument {
+  readonly children: Array<HTMLElement>;
+
+  constructor(...children: Array<HTMLElement>) {
+    this.children = children;
+  }
+}

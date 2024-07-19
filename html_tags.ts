@@ -1,16 +1,22 @@
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See tag-generator.ts to make changes.
-import { type Child, type Children, type HTMLAttributes, HTMLElement } from "./mod.ts";
+import { type Child, type Children, type HTMLAttributes, HTMLDocument, HTMLElement } from "./mod.ts";
+
+export function document(...children: Array<HTMLElement>): HTMLDocument {
+  return new HTMLDocument(...children);
+}
+
+export function doctype(): HTMLElement {
+  return new HTMLElement("!DOCTYPE", true, { html: true });
+}
 export function html(...children: Children): HTMLElement;
 export function html(attrs: HTMLAttributes, ...children: Children): HTMLElement;
 export function html(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
   return HTMLElement.create("html", childrenOrAttrs, ...children);
 }
 
-export function base(...children: Children): HTMLElement;
-export function base(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function base(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("base", childrenOrAttrs, ...children);
+export function base(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("base", attrs);
 }
 
 export function head(...children: Children): HTMLElement;
@@ -19,16 +25,12 @@ export function head(childrenOrAttrs: Child | Children | HTMLAttributes, ...chil
   return HTMLElement.create("head", childrenOrAttrs, ...children);
 }
 
-export function link(...children: Children): HTMLElement;
-export function link(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function link(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("link", childrenOrAttrs, ...children);
+export function link(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("link", attrs);
 }
 
-export function meta(...children: Children): HTMLElement;
-export function meta(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function meta(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("meta", childrenOrAttrs, ...children);
+export function meta(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("meta", attrs);
 }
 
 export function style(...children: Children): HTMLElement;
@@ -187,10 +189,8 @@ export function figure(childrenOrAttrs: Child | Children | HTMLAttributes, ...ch
   return HTMLElement.create("figure", childrenOrAttrs, ...children);
 }
 
-export function hr(...children: Children): HTMLElement;
-export function hr(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function hr(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("hr", childrenOrAttrs, ...children);
+export function hr(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("hr", attrs);
 }
 
 export function li(...children: Children): HTMLElement;
@@ -259,10 +259,8 @@ export function bdo(childrenOrAttrs: Child | Children | HTMLAttributes, ...child
   return HTMLElement.create("bdo", childrenOrAttrs, ...children);
 }
 
-export function br(...children: Children): HTMLElement;
-export function br(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function br(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("br", childrenOrAttrs, ...children);
+export function br(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("br", attrs);
 }
 
 export function cite(...children: Children): HTMLElement;
@@ -397,16 +395,12 @@ export function var_(childrenOrAttrs: Child | Children | HTMLAttributes, ...chil
   return HTMLElement.create("var", childrenOrAttrs, ...children);
 }
 
-export function wbr(...children: Children): HTMLElement;
-export function wbr(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function wbr(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("wbr", childrenOrAttrs, ...children);
+export function wbr(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("wbr", attrs);
 }
 
-export function area(...children: Children): HTMLElement;
-export function area(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function area(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("area", childrenOrAttrs, ...children);
+export function area(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("area", attrs);
 }
 
 export function audio(...children: Children): HTMLElement;
@@ -415,10 +409,8 @@ export function audio(childrenOrAttrs: Child | Children | HTMLAttributes, ...chi
   return HTMLElement.create("audio", childrenOrAttrs, ...children);
 }
 
-export function img(...children: Children): HTMLElement;
-export function img(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function img(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("img", childrenOrAttrs, ...children);
+export function img(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("img", attrs);
 }
 
 export function map(...children: Children): HTMLElement;
@@ -427,10 +419,8 @@ export function map(childrenOrAttrs: Child | Children | HTMLAttributes, ...child
   return HTMLElement.create("map", childrenOrAttrs, ...children);
 }
 
-export function track(...children: Children): HTMLElement;
-export function track(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function track(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("track", childrenOrAttrs, ...children);
+export function track(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("track", attrs);
 }
 
 export function video(...children: Children): HTMLElement;
@@ -439,10 +429,8 @@ export function video(childrenOrAttrs: Child | Children | HTMLAttributes, ...chi
   return HTMLElement.create("video", childrenOrAttrs, ...children);
 }
 
-export function embed(...children: Children): HTMLElement;
-export function embed(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function embed(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("embed", childrenOrAttrs, ...children);
+export function embed(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("embed", attrs);
 }
 
 export function iframe(...children: Children): HTMLElement;
@@ -469,10 +457,8 @@ export function portal(childrenOrAttrs: Child | Children | HTMLAttributes, ...ch
   return HTMLElement.create("portal", childrenOrAttrs, ...children);
 }
 
-export function source(...children: Children): HTMLElement;
-export function source(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function source(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("source", childrenOrAttrs, ...children);
+export function source(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("source", attrs);
 }
 
 export function svg(...children: Children): HTMLElement;
@@ -523,10 +509,8 @@ export function caption(childrenOrAttrs: Child | Children | HTMLAttributes, ...c
   return HTMLElement.create("caption", childrenOrAttrs, ...children);
 }
 
-export function col(...children: Children): HTMLElement;
-export function col(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function col(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("col", childrenOrAttrs, ...children);
+export function col(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("col", attrs);
 }
 
 export function colgroup(...children: Children): HTMLElement;
@@ -601,10 +585,8 @@ export function form(childrenOrAttrs: Child | Children | HTMLAttributes, ...chil
   return HTMLElement.create("form", childrenOrAttrs, ...children);
 }
 
-export function input(...children: Children): HTMLElement;
-export function input(attrs: HTMLAttributes, ...children: Children): HTMLElement;
-export function input(childrenOrAttrs: Child | Children | HTMLAttributes, ...children: Children): HTMLElement {
-  return HTMLElement.create("input", childrenOrAttrs, ...children);
+export function input(attrs: HTMLAttributes): HTMLElement {
+  return HTMLElement.create("input", attrs);
 }
 
 export function label(...children: Children): HTMLElement;
