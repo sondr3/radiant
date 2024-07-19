@@ -23,7 +23,7 @@ export const render = (element: TagBase | HTMLDocument): string => {
     return element.children.map(render).join("");
   }
 
-  let result = `<${element.tag}${stringifyAttributes(element.attributes)}>`;
+  let result = `<${element.tag}${stringifyAttributes(element.attributes ?? {})}>`;
 
   if (element instanceof HTMLElement) {
     for (const child of element.children) {
