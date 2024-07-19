@@ -1,13 +1,3 @@
-import { label } from "./html_tags.ts";
-import { textarea } from "./html_tags.ts";
-import { video } from "./html_tags.ts";
-import { template } from "./html_tags.ts";
-import { img } from "./html_tags.ts";
-import { audio } from "./html_tags.ts";
-import { select } from "./html_tags.ts";
-import { i } from "./html_tags.ts";
-import { em } from "./html_tags.ts";
-
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element
 export const HTML_TAGS = {
   html: "html",
