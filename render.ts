@@ -8,7 +8,7 @@ import {
 import { escape } from "@std/html/entities";
 import type { HTMLTag, VoidHTMLTag } from "./tags.ts";
 
-const stringifyAttributes = (attributes: HTMLAttributes): string => {
+export const stringifyAttributes = (attributes: HTMLAttributes): string => {
   const result = Array.from(Object.entries(attributes)).map(([key, value]) => {
     const escapedKey = escape(key);
     if (Array.isArray(value)) {
