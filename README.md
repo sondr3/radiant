@@ -25,7 +25,8 @@
 Simply import the tags and go to work. Example:
 
 ```ts
-import * as h, { render } from "hdsl";
+import * as h from "./mod.ts";
+import { renderDocument } from "./mod.ts";
 
 const doc = h.document(
   h.doctype(),
@@ -40,7 +41,7 @@ const doc = h.document(
   ),
 );
 
-console.log(render(doc));
+console.log(renderDocument(doc));
 ```
 
 ## License
