@@ -59,15 +59,17 @@ export type GlobalAttributes = {
   writingsuggestions?: boolean;
 };
 
-export type HTMLElementAttributes = GlobalAttributes & {
+export type DataAttributes = GlobalAttributes & {
+  [key: `data-${string}`]: string | boolean;
+}
+
+export type DefaultAttributes = DataAttributes;
+
+export type HTMLElementAttributes = DefaultAttributes & {
   class?: string;
   id?: string;
   slot?: string;
-};
-
-export type Attribute = {
-  [key: string]: string | boolean;
-};
+};;
 
 export type FlowContentChildren = FlowContent | string;
 export type PhrasingContentChildren = PhrasingContent | string;
