@@ -52,16 +52,14 @@ console.log(renderDocument(doc));
 import { h } from "./mod.ts";
 
 // @ts-expect-error example
-const invalidA = h.a({ class: "link" }, "Missing href")
+const invalidA = h.a({ class: "link" }, "Missing href");
 ```
 
 ## Why
 
-After having used libraries like [blaze][blaze] and [lucid][lucid] in Haskell and 
-[smolder][smolder] in PureScript, I wanted something similar in TypeScript. This is
-my attempt at creating a variant of them in it. It's not 100% as ergonomic in my 
-opinion, but it's pretty close. Hence it's also named somewhat akin to `blaze` and
-`smolder`.
+After having used libraries like [blaze][blaze] and [lucid][lucid] in Haskell and [smolder][smolder] in PureScript, I
+wanted something similar in TypeScript. This is my attempt at creating a variant of them in it. It's not 100% as
+ergonomic in my opinion, but it's pretty close. Hence it's also named somewhat akin to `blaze` and `smolder`.
 
 ## License
 

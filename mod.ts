@@ -3,6 +3,7 @@
  * @module
  */
 
+export { elementToObject } from "./ast.ts";
 export { h } from "./html_tags.ts";
 export * from "./attributes.ts";
 export * from "./html_element.ts";

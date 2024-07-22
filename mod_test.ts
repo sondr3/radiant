@@ -1,8 +1,8 @@
 import { assertEquals, assertObjectMatch } from "jsr:@std/assert";
 import { h } from "./mod.ts";
 import { renderElement } from "./render.ts";
-import { deepExplode } from "./utils.ts";
 import { it } from "jsr:@std/testing/bdd";
+import { elementToObject } from "./ast.ts";
 
 it("it works", () => {
   const a1 = h.a({ href: "https://example.com" }, "Hello, world!");
@@ -36,7 +36,7 @@ it("it works redux ", () => {
     `<html><head><meta charset="utf-8"><title>Hello, world!</title></head><body><h1 class="blah">Hello, world!</h1></body></html>`,
   );
 
-  assertObjectMatch(deepExplode(doc), {
+  assertObjectMatch(elementToObject(doc), {
     tag: "html",
     attributes: {},
     children: [
