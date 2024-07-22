@@ -23,6 +23,9 @@ jobs:
       - name: test
         run: deno test --doc
 
+      - name: npm
+        run: deno task npm
+
   publish:
     name: publish
     runs-on: ubuntu-latest
@@ -50,7 +53,7 @@ jobs:
         run: echo ::set-output name=TAG_VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: npm build
-        run: deno run -A ./build_npm.ts ${{steps.get_tag_version.outputs.TAG_VERSION}}
+        run: deno task npm ${{steps.get_tag_version.outputs.TAG_VERSION}}
 
       - name: publish NPM
         run: cd npm && npm publish --access=public

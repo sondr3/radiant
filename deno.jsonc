@@ -6,7 +6,8 @@
     "dev": "deno test --watch mod.ts",
     "gen": "deno task gen:tags && deno task gen:elems",
     "gen:tags": "deno run -A ./scripts/tag_generator.ts",
-    "gen:elems": "deno run -A ./scripts/element_generator.ts"
+    "gen:elems": "deno run -A ./scripts/element_generator.ts",
+    "npm": "deno run -A ./scripts/build_npm.ts"
   },
   "fmt": {
     "lineWidth": 120
