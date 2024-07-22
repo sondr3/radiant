@@ -60,8 +60,7 @@ const invalidA = h.a({ class: "link" }, "Missing href");
 Also included is a very basic XML renderer with support for building and rendering sitemaps.
 
 ```ts
-import { s } from "./sitemap.ts";
-import { renderXMLDocument } from "./render_xml.ts";
+import { renderSitemap, s } from "./sitemap.ts";
 
 const sitemap = s.document(
   s.doctype(),
@@ -85,7 +84,7 @@ const sitemap = s.document(
   ),
 );
 
-console.log(renderXMLDocument(sitemap));
+console.log(renderSitemap(sitemap, { pretty: true }));
 ```
 
 ## Why

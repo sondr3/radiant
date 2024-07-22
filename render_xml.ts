@@ -12,6 +12,11 @@ type XMLFormatOptions = {
   newline?: boolean;
 };
 
+/**
+ * If formatter options are provided, calculate the indentation and newline values.
+ * @param opts - The formatter options.
+ * @returns - Values used to format XML documents
+ */
 const optionValues = ({ depth, newline }: XMLFormatOptions) => ({
   indent: depth !== undefined ? "  ".repeat(depth) : "",
   newline: newline ? "\n" : "",
@@ -56,6 +61,15 @@ export const renderXMLElement = <T, A, C>(
   return result;
 };
 
+/**
+ * Renders an XML declaration.
+ *
+ * @template T - The type of the declaration tag.
+ * @template A - The type of the declaration attributes.
+ * @param {XMLDeclaration<T, A>} declaration - The XML declaration object.
+ * @param {XMLFormatOptions} [opts] - The optional XML format options.
+ * @returns {string} - The rendered XML declaration.
+ */
 export const renderXMLDeclaration = <T extends string, A extends XMLAttributes>(
   declaration: XMLDeclaration<T, A>,
   opts?: XMLFormatOptions,
@@ -64,6 +78,14 @@ export const renderXMLDeclaration = <T extends string, A extends XMLAttributes>(
   return `${indent}<?${declaration.tag}${stringifyAttributes(declaration.attributes ?? {})}?>${newline}`;
 };
 
+/**
+ * Renders an XML element or declaration to a string.
+ *
+ * @param tag - The XML element or declaration to render.
+ * @param opts - Optional formatting options.
+ * @returns The rendered XML as a string.
+ * @throws Error if the element type is not supported.
+ */
 export const renderElement = (tag: unknown, opts?: XMLFormatOptions): string => {
   if (tag instanceof XMLDeclaration) {
     return renderXMLDeclaration(tag, opts);
@@ -87,7 +109,7 @@ export const renderElement = (tag: unknown, opts?: XMLFormatOptions): string => 
  * @param doc - The XML document to render.
  * @returns The rendered XML document as a string.
  */
-export const renderXMLDocument = (doc: XMLDocument, opts?: { pretty: boolean }) => {
+export const renderXMLDocument = (doc: XMLDocument, opts?: { pretty: boolean }): string => {
   let result = "";
   for (const child of doc.children) {
     result += renderElement(child, opts?.pretty ? { depth: 0, newline: true } : undefined);

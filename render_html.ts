@@ -63,6 +63,7 @@ export const renderHtmlElement = <T extends HTMLTag, A, C>(
  *
  * @param tag - The HTML element or void element to render.
  * @returns The rendered element as a string.
+ * @throws Error if the element type is not supported.
  */
 export const renderElement = (tag: unknown): string => {
   if (tag instanceof Doctype) {

@@ -8,11 +8,12 @@ import {
   xmlStylesheet,
 } from "./xml.ts";
 import { format } from "@std/datetime";
+export { renderXMLDocument as renderSitemap } from "./render_xml.ts";
 
 type UrlSetAttributes = XMLAttributes & {
   xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9";
-  [key: `xmlns:${string}`]: string;
-  [key: `xsi:${string}`]: string;
+  [key: `<xmlns:${string}`]: string;
+  [key: `<xsi:${string}`]: string;
 };
 
 type LocElement = XMLElement<"loc", XMLAttributes, string>;
@@ -26,6 +27,9 @@ type UrlSetElement = XMLElement<"urlset", UrlSetAttributes, UrlElement>;
 type SitemapElement = XMLElement<"sitemap", XMLAttributes, LocElement | LastModElement>;
 type SitemapIndexElement = XMLElement<"sitemapindex", UrlSetAttributes, SitemapElement>;
 
+/**
+ * Represents the possible XML elements that can be included in a sitemap.
+ */
 export type SitemapElements =
   | LocElement
   | LastModElement
@@ -101,17 +105,41 @@ const document = (
   return new XMLDocument(doctype, children);
 };
 
+/**
+ * A type-safe builder for XML elements in a sitemap.
+ */
 export const sitemap = {
+  /** A type-safe builder for the `<document>` element */
   document: document,
+
+  /** A type-safe builder for the `<doctype>` element */
   doctype: () => xmlDoctype,
+
+  /** A type-safe builder for the `<stylesheet>` element */
   stylesheet: xmlStylesheet,
+
+  /** A type-safe builder for the `<urlset>` element */
   urlset: urlsetElement,
+
+  /** A type-safe builder for the `<url>` element */
   url: urlElement,
+
+  /** A type-safe builder for the `<loc>` element */
   loc: locElement,
+
+  /** A type-safe builder for the `<lastmod>` element */
   lastmod: lastModElement,
+
+  /** A type-safe builder for the `<changefreq>` element */
   changefreq: changeFreqElement,
+
+  /** A type-safe builder for the `<priority>` element */
   priority: priorityElement,
+
+  /** A type-safe builder for the `<sitemapindex>` element */
   sitemapindex: sitemapIndexElement,
+
+  /** A type-safe builder for the `<sitemap>` element */
   sitemap: sitemapElement,
 };
 
