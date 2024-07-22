@@ -1,3 +1,15 @@
+## v0.2.2
+
+> 2024-07-22
+
+## Summary
+
+Add the remaining missing documentation.
+
+### Commits
+
+- [[`9086051`](https://github.com/sondr3/radiant)] More documentation
+
 ## v0.2.1
 
 > 2024-07-22
