@@ -1,13 +1,40 @@
 import { type XMLAttributes, XMLDoctype, XMLDocument, XMLElement } from "./xml.ts";
+import { format } from "@std/datetime";
 
-const BaseAttributes: XMLAttributes = { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" };
+type UrlSetAttributes = XMLAttributes & {
+  xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9";
+  [key: `xmlns:${string}`]: string;
+};
 
-function urlsetElement(...children: Array<XMLElement>): XMLElement;
-function urlsetElement(attributes: XMLAttributes, ...children: Array<XMLElement>): XMLElement;
+type LocElement = XMLElement<"loc", XMLAttributes, string>;
+type LastModElement = XMLElement<"lastmod", XMLAttributes, string>;
+type ChangeFreqElement = XMLElement<"changefreq", XMLAttributes, string>;
+type PriorityElement = XMLElement<"priority", XMLAttributes, string>;
+type UrlElement = XMLElement<"url", XMLAttributes, LocElement | LastModElement | ChangeFreqElement | PriorityElement>;
+
+type UrlSetElement = XMLElement<"urlset", UrlSetAttributes, UrlElement>;
+
+type SitemapElement = XMLElement<"sitemap", XMLAttributes, LocElement | LastModElement>;
+type SitemapIndexElement = XMLElement<"sitemapindex", UrlSetAttributes, SitemapElement>;
+
+export type SitemapElements =
+  | LocElement
+  | LastModElement
+  | ChangeFreqElement
+  | PriorityElement
+  | UrlElement
+  | UrlSetElement
+  | SitemapElement
+  | SitemapIndexElement;
+
+const BaseAttributes: UrlSetAttributes = { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" };
+
+function urlsetElement(...children: Array<UrlElement>): UrlSetElement;
+function urlsetElement(attributes: UrlSetAttributes, ...children: Array<UrlElement>): UrlSetElement;
 function urlsetElement(
-  attrsOrChild: XMLAttributes | XMLElement | Array<XMLElement>,
-  ...children: Array<XMLElement>
-): XMLElement {
+  attrsOrChild: UrlSetAttributes | UrlElement | Array<UrlElement>,
+  ...children: Array<UrlElement>
+): UrlSetElement {
   if (attrsOrChild instanceof XMLElement) {
     return new XMLElement("urlset", BaseAttributes, [attrsOrChild, ...children]);
   } else if (Array.isArray(attrsOrChild)) {
@@ -19,36 +46,32 @@ function urlsetElement(
 
 type ChangeFreq = "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 
-function urlElement(
-  loc: string,
-  lastModified?: Date,
-  changeFreq?: ChangeFreq,
-  priority?: number,
-  attributes?: XMLAttributes,
-): XMLElement {
-  const children = [new XMLElement("loc", {}, [loc])];
-
-  if (lastModified) {
-    children.push(new XMLElement("lastmod", {}, [lastModified.toISOString()]));
-  }
-
-  if (changeFreq) {
-    children.push(new XMLElement("changefreq", {}, [changeFreq]));
-  }
-
-  if (priority) {
-    children.push(new XMLElement("priority", {}, [priority.toString()]));
-  }
-
-  return new XMLElement("url", { ...attributes }, children);
+function locElement(loc: string): LocElement {
+  return new XMLElement("loc", {}, [loc]);
 }
 
-function sitemapIndexElement(...children: Array<XMLElement>): XMLElement;
-function sitemapIndexElement(attributes: XMLAttributes, ...children: Array<XMLElement>): XMLElement;
+function lastModElement(date: Date): LastModElement {
+  return new XMLElement("lastmod", {}, [format(date, "yyyy-MM-dd")]);
+}
+
+function changeFreqElement(freq: ChangeFreq): ChangeFreqElement {
+  return new XMLElement("changefreq", {}, [freq]);
+}
+
+function priorityElement(priority: number): PriorityElement {
+  return new XMLElement("priority", {}, [priority.toString()]);
+}
+
+function urlElement(...children: Array<LocElement | LastModElement | ChangeFreqElement | PriorityElement>): UrlElement {
+  return new XMLElement("url", {}, children);
+}
+
+function sitemapIndexElement(...children: Array<SitemapElement>): SitemapIndexElement;
+function sitemapIndexElement(attributes: UrlSetAttributes, ...children: Array<SitemapElement>): SitemapIndexElement;
 function sitemapIndexElement(
-  attrsOrChild: XMLAttributes | XMLElement | Array<XMLElement>,
-  ...children: Array<XMLElement>
-): XMLElement {
+  attrsOrChild: UrlSetAttributes | SitemapElement | Array<SitemapElement>,
+  ...children: Array<SitemapElement>
+): SitemapIndexElement {
   if (attrsOrChild instanceof XMLElement) {
     return new XMLElement("sitemapindex", BaseAttributes, [attrsOrChild, ...children]);
   } else if (Array.isArray(attrsOrChild)) {
@@ -58,17 +81,11 @@ function sitemapIndexElement(
   return new XMLElement("sitemapindex", { ...BaseAttributes, ...attrsOrChild }, children);
 }
 
-function sitemapElement(loc: string, lastMod?: Date): XMLElement {
-  const children = [new XMLElement("loc", {}, [loc])];
-
-  if (lastMod) {
-    children.push(new XMLElement("lastmod", {}, [lastMod.toISOString()]));
-  }
-
+function sitemapElement(...children: Array<LocElement | LastModElement>): SitemapElement {
   return new XMLElement("sitemap", {}, children);
 }
 
-const document = (...children: Array<XMLElement>): XMLDocument => {
+const document = (...children: Array<UrlSetElement | SitemapIndexElement>): XMLDocument => {
   return new XMLDocument(new XMLDoctype(), children);
 };
 
@@ -76,6 +93,10 @@ export const sitemap = {
   document: document,
   urlset: urlsetElement,
   url: urlElement,
+  loc: locElement,
+  lastmod: lastModElement,
+  changefreq: changeFreqElement,
+  priority: priorityElement,
   sitemapindex: sitemapIndexElement,
   sitemap: sitemapElement,
 };

@@ -1,41 +1,45 @@
+import type { SitemapElements } from "./sitemap.ts";
+
 export type XMLAttributes = Record<string, string | boolean>;
 
-export interface XMLType {
-  readonly tag: string;
-  readonly attributes: XMLAttributes;
+type AllXMLChildren = SitemapElements;
+
+export interface XMLType<T, A> {
+  readonly tag: T;
+  readonly attributes: A;
 }
 
-export class XMLElement implements XMLType {
-  readonly tag: string;
-  readonly attributes: XMLAttributes;
-  readonly children: Array<XMLElement | string>;
+export class XMLElement<T, A, C> implements XMLType<T, A> {
+  readonly tag: T;
+  readonly attributes: A;
+  readonly children: Array<C | string>;
 
-  constructor(tag: string, attributes: XMLAttributes, children: Array<XMLElement | string>) {
+  constructor(tag: T, attributes: A, children: Array<C | string>) {
     this.tag = tag;
     this.attributes = attributes;
     this.children = children;
   }
 }
 
-export class VoidXMLElement implements XMLType {
-  readonly tag: string;
-  readonly attributes: XMLAttributes;
+export class VoidXMLElement<T extends string, A extends Record<string, string>> implements XMLType<T, A> {
+  readonly tag: T;
+  readonly attributes: A;
 
-  constructor(tag: string, attributes: XMLAttributes) {
+  constructor(tag: T, attributes: A) {
     this.tag = tag;
     this.attributes = attributes;
   }
 }
 
 export class XMLDoctype {
-  readonly tag = `<?xml version="1.0" encoding="utf-8"?>`;
+  readonly tag: string = `<?xml version="1.0" encoding="utf-8"?>`;
 }
 
 export class XMLDocument {
   readonly docType: XMLDoctype;
-  readonly children: Array<XMLElement>;
+  readonly children: Array<AllXMLChildren>;
 
-  constructor(docType: XMLDoctype, children: Array<XMLElement>) {
+  constructor(docType: XMLDoctype, children: Array<AllXMLChildren>) {
     this.docType = docType;
     this.children = children;
   }

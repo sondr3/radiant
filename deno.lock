@@ -8,6 +8,7 @@
       "jsr:@std/assert": "jsr:@std/assert@1.0.0",
       "jsr:@std/assert@^0.218.2": "jsr:@std/assert@0.218.2",
       "jsr:@std/bytes@^0.218.2": "jsr:@std/bytes@0.218.2",
+      "jsr:@std/datetime@^0.224.3": "jsr:@std/datetime@0.224.3",
       "jsr:@std/fmt@^0.218.2": "jsr:@std/fmt@0.218.2",
       "jsr:@std/fs@^0.218.2": "jsr:@std/fs@0.218.2",
       "jsr:@std/html@^1.0.0": "jsr:@std/html@1.0.0",
@@ -55,6 +56,9 @@
       },
       "@std/bytes@0.218.2": {
         "integrity": "91fe54b232dcca73856b79a817247f4a651dbb60d51baafafb6408c137241670"
+      },
+      "@std/datetime@0.224.3": {
+        "integrity": "43197d0b2e00444fb169275b79a3e8fa506fd65c92398a207d71fd3e69b26c5b"
       },
       "@std/fmt@0.218.2": {
         "integrity": "99526449d2505aa758b6cbef81e7dd471d8b28ec0dcb1491d122b284c548788a"
@@ -242,6 +246,7 @@
   "remote": {},
   "workspace": {
     "dependencies": [
+      "jsr:@std/datetime@^0.224.3",
       "jsr:@std/html@^1.0.0",
       "jsr:@std/text@^1.0.0"
     ]

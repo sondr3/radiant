@@ -3,8 +3,9 @@
  * @module
  */
 
+import { escape } from "@std/html";
 import { stringifyAttributes } from "./render.ts";
-import type { VoidXMLElement, XMLDocument, XMLElement } from "./xml.ts";
+import { VoidXMLElement, type XMLDocument, XMLElement } from "./xml.ts";
 
 /**
  * Renders a void XML element as a string.
@@ -12,8 +13,10 @@ import type { VoidXMLElement, XMLDocument, XMLElement } from "./xml.ts";
  * @param element - The void XML element to render.
  * @returns The rendered XML string.
  */
-export const renderVoidXMLElement = (element: VoidXMLElement) => {
-  return `<${element.tag}${stringifyAttributes(element.attributes)}>`;
+export const renderVoidXMLElement = <T extends string, A extends Record<string, string>>(
+  element: VoidXMLElement<T, A>,
+) => {
+  return `<${element.tag}${stringifyAttributes(element.attributes ?? {})}>`;
 };
 
 /**
@@ -22,19 +25,32 @@ export const renderVoidXMLElement = (element: VoidXMLElement) => {
  * @param element - The XML element to render.
  * @returns The rendered XML element as a string.
  */
-export const renderXMLElement = (element: XMLElement) => {
-  let result = `<${element.tag}${stringifyAttributes(element.attributes)}>`;
+export const renderXMLElement = <T, A, C>(element: XMLElement<T, A, C>) => {
+  let result = `<${element.tag}${stringifyAttributes(element.attributes ?? {})}>`;
 
   for (const child of element.children) {
     if (typeof child === "string") {
-      result += child;
+      result += escape(child);
     } else {
-      result += renderXMLElement(child);
+      result += renderElement(child);
     }
   }
 
   result += `</${element.tag}>`;
   return result;
+};
+
+export const renderElement = (tag: unknown): string => {
+  if (tag instanceof XMLElement) {
+    return renderXMLElement(tag);
+  }
+
+  if (tag instanceof VoidXMLElement) {
+    return renderVoidXMLElement(tag);
+  }
+
+  // This should never happen
+  return "UNREACHABLE";
 };
 
 /**
@@ -46,7 +62,7 @@ export const renderXMLElement = (element: XMLElement) => {
 export const renderXMLDocument = (doc: XMLDocument) => {
   let result = `${doc.docType.tag}`;
   for (const child of doc.children) {
-    result += renderXMLElement(child);
+    result += renderElement(child);
   }
   return result;
 };
