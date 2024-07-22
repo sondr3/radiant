@@ -102,7 +102,7 @@ const document = (
 
 export const sitemap = {
   document: document,
-  doctype: xmlDoctype,
+  doctype: () => xmlDoctype,
   stylesheet: xmlStylesheet,
   urlset: urlsetElement,
   url: urlElement,

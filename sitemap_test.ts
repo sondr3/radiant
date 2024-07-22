@@ -6,7 +6,7 @@ import { renderXMLDocument } from "./render_xml.ts";
 describe("sitemap", () => {
   it("works", () => {
     const sitemap = s.document(
-      s.doctype,
+      s.doctype(),
       s.stylesheet("/styles.xsl", "text/xsl"),
       s.urlset(
         s.url(s.loc("https://example.com")),
@@ -23,7 +23,7 @@ describe("sitemap", () => {
 
   it("sitemap index", () => {
     const sitemap = s.document(
-      s.doctype,
+      s.doctype(),
       s.sitemapindex(
         s.sitemap(s.loc("https://example.com/sitemap1.xml")),
         s.sitemap(s.loc("https://example.com/sitemap2.xml")),
@@ -38,7 +38,7 @@ describe("sitemap", () => {
 
   it("sample works", () => {
     const sitemap = s.document(
-      s.doctype,
+      s.doctype(),
       s.urlset(
         s.url(
           s.loc("http://www.example.com/"),
@@ -75,7 +75,7 @@ describe("sitemap", () => {
 
   it("sitemap index sample works", () => {
     const sitemap = s.document(
-      s.doctype,
+      s.doctype(),
       s.sitemapindex(
         s.sitemap(
           s.loc("http://www.example.com/sitemap1.xml.gz"),

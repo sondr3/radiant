@@ -5,6 +5,7 @@ import { it } from "jsr:@std/testing/bdd";
 
 it("basic output", () => {
   const input = h.document(
+    h.doctype(),
     h.html(
       h.head(
         h.title("Hello, world!"),

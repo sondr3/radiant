@@ -6,8 +6,8 @@ import type { ATTRIBUTE_MAP } from "./attributes.ts";
 import type { ELEMENT_MAP } from "./elements.ts";
 import type { AllChildren, CHILDREN_MAP } from "./content_categories.ts";
 
-function documentElement(...children: Array<AllChildren | ELEMENT_MAP["html"]>): HTMLDocument {
-  return new HTMLDocument(new Doctype(), ...children);
+function documentElement(doctype: Doctype, ...children: Array<AllChildren | ELEMENT_MAP["html"]>): HTMLDocument {
+  return new HTMLDocument(doctype, ...children);
 }
 
 function doctypeElement(): Doctype {

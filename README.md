@@ -31,6 +31,7 @@ Simply import the tags and go to work. Example:
 import { h, renderDocument } from "./mod.ts";
 
 const doc = h.document(
+  h.doctype(),
   h.html(
     h.head(
       h.meta({ charset: "utf-8" }),
