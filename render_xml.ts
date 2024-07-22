@@ -87,10 +87,10 @@ export const renderElement = (tag: unknown, opts?: XMLFormatOptions): string => 
  * @param doc - The XML document to render.
  * @returns The rendered XML document as a string.
  */
-export const renderXMLDocument = (doc: XMLDocument) => {
+export const renderXMLDocument = (doc: XMLDocument, opts?: { pretty: boolean }) => {
   let result = "";
   for (const child of doc.children) {
-    result += renderElement(child, { depth: 0, newline: true });
+    result += renderElement(child, opts?.pretty ? { depth: 0, newline: true } : undefined);
   }
   return result;
 };

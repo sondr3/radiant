@@ -15,7 +15,7 @@ describe("sitemap", () => {
       ),
     );
 
-    await assertSnapshot(t, renderXMLDocument(sitemap));
+    await assertSnapshot(t, renderXMLDocument(sitemap, { pretty: true }));
   });
 
   it("sitemap index", async (t) => {
@@ -27,7 +27,7 @@ describe("sitemap", () => {
       ),
     );
 
-    await assertSnapshot(t, renderXMLDocument(sitemap));
+    await assertSnapshot(t, renderXMLDocument(sitemap, { pretty: true }));
   });
 
   it("sample works", async (t) => {
@@ -61,7 +61,7 @@ describe("sitemap", () => {
       ),
     );
 
-    await assertSnapshot(t, renderXMLDocument(sitemap));
+    await assertSnapshot(t, renderXMLDocument(sitemap, { pretty: true }));
   });
 
   it("sitemap index sample works", async (t) => {
@@ -79,6 +79,6 @@ describe("sitemap", () => {
       ),
     );
 
-    await assertSnapshot(t, renderXMLDocument(sitemap));
+    await assertSnapshot(t, renderXMLDocument(sitemap, { pretty: true }));
   });
 });
