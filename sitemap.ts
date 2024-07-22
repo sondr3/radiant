@@ -12,6 +12,7 @@ import { format } from "@std/datetime";
 type UrlSetAttributes = XMLAttributes & {
   xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9";
   [key: `xmlns:${string}`]: string;
+  [key: `xsi:${string}`]: string;
 };
 
 type LocElement = XMLElement<"loc", XMLAttributes, string>;
