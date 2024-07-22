@@ -1,3 +1,8 @@
+/**
+ * A type-safe builder for XML elements in a sitemap.
+ * @module
+ */
+
 import {
   type XMLAttributes,
   type XMLDeclarationType,
@@ -143,4 +148,7 @@ export const sitemap = {
   sitemap: sitemapElement,
 };
 
+/**
+ * A type-safe builder for XML elements in a sitemap.
+ */
 export const s = sitemap;
