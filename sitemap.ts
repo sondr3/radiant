@@ -1,4 +1,12 @@
-import { type XMLAttributes, XMLDoctype, XMLDocument, XMLElement } from "./xml.ts";
+import {
+  type XMLAttributes,
+  type XMLDeclarationType,
+  xmlDoctype,
+  XMLDocument,
+  XMLElement,
+  type XMLStyleSheet,
+  xmlStylesheet,
+} from "./xml.ts";
 import { format } from "@std/datetime";
 
 type UrlSetAttributes = XMLAttributes & {
@@ -85,12 +93,17 @@ function sitemapElement(...children: Array<LocElement | LastModElement>): Sitema
   return new XMLElement("sitemap", {}, children);
 }
 
-const document = (...children: Array<UrlSetElement | SitemapIndexElement>): XMLDocument => {
-  return new XMLDocument(new XMLDoctype(), children);
+const document = (
+  doctype: XMLDeclarationType,
+  ...children: Array<UrlSetElement | SitemapIndexElement | XMLStyleSheet>
+): XMLDocument => {
+  return new XMLDocument(doctype, children);
 };
 
 export const sitemap = {
   document: document,
+  doctype: xmlDoctype,
+  stylesheet: xmlStylesheet,
   urlset: urlsetElement,
   url: urlElement,
   loc: locElement,

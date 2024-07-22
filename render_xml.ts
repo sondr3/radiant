@@ -5,7 +5,7 @@
 
 import { escape } from "@std/html";
 import { stringifyAttributes } from "./render.ts";
-import { VoidXMLElement, type XMLDocument, XMLElement } from "./xml.ts";
+import { VoidXMLElement, type XMLAttributes, XMLDeclaration, type XMLDocument, XMLElement } from "./xml.ts";
 
 /**
  * Renders a void XML element as a string.
@@ -13,7 +13,7 @@ import { VoidXMLElement, type XMLDocument, XMLElement } from "./xml.ts";
  * @param element - The void XML element to render.
  * @returns The rendered XML string.
  */
-export const renderVoidXMLElement = <T extends string, A extends Record<string, string>>(
+export const renderVoidXMLElement = <T extends string, A extends XMLAttributes>(
   element: VoidXMLElement<T, A>,
 ) => {
   return `<${element.tag}${stringifyAttributes(element.attributes ?? {})}>`;
@@ -40,7 +40,15 @@ export const renderXMLElement = <T, A, C>(element: XMLElement<T, A, C>) => {
   return result;
 };
 
+export const renderXMLDeclaration = <T extends string, A extends XMLAttributes>(declaration: XMLDeclaration<T, A>) => {
+  return `<?${declaration.tag}${stringifyAttributes(declaration.attributes ?? {})}?>`;
+};
+
 export const renderElement = (tag: unknown): string => {
+  if (tag instanceof XMLDeclaration) {
+    return renderXMLDeclaration(tag);
+  }
+
   if (tag instanceof XMLElement) {
     return renderXMLElement(tag);
   }
@@ -60,7 +68,7 @@ export const renderElement = (tag: unknown): string => {
  * @returns The rendered XML document as a string.
  */
 export const renderXMLDocument = (doc: XMLDocument) => {
-  let result = `${doc.docType.tag}`;
+  let result = "";
   for (const child of doc.children) {
     result += renderElement(child);
   }

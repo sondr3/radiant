@@ -2,7 +2,7 @@ import type { SitemapElements } from "./sitemap.ts";
 
 export type XMLAttributes = Record<string, string | boolean>;
 
-type AllXMLChildren = SitemapElements;
+type AllXMLChildren = SitemapElements | XMLDeclarationType | XMLStyleSheet;
 
 export interface XMLType<T, A> {
   readonly tag: T;
@@ -21,7 +21,7 @@ export class XMLElement<T, A, C> implements XMLType<T, A> {
   }
 }
 
-export class VoidXMLElement<T extends string, A extends Record<string, string>> implements XMLType<T, A> {
+export class VoidXMLElement<T extends string, A extends XMLAttributes> implements XMLType<T, A> {
   readonly tag: T;
   readonly attributes: A;
 
@@ -31,16 +31,27 @@ export class VoidXMLElement<T extends string, A extends Record<string, string>> 
   }
 }
 
-export class XMLDoctype {
-  readonly tag: string = `<?xml version="1.0" encoding="utf-8"?>`;
+export class XMLDeclaration<T extends string, A extends XMLAttributes> implements XMLType<T, A> {
+  readonly tag: T;
+  readonly attributes: A;
+
+  constructor(tag: T, attributes: A) {
+    this.tag = tag;
+    this.attributes = attributes;
+  }
 }
 
+export type XMLDeclarationType = XMLDeclaration<"xml", { version: string; encoding: string }>;
+export const xmlDoctype: XMLDeclarationType = new XMLDeclaration("xml", { version: "1.0", encoding: "utf-8" });
+
+export type XMLStyleSheet = XMLDeclaration<"xml-stylesheet", { href: string; type: string }>;
+export const xmlStylesheet = (href: string, type: string): XMLStyleSheet =>
+  new XMLDeclaration("xml-stylesheet", { href, type });
+
 export class XMLDocument {
-  readonly docType: XMLDoctype;
   readonly children: Array<AllXMLChildren>;
 
-  constructor(docType: XMLDoctype, children: Array<AllXMLChildren>) {
-    this.docType = docType;
-    this.children = children;
+  constructor(doctype: XMLDeclarationType, children: Array<AllXMLChildren>) {
+    this.children = [doctype, ...children];
   }
 }

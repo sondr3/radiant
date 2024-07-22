@@ -6,6 +6,8 @@ import { renderXMLDocument } from "./render_xml.ts";
 describe("sitemap", () => {
   it("works", () => {
     const sitemap = s.document(
+      s.doctype,
+      s.stylesheet("/styles.xsl", "text/xsl"),
       s.urlset(
         s.url(s.loc("https://example.com")),
         s.url(s.loc("https://example.com/about")),
@@ -15,12 +17,13 @@ describe("sitemap", () => {
 
     assertEquals(
       renderXMLDocument(sitemap),
-      `<?xml version="1.0" encoding="utf-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://example.com</loc></url><url><loc>https://example.com/about</loc></url><url><loc>https://example.com/contact</loc></url></urlset>`,
+      `<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet href="/styles.xsl" type="text/xsl"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://example.com</loc></url><url><loc>https://example.com/about</loc></url><url><loc>https://example.com/contact</loc></url></urlset>`,
     );
   });
 
   it("sitemap index", () => {
     const sitemap = s.document(
+      s.doctype,
       s.sitemapindex(
         s.sitemap(s.loc("https://example.com/sitemap1.xml")),
         s.sitemap(s.loc("https://example.com/sitemap2.xml")),
@@ -35,6 +38,7 @@ describe("sitemap", () => {
 
   it("sample works", () => {
     const sitemap = s.document(
+      s.doctype,
       s.urlset(
         s.url(
           s.loc("http://www.example.com/"),
@@ -71,6 +75,7 @@ describe("sitemap", () => {
 
   it("sitemap index sample works", () => {
     const sitemap = s.document(
+      s.doctype,
       s.sitemapindex(
         s.sitemap(
           s.loc("http://www.example.com/sitemap1.xml.gz"),
