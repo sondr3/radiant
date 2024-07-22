@@ -1,9 +1,26 @@
 import { assertEquals, assertObjectMatch } from "jsr:@std/assert";
-import * as h from "./mod.ts";
+import { h } from "./mod.ts";
 import { renderElement } from "./render.ts";
 import { deepExplode } from "./utils.ts";
+import { it } from "jsr:@std/testing/bdd";
 
-Deno.test("it works", () => {
+it("it works", () => {
+  const a1 = h.a({ href: "https://example.com" }, "Hello, world!");
+  const a2 = h.a({ class: "link", href: "https://www.example.org" }, "Hello, world!");
+
+  assertEquals(a1.children, a2.children);
+});
+
+it("rendering works", () => {
+  const p = h.p(
+    h.a({ href: "https://example.com" }, "Hello, world!"),
+    " With some text.",
+  );
+
+  assertEquals(renderElement(p), `<p><a href="https://example.com">Hello, world!</a> With some text.</p>`);
+});
+
+it("it works redux ", () => {
   const doc = h.html(
     h.head(
       h.meta({ "charset": "utf-8" }),

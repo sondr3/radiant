@@ -5,7 +5,8 @@
       "jsr:@std/assert": "jsr:@std/assert@1.0.0",
       "jsr:@std/html@^1.0.0": "jsr:@std/html@1.0.0",
       "jsr:@std/internal@^1.0.1": "jsr:@std/internal@1.0.1",
-      "jsr:@std/testing": "jsr:@std/testing@0.225.3"
+      "jsr:@std/testing": "jsr:@std/testing@0.225.3",
+      "jsr:@std/text@^1.0.0": "jsr:@std/text@1.0.0"
     },
     "jsr": {
       "@std/assert@1.0.0": {
@@ -22,13 +23,17 @@
       },
       "@std/testing@0.225.3": {
         "integrity": "348c24d0479d44ab3dbb4f26170f242e19f24051b45935d4a9e7ca0ab7e37780"
+      },
+      "@std/text@1.0.0": {
+        "integrity": "03163011516ff40284f8ee9c1e3eea40f34c3e477df8f34591aa40bc0bd0ba29"
       }
     }
   },
   "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@std/html@^1.0.0"
+      "jsr:@std/html@^1.0.0",
+      "jsr:@std/text@^1.0.0"
     ]
   }
 }

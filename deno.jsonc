@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "exports": "./mod.ts",
   "tasks": {
-    "dev": "deno test --watch mod.ts"
+    "dev": "deno test --watch mod.ts",
+    "gen": "deno task gen:tags && deno task gen:elems",
+    "gen:tags": "deno run -A ./scripts/tag_generator.ts",
+    "gen:elems": "deno run -A ./scripts/element_generator.ts"
   },
   "fmt": {
     "lineWidth": 120
   },
-  "imports": {
-    "@std/html": "jsr:@std/html@^1.0.0"
-  }
+  "imports": { "@std/html": "jsr:@std/html@^1.0.0", "@std/text": "jsr:@std/text@^1.0.0" }
 }

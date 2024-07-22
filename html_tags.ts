@@ -1,677 +1,1513 @@
 // deno-fmt-ignore-file
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See tag-generator.ts to make changes.
-import { type Children, type Child, type HTMLAttributes, HTMLElement, HTMLDocument, VoidHTMLElement, Doctype } from "./html_element.ts";
+import { HTMLDocument, VoidBaseHTMLElement, Doctype, HTMLElementFactory } from "./html_element.ts";
+import type { ATTRIBUTE_MAP } from "./attributes.ts";
+import type { ELEMENT_MAP } from "./elements.ts";
+import type { AllChildren, CHILDREN_MAP } from "./content_categories.ts";
 
-export function document(doctype: Doctype, ...children: Array<HTMLElement<"html">>): HTMLDocument {
+function documentElement(doctype: Doctype, ...children: Array<AllChildren | ELEMENT_MAP["html"]>): HTMLDocument {
   return new HTMLDocument(doctype, ...children);
 }
 
-export function doctype(): Doctype {
+function doctypeElement(): Doctype {
   return new Doctype();
 }
 
-export function html(...children: Children<"html">): HTMLElement<"html">;
-export function html(attrs: HTMLAttributes, ...children: Children<"html">): HTMLElement<"html">;
-export function html(childrenOrAttrs: Child<"html"> | HTMLAttributes, ...children: Children<"html">): HTMLElement<"html"> {
-  return HTMLElement.create("html", childrenOrAttrs, ...children);
-}
-
-export function base(attrs: HTMLAttributes): VoidHTMLElement<"base"> {
-  return new VoidHTMLElement("base", attrs);
-}
-
-export function head(...children: Children<"head">): HTMLElement<"head">;
-export function head(attrs: HTMLAttributes, ...children: Children<"head">): HTMLElement<"head">;
-export function head(childrenOrAttrs: Child<"head"> | HTMLAttributes, ...children: Children<"head">): HTMLElement<"head"> {
-  return HTMLElement.create("head", childrenOrAttrs, ...children);
-}
-
-export function link(attrs: HTMLAttributes): VoidHTMLElement<"link"> {
-  return new VoidHTMLElement("link", attrs);
-}
-
-export function meta(attrs: HTMLAttributes): VoidHTMLElement<"meta"> {
-  return new VoidHTMLElement("meta", attrs);
-}
-
-export function style(...children: Children<"style">): HTMLElement<"style">;
-export function style(attrs: HTMLAttributes, ...children: Children<"style">): HTMLElement<"style">;
-export function style(childrenOrAttrs: Child<"style"> | HTMLAttributes, ...children: Children<"style">): HTMLElement<"style"> {
-  return HTMLElement.create("style", childrenOrAttrs, ...children);
-}
-
-export function title(...children: Children<"title">): HTMLElement<"title">;
-export function title(attrs: HTMLAttributes, ...children: Children<"title">): HTMLElement<"title">;
-export function title(childrenOrAttrs: Child<"title"> | HTMLAttributes, ...children: Children<"title">): HTMLElement<"title"> {
-  return HTMLElement.create("title", childrenOrAttrs, ...children);
-}
-
-export function body(...children: Children<"body">): HTMLElement<"body">;
-export function body(attrs: HTMLAttributes, ...children: Children<"body">): HTMLElement<"body">;
-export function body(childrenOrAttrs: Child<"body"> | HTMLAttributes, ...children: Children<"body">): HTMLElement<"body"> {
-  return HTMLElement.create("body", childrenOrAttrs, ...children);
-}
-
-export function address(...children: Children<"address">): HTMLElement<"address">;
-export function address(attrs: HTMLAttributes, ...children: Children<"address">): HTMLElement<"address">;
-export function address(childrenOrAttrs: Child<"address"> | HTMLAttributes, ...children: Children<"address">): HTMLElement<"address"> {
-  return HTMLElement.create("address", childrenOrAttrs, ...children);
-}
-
-export function article(...children: Children<"article">): HTMLElement<"article">;
-export function article(attrs: HTMLAttributes, ...children: Children<"article">): HTMLElement<"article">;
-export function article(childrenOrAttrs: Child<"article"> | HTMLAttributes, ...children: Children<"article">): HTMLElement<"article"> {
-  return HTMLElement.create("article", childrenOrAttrs, ...children);
-}
-
-export function aside(...children: Children<"aside">): HTMLElement<"aside">;
-export function aside(attrs: HTMLAttributes, ...children: Children<"aside">): HTMLElement<"aside">;
-export function aside(childrenOrAttrs: Child<"aside"> | HTMLAttributes, ...children: Children<"aside">): HTMLElement<"aside"> {
-  return HTMLElement.create("aside", childrenOrAttrs, ...children);
-}
-
-export function footer(...children: Children<"footer">): HTMLElement<"footer">;
-export function footer(attrs: HTMLAttributes, ...children: Children<"footer">): HTMLElement<"footer">;
-export function footer(childrenOrAttrs: Child<"footer"> | HTMLAttributes, ...children: Children<"footer">): HTMLElement<"footer"> {
-  return HTMLElement.create("footer", childrenOrAttrs, ...children);
-}
-
-export function header(...children: Children<"header">): HTMLElement<"header">;
-export function header(attrs: HTMLAttributes, ...children: Children<"header">): HTMLElement<"header">;
-export function header(childrenOrAttrs: Child<"header"> | HTMLAttributes, ...children: Children<"header">): HTMLElement<"header"> {
-  return HTMLElement.create("header", childrenOrAttrs, ...children);
-}
-
-export function h1(...children: Children<"h1">): HTMLElement<"h1">;
-export function h1(attrs: HTMLAttributes, ...children: Children<"h1">): HTMLElement<"h1">;
-export function h1(childrenOrAttrs: Child<"h1"> | HTMLAttributes, ...children: Children<"h1">): HTMLElement<"h1"> {
-  return HTMLElement.create("h1", childrenOrAttrs, ...children);
-}
-
-export function h2(...children: Children<"h2">): HTMLElement<"h2">;
-export function h2(attrs: HTMLAttributes, ...children: Children<"h2">): HTMLElement<"h2">;
-export function h2(childrenOrAttrs: Child<"h2"> | HTMLAttributes, ...children: Children<"h2">): HTMLElement<"h2"> {
-  return HTMLElement.create("h2", childrenOrAttrs, ...children);
-}
-
-export function h3(...children: Children<"h3">): HTMLElement<"h3">;
-export function h3(attrs: HTMLAttributes, ...children: Children<"h3">): HTMLElement<"h3">;
-export function h3(childrenOrAttrs: Child<"h3"> | HTMLAttributes, ...children: Children<"h3">): HTMLElement<"h3"> {
-  return HTMLElement.create("h3", childrenOrAttrs, ...children);
-}
-
-export function h4(...children: Children<"h4">): HTMLElement<"h4">;
-export function h4(attrs: HTMLAttributes, ...children: Children<"h4">): HTMLElement<"h4">;
-export function h4(childrenOrAttrs: Child<"h4"> | HTMLAttributes, ...children: Children<"h4">): HTMLElement<"h4"> {
-  return HTMLElement.create("h4", childrenOrAttrs, ...children);
-}
-
-export function h5(...children: Children<"h5">): HTMLElement<"h5">;
-export function h5(attrs: HTMLAttributes, ...children: Children<"h5">): HTMLElement<"h5">;
-export function h5(childrenOrAttrs: Child<"h5"> | HTMLAttributes, ...children: Children<"h5">): HTMLElement<"h5"> {
-  return HTMLElement.create("h5", childrenOrAttrs, ...children);
-}
-
-export function h6(...children: Children<"h6">): HTMLElement<"h6">;
-export function h6(attrs: HTMLAttributes, ...children: Children<"h6">): HTMLElement<"h6">;
-export function h6(childrenOrAttrs: Child<"h6"> | HTMLAttributes, ...children: Children<"h6">): HTMLElement<"h6"> {
-  return HTMLElement.create("h6", childrenOrAttrs, ...children);
-}
-
-export function hgroup(...children: Children<"hgroup">): HTMLElement<"hgroup">;
-export function hgroup(attrs: HTMLAttributes, ...children: Children<"hgroup">): HTMLElement<"hgroup">;
-export function hgroup(childrenOrAttrs: Child<"hgroup"> | HTMLAttributes, ...children: Children<"hgroup">): HTMLElement<"hgroup"> {
-  return HTMLElement.create("hgroup", childrenOrAttrs, ...children);
-}
-
-export function main(...children: Children<"main">): HTMLElement<"main">;
-export function main(attrs: HTMLAttributes, ...children: Children<"main">): HTMLElement<"main">;
-export function main(childrenOrAttrs: Child<"main"> | HTMLAttributes, ...children: Children<"main">): HTMLElement<"main"> {
-  return HTMLElement.create("main", childrenOrAttrs, ...children);
-}
-
-export function nav(...children: Children<"nav">): HTMLElement<"nav">;
-export function nav(attrs: HTMLAttributes, ...children: Children<"nav">): HTMLElement<"nav">;
-export function nav(childrenOrAttrs: Child<"nav"> | HTMLAttributes, ...children: Children<"nav">): HTMLElement<"nav"> {
-  return HTMLElement.create("nav", childrenOrAttrs, ...children);
-}
-
-export function section(...children: Children<"section">): HTMLElement<"section">;
-export function section(attrs: HTMLAttributes, ...children: Children<"section">): HTMLElement<"section">;
-export function section(childrenOrAttrs: Child<"section"> | HTMLAttributes, ...children: Children<"section">): HTMLElement<"section"> {
-  return HTMLElement.create("section", childrenOrAttrs, ...children);
-}
-
-export function search(...children: Children<"search">): HTMLElement<"search">;
-export function search(attrs: HTMLAttributes, ...children: Children<"search">): HTMLElement<"search">;
-export function search(childrenOrAttrs: Child<"search"> | HTMLAttributes, ...children: Children<"search">): HTMLElement<"search"> {
-  return HTMLElement.create("search", childrenOrAttrs, ...children);
-}
-
-export function blockquote(...children: Children<"blockquote">): HTMLElement<"blockquote">;
-export function blockquote(attrs: HTMLAttributes, ...children: Children<"blockquote">): HTMLElement<"blockquote">;
-export function blockquote(childrenOrAttrs: Child<"blockquote"> | HTMLAttributes, ...children: Children<"blockquote">): HTMLElement<"blockquote"> {
-  return HTMLElement.create("blockquote", childrenOrAttrs, ...children);
-}
-
-export function dd(...children: Children<"dd">): HTMLElement<"dd">;
-export function dd(attrs: HTMLAttributes, ...children: Children<"dd">): HTMLElement<"dd">;
-export function dd(childrenOrAttrs: Child<"dd"> | HTMLAttributes, ...children: Children<"dd">): HTMLElement<"dd"> {
-  return HTMLElement.create("dd", childrenOrAttrs, ...children);
-}
-
-export function div(...children: Children<"div">): HTMLElement<"div">;
-export function div(attrs: HTMLAttributes, ...children: Children<"div">): HTMLElement<"div">;
-export function div(childrenOrAttrs: Child<"div"> | HTMLAttributes, ...children: Children<"div">): HTMLElement<"div"> {
-  return HTMLElement.create("div", childrenOrAttrs, ...children);
-}
-
-export function dl(...children: Children<"dl">): HTMLElement<"dl">;
-export function dl(attrs: HTMLAttributes, ...children: Children<"dl">): HTMLElement<"dl">;
-export function dl(childrenOrAttrs: Child<"dl"> | HTMLAttributes, ...children: Children<"dl">): HTMLElement<"dl"> {
-  return HTMLElement.create("dl", childrenOrAttrs, ...children);
-}
-
-export function dt(...children: Children<"dt">): HTMLElement<"dt">;
-export function dt(attrs: HTMLAttributes, ...children: Children<"dt">): HTMLElement<"dt">;
-export function dt(childrenOrAttrs: Child<"dt"> | HTMLAttributes, ...children: Children<"dt">): HTMLElement<"dt"> {
-  return HTMLElement.create("dt", childrenOrAttrs, ...children);
-}
-
-export function figcaption(...children: Children<"figcaption">): HTMLElement<"figcaption">;
-export function figcaption(attrs: HTMLAttributes, ...children: Children<"figcaption">): HTMLElement<"figcaption">;
-export function figcaption(childrenOrAttrs: Child<"figcaption"> | HTMLAttributes, ...children: Children<"figcaption">): HTMLElement<"figcaption"> {
-  return HTMLElement.create("figcaption", childrenOrAttrs, ...children);
-}
-
-export function figure(...children: Children<"figure">): HTMLElement<"figure">;
-export function figure(attrs: HTMLAttributes, ...children: Children<"figure">): HTMLElement<"figure">;
-export function figure(childrenOrAttrs: Child<"figure"> | HTMLAttributes, ...children: Children<"figure">): HTMLElement<"figure"> {
-  return HTMLElement.create("figure", childrenOrAttrs, ...children);
-}
-
-export function hr(attrs: HTMLAttributes): VoidHTMLElement<"hr"> {
-  return new VoidHTMLElement("hr", attrs);
-}
-
-export function li(...children: Children<"li">): HTMLElement<"li">;
-export function li(attrs: HTMLAttributes, ...children: Children<"li">): HTMLElement<"li">;
-export function li(childrenOrAttrs: Child<"li"> | HTMLAttributes, ...children: Children<"li">): HTMLElement<"li"> {
-  return HTMLElement.create("li", childrenOrAttrs, ...children);
-}
-
-export function menu(...children: Children<"menu">): HTMLElement<"menu">;
-export function menu(attrs: HTMLAttributes, ...children: Children<"menu">): HTMLElement<"menu">;
-export function menu(childrenOrAttrs: Child<"menu"> | HTMLAttributes, ...children: Children<"menu">): HTMLElement<"menu"> {
-  return HTMLElement.create("menu", childrenOrAttrs, ...children);
-}
-
-export function ol(...children: Children<"ol">): HTMLElement<"ol">;
-export function ol(attrs: HTMLAttributes, ...children: Children<"ol">): HTMLElement<"ol">;
-export function ol(childrenOrAttrs: Child<"ol"> | HTMLAttributes, ...children: Children<"ol">): HTMLElement<"ol"> {
-  return HTMLElement.create("ol", childrenOrAttrs, ...children);
-}
-
-export function p(...children: Children<"p">): HTMLElement<"p">;
-export function p(attrs: HTMLAttributes, ...children: Children<"p">): HTMLElement<"p">;
-export function p(childrenOrAttrs: Child<"p"> | HTMLAttributes, ...children: Children<"p">): HTMLElement<"p"> {
-  return HTMLElement.create("p", childrenOrAttrs, ...children);
-}
-
-export function pre(...children: Children<"pre">): HTMLElement<"pre">;
-export function pre(attrs: HTMLAttributes, ...children: Children<"pre">): HTMLElement<"pre">;
-export function pre(childrenOrAttrs: Child<"pre"> | HTMLAttributes, ...children: Children<"pre">): HTMLElement<"pre"> {
-  return HTMLElement.create("pre", childrenOrAttrs, ...children);
-}
-
-export function ul(...children: Children<"ul">): HTMLElement<"ul">;
-export function ul(attrs: HTMLAttributes, ...children: Children<"ul">): HTMLElement<"ul">;
-export function ul(childrenOrAttrs: Child<"ul"> | HTMLAttributes, ...children: Children<"ul">): HTMLElement<"ul"> {
-  return HTMLElement.create("ul", childrenOrAttrs, ...children);
-}
-
-export function a(...children: Children<"a">): HTMLElement<"a">;
-export function a(attrs: HTMLAttributes, ...children: Children<"a">): HTMLElement<"a">;
-export function a(childrenOrAttrs: Child<"a"> | HTMLAttributes, ...children: Children<"a">): HTMLElement<"a"> {
-  return HTMLElement.create("a", childrenOrAttrs, ...children);
-}
-
-export function abbr(...children: Children<"abbr">): HTMLElement<"abbr">;
-export function abbr(attrs: HTMLAttributes, ...children: Children<"abbr">): HTMLElement<"abbr">;
-export function abbr(childrenOrAttrs: Child<"abbr"> | HTMLAttributes, ...children: Children<"abbr">): HTMLElement<"abbr"> {
-  return HTMLElement.create("abbr", childrenOrAttrs, ...children);
-}
-
-export function b(...children: Children<"b">): HTMLElement<"b">;
-export function b(attrs: HTMLAttributes, ...children: Children<"b">): HTMLElement<"b">;
-export function b(childrenOrAttrs: Child<"b"> | HTMLAttributes, ...children: Children<"b">): HTMLElement<"b"> {
-  return HTMLElement.create("b", childrenOrAttrs, ...children);
-}
-
-export function bdi(...children: Children<"bdi">): HTMLElement<"bdi">;
-export function bdi(attrs: HTMLAttributes, ...children: Children<"bdi">): HTMLElement<"bdi">;
-export function bdi(childrenOrAttrs: Child<"bdi"> | HTMLAttributes, ...children: Children<"bdi">): HTMLElement<"bdi"> {
-  return HTMLElement.create("bdi", childrenOrAttrs, ...children);
-}
-
-export function bdo(...children: Children<"bdo">): HTMLElement<"bdo">;
-export function bdo(attrs: HTMLAttributes, ...children: Children<"bdo">): HTMLElement<"bdo">;
-export function bdo(childrenOrAttrs: Child<"bdo"> | HTMLAttributes, ...children: Children<"bdo">): HTMLElement<"bdo"> {
-  return HTMLElement.create("bdo", childrenOrAttrs, ...children);
-}
-
-export function br(attrs: HTMLAttributes): VoidHTMLElement<"br"> {
-  return new VoidHTMLElement("br", attrs);
-}
-
-export function cite(...children: Children<"cite">): HTMLElement<"cite">;
-export function cite(attrs: HTMLAttributes, ...children: Children<"cite">): HTMLElement<"cite">;
-export function cite(childrenOrAttrs: Child<"cite"> | HTMLAttributes, ...children: Children<"cite">): HTMLElement<"cite"> {
-  return HTMLElement.create("cite", childrenOrAttrs, ...children);
-}
-
-export function code(...children: Children<"code">): HTMLElement<"code">;
-export function code(attrs: HTMLAttributes, ...children: Children<"code">): HTMLElement<"code">;
-export function code(childrenOrAttrs: Child<"code"> | HTMLAttributes, ...children: Children<"code">): HTMLElement<"code"> {
-  return HTMLElement.create("code", childrenOrAttrs, ...children);
-}
-
-export function data(...children: Children<"data">): HTMLElement<"data">;
-export function data(attrs: HTMLAttributes, ...children: Children<"data">): HTMLElement<"data">;
-export function data(childrenOrAttrs: Child<"data"> | HTMLAttributes, ...children: Children<"data">): HTMLElement<"data"> {
-  return HTMLElement.create("data", childrenOrAttrs, ...children);
-}
-
-export function dfn(...children: Children<"dfn">): HTMLElement<"dfn">;
-export function dfn(attrs: HTMLAttributes, ...children: Children<"dfn">): HTMLElement<"dfn">;
-export function dfn(childrenOrAttrs: Child<"dfn"> | HTMLAttributes, ...children: Children<"dfn">): HTMLElement<"dfn"> {
-  return HTMLElement.create("dfn", childrenOrAttrs, ...children);
-}
-
-export function em(...children: Children<"em">): HTMLElement<"em">;
-export function em(attrs: HTMLAttributes, ...children: Children<"em">): HTMLElement<"em">;
-export function em(childrenOrAttrs: Child<"em"> | HTMLAttributes, ...children: Children<"em">): HTMLElement<"em"> {
-  return HTMLElement.create("em", childrenOrAttrs, ...children);
-}
-
-export function i(...children: Children<"i">): HTMLElement<"i">;
-export function i(attrs: HTMLAttributes, ...children: Children<"i">): HTMLElement<"i">;
-export function i(childrenOrAttrs: Child<"i"> | HTMLAttributes, ...children: Children<"i">): HTMLElement<"i"> {
-  return HTMLElement.create("i", childrenOrAttrs, ...children);
-}
-
-export function kbd(...children: Children<"kbd">): HTMLElement<"kbd">;
-export function kbd(attrs: HTMLAttributes, ...children: Children<"kbd">): HTMLElement<"kbd">;
-export function kbd(childrenOrAttrs: Child<"kbd"> | HTMLAttributes, ...children: Children<"kbd">): HTMLElement<"kbd"> {
-  return HTMLElement.create("kbd", childrenOrAttrs, ...children);
-}
-
-export function mark(...children: Children<"mark">): HTMLElement<"mark">;
-export function mark(attrs: HTMLAttributes, ...children: Children<"mark">): HTMLElement<"mark">;
-export function mark(childrenOrAttrs: Child<"mark"> | HTMLAttributes, ...children: Children<"mark">): HTMLElement<"mark"> {
-  return HTMLElement.create("mark", childrenOrAttrs, ...children);
-}
-
-export function q(...children: Children<"q">): HTMLElement<"q">;
-export function q(attrs: HTMLAttributes, ...children: Children<"q">): HTMLElement<"q">;
-export function q(childrenOrAttrs: Child<"q"> | HTMLAttributes, ...children: Children<"q">): HTMLElement<"q"> {
-  return HTMLElement.create("q", childrenOrAttrs, ...children);
-}
-
-export function rp(...children: Children<"rp">): HTMLElement<"rp">;
-export function rp(attrs: HTMLAttributes, ...children: Children<"rp">): HTMLElement<"rp">;
-export function rp(childrenOrAttrs: Child<"rp"> | HTMLAttributes, ...children: Children<"rp">): HTMLElement<"rp"> {
-  return HTMLElement.create("rp", childrenOrAttrs, ...children);
-}
-
-export function rt(...children: Children<"rt">): HTMLElement<"rt">;
-export function rt(attrs: HTMLAttributes, ...children: Children<"rt">): HTMLElement<"rt">;
-export function rt(childrenOrAttrs: Child<"rt"> | HTMLAttributes, ...children: Children<"rt">): HTMLElement<"rt"> {
-  return HTMLElement.create("rt", childrenOrAttrs, ...children);
-}
-
-export function ruby(...children: Children<"ruby">): HTMLElement<"ruby">;
-export function ruby(attrs: HTMLAttributes, ...children: Children<"ruby">): HTMLElement<"ruby">;
-export function ruby(childrenOrAttrs: Child<"ruby"> | HTMLAttributes, ...children: Children<"ruby">): HTMLElement<"ruby"> {
-  return HTMLElement.create("ruby", childrenOrAttrs, ...children);
-}
-
-export function s(...children: Children<"s">): HTMLElement<"s">;
-export function s(attrs: HTMLAttributes, ...children: Children<"s">): HTMLElement<"s">;
-export function s(childrenOrAttrs: Child<"s"> | HTMLAttributes, ...children: Children<"s">): HTMLElement<"s"> {
-  return HTMLElement.create("s", childrenOrAttrs, ...children);
-}
-
-export function samp(...children: Children<"samp">): HTMLElement<"samp">;
-export function samp(attrs: HTMLAttributes, ...children: Children<"samp">): HTMLElement<"samp">;
-export function samp(childrenOrAttrs: Child<"samp"> | HTMLAttributes, ...children: Children<"samp">): HTMLElement<"samp"> {
-  return HTMLElement.create("samp", childrenOrAttrs, ...children);
-}
-
-export function small(...children: Children<"small">): HTMLElement<"small">;
-export function small(attrs: HTMLAttributes, ...children: Children<"small">): HTMLElement<"small">;
-export function small(childrenOrAttrs: Child<"small"> | HTMLAttributes, ...children: Children<"small">): HTMLElement<"small"> {
-  return HTMLElement.create("small", childrenOrAttrs, ...children);
-}
-
-export function span(...children: Children<"span">): HTMLElement<"span">;
-export function span(attrs: HTMLAttributes, ...children: Children<"span">): HTMLElement<"span">;
-export function span(childrenOrAttrs: Child<"span"> | HTMLAttributes, ...children: Children<"span">): HTMLElement<"span"> {
-  return HTMLElement.create("span", childrenOrAttrs, ...children);
-}
-
-export function strong(...children: Children<"strong">): HTMLElement<"strong">;
-export function strong(attrs: HTMLAttributes, ...children: Children<"strong">): HTMLElement<"strong">;
-export function strong(childrenOrAttrs: Child<"strong"> | HTMLAttributes, ...children: Children<"strong">): HTMLElement<"strong"> {
-  return HTMLElement.create("strong", childrenOrAttrs, ...children);
-}
-
-export function sub(...children: Children<"sub">): HTMLElement<"sub">;
-export function sub(attrs: HTMLAttributes, ...children: Children<"sub">): HTMLElement<"sub">;
-export function sub(childrenOrAttrs: Child<"sub"> | HTMLAttributes, ...children: Children<"sub">): HTMLElement<"sub"> {
-  return HTMLElement.create("sub", childrenOrAttrs, ...children);
-}
-
-export function sup(...children: Children<"sup">): HTMLElement<"sup">;
-export function sup(attrs: HTMLAttributes, ...children: Children<"sup">): HTMLElement<"sup">;
-export function sup(childrenOrAttrs: Child<"sup"> | HTMLAttributes, ...children: Children<"sup">): HTMLElement<"sup"> {
-  return HTMLElement.create("sup", childrenOrAttrs, ...children);
-}
-
-export function time(...children: Children<"time">): HTMLElement<"time">;
-export function time(attrs: HTMLAttributes, ...children: Children<"time">): HTMLElement<"time">;
-export function time(childrenOrAttrs: Child<"time"> | HTMLAttributes, ...children: Children<"time">): HTMLElement<"time"> {
-  return HTMLElement.create("time", childrenOrAttrs, ...children);
-}
-
-export function u(...children: Children<"u">): HTMLElement<"u">;
-export function u(attrs: HTMLAttributes, ...children: Children<"u">): HTMLElement<"u">;
-export function u(childrenOrAttrs: Child<"u"> | HTMLAttributes, ...children: Children<"u">): HTMLElement<"u"> {
-  return HTMLElement.create("u", childrenOrAttrs, ...children);
-}
-
-export function var_(...children: Children<"var">): HTMLElement<"var">;
-export function var_(attrs: HTMLAttributes, ...children: Children<"var">): HTMLElement<"var">;
-export function var_(childrenOrAttrs: Child<"var"> | HTMLAttributes, ...children: Children<"var">): HTMLElement<"var"> {
-  return HTMLElement.create("var", childrenOrAttrs, ...children);
-}
-
-export function wbr(attrs: HTMLAttributes): VoidHTMLElement<"wbr"> {
-  return new VoidHTMLElement("wbr", attrs);
-}
-
-export function area(attrs: HTMLAttributes): VoidHTMLElement<"area"> {
-  return new VoidHTMLElement("area", attrs);
-}
-
-export function audio(...children: Children<"audio">): HTMLElement<"audio">;
-export function audio(attrs: HTMLAttributes, ...children: Children<"audio">): HTMLElement<"audio">;
-export function audio(childrenOrAttrs: Child<"audio"> | HTMLAttributes, ...children: Children<"audio">): HTMLElement<"audio"> {
-  return HTMLElement.create("audio", childrenOrAttrs, ...children);
-}
-
-export function img(attrs: HTMLAttributes): VoidHTMLElement<"img"> {
-  return new VoidHTMLElement("img", attrs);
-}
-
-export function map(...children: Children<"map">): HTMLElement<"map">;
-export function map(attrs: HTMLAttributes, ...children: Children<"map">): HTMLElement<"map">;
-export function map(childrenOrAttrs: Child<"map"> | HTMLAttributes, ...children: Children<"map">): HTMLElement<"map"> {
-  return HTMLElement.create("map", childrenOrAttrs, ...children);
-}
-
-export function track(attrs: HTMLAttributes): VoidHTMLElement<"track"> {
-  return new VoidHTMLElement("track", attrs);
-}
-
-export function video(...children: Children<"video">): HTMLElement<"video">;
-export function video(attrs: HTMLAttributes, ...children: Children<"video">): HTMLElement<"video">;
-export function video(childrenOrAttrs: Child<"video"> | HTMLAttributes, ...children: Children<"video">): HTMLElement<"video"> {
-  return HTMLElement.create("video", childrenOrAttrs, ...children);
-}
-
-export function embed(attrs: HTMLAttributes): VoidHTMLElement<"embed"> {
-  return new VoidHTMLElement("embed", attrs);
-}
-
-export function iframe(...children: Children<"iframe">): HTMLElement<"iframe">;
-export function iframe(attrs: HTMLAttributes, ...children: Children<"iframe">): HTMLElement<"iframe">;
-export function iframe(childrenOrAttrs: Child<"iframe"> | HTMLAttributes, ...children: Children<"iframe">): HTMLElement<"iframe"> {
-  return HTMLElement.create("iframe", childrenOrAttrs, ...children);
-}
-
-export function object(...children: Children<"object">): HTMLElement<"object">;
-export function object(attrs: HTMLAttributes, ...children: Children<"object">): HTMLElement<"object">;
-export function object(childrenOrAttrs: Child<"object"> | HTMLAttributes, ...children: Children<"object">): HTMLElement<"object"> {
-  return HTMLElement.create("object", childrenOrAttrs, ...children);
-}
-
-export function picture(...children: Children<"picture">): HTMLElement<"picture">;
-export function picture(attrs: HTMLAttributes, ...children: Children<"picture">): HTMLElement<"picture">;
-export function picture(childrenOrAttrs: Child<"picture"> | HTMLAttributes, ...children: Children<"picture">): HTMLElement<"picture"> {
-  return HTMLElement.create("picture", childrenOrAttrs, ...children);
-}
-
-export function portal(...children: Children<"portal">): HTMLElement<"portal">;
-export function portal(attrs: HTMLAttributes, ...children: Children<"portal">): HTMLElement<"portal">;
-export function portal(childrenOrAttrs: Child<"portal"> | HTMLAttributes, ...children: Children<"portal">): HTMLElement<"portal"> {
-  return HTMLElement.create("portal", childrenOrAttrs, ...children);
-}
-
-export function source(attrs: HTMLAttributes): VoidHTMLElement<"source"> {
-  return new VoidHTMLElement("source", attrs);
-}
-
-export function svg(...children: Children<"svg">): HTMLElement<"svg">;
-export function svg(attrs: HTMLAttributes, ...children: Children<"svg">): HTMLElement<"svg">;
-export function svg(childrenOrAttrs: Child<"svg"> | HTMLAttributes, ...children: Children<"svg">): HTMLElement<"svg"> {
-  return HTMLElement.create("svg", childrenOrAttrs, ...children);
-}
-
-export function math(...children: Children<"math">): HTMLElement<"math">;
-export function math(attrs: HTMLAttributes, ...children: Children<"math">): HTMLElement<"math">;
-export function math(childrenOrAttrs: Child<"math"> | HTMLAttributes, ...children: Children<"math">): HTMLElement<"math"> {
-  return HTMLElement.create("math", childrenOrAttrs, ...children);
-}
-
-export function canvas(...children: Children<"canvas">): HTMLElement<"canvas">;
-export function canvas(attrs: HTMLAttributes, ...children: Children<"canvas">): HTMLElement<"canvas">;
-export function canvas(childrenOrAttrs: Child<"canvas"> | HTMLAttributes, ...children: Children<"canvas">): HTMLElement<"canvas"> {
-  return HTMLElement.create("canvas", childrenOrAttrs, ...children);
-}
-
-export function noscript(...children: Children<"noscript">): HTMLElement<"noscript">;
-export function noscript(attrs: HTMLAttributes, ...children: Children<"noscript">): HTMLElement<"noscript">;
-export function noscript(childrenOrAttrs: Child<"noscript"> | HTMLAttributes, ...children: Children<"noscript">): HTMLElement<"noscript"> {
-  return HTMLElement.create("noscript", childrenOrAttrs, ...children);
-}
-
-export function script(...children: Children<"script">): HTMLElement<"script">;
-export function script(attrs: HTMLAttributes, ...children: Children<"script">): HTMLElement<"script">;
-export function script(childrenOrAttrs: Child<"script"> | HTMLAttributes, ...children: Children<"script">): HTMLElement<"script"> {
-  return HTMLElement.create("script", childrenOrAttrs, ...children);
-}
-
-export function del(...children: Children<"del">): HTMLElement<"del">;
-export function del(attrs: HTMLAttributes, ...children: Children<"del">): HTMLElement<"del">;
-export function del(childrenOrAttrs: Child<"del"> | HTMLAttributes, ...children: Children<"del">): HTMLElement<"del"> {
-  return HTMLElement.create("del", childrenOrAttrs, ...children);
-}
-
-export function ins(...children: Children<"ins">): HTMLElement<"ins">;
-export function ins(attrs: HTMLAttributes, ...children: Children<"ins">): HTMLElement<"ins">;
-export function ins(childrenOrAttrs: Child<"ins"> | HTMLAttributes, ...children: Children<"ins">): HTMLElement<"ins"> {
-  return HTMLElement.create("ins", childrenOrAttrs, ...children);
-}
 
-export function caption(...children: Children<"caption">): HTMLElement<"caption">;
-export function caption(attrs: HTMLAttributes, ...children: Children<"caption">): HTMLElement<"caption">;
-export function caption(childrenOrAttrs: Child<"caption"> | HTMLAttributes, ...children: Children<"caption">): HTMLElement<"caption"> {
-  return HTMLElement.create("caption", childrenOrAttrs, ...children);
+function aElement(...children: Array<CHILDREN_MAP["a"]>): ELEMENT_MAP["a"];
+function aElement(attributes: ATTRIBUTE_MAP["a"], ...children: Array<CHILDREN_MAP["a"]>): ELEMENT_MAP["a"];
+function aElement(
+  attrsOrChild: ATTRIBUTE_MAP["a"] | CHILDREN_MAP["a"] | Array<CHILDREN_MAP["a"]>,
+  ...children: Array<CHILDREN_MAP["a"]>
+): ELEMENT_MAP["a"] {
+  return HTMLElementFactory.create<"a", ATTRIBUTE_MAP["a"], CHILDREN_MAP["a"]>(
+    "a",
+    attrsOrChild,
+    children,
+  );
+}
+
+function abbrElement(...children: Array<CHILDREN_MAP["abbr"]>): ELEMENT_MAP["abbr"];
+function abbrElement(attributes: ATTRIBUTE_MAP["abbr"], ...children: Array<CHILDREN_MAP["abbr"]>): ELEMENT_MAP["abbr"];
+function abbrElement(
+  attrsOrChild: ATTRIBUTE_MAP["abbr"] | CHILDREN_MAP["abbr"] | Array<CHILDREN_MAP["abbr"]>,
+  ...children: Array<CHILDREN_MAP["abbr"]>
+): ELEMENT_MAP["abbr"] {
+  return HTMLElementFactory.create<"abbr", ATTRIBUTE_MAP["abbr"], CHILDREN_MAP["abbr"]>(
+    "abbr",
+    attrsOrChild,
+    children,
+  );
+}
+
+function addressElement(...children: Array<CHILDREN_MAP["address"]>): ELEMENT_MAP["address"];
+function addressElement(attributes: ATTRIBUTE_MAP["address"], ...children: Array<CHILDREN_MAP["address"]>): ELEMENT_MAP["address"];
+function addressElement(
+  attrsOrChild: ATTRIBUTE_MAP["address"] | CHILDREN_MAP["address"] | Array<CHILDREN_MAP["address"]>,
+  ...children: Array<CHILDREN_MAP["address"]>
+): ELEMENT_MAP["address"] {
+  return HTMLElementFactory.create<"address", ATTRIBUTE_MAP["address"], CHILDREN_MAP["address"]>(
+    "address",
+    attrsOrChild,
+    children,
+  );
+}
+function areaElement(attrs: ATTRIBUTE_MAP["area"]): ELEMENT_MAP["area"] {
+  return new VoidBaseHTMLElement("area", attrs);
+}
+
+
+function articleElement(...children: Array<CHILDREN_MAP["article"]>): ELEMENT_MAP["article"];
+function articleElement(attributes: ATTRIBUTE_MAP["article"], ...children: Array<CHILDREN_MAP["article"]>): ELEMENT_MAP["article"];
+function articleElement(
+  attrsOrChild: ATTRIBUTE_MAP["article"] | CHILDREN_MAP["article"] | Array<CHILDREN_MAP["article"]>,
+  ...children: Array<CHILDREN_MAP["article"]>
+): ELEMENT_MAP["article"] {
+  return HTMLElementFactory.create<"article", ATTRIBUTE_MAP["article"], CHILDREN_MAP["article"]>(
+    "article",
+    attrsOrChild,
+    children,
+  );
+}
+
+function asideElement(...children: Array<CHILDREN_MAP["aside"]>): ELEMENT_MAP["aside"];
+function asideElement(attributes: ATTRIBUTE_MAP["aside"], ...children: Array<CHILDREN_MAP["aside"]>): ELEMENT_MAP["aside"];
+function asideElement(
+  attrsOrChild: ATTRIBUTE_MAP["aside"] | CHILDREN_MAP["aside"] | Array<CHILDREN_MAP["aside"]>,
+  ...children: Array<CHILDREN_MAP["aside"]>
+): ELEMENT_MAP["aside"] {
+  return HTMLElementFactory.create<"aside", ATTRIBUTE_MAP["aside"], CHILDREN_MAP["aside"]>(
+    "aside",
+    attrsOrChild,
+    children,
+  );
+}
+
+function audioElement(...children: Array<CHILDREN_MAP["audio"]>): ELEMENT_MAP["audio"];
+function audioElement(attributes: ATTRIBUTE_MAP["audio"], ...children: Array<CHILDREN_MAP["audio"]>): ELEMENT_MAP["audio"];
+function audioElement(
+  attrsOrChild: ATTRIBUTE_MAP["audio"] | CHILDREN_MAP["audio"] | Array<CHILDREN_MAP["audio"]>,
+  ...children: Array<CHILDREN_MAP["audio"]>
+): ELEMENT_MAP["audio"] {
+  return HTMLElementFactory.create<"audio", ATTRIBUTE_MAP["audio"], CHILDREN_MAP["audio"]>(
+    "audio",
+    attrsOrChild,
+    children,
+  );
+}
+
+function bElement(...children: Array<CHILDREN_MAP["b"]>): ELEMENT_MAP["b"];
+function bElement(attributes: ATTRIBUTE_MAP["b"], ...children: Array<CHILDREN_MAP["b"]>): ELEMENT_MAP["b"];
+function bElement(
+  attrsOrChild: ATTRIBUTE_MAP["b"] | CHILDREN_MAP["b"] | Array<CHILDREN_MAP["b"]>,
+  ...children: Array<CHILDREN_MAP["b"]>
+): ELEMENT_MAP["b"] {
+  return HTMLElementFactory.create<"b", ATTRIBUTE_MAP["b"], CHILDREN_MAP["b"]>(
+    "b",
+    attrsOrChild,
+    children,
+  );
+}
+function baseElement(attrs: ATTRIBUTE_MAP["base"]): ELEMENT_MAP["base"] {
+  return new VoidBaseHTMLElement("base", attrs);
+}
+
+
+function bdiElement(...children: Array<CHILDREN_MAP["bdi"]>): ELEMENT_MAP["bdi"];
+function bdiElement(attributes: ATTRIBUTE_MAP["bdi"], ...children: Array<CHILDREN_MAP["bdi"]>): ELEMENT_MAP["bdi"];
+function bdiElement(
+  attrsOrChild: ATTRIBUTE_MAP["bdi"] | CHILDREN_MAP["bdi"] | Array<CHILDREN_MAP["bdi"]>,
+  ...children: Array<CHILDREN_MAP["bdi"]>
+): ELEMENT_MAP["bdi"] {
+  return HTMLElementFactory.create<"bdi", ATTRIBUTE_MAP["bdi"], CHILDREN_MAP["bdi"]>(
+    "bdi",
+    attrsOrChild,
+    children,
+  );
+}
+
+function bdoElement(...children: Array<CHILDREN_MAP["bdo"]>): ELEMENT_MAP["bdo"];
+function bdoElement(attributes: ATTRIBUTE_MAP["bdo"], ...children: Array<CHILDREN_MAP["bdo"]>): ELEMENT_MAP["bdo"];
+function bdoElement(
+  attrsOrChild: ATTRIBUTE_MAP["bdo"] | CHILDREN_MAP["bdo"] | Array<CHILDREN_MAP["bdo"]>,
+  ...children: Array<CHILDREN_MAP["bdo"]>
+): ELEMENT_MAP["bdo"] {
+  return HTMLElementFactory.create<"bdo", ATTRIBUTE_MAP["bdo"], CHILDREN_MAP["bdo"]>(
+    "bdo",
+    attrsOrChild,
+    children,
+  );
+}
+
+function blockquoteElement(...children: Array<CHILDREN_MAP["blockquote"]>): ELEMENT_MAP["blockquote"];
+function blockquoteElement(attributes: ATTRIBUTE_MAP["blockquote"], ...children: Array<CHILDREN_MAP["blockquote"]>): ELEMENT_MAP["blockquote"];
+function blockquoteElement(
+  attrsOrChild: ATTRIBUTE_MAP["blockquote"] | CHILDREN_MAP["blockquote"] | Array<CHILDREN_MAP["blockquote"]>,
+  ...children: Array<CHILDREN_MAP["blockquote"]>
+): ELEMENT_MAP["blockquote"] {
+  return HTMLElementFactory.create<"blockquote", ATTRIBUTE_MAP["blockquote"], CHILDREN_MAP["blockquote"]>(
+    "blockquote",
+    attrsOrChild,
+    children,
+  );
+}
+
+function bodyElement(...children: Array<CHILDREN_MAP["body"]>): ELEMENT_MAP["body"];
+function bodyElement(attributes: ATTRIBUTE_MAP["body"], ...children: Array<CHILDREN_MAP["body"]>): ELEMENT_MAP["body"];
+function bodyElement(
+  attrsOrChild: ATTRIBUTE_MAP["body"] | CHILDREN_MAP["body"] | Array<CHILDREN_MAP["body"]>,
+  ...children: Array<CHILDREN_MAP["body"]>
+): ELEMENT_MAP["body"] {
+  return HTMLElementFactory.create<"body", ATTRIBUTE_MAP["body"], CHILDREN_MAP["body"]>(
+    "body",
+    attrsOrChild,
+    children,
+  );
+}
+function brElement(attrs: ATTRIBUTE_MAP["br"]): ELEMENT_MAP["br"] {
+  return new VoidBaseHTMLElement("br", attrs);
+}
+
+
+function buttonElement(...children: Array<CHILDREN_MAP["button"]>): ELEMENT_MAP["button"];
+function buttonElement(attributes: ATTRIBUTE_MAP["button"], ...children: Array<CHILDREN_MAP["button"]>): ELEMENT_MAP["button"];
+function buttonElement(
+  attrsOrChild: ATTRIBUTE_MAP["button"] | CHILDREN_MAP["button"] | Array<CHILDREN_MAP["button"]>,
+  ...children: Array<CHILDREN_MAP["button"]>
+): ELEMENT_MAP["button"] {
+  return HTMLElementFactory.create<"button", ATTRIBUTE_MAP["button"], CHILDREN_MAP["button"]>(
+    "button",
+    attrsOrChild,
+    children,
+  );
+}
+
+function canvasElement(...children: Array<CHILDREN_MAP["canvas"]>): ELEMENT_MAP["canvas"];
+function canvasElement(attributes: ATTRIBUTE_MAP["canvas"], ...children: Array<CHILDREN_MAP["canvas"]>): ELEMENT_MAP["canvas"];
+function canvasElement(
+  attrsOrChild: ATTRIBUTE_MAP["canvas"] | CHILDREN_MAP["canvas"] | Array<CHILDREN_MAP["canvas"]>,
+  ...children: Array<CHILDREN_MAP["canvas"]>
+): ELEMENT_MAP["canvas"] {
+  return HTMLElementFactory.create<"canvas", ATTRIBUTE_MAP["canvas"], CHILDREN_MAP["canvas"]>(
+    "canvas",
+    attrsOrChild,
+    children,
+  );
+}
+
+function captionElement(...children: Array<CHILDREN_MAP["caption"]>): ELEMENT_MAP["caption"];
+function captionElement(attributes: ATTRIBUTE_MAP["caption"], ...children: Array<CHILDREN_MAP["caption"]>): ELEMENT_MAP["caption"];
+function captionElement(
+  attrsOrChild: ATTRIBUTE_MAP["caption"] | CHILDREN_MAP["caption"] | Array<CHILDREN_MAP["caption"]>,
+  ...children: Array<CHILDREN_MAP["caption"]>
+): ELEMENT_MAP["caption"] {
+  return HTMLElementFactory.create<"caption", ATTRIBUTE_MAP["caption"], CHILDREN_MAP["caption"]>(
+    "caption",
+    attrsOrChild,
+    children,
+  );
+}
+
+function citeElement(...children: Array<CHILDREN_MAP["cite"]>): ELEMENT_MAP["cite"];
+function citeElement(attributes: ATTRIBUTE_MAP["cite"], ...children: Array<CHILDREN_MAP["cite"]>): ELEMENT_MAP["cite"];
+function citeElement(
+  attrsOrChild: ATTRIBUTE_MAP["cite"] | CHILDREN_MAP["cite"] | Array<CHILDREN_MAP["cite"]>,
+  ...children: Array<CHILDREN_MAP["cite"]>
+): ELEMENT_MAP["cite"] {
+  return HTMLElementFactory.create<"cite", ATTRIBUTE_MAP["cite"], CHILDREN_MAP["cite"]>(
+    "cite",
+    attrsOrChild,
+    children,
+  );
+}
+
+function codeElement(...children: Array<CHILDREN_MAP["code"]>): ELEMENT_MAP["code"];
+function codeElement(attributes: ATTRIBUTE_MAP["code"], ...children: Array<CHILDREN_MAP["code"]>): ELEMENT_MAP["code"];
+function codeElement(
+  attrsOrChild: ATTRIBUTE_MAP["code"] | CHILDREN_MAP["code"] | Array<CHILDREN_MAP["code"]>,
+  ...children: Array<CHILDREN_MAP["code"]>
+): ELEMENT_MAP["code"] {
+  return HTMLElementFactory.create<"code", ATTRIBUTE_MAP["code"], CHILDREN_MAP["code"]>(
+    "code",
+    attrsOrChild,
+    children,
+  );
+}
+function colElement(attrs: ATTRIBUTE_MAP["col"]): ELEMENT_MAP["col"] {
+  return new VoidBaseHTMLElement("col", attrs);
+}
+
+
+function colgroupElement(...children: Array<CHILDREN_MAP["colgroup"]>): ELEMENT_MAP["colgroup"];
+function colgroupElement(attributes: ATTRIBUTE_MAP["colgroup"], ...children: Array<CHILDREN_MAP["colgroup"]>): ELEMENT_MAP["colgroup"];
+function colgroupElement(
+  attrsOrChild: ATTRIBUTE_MAP["colgroup"] | CHILDREN_MAP["colgroup"] | Array<CHILDREN_MAP["colgroup"]>,
+  ...children: Array<CHILDREN_MAP["colgroup"]>
+): ELEMENT_MAP["colgroup"] {
+  return HTMLElementFactory.create<"colgroup", ATTRIBUTE_MAP["colgroup"], CHILDREN_MAP["colgroup"]>(
+    "colgroup",
+    attrsOrChild,
+    children,
+  );
+}
+
+function dataElement(...children: Array<CHILDREN_MAP["data"]>): ELEMENT_MAP["data"];
+function dataElement(attributes: ATTRIBUTE_MAP["data"], ...children: Array<CHILDREN_MAP["data"]>): ELEMENT_MAP["data"];
+function dataElement(
+  attrsOrChild: ATTRIBUTE_MAP["data"] | CHILDREN_MAP["data"] | Array<CHILDREN_MAP["data"]>,
+  ...children: Array<CHILDREN_MAP["data"]>
+): ELEMENT_MAP["data"] {
+  return HTMLElementFactory.create<"data", ATTRIBUTE_MAP["data"], CHILDREN_MAP["data"]>(
+    "data",
+    attrsOrChild,
+    children,
+  );
+}
+
+function datalistElement(...children: Array<CHILDREN_MAP["datalist"]>): ELEMENT_MAP["datalist"];
+function datalistElement(attributes: ATTRIBUTE_MAP["datalist"], ...children: Array<CHILDREN_MAP["datalist"]>): ELEMENT_MAP["datalist"];
+function datalistElement(
+  attrsOrChild: ATTRIBUTE_MAP["datalist"] | CHILDREN_MAP["datalist"] | Array<CHILDREN_MAP["datalist"]>,
+  ...children: Array<CHILDREN_MAP["datalist"]>
+): ELEMENT_MAP["datalist"] {
+  return HTMLElementFactory.create<"datalist", ATTRIBUTE_MAP["datalist"], CHILDREN_MAP["datalist"]>(
+    "datalist",
+    attrsOrChild,
+    children,
+  );
+}
+
+function ddElement(...children: Array<CHILDREN_MAP["dd"]>): ELEMENT_MAP["dd"];
+function ddElement(attributes: ATTRIBUTE_MAP["dd"], ...children: Array<CHILDREN_MAP["dd"]>): ELEMENT_MAP["dd"];
+function ddElement(
+  attrsOrChild: ATTRIBUTE_MAP["dd"] | CHILDREN_MAP["dd"] | Array<CHILDREN_MAP["dd"]>,
+  ...children: Array<CHILDREN_MAP["dd"]>
+): ELEMENT_MAP["dd"] {
+  return HTMLElementFactory.create<"dd", ATTRIBUTE_MAP["dd"], CHILDREN_MAP["dd"]>(
+    "dd",
+    attrsOrChild,
+    children,
+  );
+}
+
+function delElement(...children: Array<CHILDREN_MAP["del"]>): ELEMENT_MAP["del"];
+function delElement(attributes: ATTRIBUTE_MAP["del"], ...children: Array<CHILDREN_MAP["del"]>): ELEMENT_MAP["del"];
+function delElement(
+  attrsOrChild: ATTRIBUTE_MAP["del"] | CHILDREN_MAP["del"] | Array<CHILDREN_MAP["del"]>,
+  ...children: Array<CHILDREN_MAP["del"]>
+): ELEMENT_MAP["del"] {
+  return HTMLElementFactory.create<"del", ATTRIBUTE_MAP["del"], CHILDREN_MAP["del"]>(
+    "del",
+    attrsOrChild,
+    children,
+  );
+}
+
+function detailsElement(...children: Array<CHILDREN_MAP["details"]>): ELEMENT_MAP["details"];
+function detailsElement(attributes: ATTRIBUTE_MAP["details"], ...children: Array<CHILDREN_MAP["details"]>): ELEMENT_MAP["details"];
+function detailsElement(
+  attrsOrChild: ATTRIBUTE_MAP["details"] | CHILDREN_MAP["details"] | Array<CHILDREN_MAP["details"]>,
+  ...children: Array<CHILDREN_MAP["details"]>
+): ELEMENT_MAP["details"] {
+  return HTMLElementFactory.create<"details", ATTRIBUTE_MAP["details"], CHILDREN_MAP["details"]>(
+    "details",
+    attrsOrChild,
+    children,
+  );
+}
+
+function dfnElement(...children: Array<CHILDREN_MAP["dfn"]>): ELEMENT_MAP["dfn"];
+function dfnElement(attributes: ATTRIBUTE_MAP["dfn"], ...children: Array<CHILDREN_MAP["dfn"]>): ELEMENT_MAP["dfn"];
+function dfnElement(
+  attrsOrChild: ATTRIBUTE_MAP["dfn"] | CHILDREN_MAP["dfn"] | Array<CHILDREN_MAP["dfn"]>,
+  ...children: Array<CHILDREN_MAP["dfn"]>
+): ELEMENT_MAP["dfn"] {
+  return HTMLElementFactory.create<"dfn", ATTRIBUTE_MAP["dfn"], CHILDREN_MAP["dfn"]>(
+    "dfn",
+    attrsOrChild,
+    children,
+  );
+}
+
+function dialogElement(...children: Array<CHILDREN_MAP["dialog"]>): ELEMENT_MAP["dialog"];
+function dialogElement(attributes: ATTRIBUTE_MAP["dialog"], ...children: Array<CHILDREN_MAP["dialog"]>): ELEMENT_MAP["dialog"];
+function dialogElement(
+  attrsOrChild: ATTRIBUTE_MAP["dialog"] | CHILDREN_MAP["dialog"] | Array<CHILDREN_MAP["dialog"]>,
+  ...children: Array<CHILDREN_MAP["dialog"]>
+): ELEMENT_MAP["dialog"] {
+  return HTMLElementFactory.create<"dialog", ATTRIBUTE_MAP["dialog"], CHILDREN_MAP["dialog"]>(
+    "dialog",
+    attrsOrChild,
+    children,
+  );
+}
+
+function divElement(...children: Array<CHILDREN_MAP["div"]>): ELEMENT_MAP["div"];
+function divElement(attributes: ATTRIBUTE_MAP["div"], ...children: Array<CHILDREN_MAP["div"]>): ELEMENT_MAP["div"];
+function divElement(
+  attrsOrChild: ATTRIBUTE_MAP["div"] | CHILDREN_MAP["div"] | Array<CHILDREN_MAP["div"]>,
+  ...children: Array<CHILDREN_MAP["div"]>
+): ELEMENT_MAP["div"] {
+  return HTMLElementFactory.create<"div", ATTRIBUTE_MAP["div"], CHILDREN_MAP["div"]>(
+    "div",
+    attrsOrChild,
+    children,
+  );
+}
+
+function dlElement(...children: Array<CHILDREN_MAP["dl"]>): ELEMENT_MAP["dl"];
+function dlElement(attributes: ATTRIBUTE_MAP["dl"], ...children: Array<CHILDREN_MAP["dl"]>): ELEMENT_MAP["dl"];
+function dlElement(
+  attrsOrChild: ATTRIBUTE_MAP["dl"] | CHILDREN_MAP["dl"] | Array<CHILDREN_MAP["dl"]>,
+  ...children: Array<CHILDREN_MAP["dl"]>
+): ELEMENT_MAP["dl"] {
+  return HTMLElementFactory.create<"dl", ATTRIBUTE_MAP["dl"], CHILDREN_MAP["dl"]>(
+    "dl",
+    attrsOrChild,
+    children,
+  );
+}
+
+function dtElement(...children: Array<CHILDREN_MAP["dt"]>): ELEMENT_MAP["dt"];
+function dtElement(attributes: ATTRIBUTE_MAP["dt"], ...children: Array<CHILDREN_MAP["dt"]>): ELEMENT_MAP["dt"];
+function dtElement(
+  attrsOrChild: ATTRIBUTE_MAP["dt"] | CHILDREN_MAP["dt"] | Array<CHILDREN_MAP["dt"]>,
+  ...children: Array<CHILDREN_MAP["dt"]>
+): ELEMENT_MAP["dt"] {
+  return HTMLElementFactory.create<"dt", ATTRIBUTE_MAP["dt"], CHILDREN_MAP["dt"]>(
+    "dt",
+    attrsOrChild,
+    children,
+  );
+}
+
+function emElement(...children: Array<CHILDREN_MAP["em"]>): ELEMENT_MAP["em"];
+function emElement(attributes: ATTRIBUTE_MAP["em"], ...children: Array<CHILDREN_MAP["em"]>): ELEMENT_MAP["em"];
+function emElement(
+  attrsOrChild: ATTRIBUTE_MAP["em"] | CHILDREN_MAP["em"] | Array<CHILDREN_MAP["em"]>,
+  ...children: Array<CHILDREN_MAP["em"]>
+): ELEMENT_MAP["em"] {
+  return HTMLElementFactory.create<"em", ATTRIBUTE_MAP["em"], CHILDREN_MAP["em"]>(
+    "em",
+    attrsOrChild,
+    children,
+  );
+}
+function embedElement(attrs: ATTRIBUTE_MAP["embed"]): ELEMENT_MAP["embed"] {
+  return new VoidBaseHTMLElement("embed", attrs);
+}
+
+
+function fieldsetElement(...children: Array<CHILDREN_MAP["fieldset"]>): ELEMENT_MAP["fieldset"];
+function fieldsetElement(attributes: ATTRIBUTE_MAP["fieldset"], ...children: Array<CHILDREN_MAP["fieldset"]>): ELEMENT_MAP["fieldset"];
+function fieldsetElement(
+  attrsOrChild: ATTRIBUTE_MAP["fieldset"] | CHILDREN_MAP["fieldset"] | Array<CHILDREN_MAP["fieldset"]>,
+  ...children: Array<CHILDREN_MAP["fieldset"]>
+): ELEMENT_MAP["fieldset"] {
+  return HTMLElementFactory.create<"fieldset", ATTRIBUTE_MAP["fieldset"], CHILDREN_MAP["fieldset"]>(
+    "fieldset",
+    attrsOrChild,
+    children,
+  );
+}
+
+function figcaptionElement(...children: Array<CHILDREN_MAP["figcaption"]>): ELEMENT_MAP["figcaption"];
+function figcaptionElement(attributes: ATTRIBUTE_MAP["figcaption"], ...children: Array<CHILDREN_MAP["figcaption"]>): ELEMENT_MAP["figcaption"];
+function figcaptionElement(
+  attrsOrChild: ATTRIBUTE_MAP["figcaption"] | CHILDREN_MAP["figcaption"] | Array<CHILDREN_MAP["figcaption"]>,
+  ...children: Array<CHILDREN_MAP["figcaption"]>
+): ELEMENT_MAP["figcaption"] {
+  return HTMLElementFactory.create<"figcaption", ATTRIBUTE_MAP["figcaption"], CHILDREN_MAP["figcaption"]>(
+    "figcaption",
+    attrsOrChild,
+    children,
+  );
+}
+
+function figureElement(...children: Array<CHILDREN_MAP["figure"]>): ELEMENT_MAP["figure"];
+function figureElement(attributes: ATTRIBUTE_MAP["figure"], ...children: Array<CHILDREN_MAP["figure"]>): ELEMENT_MAP["figure"];
+function figureElement(
+  attrsOrChild: ATTRIBUTE_MAP["figure"] | CHILDREN_MAP["figure"] | Array<CHILDREN_MAP["figure"]>,
+  ...children: Array<CHILDREN_MAP["figure"]>
+): ELEMENT_MAP["figure"] {
+  return HTMLElementFactory.create<"figure", ATTRIBUTE_MAP["figure"], CHILDREN_MAP["figure"]>(
+    "figure",
+    attrsOrChild,
+    children,
+  );
+}
+
+function footerElement(...children: Array<CHILDREN_MAP["footer"]>): ELEMENT_MAP["footer"];
+function footerElement(attributes: ATTRIBUTE_MAP["footer"], ...children: Array<CHILDREN_MAP["footer"]>): ELEMENT_MAP["footer"];
+function footerElement(
+  attrsOrChild: ATTRIBUTE_MAP["footer"] | CHILDREN_MAP["footer"] | Array<CHILDREN_MAP["footer"]>,
+  ...children: Array<CHILDREN_MAP["footer"]>
+): ELEMENT_MAP["footer"] {
+  return HTMLElementFactory.create<"footer", ATTRIBUTE_MAP["footer"], CHILDREN_MAP["footer"]>(
+    "footer",
+    attrsOrChild,
+    children,
+  );
+}
+
+function formElement(...children: Array<CHILDREN_MAP["form"]>): ELEMENT_MAP["form"];
+function formElement(attributes: ATTRIBUTE_MAP["form"], ...children: Array<CHILDREN_MAP["form"]>): ELEMENT_MAP["form"];
+function formElement(
+  attrsOrChild: ATTRIBUTE_MAP["form"] | CHILDREN_MAP["form"] | Array<CHILDREN_MAP["form"]>,
+  ...children: Array<CHILDREN_MAP["form"]>
+): ELEMENT_MAP["form"] {
+  return HTMLElementFactory.create<"form", ATTRIBUTE_MAP["form"], CHILDREN_MAP["form"]>(
+    "form",
+    attrsOrChild,
+    children,
+  );
+}
+
+function h1Element(...children: Array<CHILDREN_MAP["h1"]>): ELEMENT_MAP["h1"];
+function h1Element(attributes: ATTRIBUTE_MAP["h1"], ...children: Array<CHILDREN_MAP["h1"]>): ELEMENT_MAP["h1"];
+function h1Element(
+  attrsOrChild: ATTRIBUTE_MAP["h1"] | CHILDREN_MAP["h1"] | Array<CHILDREN_MAP["h1"]>,
+  ...children: Array<CHILDREN_MAP["h1"]>
+): ELEMENT_MAP["h1"] {
+  return HTMLElementFactory.create<"h1", ATTRIBUTE_MAP["h1"], CHILDREN_MAP["h1"]>(
+    "h1",
+    attrsOrChild,
+    children,
+  );
+}
+
+function h2Element(...children: Array<CHILDREN_MAP["h2"]>): ELEMENT_MAP["h2"];
+function h2Element(attributes: ATTRIBUTE_MAP["h2"], ...children: Array<CHILDREN_MAP["h2"]>): ELEMENT_MAP["h2"];
+function h2Element(
+  attrsOrChild: ATTRIBUTE_MAP["h2"] | CHILDREN_MAP["h2"] | Array<CHILDREN_MAP["h2"]>,
+  ...children: Array<CHILDREN_MAP["h2"]>
+): ELEMENT_MAP["h2"] {
+  return HTMLElementFactory.create<"h2", ATTRIBUTE_MAP["h2"], CHILDREN_MAP["h2"]>(
+    "h2",
+    attrsOrChild,
+    children,
+  );
+}
+
+function h3Element(...children: Array<CHILDREN_MAP["h3"]>): ELEMENT_MAP["h3"];
+function h3Element(attributes: ATTRIBUTE_MAP["h3"], ...children: Array<CHILDREN_MAP["h3"]>): ELEMENT_MAP["h3"];
+function h3Element(
+  attrsOrChild: ATTRIBUTE_MAP["h3"] | CHILDREN_MAP["h3"] | Array<CHILDREN_MAP["h3"]>,
+  ...children: Array<CHILDREN_MAP["h3"]>
+): ELEMENT_MAP["h3"] {
+  return HTMLElementFactory.create<"h3", ATTRIBUTE_MAP["h3"], CHILDREN_MAP["h3"]>(
+    "h3",
+    attrsOrChild,
+    children,
+  );
+}
+
+function h4Element(...children: Array<CHILDREN_MAP["h4"]>): ELEMENT_MAP["h4"];
+function h4Element(attributes: ATTRIBUTE_MAP["h4"], ...children: Array<CHILDREN_MAP["h4"]>): ELEMENT_MAP["h4"];
+function h4Element(
+  attrsOrChild: ATTRIBUTE_MAP["h4"] | CHILDREN_MAP["h4"] | Array<CHILDREN_MAP["h4"]>,
+  ...children: Array<CHILDREN_MAP["h4"]>
+): ELEMENT_MAP["h4"] {
+  return HTMLElementFactory.create<"h4", ATTRIBUTE_MAP["h4"], CHILDREN_MAP["h4"]>(
+    "h4",
+    attrsOrChild,
+    children,
+  );
+}
+
+function h5Element(...children: Array<CHILDREN_MAP["h5"]>): ELEMENT_MAP["h5"];
+function h5Element(attributes: ATTRIBUTE_MAP["h5"], ...children: Array<CHILDREN_MAP["h5"]>): ELEMENT_MAP["h5"];
+function h5Element(
+  attrsOrChild: ATTRIBUTE_MAP["h5"] | CHILDREN_MAP["h5"] | Array<CHILDREN_MAP["h5"]>,
+  ...children: Array<CHILDREN_MAP["h5"]>
+): ELEMENT_MAP["h5"] {
+  return HTMLElementFactory.create<"h5", ATTRIBUTE_MAP["h5"], CHILDREN_MAP["h5"]>(
+    "h5",
+    attrsOrChild,
+    children,
+  );
+}
+
+function h6Element(...children: Array<CHILDREN_MAP["h6"]>): ELEMENT_MAP["h6"];
+function h6Element(attributes: ATTRIBUTE_MAP["h6"], ...children: Array<CHILDREN_MAP["h6"]>): ELEMENT_MAP["h6"];
+function h6Element(
+  attrsOrChild: ATTRIBUTE_MAP["h6"] | CHILDREN_MAP["h6"] | Array<CHILDREN_MAP["h6"]>,
+  ...children: Array<CHILDREN_MAP["h6"]>
+): ELEMENT_MAP["h6"] {
+  return HTMLElementFactory.create<"h6", ATTRIBUTE_MAP["h6"], CHILDREN_MAP["h6"]>(
+    "h6",
+    attrsOrChild,
+    children,
+  );
+}
+
+function headElement(...children: Array<CHILDREN_MAP["head"]>): ELEMENT_MAP["head"];
+function headElement(attributes: ATTRIBUTE_MAP["head"], ...children: Array<CHILDREN_MAP["head"]>): ELEMENT_MAP["head"];
+function headElement(
+  attrsOrChild: ATTRIBUTE_MAP["head"] | CHILDREN_MAP["head"] | Array<CHILDREN_MAP["head"]>,
+  ...children: Array<CHILDREN_MAP["head"]>
+): ELEMENT_MAP["head"] {
+  return HTMLElementFactory.create<"head", ATTRIBUTE_MAP["head"], CHILDREN_MAP["head"]>(
+    "head",
+    attrsOrChild,
+    children,
+  );
+}
+
+function headerElement(...children: Array<CHILDREN_MAP["header"]>): ELEMENT_MAP["header"];
+function headerElement(attributes: ATTRIBUTE_MAP["header"], ...children: Array<CHILDREN_MAP["header"]>): ELEMENT_MAP["header"];
+function headerElement(
+  attrsOrChild: ATTRIBUTE_MAP["header"] | CHILDREN_MAP["header"] | Array<CHILDREN_MAP["header"]>,
+  ...children: Array<CHILDREN_MAP["header"]>
+): ELEMENT_MAP["header"] {
+  return HTMLElementFactory.create<"header", ATTRIBUTE_MAP["header"], CHILDREN_MAP["header"]>(
+    "header",
+    attrsOrChild,
+    children,
+  );
+}
+
+function hgroupElement(...children: Array<CHILDREN_MAP["hgroup"]>): ELEMENT_MAP["hgroup"];
+function hgroupElement(attributes: ATTRIBUTE_MAP["hgroup"], ...children: Array<CHILDREN_MAP["hgroup"]>): ELEMENT_MAP["hgroup"];
+function hgroupElement(
+  attrsOrChild: ATTRIBUTE_MAP["hgroup"] | CHILDREN_MAP["hgroup"] | Array<CHILDREN_MAP["hgroup"]>,
+  ...children: Array<CHILDREN_MAP["hgroup"]>
+): ELEMENT_MAP["hgroup"] {
+  return HTMLElementFactory.create<"hgroup", ATTRIBUTE_MAP["hgroup"], CHILDREN_MAP["hgroup"]>(
+    "hgroup",
+    attrsOrChild,
+    children,
+  );
+}
+function hrElement(attrs: ATTRIBUTE_MAP["hr"]): ELEMENT_MAP["hr"] {
+  return new VoidBaseHTMLElement("hr", attrs);
+}
+
+
+function htmlElement(...children: Array<CHILDREN_MAP["html"]>): ELEMENT_MAP["html"];
+function htmlElement(attributes: ATTRIBUTE_MAP["html"], ...children: Array<CHILDREN_MAP["html"]>): ELEMENT_MAP["html"];
+function htmlElement(
+  attrsOrChild: ATTRIBUTE_MAP["html"] | CHILDREN_MAP["html"] | Array<CHILDREN_MAP["html"]>,
+  ...children: Array<CHILDREN_MAP["html"]>
+): ELEMENT_MAP["html"] {
+  return HTMLElementFactory.create<"html", ATTRIBUTE_MAP["html"], CHILDREN_MAP["html"]>(
+    "html",
+    attrsOrChild,
+    children,
+  );
+}
+
+function iElement(...children: Array<CHILDREN_MAP["i"]>): ELEMENT_MAP["i"];
+function iElement(attributes: ATTRIBUTE_MAP["i"], ...children: Array<CHILDREN_MAP["i"]>): ELEMENT_MAP["i"];
+function iElement(
+  attrsOrChild: ATTRIBUTE_MAP["i"] | CHILDREN_MAP["i"] | Array<CHILDREN_MAP["i"]>,
+  ...children: Array<CHILDREN_MAP["i"]>
+): ELEMENT_MAP["i"] {
+  return HTMLElementFactory.create<"i", ATTRIBUTE_MAP["i"], CHILDREN_MAP["i"]>(
+    "i",
+    attrsOrChild,
+    children,
+  );
+}
+
+function iframeElement(...children: Array<CHILDREN_MAP["iframe"]>): ELEMENT_MAP["iframe"];
+function iframeElement(attributes: ATTRIBUTE_MAP["iframe"], ...children: Array<CHILDREN_MAP["iframe"]>): ELEMENT_MAP["iframe"];
+function iframeElement(
+  attrsOrChild: ATTRIBUTE_MAP["iframe"] | CHILDREN_MAP["iframe"] | Array<CHILDREN_MAP["iframe"]>,
+  ...children: Array<CHILDREN_MAP["iframe"]>
+): ELEMENT_MAP["iframe"] {
+  return HTMLElementFactory.create<"iframe", ATTRIBUTE_MAP["iframe"], CHILDREN_MAP["iframe"]>(
+    "iframe",
+    attrsOrChild,
+    children,
+  );
+}
+function imgElement(attrs: ATTRIBUTE_MAP["img"]): ELEMENT_MAP["img"] {
+  return new VoidBaseHTMLElement("img", attrs);
+}
+
+function inputElement(attrs: ATTRIBUTE_MAP["input"]): ELEMENT_MAP["input"] {
+  return new VoidBaseHTMLElement("input", attrs);
+}
+
+
+function insElement(...children: Array<CHILDREN_MAP["ins"]>): ELEMENT_MAP["ins"];
+function insElement(attributes: ATTRIBUTE_MAP["ins"], ...children: Array<CHILDREN_MAP["ins"]>): ELEMENT_MAP["ins"];
+function insElement(
+  attrsOrChild: ATTRIBUTE_MAP["ins"] | CHILDREN_MAP["ins"] | Array<CHILDREN_MAP["ins"]>,
+  ...children: Array<CHILDREN_MAP["ins"]>
+): ELEMENT_MAP["ins"] {
+  return HTMLElementFactory.create<"ins", ATTRIBUTE_MAP["ins"], CHILDREN_MAP["ins"]>(
+    "ins",
+    attrsOrChild,
+    children,
+  );
+}
+
+function kbdElement(...children: Array<CHILDREN_MAP["kbd"]>): ELEMENT_MAP["kbd"];
+function kbdElement(attributes: ATTRIBUTE_MAP["kbd"], ...children: Array<CHILDREN_MAP["kbd"]>): ELEMENT_MAP["kbd"];
+function kbdElement(
+  attrsOrChild: ATTRIBUTE_MAP["kbd"] | CHILDREN_MAP["kbd"] | Array<CHILDREN_MAP["kbd"]>,
+  ...children: Array<CHILDREN_MAP["kbd"]>
+): ELEMENT_MAP["kbd"] {
+  return HTMLElementFactory.create<"kbd", ATTRIBUTE_MAP["kbd"], CHILDREN_MAP["kbd"]>(
+    "kbd",
+    attrsOrChild,
+    children,
+  );
+}
+
+function labelElement(...children: Array<CHILDREN_MAP["label"]>): ELEMENT_MAP["label"];
+function labelElement(attributes: ATTRIBUTE_MAP["label"], ...children: Array<CHILDREN_MAP["label"]>): ELEMENT_MAP["label"];
+function labelElement(
+  attrsOrChild: ATTRIBUTE_MAP["label"] | CHILDREN_MAP["label"] | Array<CHILDREN_MAP["label"]>,
+  ...children: Array<CHILDREN_MAP["label"]>
+): ELEMENT_MAP["label"] {
+  return HTMLElementFactory.create<"label", ATTRIBUTE_MAP["label"], CHILDREN_MAP["label"]>(
+    "label",
+    attrsOrChild,
+    children,
+  );
+}
+
+function legendElement(...children: Array<CHILDREN_MAP["legend"]>): ELEMENT_MAP["legend"];
+function legendElement(attributes: ATTRIBUTE_MAP["legend"], ...children: Array<CHILDREN_MAP["legend"]>): ELEMENT_MAP["legend"];
+function legendElement(
+  attrsOrChild: ATTRIBUTE_MAP["legend"] | CHILDREN_MAP["legend"] | Array<CHILDREN_MAP["legend"]>,
+  ...children: Array<CHILDREN_MAP["legend"]>
+): ELEMENT_MAP["legend"] {
+  return HTMLElementFactory.create<"legend", ATTRIBUTE_MAP["legend"], CHILDREN_MAP["legend"]>(
+    "legend",
+    attrsOrChild,
+    children,
+  );
+}
+
+function liElement(...children: Array<CHILDREN_MAP["li"]>): ELEMENT_MAP["li"];
+function liElement(attributes: ATTRIBUTE_MAP["li"], ...children: Array<CHILDREN_MAP["li"]>): ELEMENT_MAP["li"];
+function liElement(
+  attrsOrChild: ATTRIBUTE_MAP["li"] | CHILDREN_MAP["li"] | Array<CHILDREN_MAP["li"]>,
+  ...children: Array<CHILDREN_MAP["li"]>
+): ELEMENT_MAP["li"] {
+  return HTMLElementFactory.create<"li", ATTRIBUTE_MAP["li"], CHILDREN_MAP["li"]>(
+    "li",
+    attrsOrChild,
+    children,
+  );
+}
+function linkElement(attrs: ATTRIBUTE_MAP["link"]): ELEMENT_MAP["link"] {
+  return new VoidBaseHTMLElement("link", attrs);
+}
+
+
+function mainElement(...children: Array<CHILDREN_MAP["main"]>): ELEMENT_MAP["main"];
+function mainElement(attributes: ATTRIBUTE_MAP["main"], ...children: Array<CHILDREN_MAP["main"]>): ELEMENT_MAP["main"];
+function mainElement(
+  attrsOrChild: ATTRIBUTE_MAP["main"] | CHILDREN_MAP["main"] | Array<CHILDREN_MAP["main"]>,
+  ...children: Array<CHILDREN_MAP["main"]>
+): ELEMENT_MAP["main"] {
+  return HTMLElementFactory.create<"main", ATTRIBUTE_MAP["main"], CHILDREN_MAP["main"]>(
+    "main",
+    attrsOrChild,
+    children,
+  );
+}
+
+function mapElement(...children: Array<CHILDREN_MAP["map"]>): ELEMENT_MAP["map"];
+function mapElement(attributes: ATTRIBUTE_MAP["map"], ...children: Array<CHILDREN_MAP["map"]>): ELEMENT_MAP["map"];
+function mapElement(
+  attrsOrChild: ATTRIBUTE_MAP["map"] | CHILDREN_MAP["map"] | Array<CHILDREN_MAP["map"]>,
+  ...children: Array<CHILDREN_MAP["map"]>
+): ELEMENT_MAP["map"] {
+  return HTMLElementFactory.create<"map", ATTRIBUTE_MAP["map"], CHILDREN_MAP["map"]>(
+    "map",
+    attrsOrChild,
+    children,
+  );
+}
+
+function markElement(...children: Array<CHILDREN_MAP["mark"]>): ELEMENT_MAP["mark"];
+function markElement(attributes: ATTRIBUTE_MAP["mark"], ...children: Array<CHILDREN_MAP["mark"]>): ELEMENT_MAP["mark"];
+function markElement(
+  attrsOrChild: ATTRIBUTE_MAP["mark"] | CHILDREN_MAP["mark"] | Array<CHILDREN_MAP["mark"]>,
+  ...children: Array<CHILDREN_MAP["mark"]>
+): ELEMENT_MAP["mark"] {
+  return HTMLElementFactory.create<"mark", ATTRIBUTE_MAP["mark"], CHILDREN_MAP["mark"]>(
+    "mark",
+    attrsOrChild,
+    children,
+  );
+}
+
+function mathElement(...children: Array<CHILDREN_MAP["math"]>): ELEMENT_MAP["math"];
+function mathElement(attributes: ATTRIBUTE_MAP["math"], ...children: Array<CHILDREN_MAP["math"]>): ELEMENT_MAP["math"];
+function mathElement(
+  attrsOrChild: ATTRIBUTE_MAP["math"] | CHILDREN_MAP["math"] | Array<CHILDREN_MAP["math"]>,
+  ...children: Array<CHILDREN_MAP["math"]>
+): ELEMENT_MAP["math"] {
+  return HTMLElementFactory.create<"math", ATTRIBUTE_MAP["math"], CHILDREN_MAP["math"]>(
+    "math",
+    attrsOrChild,
+    children,
+  );
+}
+
+function menuElement(...children: Array<CHILDREN_MAP["menu"]>): ELEMENT_MAP["menu"];
+function menuElement(attributes: ATTRIBUTE_MAP["menu"], ...children: Array<CHILDREN_MAP["menu"]>): ELEMENT_MAP["menu"];
+function menuElement(
+  attrsOrChild: ATTRIBUTE_MAP["menu"] | CHILDREN_MAP["menu"] | Array<CHILDREN_MAP["menu"]>,
+  ...children: Array<CHILDREN_MAP["menu"]>
+): ELEMENT_MAP["menu"] {
+  return HTMLElementFactory.create<"menu", ATTRIBUTE_MAP["menu"], CHILDREN_MAP["menu"]>(
+    "menu",
+    attrsOrChild,
+    children,
+  );
+}
+function metaElement(attrs: ATTRIBUTE_MAP["meta"]): ELEMENT_MAP["meta"] {
+  return new VoidBaseHTMLElement("meta", attrs);
+}
+
+
+function meterElement(...children: Array<CHILDREN_MAP["meter"]>): ELEMENT_MAP["meter"];
+function meterElement(attributes: ATTRIBUTE_MAP["meter"], ...children: Array<CHILDREN_MAP["meter"]>): ELEMENT_MAP["meter"];
+function meterElement(
+  attrsOrChild: ATTRIBUTE_MAP["meter"] | CHILDREN_MAP["meter"] | Array<CHILDREN_MAP["meter"]>,
+  ...children: Array<CHILDREN_MAP["meter"]>
+): ELEMENT_MAP["meter"] {
+  return HTMLElementFactory.create<"meter", ATTRIBUTE_MAP["meter"], CHILDREN_MAP["meter"]>(
+    "meter",
+    attrsOrChild,
+    children,
+  );
+}
+
+function navElement(...children: Array<CHILDREN_MAP["nav"]>): ELEMENT_MAP["nav"];
+function navElement(attributes: ATTRIBUTE_MAP["nav"], ...children: Array<CHILDREN_MAP["nav"]>): ELEMENT_MAP["nav"];
+function navElement(
+  attrsOrChild: ATTRIBUTE_MAP["nav"] | CHILDREN_MAP["nav"] | Array<CHILDREN_MAP["nav"]>,
+  ...children: Array<CHILDREN_MAP["nav"]>
+): ELEMENT_MAP["nav"] {
+  return HTMLElementFactory.create<"nav", ATTRIBUTE_MAP["nav"], CHILDREN_MAP["nav"]>(
+    "nav",
+    attrsOrChild,
+    children,
+  );
+}
+
+function noscriptElement(...children: Array<CHILDREN_MAP["noscript"]>): ELEMENT_MAP["noscript"];
+function noscriptElement(attributes: ATTRIBUTE_MAP["noscript"], ...children: Array<CHILDREN_MAP["noscript"]>): ELEMENT_MAP["noscript"];
+function noscriptElement(
+  attrsOrChild: ATTRIBUTE_MAP["noscript"] | CHILDREN_MAP["noscript"] | Array<CHILDREN_MAP["noscript"]>,
+  ...children: Array<CHILDREN_MAP["noscript"]>
+): ELEMENT_MAP["noscript"] {
+  return HTMLElementFactory.create<"noscript", ATTRIBUTE_MAP["noscript"], CHILDREN_MAP["noscript"]>(
+    "noscript",
+    attrsOrChild,
+    children,
+  );
+}
+
+function objectElement(...children: Array<CHILDREN_MAP["object"]>): ELEMENT_MAP["object"];
+function objectElement(attributes: ATTRIBUTE_MAP["object"], ...children: Array<CHILDREN_MAP["object"]>): ELEMENT_MAP["object"];
+function objectElement(
+  attrsOrChild: ATTRIBUTE_MAP["object"] | CHILDREN_MAP["object"] | Array<CHILDREN_MAP["object"]>,
+  ...children: Array<CHILDREN_MAP["object"]>
+): ELEMENT_MAP["object"] {
+  return HTMLElementFactory.create<"object", ATTRIBUTE_MAP["object"], CHILDREN_MAP["object"]>(
+    "object",
+    attrsOrChild,
+    children,
+  );
+}
+
+function olElement(...children: Array<CHILDREN_MAP["ol"]>): ELEMENT_MAP["ol"];
+function olElement(attributes: ATTRIBUTE_MAP["ol"], ...children: Array<CHILDREN_MAP["ol"]>): ELEMENT_MAP["ol"];
+function olElement(
+  attrsOrChild: ATTRIBUTE_MAP["ol"] | CHILDREN_MAP["ol"] | Array<CHILDREN_MAP["ol"]>,
+  ...children: Array<CHILDREN_MAP["ol"]>
+): ELEMENT_MAP["ol"] {
+  return HTMLElementFactory.create<"ol", ATTRIBUTE_MAP["ol"], CHILDREN_MAP["ol"]>(
+    "ol",
+    attrsOrChild,
+    children,
+  );
+}
+
+function optgroupElement(...children: Array<CHILDREN_MAP["optgroup"]>): ELEMENT_MAP["optgroup"];
+function optgroupElement(attributes: ATTRIBUTE_MAP["optgroup"], ...children: Array<CHILDREN_MAP["optgroup"]>): ELEMENT_MAP["optgroup"];
+function optgroupElement(
+  attrsOrChild: ATTRIBUTE_MAP["optgroup"] | CHILDREN_MAP["optgroup"] | Array<CHILDREN_MAP["optgroup"]>,
+  ...children: Array<CHILDREN_MAP["optgroup"]>
+): ELEMENT_MAP["optgroup"] {
+  return HTMLElementFactory.create<"optgroup", ATTRIBUTE_MAP["optgroup"], CHILDREN_MAP["optgroup"]>(
+    "optgroup",
+    attrsOrChild,
+    children,
+  );
+}
+
+function optionElement(...children: Array<CHILDREN_MAP["option"]>): ELEMENT_MAP["option"];
+function optionElement(attributes: ATTRIBUTE_MAP["option"], ...children: Array<CHILDREN_MAP["option"]>): ELEMENT_MAP["option"];
+function optionElement(
+  attrsOrChild: ATTRIBUTE_MAP["option"] | CHILDREN_MAP["option"] | Array<CHILDREN_MAP["option"]>,
+  ...children: Array<CHILDREN_MAP["option"]>
+): ELEMENT_MAP["option"] {
+  return HTMLElementFactory.create<"option", ATTRIBUTE_MAP["option"], CHILDREN_MAP["option"]>(
+    "option",
+    attrsOrChild,
+    children,
+  );
+}
+
+function outputElement(...children: Array<CHILDREN_MAP["output"]>): ELEMENT_MAP["output"];
+function outputElement(attributes: ATTRIBUTE_MAP["output"], ...children: Array<CHILDREN_MAP["output"]>): ELEMENT_MAP["output"];
+function outputElement(
+  attrsOrChild: ATTRIBUTE_MAP["output"] | CHILDREN_MAP["output"] | Array<CHILDREN_MAP["output"]>,
+  ...children: Array<CHILDREN_MAP["output"]>
+): ELEMENT_MAP["output"] {
+  return HTMLElementFactory.create<"output", ATTRIBUTE_MAP["output"], CHILDREN_MAP["output"]>(
+    "output",
+    attrsOrChild,
+    children,
+  );
+}
+
+function pElement(...children: Array<CHILDREN_MAP["p"]>): ELEMENT_MAP["p"];
+function pElement(attributes: ATTRIBUTE_MAP["p"], ...children: Array<CHILDREN_MAP["p"]>): ELEMENT_MAP["p"];
+function pElement(
+  attrsOrChild: ATTRIBUTE_MAP["p"] | CHILDREN_MAP["p"] | Array<CHILDREN_MAP["p"]>,
+  ...children: Array<CHILDREN_MAP["p"]>
+): ELEMENT_MAP["p"] {
+  return HTMLElementFactory.create<"p", ATTRIBUTE_MAP["p"], CHILDREN_MAP["p"]>(
+    "p",
+    attrsOrChild,
+    children,
+  );
+}
+
+function pictureElement(...children: Array<CHILDREN_MAP["picture"]>): ELEMENT_MAP["picture"];
+function pictureElement(attributes: ATTRIBUTE_MAP["picture"], ...children: Array<CHILDREN_MAP["picture"]>): ELEMENT_MAP["picture"];
+function pictureElement(
+  attrsOrChild: ATTRIBUTE_MAP["picture"] | CHILDREN_MAP["picture"] | Array<CHILDREN_MAP["picture"]>,
+  ...children: Array<CHILDREN_MAP["picture"]>
+): ELEMENT_MAP["picture"] {
+  return HTMLElementFactory.create<"picture", ATTRIBUTE_MAP["picture"], CHILDREN_MAP["picture"]>(
+    "picture",
+    attrsOrChild,
+    children,
+  );
+}
+
+function portalElement(...children: Array<CHILDREN_MAP["portal"]>): ELEMENT_MAP["portal"];
+function portalElement(attributes: ATTRIBUTE_MAP["portal"], ...children: Array<CHILDREN_MAP["portal"]>): ELEMENT_MAP["portal"];
+function portalElement(
+  attrsOrChild: ATTRIBUTE_MAP["portal"] | CHILDREN_MAP["portal"] | Array<CHILDREN_MAP["portal"]>,
+  ...children: Array<CHILDREN_MAP["portal"]>
+): ELEMENT_MAP["portal"] {
+  return HTMLElementFactory.create<"portal", ATTRIBUTE_MAP["portal"], CHILDREN_MAP["portal"]>(
+    "portal",
+    attrsOrChild,
+    children,
+  );
+}
+
+function preElement(...children: Array<CHILDREN_MAP["pre"]>): ELEMENT_MAP["pre"];
+function preElement(attributes: ATTRIBUTE_MAP["pre"], ...children: Array<CHILDREN_MAP["pre"]>): ELEMENT_MAP["pre"];
+function preElement(
+  attrsOrChild: ATTRIBUTE_MAP["pre"] | CHILDREN_MAP["pre"] | Array<CHILDREN_MAP["pre"]>,
+  ...children: Array<CHILDREN_MAP["pre"]>
+): ELEMENT_MAP["pre"] {
+  return HTMLElementFactory.create<"pre", ATTRIBUTE_MAP["pre"], CHILDREN_MAP["pre"]>(
+    "pre",
+    attrsOrChild,
+    children,
+  );
+}
+
+function progressElement(...children: Array<CHILDREN_MAP["progress"]>): ELEMENT_MAP["progress"];
+function progressElement(attributes: ATTRIBUTE_MAP["progress"], ...children: Array<CHILDREN_MAP["progress"]>): ELEMENT_MAP["progress"];
+function progressElement(
+  attrsOrChild: ATTRIBUTE_MAP["progress"] | CHILDREN_MAP["progress"] | Array<CHILDREN_MAP["progress"]>,
+  ...children: Array<CHILDREN_MAP["progress"]>
+): ELEMENT_MAP["progress"] {
+  return HTMLElementFactory.create<"progress", ATTRIBUTE_MAP["progress"], CHILDREN_MAP["progress"]>(
+    "progress",
+    attrsOrChild,
+    children,
+  );
+}
+
+function qElement(...children: Array<CHILDREN_MAP["q"]>): ELEMENT_MAP["q"];
+function qElement(attributes: ATTRIBUTE_MAP["q"], ...children: Array<CHILDREN_MAP["q"]>): ELEMENT_MAP["q"];
+function qElement(
+  attrsOrChild: ATTRIBUTE_MAP["q"] | CHILDREN_MAP["q"] | Array<CHILDREN_MAP["q"]>,
+  ...children: Array<CHILDREN_MAP["q"]>
+): ELEMENT_MAP["q"] {
+  return HTMLElementFactory.create<"q", ATTRIBUTE_MAP["q"], CHILDREN_MAP["q"]>(
+    "q",
+    attrsOrChild,
+    children,
+  );
+}
+
+function rpElement(...children: Array<CHILDREN_MAP["rp"]>): ELEMENT_MAP["rp"];
+function rpElement(attributes: ATTRIBUTE_MAP["rp"], ...children: Array<CHILDREN_MAP["rp"]>): ELEMENT_MAP["rp"];
+function rpElement(
+  attrsOrChild: ATTRIBUTE_MAP["rp"] | CHILDREN_MAP["rp"] | Array<CHILDREN_MAP["rp"]>,
+  ...children: Array<CHILDREN_MAP["rp"]>
+): ELEMENT_MAP["rp"] {
+  return HTMLElementFactory.create<"rp", ATTRIBUTE_MAP["rp"], CHILDREN_MAP["rp"]>(
+    "rp",
+    attrsOrChild,
+    children,
+  );
+}
+
+function rtElement(...children: Array<CHILDREN_MAP["rt"]>): ELEMENT_MAP["rt"];
+function rtElement(attributes: ATTRIBUTE_MAP["rt"], ...children: Array<CHILDREN_MAP["rt"]>): ELEMENT_MAP["rt"];
+function rtElement(
+  attrsOrChild: ATTRIBUTE_MAP["rt"] | CHILDREN_MAP["rt"] | Array<CHILDREN_MAP["rt"]>,
+  ...children: Array<CHILDREN_MAP["rt"]>
+): ELEMENT_MAP["rt"] {
+  return HTMLElementFactory.create<"rt", ATTRIBUTE_MAP["rt"], CHILDREN_MAP["rt"]>(
+    "rt",
+    attrsOrChild,
+    children,
+  );
+}
+
+function rubyElement(...children: Array<CHILDREN_MAP["ruby"]>): ELEMENT_MAP["ruby"];
+function rubyElement(attributes: ATTRIBUTE_MAP["ruby"], ...children: Array<CHILDREN_MAP["ruby"]>): ELEMENT_MAP["ruby"];
+function rubyElement(
+  attrsOrChild: ATTRIBUTE_MAP["ruby"] | CHILDREN_MAP["ruby"] | Array<CHILDREN_MAP["ruby"]>,
+  ...children: Array<CHILDREN_MAP["ruby"]>
+): ELEMENT_MAP["ruby"] {
+  return HTMLElementFactory.create<"ruby", ATTRIBUTE_MAP["ruby"], CHILDREN_MAP["ruby"]>(
+    "ruby",
+    attrsOrChild,
+    children,
+  );
+}
+
+function sElement(...children: Array<CHILDREN_MAP["s"]>): ELEMENT_MAP["s"];
+function sElement(attributes: ATTRIBUTE_MAP["s"], ...children: Array<CHILDREN_MAP["s"]>): ELEMENT_MAP["s"];
+function sElement(
+  attrsOrChild: ATTRIBUTE_MAP["s"] | CHILDREN_MAP["s"] | Array<CHILDREN_MAP["s"]>,
+  ...children: Array<CHILDREN_MAP["s"]>
+): ELEMENT_MAP["s"] {
+  return HTMLElementFactory.create<"s", ATTRIBUTE_MAP["s"], CHILDREN_MAP["s"]>(
+    "s",
+    attrsOrChild,
+    children,
+  );
+}
+
+function sampElement(...children: Array<CHILDREN_MAP["samp"]>): ELEMENT_MAP["samp"];
+function sampElement(attributes: ATTRIBUTE_MAP["samp"], ...children: Array<CHILDREN_MAP["samp"]>): ELEMENT_MAP["samp"];
+function sampElement(
+  attrsOrChild: ATTRIBUTE_MAP["samp"] | CHILDREN_MAP["samp"] | Array<CHILDREN_MAP["samp"]>,
+  ...children: Array<CHILDREN_MAP["samp"]>
+): ELEMENT_MAP["samp"] {
+  return HTMLElementFactory.create<"samp", ATTRIBUTE_MAP["samp"], CHILDREN_MAP["samp"]>(
+    "samp",
+    attrsOrChild,
+    children,
+  );
+}
+
+function scriptElement(...children: Array<CHILDREN_MAP["script"]>): ELEMENT_MAP["script"];
+function scriptElement(attributes: ATTRIBUTE_MAP["script"], ...children: Array<CHILDREN_MAP["script"]>): ELEMENT_MAP["script"];
+function scriptElement(
+  attrsOrChild: ATTRIBUTE_MAP["script"] | CHILDREN_MAP["script"] | Array<CHILDREN_MAP["script"]>,
+  ...children: Array<CHILDREN_MAP["script"]>
+): ELEMENT_MAP["script"] {
+  return HTMLElementFactory.create<"script", ATTRIBUTE_MAP["script"], CHILDREN_MAP["script"]>(
+    "script",
+    attrsOrChild,
+    children,
+  );
+}
+
+function searchElement(...children: Array<CHILDREN_MAP["search"]>): ELEMENT_MAP["search"];
+function searchElement(attributes: ATTRIBUTE_MAP["search"], ...children: Array<CHILDREN_MAP["search"]>): ELEMENT_MAP["search"];
+function searchElement(
+  attrsOrChild: ATTRIBUTE_MAP["search"] | CHILDREN_MAP["search"] | Array<CHILDREN_MAP["search"]>,
+  ...children: Array<CHILDREN_MAP["search"]>
+): ELEMENT_MAP["search"] {
+  return HTMLElementFactory.create<"search", ATTRIBUTE_MAP["search"], CHILDREN_MAP["search"]>(
+    "search",
+    attrsOrChild,
+    children,
+  );
+}
+
+function sectionElement(...children: Array<CHILDREN_MAP["section"]>): ELEMENT_MAP["section"];
+function sectionElement(attributes: ATTRIBUTE_MAP["section"], ...children: Array<CHILDREN_MAP["section"]>): ELEMENT_MAP["section"];
+function sectionElement(
+  attrsOrChild: ATTRIBUTE_MAP["section"] | CHILDREN_MAP["section"] | Array<CHILDREN_MAP["section"]>,
+  ...children: Array<CHILDREN_MAP["section"]>
+): ELEMENT_MAP["section"] {
+  return HTMLElementFactory.create<"section", ATTRIBUTE_MAP["section"], CHILDREN_MAP["section"]>(
+    "section",
+    attrsOrChild,
+    children,
+  );
+}
+
+function selectElement(...children: Array<CHILDREN_MAP["select"]>): ELEMENT_MAP["select"];
+function selectElement(attributes: ATTRIBUTE_MAP["select"], ...children: Array<CHILDREN_MAP["select"]>): ELEMENT_MAP["select"];
+function selectElement(
+  attrsOrChild: ATTRIBUTE_MAP["select"] | CHILDREN_MAP["select"] | Array<CHILDREN_MAP["select"]>,
+  ...children: Array<CHILDREN_MAP["select"]>
+): ELEMENT_MAP["select"] {
+  return HTMLElementFactory.create<"select", ATTRIBUTE_MAP["select"], CHILDREN_MAP["select"]>(
+    "select",
+    attrsOrChild,
+    children,
+  );
+}
+
+function slotElement(...children: Array<CHILDREN_MAP["slot"]>): ELEMENT_MAP["slot"];
+function slotElement(attributes: ATTRIBUTE_MAP["slot"], ...children: Array<CHILDREN_MAP["slot"]>): ELEMENT_MAP["slot"];
+function slotElement(
+  attrsOrChild: ATTRIBUTE_MAP["slot"] | CHILDREN_MAP["slot"] | Array<CHILDREN_MAP["slot"]>,
+  ...children: Array<CHILDREN_MAP["slot"]>
+): ELEMENT_MAP["slot"] {
+  return HTMLElementFactory.create<"slot", ATTRIBUTE_MAP["slot"], CHILDREN_MAP["slot"]>(
+    "slot",
+    attrsOrChild,
+    children,
+  );
+}
+
+function smallElement(...children: Array<CHILDREN_MAP["small"]>): ELEMENT_MAP["small"];
+function smallElement(attributes: ATTRIBUTE_MAP["small"], ...children: Array<CHILDREN_MAP["small"]>): ELEMENT_MAP["small"];
+function smallElement(
+  attrsOrChild: ATTRIBUTE_MAP["small"] | CHILDREN_MAP["small"] | Array<CHILDREN_MAP["small"]>,
+  ...children: Array<CHILDREN_MAP["small"]>
+): ELEMENT_MAP["small"] {
+  return HTMLElementFactory.create<"small", ATTRIBUTE_MAP["small"], CHILDREN_MAP["small"]>(
+    "small",
+    attrsOrChild,
+    children,
+  );
+}
+function sourceElement(attrs: ATTRIBUTE_MAP["source"]): ELEMENT_MAP["source"] {
+  return new VoidBaseHTMLElement("source", attrs);
+}
+
+
+function spanElement(...children: Array<CHILDREN_MAP["span"]>): ELEMENT_MAP["span"];
+function spanElement(attributes: ATTRIBUTE_MAP["span"], ...children: Array<CHILDREN_MAP["span"]>): ELEMENT_MAP["span"];
+function spanElement(
+  attrsOrChild: ATTRIBUTE_MAP["span"] | CHILDREN_MAP["span"] | Array<CHILDREN_MAP["span"]>,
+  ...children: Array<CHILDREN_MAP["span"]>
+): ELEMENT_MAP["span"] {
+  return HTMLElementFactory.create<"span", ATTRIBUTE_MAP["span"], CHILDREN_MAP["span"]>(
+    "span",
+    attrsOrChild,
+    children,
+  );
+}
+
+function strongElement(...children: Array<CHILDREN_MAP["strong"]>): ELEMENT_MAP["strong"];
+function strongElement(attributes: ATTRIBUTE_MAP["strong"], ...children: Array<CHILDREN_MAP["strong"]>): ELEMENT_MAP["strong"];
+function strongElement(
+  attrsOrChild: ATTRIBUTE_MAP["strong"] | CHILDREN_MAP["strong"] | Array<CHILDREN_MAP["strong"]>,
+  ...children: Array<CHILDREN_MAP["strong"]>
+): ELEMENT_MAP["strong"] {
+  return HTMLElementFactory.create<"strong", ATTRIBUTE_MAP["strong"], CHILDREN_MAP["strong"]>(
+    "strong",
+    attrsOrChild,
+    children,
+  );
+}
+
+function styleElement(...children: Array<CHILDREN_MAP["style"]>): ELEMENT_MAP["style"];
+function styleElement(attributes: ATTRIBUTE_MAP["style"], ...children: Array<CHILDREN_MAP["style"]>): ELEMENT_MAP["style"];
+function styleElement(
+  attrsOrChild: ATTRIBUTE_MAP["style"] | CHILDREN_MAP["style"] | Array<CHILDREN_MAP["style"]>,
+  ...children: Array<CHILDREN_MAP["style"]>
+): ELEMENT_MAP["style"] {
+  return HTMLElementFactory.create<"style", ATTRIBUTE_MAP["style"], CHILDREN_MAP["style"]>(
+    "style",
+    attrsOrChild,
+    children,
+  );
+}
+
+function subElement(...children: Array<CHILDREN_MAP["sub"]>): ELEMENT_MAP["sub"];
+function subElement(attributes: ATTRIBUTE_MAP["sub"], ...children: Array<CHILDREN_MAP["sub"]>): ELEMENT_MAP["sub"];
+function subElement(
+  attrsOrChild: ATTRIBUTE_MAP["sub"] | CHILDREN_MAP["sub"] | Array<CHILDREN_MAP["sub"]>,
+  ...children: Array<CHILDREN_MAP["sub"]>
+): ELEMENT_MAP["sub"] {
+  return HTMLElementFactory.create<"sub", ATTRIBUTE_MAP["sub"], CHILDREN_MAP["sub"]>(
+    "sub",
+    attrsOrChild,
+    children,
+  );
+}
+
+function summaryElement(...children: Array<CHILDREN_MAP["summary"]>): ELEMENT_MAP["summary"];
+function summaryElement(attributes: ATTRIBUTE_MAP["summary"], ...children: Array<CHILDREN_MAP["summary"]>): ELEMENT_MAP["summary"];
+function summaryElement(
+  attrsOrChild: ATTRIBUTE_MAP["summary"] | CHILDREN_MAP["summary"] | Array<CHILDREN_MAP["summary"]>,
+  ...children: Array<CHILDREN_MAP["summary"]>
+): ELEMENT_MAP["summary"] {
+  return HTMLElementFactory.create<"summary", ATTRIBUTE_MAP["summary"], CHILDREN_MAP["summary"]>(
+    "summary",
+    attrsOrChild,
+    children,
+  );
+}
+
+function supElement(...children: Array<CHILDREN_MAP["sup"]>): ELEMENT_MAP["sup"];
+function supElement(attributes: ATTRIBUTE_MAP["sup"], ...children: Array<CHILDREN_MAP["sup"]>): ELEMENT_MAP["sup"];
+function supElement(
+  attrsOrChild: ATTRIBUTE_MAP["sup"] | CHILDREN_MAP["sup"] | Array<CHILDREN_MAP["sup"]>,
+  ...children: Array<CHILDREN_MAP["sup"]>
+): ELEMENT_MAP["sup"] {
+  return HTMLElementFactory.create<"sup", ATTRIBUTE_MAP["sup"], CHILDREN_MAP["sup"]>(
+    "sup",
+    attrsOrChild,
+    children,
+  );
+}
+
+function svgElement(...children: Array<CHILDREN_MAP["svg"]>): ELEMENT_MAP["svg"];
+function svgElement(attributes: ATTRIBUTE_MAP["svg"], ...children: Array<CHILDREN_MAP["svg"]>): ELEMENT_MAP["svg"];
+function svgElement(
+  attrsOrChild: ATTRIBUTE_MAP["svg"] | CHILDREN_MAP["svg"] | Array<CHILDREN_MAP["svg"]>,
+  ...children: Array<CHILDREN_MAP["svg"]>
+): ELEMENT_MAP["svg"] {
+  return HTMLElementFactory.create<"svg", ATTRIBUTE_MAP["svg"], CHILDREN_MAP["svg"]>(
+    "svg",
+    attrsOrChild,
+    children,
+  );
+}
+
+function tableElement(...children: Array<CHILDREN_MAP["table"]>): ELEMENT_MAP["table"];
+function tableElement(attributes: ATTRIBUTE_MAP["table"], ...children: Array<CHILDREN_MAP["table"]>): ELEMENT_MAP["table"];
+function tableElement(
+  attrsOrChild: ATTRIBUTE_MAP["table"] | CHILDREN_MAP["table"] | Array<CHILDREN_MAP["table"]>,
+  ...children: Array<CHILDREN_MAP["table"]>
+): ELEMENT_MAP["table"] {
+  return HTMLElementFactory.create<"table", ATTRIBUTE_MAP["table"], CHILDREN_MAP["table"]>(
+    "table",
+    attrsOrChild,
+    children,
+  );
+}
+
+function tbodyElement(...children: Array<CHILDREN_MAP["tbody"]>): ELEMENT_MAP["tbody"];
+function tbodyElement(attributes: ATTRIBUTE_MAP["tbody"], ...children: Array<CHILDREN_MAP["tbody"]>): ELEMENT_MAP["tbody"];
+function tbodyElement(
+  attrsOrChild: ATTRIBUTE_MAP["tbody"] | CHILDREN_MAP["tbody"] | Array<CHILDREN_MAP["tbody"]>,
+  ...children: Array<CHILDREN_MAP["tbody"]>
+): ELEMENT_MAP["tbody"] {
+  return HTMLElementFactory.create<"tbody", ATTRIBUTE_MAP["tbody"], CHILDREN_MAP["tbody"]>(
+    "tbody",
+    attrsOrChild,
+    children,
+  );
+}
+
+function tdElement(...children: Array<CHILDREN_MAP["td"]>): ELEMENT_MAP["td"];
+function tdElement(attributes: ATTRIBUTE_MAP["td"], ...children: Array<CHILDREN_MAP["td"]>): ELEMENT_MAP["td"];
+function tdElement(
+  attrsOrChild: ATTRIBUTE_MAP["td"] | CHILDREN_MAP["td"] | Array<CHILDREN_MAP["td"]>,
+  ...children: Array<CHILDREN_MAP["td"]>
+): ELEMENT_MAP["td"] {
+  return HTMLElementFactory.create<"td", ATTRIBUTE_MAP["td"], CHILDREN_MAP["td"]>(
+    "td",
+    attrsOrChild,
+    children,
+  );
+}
+
+function templateElement(...children: Array<CHILDREN_MAP["template"]>): ELEMENT_MAP["template"];
+function templateElement(attributes: ATTRIBUTE_MAP["template"], ...children: Array<CHILDREN_MAP["template"]>): ELEMENT_MAP["template"];
+function templateElement(
+  attrsOrChild: ATTRIBUTE_MAP["template"] | CHILDREN_MAP["template"] | Array<CHILDREN_MAP["template"]>,
+  ...children: Array<CHILDREN_MAP["template"]>
+): ELEMENT_MAP["template"] {
+  return HTMLElementFactory.create<"template", ATTRIBUTE_MAP["template"], CHILDREN_MAP["template"]>(
+    "template",
+    attrsOrChild,
+    children,
+  );
+}
+
+function textareaElement(...children: Array<CHILDREN_MAP["textarea"]>): ELEMENT_MAP["textarea"];
+function textareaElement(attributes: ATTRIBUTE_MAP["textarea"], ...children: Array<CHILDREN_MAP["textarea"]>): ELEMENT_MAP["textarea"];
+function textareaElement(
+  attrsOrChild: ATTRIBUTE_MAP["textarea"] | CHILDREN_MAP["textarea"] | Array<CHILDREN_MAP["textarea"]>,
+  ...children: Array<CHILDREN_MAP["textarea"]>
+): ELEMENT_MAP["textarea"] {
+  return HTMLElementFactory.create<"textarea", ATTRIBUTE_MAP["textarea"], CHILDREN_MAP["textarea"]>(
+    "textarea",
+    attrsOrChild,
+    children,
+  );
+}
+
+function tfootElement(...children: Array<CHILDREN_MAP["tfoot"]>): ELEMENT_MAP["tfoot"];
+function tfootElement(attributes: ATTRIBUTE_MAP["tfoot"], ...children: Array<CHILDREN_MAP["tfoot"]>): ELEMENT_MAP["tfoot"];
+function tfootElement(
+  attrsOrChild: ATTRIBUTE_MAP["tfoot"] | CHILDREN_MAP["tfoot"] | Array<CHILDREN_MAP["tfoot"]>,
+  ...children: Array<CHILDREN_MAP["tfoot"]>
+): ELEMENT_MAP["tfoot"] {
+  return HTMLElementFactory.create<"tfoot", ATTRIBUTE_MAP["tfoot"], CHILDREN_MAP["tfoot"]>(
+    "tfoot",
+    attrsOrChild,
+    children,
+  );
+}
+
+function thElement(...children: Array<CHILDREN_MAP["th"]>): ELEMENT_MAP["th"];
+function thElement(attributes: ATTRIBUTE_MAP["th"], ...children: Array<CHILDREN_MAP["th"]>): ELEMENT_MAP["th"];
+function thElement(
+  attrsOrChild: ATTRIBUTE_MAP["th"] | CHILDREN_MAP["th"] | Array<CHILDREN_MAP["th"]>,
+  ...children: Array<CHILDREN_MAP["th"]>
+): ELEMENT_MAP["th"] {
+  return HTMLElementFactory.create<"th", ATTRIBUTE_MAP["th"], CHILDREN_MAP["th"]>(
+    "th",
+    attrsOrChild,
+    children,
+  );
+}
+
+function theadElement(...children: Array<CHILDREN_MAP["thead"]>): ELEMENT_MAP["thead"];
+function theadElement(attributes: ATTRIBUTE_MAP["thead"], ...children: Array<CHILDREN_MAP["thead"]>): ELEMENT_MAP["thead"];
+function theadElement(
+  attrsOrChild: ATTRIBUTE_MAP["thead"] | CHILDREN_MAP["thead"] | Array<CHILDREN_MAP["thead"]>,
+  ...children: Array<CHILDREN_MAP["thead"]>
+): ELEMENT_MAP["thead"] {
+  return HTMLElementFactory.create<"thead", ATTRIBUTE_MAP["thead"], CHILDREN_MAP["thead"]>(
+    "thead",
+    attrsOrChild,
+    children,
+  );
+}
+
+function timeElement(...children: Array<CHILDREN_MAP["time"]>): ELEMENT_MAP["time"];
+function timeElement(attributes: ATTRIBUTE_MAP["time"], ...children: Array<CHILDREN_MAP["time"]>): ELEMENT_MAP["time"];
+function timeElement(
+  attrsOrChild: ATTRIBUTE_MAP["time"] | CHILDREN_MAP["time"] | Array<CHILDREN_MAP["time"]>,
+  ...children: Array<CHILDREN_MAP["time"]>
+): ELEMENT_MAP["time"] {
+  return HTMLElementFactory.create<"time", ATTRIBUTE_MAP["time"], CHILDREN_MAP["time"]>(
+    "time",
+    attrsOrChild,
+    children,
+  );
+}
+
+function titleElement(...children: Array<CHILDREN_MAP["title"]>): ELEMENT_MAP["title"];
+function titleElement(attributes: ATTRIBUTE_MAP["title"], ...children: Array<CHILDREN_MAP["title"]>): ELEMENT_MAP["title"];
+function titleElement(
+  attrsOrChild: ATTRIBUTE_MAP["title"] | CHILDREN_MAP["title"] | Array<CHILDREN_MAP["title"]>,
+  ...children: Array<CHILDREN_MAP["title"]>
+): ELEMENT_MAP["title"] {
+  return HTMLElementFactory.create<"title", ATTRIBUTE_MAP["title"], CHILDREN_MAP["title"]>(
+    "title",
+    attrsOrChild,
+    children,
+  );
+}
+
+function trElement(...children: Array<CHILDREN_MAP["tr"]>): ELEMENT_MAP["tr"];
+function trElement(attributes: ATTRIBUTE_MAP["tr"], ...children: Array<CHILDREN_MAP["tr"]>): ELEMENT_MAP["tr"];
+function trElement(
+  attrsOrChild: ATTRIBUTE_MAP["tr"] | CHILDREN_MAP["tr"] | Array<CHILDREN_MAP["tr"]>,
+  ...children: Array<CHILDREN_MAP["tr"]>
+): ELEMENT_MAP["tr"] {
+  return HTMLElementFactory.create<"tr", ATTRIBUTE_MAP["tr"], CHILDREN_MAP["tr"]>(
+    "tr",
+    attrsOrChild,
+    children,
+  );
+}
+function trackElement(attrs: ATTRIBUTE_MAP["track"]): ELEMENT_MAP["track"] {
+  return new VoidBaseHTMLElement("track", attrs);
+}
+
+
+function uElement(...children: Array<CHILDREN_MAP["u"]>): ELEMENT_MAP["u"];
+function uElement(attributes: ATTRIBUTE_MAP["u"], ...children: Array<CHILDREN_MAP["u"]>): ELEMENT_MAP["u"];
+function uElement(
+  attrsOrChild: ATTRIBUTE_MAP["u"] | CHILDREN_MAP["u"] | Array<CHILDREN_MAP["u"]>,
+  ...children: Array<CHILDREN_MAP["u"]>
+): ELEMENT_MAP["u"] {
+  return HTMLElementFactory.create<"u", ATTRIBUTE_MAP["u"], CHILDREN_MAP["u"]>(
+    "u",
+    attrsOrChild,
+    children,
+  );
+}
+
+function ulElement(...children: Array<CHILDREN_MAP["ul"]>): ELEMENT_MAP["ul"];
+function ulElement(attributes: ATTRIBUTE_MAP["ul"], ...children: Array<CHILDREN_MAP["ul"]>): ELEMENT_MAP["ul"];
+function ulElement(
+  attrsOrChild: ATTRIBUTE_MAP["ul"] | CHILDREN_MAP["ul"] | Array<CHILDREN_MAP["ul"]>,
+  ...children: Array<CHILDREN_MAP["ul"]>
+): ELEMENT_MAP["ul"] {
+  return HTMLElementFactory.create<"ul", ATTRIBUTE_MAP["ul"], CHILDREN_MAP["ul"]>(
+    "ul",
+    attrsOrChild,
+    children,
+  );
+}
+
+function varElement(...children: Array<CHILDREN_MAP["var"]>): ELEMENT_MAP["var"];
+function varElement(attributes: ATTRIBUTE_MAP["var"], ...children: Array<CHILDREN_MAP["var"]>): ELEMENT_MAP["var"];
+function varElement(
+  attrsOrChild: ATTRIBUTE_MAP["var"] | CHILDREN_MAP["var"] | Array<CHILDREN_MAP["var"]>,
+  ...children: Array<CHILDREN_MAP["var"]>
+): ELEMENT_MAP["var"] {
+  return HTMLElementFactory.create<"var", ATTRIBUTE_MAP["var"], CHILDREN_MAP["var"]>(
+    "var",
+    attrsOrChild,
+    children,
+  );
+}
+
+function videoElement(...children: Array<CHILDREN_MAP["video"]>): ELEMENT_MAP["video"];
+function videoElement(attributes: ATTRIBUTE_MAP["video"], ...children: Array<CHILDREN_MAP["video"]>): ELEMENT_MAP["video"];
+function videoElement(
+  attrsOrChild: ATTRIBUTE_MAP["video"] | CHILDREN_MAP["video"] | Array<CHILDREN_MAP["video"]>,
+  ...children: Array<CHILDREN_MAP["video"]>
+): ELEMENT_MAP["video"] {
+  return HTMLElementFactory.create<"video", ATTRIBUTE_MAP["video"], CHILDREN_MAP["video"]>(
+    "video",
+    attrsOrChild,
+    children,
+  );
+}
+function wbrElement(attrs: ATTRIBUTE_MAP["wbr"]): ELEMENT_MAP["wbr"] {
+  return new VoidBaseHTMLElement("wbr", attrs);
+}
+
+export const h = {
+  document: documentElement,
+  doctype: doctypeElement,
+  a: aElement,
+  abbr: abbrElement,
+  address: addressElement,
+  area: areaElement,
+  article: articleElement,
+  aside: asideElement,
+  audio: audioElement,
+  b: bElement,
+  base: baseElement,
+  bdi: bdiElement,
+  bdo: bdoElement,
+  blockquote: blockquoteElement,
+  body: bodyElement,
+  br: brElement,
+  button: buttonElement,
+  canvas: canvasElement,
+  caption: captionElement,
+  cite: citeElement,
+  code: codeElement,
+  col: colElement,
+  colgroup: colgroupElement,
+  data: dataElement,
+  datalist: datalistElement,
+  dd: ddElement,
+  del: delElement,
+  details: detailsElement,
+  dfn: dfnElement,
+  dialog: dialogElement,
+  div: divElement,
+  dl: dlElement,
+  dt: dtElement,
+  em: emElement,
+  embed: embedElement,
+  fieldset: fieldsetElement,
+  figcaption: figcaptionElement,
+  figure: figureElement,
+  footer: footerElement,
+  form: formElement,
+  h1: h1Element,
+  h2: h2Element,
+  h3: h3Element,
+  h4: h4Element,
+  h5: h5Element,
+  h6: h6Element,
+  head: headElement,
+  header: headerElement,
+  hgroup: hgroupElement,
+  hr: hrElement,
+  html: htmlElement,
+  i: iElement,
+  iframe: iframeElement,
+  img: imgElement,
+  input: inputElement,
+  ins: insElement,
+  kbd: kbdElement,
+  label: labelElement,
+  legend: legendElement,
+  li: liElement,
+  link: linkElement,
+  main: mainElement,
+  map: mapElement,
+  mark: markElement,
+  math: mathElement,
+  menu: menuElement,
+  meta: metaElement,
+  meter: meterElement,
+  nav: navElement,
+  noscript: noscriptElement,
+  object: objectElement,
+  ol: olElement,
+  optgroup: optgroupElement,
+  option: optionElement,
+  output: outputElement,
+  p: pElement,
+  picture: pictureElement,
+  portal: portalElement,
+  pre: preElement,
+  progress: progressElement,
+  q: qElement,
+  rp: rpElement,
+  rt: rtElement,
+  ruby: rubyElement,
+  s: sElement,
+  samp: sampElement,
+  script: scriptElement,
+  search: searchElement,
+  section: sectionElement,
+  select: selectElement,
+  slot: slotElement,
+  small: smallElement,
+  source: sourceElement,
+  span: spanElement,
+  strong: strongElement,
+  style: styleElement,
+  sub: subElement,
+  summary: summaryElement,
+  sup: supElement,
+  svg: svgElement,
+  table: tableElement,
+  tbody: tbodyElement,
+  td: tdElement,
+  template: templateElement,
+  textarea: textareaElement,
+  tfoot: tfootElement,
+  th: thElement,
+  thead: theadElement,
+  time: timeElement,
+  title: titleElement,
+  tr: trElement,
+  track: trackElement,
+  u: uElement,
+  ul: ulElement,
+  var: varElement,
+  video: videoElement,
+  wbr: wbrElement,
 }
-
-export function col(attrs: HTMLAttributes): VoidHTMLElement<"col"> {
-  return new VoidHTMLElement("col", attrs);
-}
-
-export function colgroup(...children: Children<"colgroup">): HTMLElement<"colgroup">;
-export function colgroup(attrs: HTMLAttributes, ...children: Children<"colgroup">): HTMLElement<"colgroup">;
-export function colgroup(childrenOrAttrs: Child<"colgroup"> | HTMLAttributes, ...children: Children<"colgroup">): HTMLElement<"colgroup"> {
-  return HTMLElement.create("colgroup", childrenOrAttrs, ...children);
-}
-
-export function table(...children: Children<"table">): HTMLElement<"table">;
-export function table(attrs: HTMLAttributes, ...children: Children<"table">): HTMLElement<"table">;
-export function table(childrenOrAttrs: Child<"table"> | HTMLAttributes, ...children: Children<"table">): HTMLElement<"table"> {
-  return HTMLElement.create("table", childrenOrAttrs, ...children);
-}
-
-export function tbody(...children: Children<"tbody">): HTMLElement<"tbody">;
-export function tbody(attrs: HTMLAttributes, ...children: Children<"tbody">): HTMLElement<"tbody">;
-export function tbody(childrenOrAttrs: Child<"tbody"> | HTMLAttributes, ...children: Children<"tbody">): HTMLElement<"tbody"> {
-  return HTMLElement.create("tbody", childrenOrAttrs, ...children);
-}
-
-export function td(...children: Children<"td">): HTMLElement<"td">;
-export function td(attrs: HTMLAttributes, ...children: Children<"td">): HTMLElement<"td">;
-export function td(childrenOrAttrs: Child<"td"> | HTMLAttributes, ...children: Children<"td">): HTMLElement<"td"> {
-  return HTMLElement.create("td", childrenOrAttrs, ...children);
-}
-
-export function tfoot(...children: Children<"tfoot">): HTMLElement<"tfoot">;
-export function tfoot(attrs: HTMLAttributes, ...children: Children<"tfoot">): HTMLElement<"tfoot">;
-export function tfoot(childrenOrAttrs: Child<"tfoot"> | HTMLAttributes, ...children: Children<"tfoot">): HTMLElement<"tfoot"> {
-  return HTMLElement.create("tfoot", childrenOrAttrs, ...children);
-}
-
-export function th(...children: Children<"th">): HTMLElement<"th">;
-export function th(attrs: HTMLAttributes, ...children: Children<"th">): HTMLElement<"th">;
-export function th(childrenOrAttrs: Child<"th"> | HTMLAttributes, ...children: Children<"th">): HTMLElement<"th"> {
-  return HTMLElement.create("th", childrenOrAttrs, ...children);
-}
-
-export function thead(...children: Children<"thead">): HTMLElement<"thead">;
-export function thead(attrs: HTMLAttributes, ...children: Children<"thead">): HTMLElement<"thead">;
-export function thead(childrenOrAttrs: Child<"thead"> | HTMLAttributes, ...children: Children<"thead">): HTMLElement<"thead"> {
-  return HTMLElement.create("thead", childrenOrAttrs, ...children);
-}
-
-export function tr(...children: Children<"tr">): HTMLElement<"tr">;
-export function tr(attrs: HTMLAttributes, ...children: Children<"tr">): HTMLElement<"tr">;
-export function tr(childrenOrAttrs: Child<"tr"> | HTMLAttributes, ...children: Children<"tr">): HTMLElement<"tr"> {
-  return HTMLElement.create("tr", childrenOrAttrs, ...children);
-}
-
-export function button(...children: Children<"button">): HTMLElement<"button">;
-export function button(attrs: HTMLAttributes, ...children: Children<"button">): HTMLElement<"button">;
-export function button(childrenOrAttrs: Child<"button"> | HTMLAttributes, ...children: Children<"button">): HTMLElement<"button"> {
-  return HTMLElement.create("button", childrenOrAttrs, ...children);
-}
-
-export function datalist(...children: Children<"datalist">): HTMLElement<"datalist">;
-export function datalist(attrs: HTMLAttributes, ...children: Children<"datalist">): HTMLElement<"datalist">;
-export function datalist(childrenOrAttrs: Child<"datalist"> | HTMLAttributes, ...children: Children<"datalist">): HTMLElement<"datalist"> {
-  return HTMLElement.create("datalist", childrenOrAttrs, ...children);
-}
-
-export function fieldset(...children: Children<"fieldset">): HTMLElement<"fieldset">;
-export function fieldset(attrs: HTMLAttributes, ...children: Children<"fieldset">): HTMLElement<"fieldset">;
-export function fieldset(childrenOrAttrs: Child<"fieldset"> | HTMLAttributes, ...children: Children<"fieldset">): HTMLElement<"fieldset"> {
-  return HTMLElement.create("fieldset", childrenOrAttrs, ...children);
-}
-
-export function form(...children: Children<"form">): HTMLElement<"form">;
-export function form(attrs: HTMLAttributes, ...children: Children<"form">): HTMLElement<"form">;
-export function form(childrenOrAttrs: Child<"form"> | HTMLAttributes, ...children: Children<"form">): HTMLElement<"form"> {
-  return HTMLElement.create("form", childrenOrAttrs, ...children);
-}
-
-export function input(attrs: HTMLAttributes): VoidHTMLElement<"input"> {
-  return new VoidHTMLElement("input", attrs);
-}
-
-export function label(...children: Children<"label">): HTMLElement<"label">;
-export function label(attrs: HTMLAttributes, ...children: Children<"label">): HTMLElement<"label">;
-export function label(childrenOrAttrs: Child<"label"> | HTMLAttributes, ...children: Children<"label">): HTMLElement<"label"> {
-  return HTMLElement.create("label", childrenOrAttrs, ...children);
-}
-
-export function legend(...children: Children<"legend">): HTMLElement<"legend">;
-export function legend(attrs: HTMLAttributes, ...children: Children<"legend">): HTMLElement<"legend">;
-export function legend(childrenOrAttrs: Child<"legend"> | HTMLAttributes, ...children: Children<"legend">): HTMLElement<"legend"> {
-  return HTMLElement.create("legend", childrenOrAttrs, ...children);
-}
-
-export function meter(...children: Children<"meter">): HTMLElement<"meter">;
-export function meter(attrs: HTMLAttributes, ...children: Children<"meter">): HTMLElement<"meter">;
-export function meter(childrenOrAttrs: Child<"meter"> | HTMLAttributes, ...children: Children<"meter">): HTMLElement<"meter"> {
-  return HTMLElement.create("meter", childrenOrAttrs, ...children);
-}
-
-export function optgroup(...children: Children<"optgroup">): HTMLElement<"optgroup">;
-export function optgroup(attrs: HTMLAttributes, ...children: Children<"optgroup">): HTMLElement<"optgroup">;
-export function optgroup(childrenOrAttrs: Child<"optgroup"> | HTMLAttributes, ...children: Children<"optgroup">): HTMLElement<"optgroup"> {
-  return HTMLElement.create("optgroup", childrenOrAttrs, ...children);
-}
-
-export function option(...children: Children<"option">): HTMLElement<"option">;
-export function option(attrs: HTMLAttributes, ...children: Children<"option">): HTMLElement<"option">;
-export function option(childrenOrAttrs: Child<"option"> | HTMLAttributes, ...children: Children<"option">): HTMLElement<"option"> {
-  return HTMLElement.create("option", childrenOrAttrs, ...children);
-}
-
-export function output(...children: Children<"output">): HTMLElement<"output">;
-export function output(attrs: HTMLAttributes, ...children: Children<"output">): HTMLElement<"output">;
-export function output(childrenOrAttrs: Child<"output"> | HTMLAttributes, ...children: Children<"output">): HTMLElement<"output"> {
-  return HTMLElement.create("output", childrenOrAttrs, ...children);
-}
-
-export function progress(...children: Children<"progress">): HTMLElement<"progress">;
-export function progress(attrs: HTMLAttributes, ...children: Children<"progress">): HTMLElement<"progress">;
-export function progress(childrenOrAttrs: Child<"progress"> | HTMLAttributes, ...children: Children<"progress">): HTMLElement<"progress"> {
-  return HTMLElement.create("progress", childrenOrAttrs, ...children);
-}
-
-export function select(...children: Children<"select">): HTMLElement<"select">;
-export function select(attrs: HTMLAttributes, ...children: Children<"select">): HTMLElement<"select">;
-export function select(childrenOrAttrs: Child<"select"> | HTMLAttributes, ...children: Children<"select">): HTMLElement<"select"> {
-  return HTMLElement.create("select", childrenOrAttrs, ...children);
-}
-
-export function textarea(...children: Children<"textarea">): HTMLElement<"textarea">;
-export function textarea(attrs: HTMLAttributes, ...children: Children<"textarea">): HTMLElement<"textarea">;
-export function textarea(childrenOrAttrs: Child<"textarea"> | HTMLAttributes, ...children: Children<"textarea">): HTMLElement<"textarea"> {
-  return HTMLElement.create("textarea", childrenOrAttrs, ...children);
-}
-
-export function details(...children: Children<"details">): HTMLElement<"details">;
-export function details(attrs: HTMLAttributes, ...children: Children<"details">): HTMLElement<"details">;
-export function details(childrenOrAttrs: Child<"details"> | HTMLAttributes, ...children: Children<"details">): HTMLElement<"details"> {
-  return HTMLElement.create("details", childrenOrAttrs, ...children);
-}
-
-export function dialog(...children: Children<"dialog">): HTMLElement<"dialog">;
-export function dialog(attrs: HTMLAttributes, ...children: Children<"dialog">): HTMLElement<"dialog">;
-export function dialog(childrenOrAttrs: Child<"dialog"> | HTMLAttributes, ...children: Children<"dialog">): HTMLElement<"dialog"> {
-  return HTMLElement.create("dialog", childrenOrAttrs, ...children);
-}
-
-export function summary(...children: Children<"summary">): HTMLElement<"summary">;
-export function summary(attrs: HTMLAttributes, ...children: Children<"summary">): HTMLElement<"summary">;
-export function summary(childrenOrAttrs: Child<"summary"> | HTMLAttributes, ...children: Children<"summary">): HTMLElement<"summary"> {
-  return HTMLElement.create("summary", childrenOrAttrs, ...children);
-}
-
-export function slot(...children: Children<"slot">): HTMLElement<"slot">;
-export function slot(attrs: HTMLAttributes, ...children: Children<"slot">): HTMLElement<"slot">;
-export function slot(childrenOrAttrs: Child<"slot"> | HTMLAttributes, ...children: Children<"slot">): HTMLElement<"slot"> {
-  return HTMLElement.create("slot", childrenOrAttrs, ...children);
-}
-
-export function template(...children: Children<"template">): HTMLElement<"template">;
-export function template(attrs: HTMLAttributes, ...children: Children<"template">): HTMLElement<"template">;
-export function template(childrenOrAttrs: Child<"template"> | HTMLAttributes, ...children: Children<"template">): HTMLElement<"template"> {
-  return HTMLElement.create("template", childrenOrAttrs, ...children);
-}
-
