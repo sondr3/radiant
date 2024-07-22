@@ -1392,122 +1392,356 @@ function wbrElement(attrs: ATTRIBUTE_MAP["wbr"]): ELEMENT_MAP["wbr"] {
   return new VoidBaseHTMLElement("wbr", attrs);
 }
 
+
+/** A type-safe builder for all HTML elements. */
 export const h = {
+  /** A type-safe builder for a HTML document. */
   document: documentElement,
+  /** A type-safe builder for the `<!DOCTYPE html>` element. */
   doctype: doctypeElement,
+  
+  /** A type-safe builder for the `<a>` element. */
   a: aElement,
+  
+  /** A type-safe builder for the `<abbr>` element. */
   abbr: abbrElement,
+  
+  /** A type-safe builder for the `<address>` element. */
   address: addressElement,
+  
+  /** A type-safe builder for the `<area>` element. */
   area: areaElement,
+  
+  /** A type-safe builder for the `<article>` element. */
   article: articleElement,
+  
+  /** A type-safe builder for the `<aside>` element. */
   aside: asideElement,
+  
+  /** A type-safe builder for the `<audio>` element. */
   audio: audioElement,
+  
+  /** A type-safe builder for the `<b>` element. */
   b: bElement,
+  
+  /** A type-safe builder for the `<base>` element. */
   base: baseElement,
+  
+  /** A type-safe builder for the `<bdi>` element. */
   bdi: bdiElement,
+  
+  /** A type-safe builder for the `<bdo>` element. */
   bdo: bdoElement,
+  
+  /** A type-safe builder for the `<blockquote>` element. */
   blockquote: blockquoteElement,
+  
+  /** A type-safe builder for the `<body>` element. */
   body: bodyElement,
+  
+  /** A type-safe builder for the `<br>` element. */
   br: brElement,
+  
+  /** A type-safe builder for the `<button>` element. */
   button: buttonElement,
+  
+  /** A type-safe builder for the `<canvas>` element. */
   canvas: canvasElement,
+  
+  /** A type-safe builder for the `<caption>` element. */
   caption: captionElement,
+  
+  /** A type-safe builder for the `<cite>` element. */
   cite: citeElement,
+  
+  /** A type-safe builder for the `<code>` element. */
   code: codeElement,
+  
+  /** A type-safe builder for the `<col>` element. */
   col: colElement,
+  
+  /** A type-safe builder for the `<colgroup>` element. */
   colgroup: colgroupElement,
+  
+  /** A type-safe builder for the `<data>` element. */
   data: dataElement,
+  
+  /** A type-safe builder for the `<datalist>` element. */
   datalist: datalistElement,
+  
+  /** A type-safe builder for the `<dd>` element. */
   dd: ddElement,
+  
+  /** A type-safe builder for the `<del>` element. */
   del: delElement,
+  
+  /** A type-safe builder for the `<details>` element. */
   details: detailsElement,
+  
+  /** A type-safe builder for the `<dfn>` element. */
   dfn: dfnElement,
+  
+  /** A type-safe builder for the `<dialog>` element. */
   dialog: dialogElement,
+  
+  /** A type-safe builder for the `<div>` element. */
   div: divElement,
+  
+  /** A type-safe builder for the `<dl>` element. */
   dl: dlElement,
+  
+  /** A type-safe builder for the `<dt>` element. */
   dt: dtElement,
+  
+  /** A type-safe builder for the `<em>` element. */
   em: emElement,
+  
+  /** A type-safe builder for the `<embed>` element. */
   embed: embedElement,
+  
+  /** A type-safe builder for the `<fieldset>` element. */
   fieldset: fieldsetElement,
+  
+  /** A type-safe builder for the `<figcaption>` element. */
   figcaption: figcaptionElement,
+  
+  /** A type-safe builder for the `<figure>` element. */
   figure: figureElement,
+  
+  /** A type-safe builder for the `<footer>` element. */
   footer: footerElement,
+  
+  /** A type-safe builder for the `<form>` element. */
   form: formElement,
+  
+  /** A type-safe builder for the `<h1>` element. */
   h1: h1Element,
+  
+  /** A type-safe builder for the `<h2>` element. */
   h2: h2Element,
+  
+  /** A type-safe builder for the `<h3>` element. */
   h3: h3Element,
+  
+  /** A type-safe builder for the `<h4>` element. */
   h4: h4Element,
+  
+  /** A type-safe builder for the `<h5>` element. */
   h5: h5Element,
+  
+  /** A type-safe builder for the `<h6>` element. */
   h6: h6Element,
+  
+  /** A type-safe builder for the `<head>` element. */
   head: headElement,
+  
+  /** A type-safe builder for the `<header>` element. */
   header: headerElement,
+  
+  /** A type-safe builder for the `<hgroup>` element. */
   hgroup: hgroupElement,
+  
+  /** A type-safe builder for the `<hr>` element. */
   hr: hrElement,
+  
+  /** A type-safe builder for the `<html>` element. */
   html: htmlElement,
+  
+  /** A type-safe builder for the `<i>` element. */
   i: iElement,
+  
+  /** A type-safe builder for the `<iframe>` element. */
   iframe: iframeElement,
+  
+  /** A type-safe builder for the `<img>` element. */
   img: imgElement,
+  
+  /** A type-safe builder for the `<input>` element. */
   input: inputElement,
+  
+  /** A type-safe builder for the `<ins>` element. */
   ins: insElement,
+  
+  /** A type-safe builder for the `<kbd>` element. */
   kbd: kbdElement,
+  
+  /** A type-safe builder for the `<label>` element. */
   label: labelElement,
+  
+  /** A type-safe builder for the `<legend>` element. */
   legend: legendElement,
+  
+  /** A type-safe builder for the `<li>` element. */
   li: liElement,
+  
+  /** A type-safe builder for the `<link>` element. */
   link: linkElement,
+  
+  /** A type-safe builder for the `<main>` element. */
   main: mainElement,
+  
+  /** A type-safe builder for the `<map>` element. */
   map: mapElement,
+  
+  /** A type-safe builder for the `<mark>` element. */
   mark: markElement,
+  
+  /** A type-safe builder for the `<math>` element. */
   math: mathElement,
+  
+  /** A type-safe builder for the `<menu>` element. */
   menu: menuElement,
+  
+  /** A type-safe builder for the `<meta>` element. */
   meta: metaElement,
+  
+  /** A type-safe builder for the `<meter>` element. */
   meter: meterElement,
+  
+  /** A type-safe builder for the `<nav>` element. */
   nav: navElement,
+  
+  /** A type-safe builder for the `<noscript>` element. */
   noscript: noscriptElement,
+  
+  /** A type-safe builder for the `<object>` element. */
   object: objectElement,
+  
+  /** A type-safe builder for the `<ol>` element. */
   ol: olElement,
+  
+  /** A type-safe builder for the `<optgroup>` element. */
   optgroup: optgroupElement,
+  
+  /** A type-safe builder for the `<option>` element. */
   option: optionElement,
+  
+  /** A type-safe builder for the `<output>` element. */
   output: outputElement,
+  
+  /** A type-safe builder for the `<p>` element. */
   p: pElement,
+  
+  /** A type-safe builder for the `<picture>` element. */
   picture: pictureElement,
+  
+  /** A type-safe builder for the `<portal>` element. */
   portal: portalElement,
+  
+  /** A type-safe builder for the `<pre>` element. */
   pre: preElement,
+  
+  /** A type-safe builder for the `<progress>` element. */
   progress: progressElement,
+  
+  /** A type-safe builder for the `<q>` element. */
   q: qElement,
+  
+  /** A type-safe builder for the `<rp>` element. */
   rp: rpElement,
+  
+  /** A type-safe builder for the `<rt>` element. */
   rt: rtElement,
+  
+  /** A type-safe builder for the `<ruby>` element. */
   ruby: rubyElement,
+  
+  /** A type-safe builder for the `<s>` element. */
   s: sElement,
+  
+  /** A type-safe builder for the `<samp>` element. */
   samp: sampElement,
+  
+  /** A type-safe builder for the `<script>` element. */
   script: scriptElement,
+  
+  /** A type-safe builder for the `<search>` element. */
   search: searchElement,
+  
+  /** A type-safe builder for the `<section>` element. */
   section: sectionElement,
+  
+  /** A type-safe builder for the `<select>` element. */
   select: selectElement,
+  
+  /** A type-safe builder for the `<slot>` element. */
   slot: slotElement,
+  
+  /** A type-safe builder for the `<small>` element. */
   small: smallElement,
+  
+  /** A type-safe builder for the `<source>` element. */
   source: sourceElement,
+  
+  /** A type-safe builder for the `<span>` element. */
   span: spanElement,
+  
+  /** A type-safe builder for the `<strong>` element. */
   strong: strongElement,
+  
+  /** A type-safe builder for the `<style>` element. */
   style: styleElement,
+  
+  /** A type-safe builder for the `<sub>` element. */
   sub: subElement,
+  
+  /** A type-safe builder for the `<summary>` element. */
   summary: summaryElement,
+  
+  /** A type-safe builder for the `<sup>` element. */
   sup: supElement,
+  
+  /** A type-safe builder for the `<svg>` element. */
   svg: svgElement,
+  
+  /** A type-safe builder for the `<table>` element. */
   table: tableElement,
+  
+  /** A type-safe builder for the `<tbody>` element. */
   tbody: tbodyElement,
+  
+  /** A type-safe builder for the `<td>` element. */
   td: tdElement,
+  
+  /** A type-safe builder for the `<template>` element. */
   template: templateElement,
+  
+  /** A type-safe builder for the `<textarea>` element. */
   textarea: textareaElement,
+  
+  /** A type-safe builder for the `<tfoot>` element. */
   tfoot: tfootElement,
+  
+  /** A type-safe builder for the `<th>` element. */
   th: thElement,
+  
+  /** A type-safe builder for the `<thead>` element. */
   thead: theadElement,
+  
+  /** A type-safe builder for the `<time>` element. */
   time: timeElement,
+  
+  /** A type-safe builder for the `<title>` element. */
   title: titleElement,
+  
+  /** A type-safe builder for the `<tr>` element. */
   tr: trElement,
+  
+  /** A type-safe builder for the `<track>` element. */
   track: trackElement,
+  
+  /** A type-safe builder for the `<u>` element. */
   u: uElement,
+  
+  /** A type-safe builder for the `<ul>` element. */
   ul: ulElement,
+  
+  /** A type-safe builder for the `<var>` element. */
   var: varElement,
+  
+  /** A type-safe builder for the `<video>` element. */
   video: videoElement,
+  
+  /** A type-safe builder for the `<wbr>` element. */
   wbr: wbrElement,
 }

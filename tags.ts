@@ -1,4 +1,13 @@
-// https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+/**
+ * This module provides a list of all HTML tags.
+ * @module
+ */
+
+/**
+ * A list of all HTML tags.
+ *
+ * See https://html.spec.whatwg.org/dev/indices.html#elements-3 for more
+ */
 export const HTML_TAGS = [
   "a",
   "abbr",
@@ -117,10 +126,14 @@ export const HTML_TAGS = [
   "wbr",
 ] as const;
 
+/** Represents an HTML tag. */
 export type HTMLTag = typeof HTML_TAGS[number];
 
-// https://developer.mozilla.org/en-US/docs/Glossary/Void_element
-// Void elements close themselves, and can't have any content.
+/**
+ * A list of all void HTML tags.
+ *
+ * See https://html.spec.whatwg.org/dev/indices.html#elements-3 for more
+ */
 export const VOID_HTML_TAGS = [
   "area",
   "base",
@@ -137,4 +150,5 @@ export const VOID_HTML_TAGS = [
   "wbr",
 ] as const;
 
+/** Represents a void HTML tag. */
 export type VoidHTMLTag = typeof VOID_HTML_TAGS[number];

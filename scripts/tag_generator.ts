@@ -47,13 +47,19 @@ function ${tag}Element(
     }
   }
 
-  let map = `export const h = {
+  let map = `
+/** A type-safe builder for all HTML elements. */
+export const h = {
+  /** A type-safe builder for a HTML document. */
   document: documentElement,
+  /** A type-safe builder for the \`<!DOCTYPE html>\` element. */
   doctype: doctypeElement,
 `;
 
   for (const tag of HTML_TAGS) {
-    map += `  ${tag}: ${tag}Element,\n`;
+    map += `  
+  /** A type-safe builder for the \`<${tag}>\` element. */
+  ${tag}: ${tag}Element,\n`;
   }
 
   map += `}`;

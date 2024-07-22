@@ -235,120 +235,351 @@ interface VideoElement extends HTMLElement<"video", ATTRIBUTE_MAP["video"], CHIL
 
 interface WbrElement extends VoidHTMLElement<"wbr", ATTRIBUTE_MAP["wbr"]> {}
 
+/** A type-safe representation of all HTML elements. */
 export type ELEMENT_MAP = {
- a: AElement;
- abbr: AbbrElement;
- address: AddressElement;
- area: AreaElement;
- article: ArticleElement;
- aside: AsideElement;
- audio: AudioElement;
- b: BElement;
- base: BaseElement;
- bdi: BdiElement;
- bdo: BdoElement;
- blockquote: BlockquoteElement;
- body: BodyElement;
- br: BrElement;
- button: ButtonElement;
- canvas: CanvasElement;
- caption: CaptionElement;
- cite: CiteElement;
- code: CodeElement;
- col: ColElement;
- colgroup: ColgroupElement;
- data: DataElement;
- datalist: DatalistElement;
- dd: DdElement;
- del: DelElement;
- details: DetailsElement;
- dfn: DfnElement;
- dialog: DialogElement;
- div: DivElement;
- dl: DlElement;
- dt: DtElement;
- em: EmElement;
- embed: EmbedElement;
- fieldset: FieldsetElement;
- figcaption: FigcaptionElement;
- figure: FigureElement;
- footer: FooterElement;
- form: FormElement;
- h1: H1Element;
- h2: H2Element;
- h3: H3Element;
- h4: H4Element;
- h5: H5Element;
- h6: H6Element;
- head: HeadElement;
- header: HeaderElement;
- hgroup: HgroupElement;
- hr: HrElement;
- html: HtmlElement;
- i: IElement;
- iframe: IframeElement;
- img: ImgElement;
- input: InputElement;
- ins: InsElement;
- kbd: KbdElement;
- label: LabelElement;
- legend: LegendElement;
- li: LiElement;
- link: LinkElement;
- main: MainElement;
- map: MapElement;
- mark: MarkElement;
- math: MathElement;
- menu: MenuElement;
- meta: MetaElement;
- meter: MeterElement;
- nav: NavElement;
- noscript: NoscriptElement;
- object: ObjectElement;
- ol: OlElement;
- optgroup: OptgroupElement;
- option: OptionElement;
- output: OutputElement;
- p: PElement;
- picture: PictureElement;
- portal: PortalElement;
- pre: PreElement;
- progress: ProgressElement;
- q: QElement;
- rp: RpElement;
- rt: RtElement;
- ruby: RubyElement;
- s: SElement;
- samp: SampElement;
- script: ScriptElement;
- search: SearchElement;
- section: SectionElement;
- select: SelectElement;
- slot: SlotElement;
- small: SmallElement;
- source: SourceElement;
- span: SpanElement;
- strong: StrongElement;
- style: StyleElement;
- sub: SubElement;
- summary: SummaryElement;
- sup: SupElement;
- svg: SvgElement;
- table: TableElement;
- tbody: TbodyElement;
- td: TdElement;
- template: TemplateElement;
- textarea: TextareaElement;
- tfoot: TfootElement;
- th: ThElement;
- thead: TheadElement;
- time: TimeElement;
- title: TitleElement;
- tr: TrElement;
- track: TrackElement;
- u: UElement;
- ul: UlElement;
- var: VarElement;
- video: VideoElement;
- wbr: WbrElement;
+
+  /** A type-safe representation of the `<a>` element. */
+  a: AElement;
+
+  /** A type-safe representation of the `<abbr>` element. */
+  abbr: AbbrElement;
+
+  /** A type-safe representation of the `<address>` element. */
+  address: AddressElement;
+
+  /** A type-safe representation of the `<area>` element. */
+  area: AreaElement;
+
+  /** A type-safe representation of the `<article>` element. */
+  article: ArticleElement;
+
+  /** A type-safe representation of the `<aside>` element. */
+  aside: AsideElement;
+
+  /** A type-safe representation of the `<audio>` element. */
+  audio: AudioElement;
+
+  /** A type-safe representation of the `<b>` element. */
+  b: BElement;
+
+  /** A type-safe representation of the `<base>` element. */
+  base: BaseElement;
+
+  /** A type-safe representation of the `<bdi>` element. */
+  bdi: BdiElement;
+
+  /** A type-safe representation of the `<bdo>` element. */
+  bdo: BdoElement;
+
+  /** A type-safe representation of the `<blockquote>` element. */
+  blockquote: BlockquoteElement;
+
+  /** A type-safe representation of the `<body>` element. */
+  body: BodyElement;
+
+  /** A type-safe representation of the `<br>` element. */
+  br: BrElement;
+
+  /** A type-safe representation of the `<button>` element. */
+  button: ButtonElement;
+
+  /** A type-safe representation of the `<canvas>` element. */
+  canvas: CanvasElement;
+
+  /** A type-safe representation of the `<caption>` element. */
+  caption: CaptionElement;
+
+  /** A type-safe representation of the `<cite>` element. */
+  cite: CiteElement;
+
+  /** A type-safe representation of the `<code>` element. */
+  code: CodeElement;
+
+  /** A type-safe representation of the `<col>` element. */
+  col: ColElement;
+
+  /** A type-safe representation of the `<colgroup>` element. */
+  colgroup: ColgroupElement;
+
+  /** A type-safe representation of the `<data>` element. */
+  data: DataElement;
+
+  /** A type-safe representation of the `<datalist>` element. */
+  datalist: DatalistElement;
+
+  /** A type-safe representation of the `<dd>` element. */
+  dd: DdElement;
+
+  /** A type-safe representation of the `<del>` element. */
+  del: DelElement;
+
+  /** A type-safe representation of the `<details>` element. */
+  details: DetailsElement;
+
+  /** A type-safe representation of the `<dfn>` element. */
+  dfn: DfnElement;
+
+  /** A type-safe representation of the `<dialog>` element. */
+  dialog: DialogElement;
+
+  /** A type-safe representation of the `<div>` element. */
+  div: DivElement;
+
+  /** A type-safe representation of the `<dl>` element. */
+  dl: DlElement;
+
+  /** A type-safe representation of the `<dt>` element. */
+  dt: DtElement;
+
+  /** A type-safe representation of the `<em>` element. */
+  em: EmElement;
+
+  /** A type-safe representation of the `<embed>` element. */
+  embed: EmbedElement;
+
+  /** A type-safe representation of the `<fieldset>` element. */
+  fieldset: FieldsetElement;
+
+  /** A type-safe representation of the `<figcaption>` element. */
+  figcaption: FigcaptionElement;
+
+  /** A type-safe representation of the `<figure>` element. */
+  figure: FigureElement;
+
+  /** A type-safe representation of the `<footer>` element. */
+  footer: FooterElement;
+
+  /** A type-safe representation of the `<form>` element. */
+  form: FormElement;
+
+  /** A type-safe representation of the `<h1>` element. */
+  h1: H1Element;
+
+  /** A type-safe representation of the `<h2>` element. */
+  h2: H2Element;
+
+  /** A type-safe representation of the `<h3>` element. */
+  h3: H3Element;
+
+  /** A type-safe representation of the `<h4>` element. */
+  h4: H4Element;
+
+  /** A type-safe representation of the `<h5>` element. */
+  h5: H5Element;
+
+  /** A type-safe representation of the `<h6>` element. */
+  h6: H6Element;
+
+  /** A type-safe representation of the `<head>` element. */
+  head: HeadElement;
+
+  /** A type-safe representation of the `<header>` element. */
+  header: HeaderElement;
+
+  /** A type-safe representation of the `<hgroup>` element. */
+  hgroup: HgroupElement;
+
+  /** A type-safe representation of the `<hr>` element. */
+  hr: HrElement;
+
+  /** A type-safe representation of the `<html>` element. */
+  html: HtmlElement;
+
+  /** A type-safe representation of the `<i>` element. */
+  i: IElement;
+
+  /** A type-safe representation of the `<iframe>` element. */
+  iframe: IframeElement;
+
+  /** A type-safe representation of the `<img>` element. */
+  img: ImgElement;
+
+  /** A type-safe representation of the `<input>` element. */
+  input: InputElement;
+
+  /** A type-safe representation of the `<ins>` element. */
+  ins: InsElement;
+
+  /** A type-safe representation of the `<kbd>` element. */
+  kbd: KbdElement;
+
+  /** A type-safe representation of the `<label>` element. */
+  label: LabelElement;
+
+  /** A type-safe representation of the `<legend>` element. */
+  legend: LegendElement;
+
+  /** A type-safe representation of the `<li>` element. */
+  li: LiElement;
+
+  /** A type-safe representation of the `<link>` element. */
+  link: LinkElement;
+
+  /** A type-safe representation of the `<main>` element. */
+  main: MainElement;
+
+  /** A type-safe representation of the `<map>` element. */
+  map: MapElement;
+
+  /** A type-safe representation of the `<mark>` element. */
+  mark: MarkElement;
+
+  /** A type-safe representation of the `<math>` element. */
+  math: MathElement;
+
+  /** A type-safe representation of the `<menu>` element. */
+  menu: MenuElement;
+
+  /** A type-safe representation of the `<meta>` element. */
+  meta: MetaElement;
+
+  /** A type-safe representation of the `<meter>` element. */
+  meter: MeterElement;
+
+  /** A type-safe representation of the `<nav>` element. */
+  nav: NavElement;
+
+  /** A type-safe representation of the `<noscript>` element. */
+  noscript: NoscriptElement;
+
+  /** A type-safe representation of the `<object>` element. */
+  object: ObjectElement;
+
+  /** A type-safe representation of the `<ol>` element. */
+  ol: OlElement;
+
+  /** A type-safe representation of the `<optgroup>` element. */
+  optgroup: OptgroupElement;
+
+  /** A type-safe representation of the `<option>` element. */
+  option: OptionElement;
+
+  /** A type-safe representation of the `<output>` element. */
+  output: OutputElement;
+
+  /** A type-safe representation of the `<p>` element. */
+  p: PElement;
+
+  /** A type-safe representation of the `<picture>` element. */
+  picture: PictureElement;
+
+  /** A type-safe representation of the `<portal>` element. */
+  portal: PortalElement;
+
+  /** A type-safe representation of the `<pre>` element. */
+  pre: PreElement;
+
+  /** A type-safe representation of the `<progress>` element. */
+  progress: ProgressElement;
+
+  /** A type-safe representation of the `<q>` element. */
+  q: QElement;
+
+  /** A type-safe representation of the `<rp>` element. */
+  rp: RpElement;
+
+  /** A type-safe representation of the `<rt>` element. */
+  rt: RtElement;
+
+  /** A type-safe representation of the `<ruby>` element. */
+  ruby: RubyElement;
+
+  /** A type-safe representation of the `<s>` element. */
+  s: SElement;
+
+  /** A type-safe representation of the `<samp>` element. */
+  samp: SampElement;
+
+  /** A type-safe representation of the `<script>` element. */
+  script: ScriptElement;
+
+  /** A type-safe representation of the `<search>` element. */
+  search: SearchElement;
+
+  /** A type-safe representation of the `<section>` element. */
+  section: SectionElement;
+
+  /** A type-safe representation of the `<select>` element. */
+  select: SelectElement;
+
+  /** A type-safe representation of the `<slot>` element. */
+  slot: SlotElement;
+
+  /** A type-safe representation of the `<small>` element. */
+  small: SmallElement;
+
+  /** A type-safe representation of the `<source>` element. */
+  source: SourceElement;
+
+  /** A type-safe representation of the `<span>` element. */
+  span: SpanElement;
+
+  /** A type-safe representation of the `<strong>` element. */
+  strong: StrongElement;
+
+  /** A type-safe representation of the `<style>` element. */
+  style: StyleElement;
+
+  /** A type-safe representation of the `<sub>` element. */
+  sub: SubElement;
+
+  /** A type-safe representation of the `<summary>` element. */
+  summary: SummaryElement;
+
+  /** A type-safe representation of the `<sup>` element. */
+  sup: SupElement;
+
+  /** A type-safe representation of the `<svg>` element. */
+  svg: SvgElement;
+
+  /** A type-safe representation of the `<table>` element. */
+  table: TableElement;
+
+  /** A type-safe representation of the `<tbody>` element. */
+  tbody: TbodyElement;
+
+  /** A type-safe representation of the `<td>` element. */
+  td: TdElement;
+
+  /** A type-safe representation of the `<template>` element. */
+  template: TemplateElement;
+
+  /** A type-safe representation of the `<textarea>` element. */
+  textarea: TextareaElement;
+
+  /** A type-safe representation of the `<tfoot>` element. */
+  tfoot: TfootElement;
+
+  /** A type-safe representation of the `<th>` element. */
+  th: ThElement;
+
+  /** A type-safe representation of the `<thead>` element. */
+  thead: TheadElement;
+
+  /** A type-safe representation of the `<time>` element. */
+  time: TimeElement;
+
+  /** A type-safe representation of the `<title>` element. */
+  title: TitleElement;
+
+  /** A type-safe representation of the `<tr>` element. */
+  tr: TrElement;
+
+  /** A type-safe representation of the `<track>` element. */
+  track: TrackElement;
+
+  /** A type-safe representation of the `<u>` element. */
+  u: UElement;
+
+  /** A type-safe representation of the `<ul>` element. */
+  ul: UlElement;
+
+  /** A type-safe representation of the `<var>` element. */
+  var: VarElement;
+
+  /** A type-safe representation of the `<video>` element. */
+  video: VideoElement;
+
+  /** A type-safe representation of the `<wbr>` element. */
+  wbr: WbrElement;
 }

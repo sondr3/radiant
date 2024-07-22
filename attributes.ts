@@ -1,5 +1,12 @@
 /**
- * https://html.spec.whatwg.org/dev/dom.html#global-attributes
+ * This module contains the attribute types for each HTML element.
+ * @module
+ */
+
+/**
+ * Attributes that can be applied to any HTML element.
+ *
+ * See https://html.spec.whatwg.org/dev/dom.html#global-attributes
  */
 export type GlobalAttributes = {
   accesskey?: string;
@@ -29,12 +36,21 @@ export type GlobalAttributes = {
   writingsuggestions?: boolean;
 };
 
+/**
+ * Attributes that can be applied to any user-defined data attribute.
+ */
 export type UserDataAttributes = GlobalAttributes & {
   [key: `data-${string}`]: string | boolean;
 };
 
+/**
+ * The base attributes for any HTML element.
+ */
 export type DefaultAttributes = UserDataAttributes;
 
+/**
+ * Attributes that can be applied to any HTML element.
+ */
 export type HTMLElementAttributes = DefaultAttributes & {
   class?: string;
   id?: string;
@@ -485,120 +501,236 @@ type VideoAttributes = HTMLElementAttributes & {
   height?: number;
 };
 
+/** A mapping of attributes for each HTML element. */
 export type ATTRIBUTE_MAP = {
+  /** Attributes for the anchor (`<a>`) element. */
   a: AnchorAttributes;
+  /** Attributes for the abbreviation (`<abbr>`) element. */
   abbr: HTMLElementAttributes;
+  /** Attributes for the address (`<address>`) element. */
   address: HTMLElementAttributes;
+  /** Attributes for the area (`<area>`) element. */
   area: AreaAttributes;
+  /** Attributes for the article (`<article>`) element. */
   article: HTMLElementAttributes;
+  /** Attributes for the aside (`<aside>`) element. */
   aside: HTMLElementAttributes;
+  /** Attributes for the audio (`<audio>`) element. */
   audio: AudioAttributes;
+  /** Attributes for the bold (`<b>`) element. */
   b: HTMLElementAttributes;
+  /** Attributes for the base (`<base>`) element. */
   base: BaseAttributes;
+  /** Attributes for the bidirectional isolation (`<bdi>`) element. */
   bdi: HTMLElementAttributes;
+  /** Attributes for the bidirectional override (`<bdo>`) element. */
   bdo: HTMLElementAttributes;
+  /** Attributes for the blockquote (`<blockquote>`) element. */
   blockquote: BlockquoteAttributes;
+  /** Attributes for the body (`<body>`) element. */
   body: BodyAttributes;
+  /** Attributes for the line break (`<br>`) element. */
   br: HTMLElementAttributes;
+  /** Attributes for the button (`<button>`) element. */
   button: ButtonAttributes;
+  /** Attributes for the canvas (`<canvas>`) element. */
   canvas: CanvasAttributes;
+  /** Attributes for the table caption (`<caption>`) element. */
   caption: HTMLElementAttributes;
+  /** Attributes for the citation (`<cite>`) element. */
   cite: HTMLElementAttributes;
+  /** Attributes for the inline code (`<code>`) element. */
   code: HTMLElementAttributes;
+  /** Attributes for the table column (`<col>`) element. */
   col: ColAttributes;
+  /** Attributes for the table column group (`<colgroup>`) element. */
   colgroup: ColGroupAttributes;
+  /** Attributes for the data (`<data>`) element. */
   data: DataAttributes;
+  /** Attributes for the datalist (`<datalist>`) element. */
   datalist: HTMLElementAttributes;
+  /** Attributes for the description details (`<dd>`) element. */
   dd: HTMLElementAttributes;
+  /** Attributes for the deleted text (`<del>`) element. */
   del: DelAttributes;
+  /** Attributes for the details (`<details>`) element. */
   details: DetailsAttributes;
+  /** Attributes for the definition (`<dfn>`) element. */
   dfn: HTMLElementAttributes;
+  /** Attributes for the dialog (`<dialog>`) element. */
   dialog: DialogAttributes;
+  /** Attributes for the division (`<div>`) element. */
   div: HTMLElementAttributes;
+  /** Attributes for the description list (`<dl>`) element. */
   dl: HTMLElementAttributes;
+  /** Attributes for the description term (`<dt>`) element. */
   dt: HTMLElementAttributes;
+  /** Attributes for the emphasis (`<em>`) element. */
   em: HTMLElementAttributes;
+  /** Attributes for the embed (`<embed>`) element. */
   embed: EmbedAttributes;
+  /** Attributes for the fieldset (`<fieldset>`) element. */
   fieldset: FieldSetAttributes;
+  /** Attributes for the figure caption (`<figcaption>`) element. */
   figcaption: HTMLElementAttributes;
+  /** Attributes for the figure (`<figure>`) element. */
   figure: HTMLElementAttributes;
+  /** Attributes for the footer (`<footer>`) element. */
   footer: HTMLElementAttributes;
+  /** Attributes for the form (`<form>`) element. */
   form: FormAttributes;
+  /** Attributes for the heading level 1 (`<h1>`) element. */
   h1: HTMLElementAttributes;
+  /** Attributes for the heading level 2 (`<h2>`) element. */
   h2: HTMLElementAttributes;
+  /** Attributes for the heading level 3 (`<h3>`) element. */
   h3: HTMLElementAttributes;
+  /** Attributes for the heading level 4 (`<h4>`) element. */
   h4: HTMLElementAttributes;
+  /** Attributes for the heading level 5 (`<h5>`) element. */
   h5: HTMLElementAttributes;
+  /** Attributes for the heading level 6 (`<h6>`) element. */
   h6: HTMLElementAttributes;
+  /** Attributes for the head (`<head>`) element. */
   head: HTMLElementAttributes;
+  /** Attributes for the header (`<header>`) element. */
   header: HTMLElementAttributes;
+  /** Attributes for the heading group (`<hgroup>`) element. */
   hgroup: HTMLElementAttributes;
+  /** Attributes for the horizontal rule (`<hr>`) element. */
   hr: HTMLElementAttributes;
+  /** Attributes for the HTML (`<html>`) element. */
   html: HTMLAttributes;
+  /** Attributes for the italic (`<i>`) element. */
   i: HTMLElementAttributes;
+  /** Attributes for the inline frame (`<iframe>`) element. */
   iframe: IFrameAttributes;
+  /** Attributes for the image (`<img>`) element. */
   img: ImgAttributes;
+  /** Attributes for the input (`<input>`) element. */
   input: InputAttributes;
+  /** Attributes for the inserted text (`<ins>`) element. */
   ins: InsAttributes;
+  /** Attributes for the keyboard input (`<kbd>`) element. */
   kbd: HTMLElementAttributes;
+  /** Attributes for the label (`<label>`) element. */
   label: LabelAttributes;
+  /** Attributes for the legend (`<legend>`) element. */
   legend: HTMLElementAttributes;
+  /** Attributes for the list item (`<li>`) element. */
   li: LiAttributes;
+  /** Attributes for the link (`<link>`) element. */
   link: LinkAttributes;
+  /** Attributes for the main (`<main>`) element. */
   main: HTMLElementAttributes;
+  /** Attributes for the image map (`<map>`) element. */
   map: MapAttributes;
+  /** Attributes for the marked text (`<mark>`) element. */
   mark: HTMLElementAttributes;
+  /** Attributes for the math (`<math>`) element. */
   math: HTMLElementAttributes;
+  /** Attributes for the menu (`<menu>`) element. */
   menu: HTMLElementAttributes;
+  /** Attributes for the metadata (`<meta>`) element. */
   meta: MetaAttributes;
+  /** Attributes for the meter (`<meter>`) element. */
   meter: MeterAttributes;
+  /** Attributes for the navigation (`<nav>`) element. */
   nav: HTMLElementAttributes;
+  /** Attributes for the noscript (`<noscript>`) element. */
   noscript: HTMLElementAttributes;
+  /** Attributes for the object (`<object>`) element. */
   object: ObjectAttributes;
+  /** Attributes for the ordered list (`<ol>`) element. */
   ol: OlAttributes;
+  /** Attributes for the option group (`<optgroup>`) element. */
   optgroup: OptGroupAttributes;
+  /** Attributes for the option (`<option>`) element. */
   option: OptionAttributes;
+  /** Attributes for the output (`<output>`) element. */
   output: OutputAttributes;
+  /** Attributes for the paragraph (`<p>`) element. */
   p: HTMLElementAttributes;
+  /** Attributes for the picture (`<picture>`) element. */
   picture: HTMLElementAttributes;
+  /** Attributes for the portal (`<portal>`) element. */
   portal: HTMLElementAttributes;
+  /** Attributes for the preformatted text (`<pre>`) element. */
   pre: HTMLElementAttributes;
+  /** Attributes for the progress (`<progress>`) element. */
   progress: ProgressAttributes;
+  /** Attributes for the quotation (`<q>`) element. */
   q: QAttributes;
+  /** Attributes for the ruby parenthesis (`<rp>`) element. */
   rp: HTMLElementAttributes;
+  /** Attributes for the ruby text (`<rt>`) element. */
   rt: HTMLElementAttributes;
+  /** Attributes for the ruby annotation (`<ruby>`) element. */
   ruby: HTMLElementAttributes;
+  /** Attributes for the strikethrough (`<s>`) element. */
   s: HTMLElementAttributes;
+  /** Attributes for the sample output (`<samp>`) element. */
   samp: HTMLElementAttributes;
+  /** Attributes for the script (`<script>`) element. */
   script: ScriptAttributes;
+  /** Attributes for the search (`<search>`) element. */
   search: HTMLElementAttributes;
+  /** Attributes for the section (`<section>`) element. */
   section: HTMLElementAttributes;
+  /** Attributes for the select (`<select>`) element. */
   select: SelectAttributes;
+  /** Attributes for the slot (`<slot>`) element. */
   slot: SlotAttributes;
+  /** Attributes for the small text (`<small>`) element. */
   small: HTMLElementAttributes;
+  /** Attributes for the media source (`<source>`) element. */
   source: SourceAttributes;
+  /** Attributes for the span (`<span>`) element. */
   span: HTMLAttributes;
+  /** Attributes for the strong importance (`<strong>`) element. */
   strong: HTMLAttributes;
+  /** Attributes for the style information (`<style>`) element. */
   style: StyleAttributes;
+  /** Attributes for the subscript (`<sub>`) element. */
   sub: HTMLElementAttributes;
+  /** Attributes for the summary (`<summary>`) element. */
   summary: HTMLElementAttributes;
+  /** Attributes for the superscript (`<sup>`) element. */
   sup: HTMLElementAttributes;
+  /** Attributes for the SVG (`<svg>`) element. */
   svg: HTMLElementAttributes;
+  /** Attributes for the table (`<table>`) element. */
   table: HTMLElementAttributes;
+  /** Attributes for the table body (`<tbody>`) element. */
   tbody: HTMLElementAttributes;
+  /** Attributes for the table cell (`<td>`) element. */
   td: TdAttributes;
+  /** Attributes for the template (`<template>`) element. */
   template: TemplateAttributes;
+  /** Attributes for the text area (`<textarea>`) element. */
   textarea: TextAreaAttributes;
+  /** Attributes for the table footer (`<tfoot>`) element. */
   tfoot: HTMLElementAttributes;
+  /** Attributes for the table header cell (`<th>`) element. */
   th: ThAttributes;
+  /** Attributes for the table head (`<thead>`) element. */
   thead: HTMLElementAttributes;
+  /** Attributes for the time (`<time>`) element. */
   time: TimeAttributes;
+  /** Attributes for the document title (`<title>`) element. */
   title: HTMLElementAttributes;
+  /** Attributes for the table row (`<tr>`) element. */
   tr: HTMLElementAttributes;
+  /** Attributes for the text track (`<track>`) element. */
   track: TrackAttributes;
+  /** Attributes for the unarticulated annotation (`<u>`) element. */
   u: HTMLElementAttributes;
+  /** Attributes for the unordered list (`<ul>`) element. */
   ul: HTMLElementAttributes;
+  /** Attributes for the variable (`<var>`) element. */
   var: HTMLElementAttributes;
+  /** Attributes for the video (`<video>`) element. */
   video: VideoAttributes;
+  /** Attributes for the line break opportunity (`<wbr>`) element. */
   wbr: HTMLElementAttributes;
 };

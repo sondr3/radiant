@@ -9,10 +9,10 @@ await build({
   outDir: "./npm",
   shims: {
     deno: {
-      test: true
-    }
+      test: true,
+    },
   },
-    compilerOptions: {
+  compilerOptions: {
     target: "ES2021",
     sourceMap: true,
   },
@@ -39,5 +39,5 @@ await build({
     await Deno.copyFile("./README.md", "./npm/README.md");
     await Deno.copyFile("./LICENSE", "./npm/LICENSE");
     await Deno.copyFile("./CHANGELOG.md", "./npm/CHANGELOG.md");
-  }
-})
+  },
+});

@@ -25,11 +25,14 @@ interface ${toPascalCase(tag)}Element extends HTMLElement<"${tag}", ATTRIBUTE_MA
   }
 
   let map = `
+/** A type-safe representation of all HTML elements. */
 export type ELEMENT_MAP = {
 `;
 
   for (const tag of HTML_TAGS) {
-    map += ` ${tag}: ${toPascalCase(tag)}Element;\n`;
+    map += `
+  /** A type-safe representation of the \`<${tag}>\` element. */
+  ${tag}: ${toPascalCase(tag)}Element;\n`;
   }
 
   map += `}`;
