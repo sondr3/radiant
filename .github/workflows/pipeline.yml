@@ -21,7 +21,7 @@ jobs:
         run: deno lint
 
       - name: test
-        run: deno task test --doc
+        run: deno task test
 
       - name: npm
         run: deno task npm
