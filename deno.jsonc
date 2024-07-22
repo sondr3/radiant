@@ -1,5 +1,5 @@
 {
-  "name": "@sondr3/hdsl",
+  "name": "@sondr3/radiant",
   "version": "0.1.0",
   "exports": "./mod.ts",
   "tasks": {

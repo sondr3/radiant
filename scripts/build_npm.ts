@@ -17,7 +17,7 @@ await build({
     sourceMap: true,
   },
   package: {
-    name: "hdsl",
+    name: "@sondr3/radiant",
     version: Deno.args[0]?.replace(/^v/, ""),
     author: "Sondre Aasemoen <sondre@eons.io> (https://www.eons.io)",
     description: "A simple, type-safe, and functional way to create HTML documents in TypeScript.",
