@@ -1,3 +1,19 @@
+## v0.2.1
+
+> 2024-07-22
+
+## Summary
+
+Add documentation to functions, types and README that was forgot in previous release. Whoops.
+
+### Commits
+
+- [[`5069abe`](https://github.com/sondr3/radiant/commit/5069abe)] Add documentation strings to XML module
+- [[`2c95b10`](https://github.com/sondr3/radiant/commit/2c95b10)] Make test task check docs too
+- [[`d5f9da0`](https://github.com/sondr3/radiant/commit/d5f9da0)] Add pretty option to XML renderer
+- [[`234b1e5`](https://github.com/sondr3/radiant/commit/234b1e5)] Add RSS examples to README
+- [[`70d6610`](https://github.com/sondr3/radiant/commit/70d6610)] Fix deploy task
+
 ## v0.2.0
 
 > 2024-07-22
