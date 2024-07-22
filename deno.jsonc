@@ -7,6 +7,7 @@
   },
   "tasks": {
     "dev": "deno test --watch mod.ts",
+    "test": "deno test --allow-read",
     "gen": "deno task gen:tags && deno task gen:elems",
     "gen:tags": "deno run -A ./scripts/tag_generator.ts",
     "gen:elems": "deno run -A ./scripts/element_generator.ts",

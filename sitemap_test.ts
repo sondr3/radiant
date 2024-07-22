@@ -1,10 +1,10 @@
 import { describe, it } from "jsr:@std/testing/bdd";
+import { assertSnapshot } from "jsr:@std/testing/snapshot";
 import { s } from "./sitemap.ts";
-import { assertEquals } from "jsr:@std/assert";
 import { renderXMLDocument } from "./render_xml.ts";
 
 describe("sitemap", () => {
-  it("works", () => {
+  it("works", async (t) => {
     const sitemap = s.document(
       s.doctype(),
       s.stylesheet("/styles.xsl", "text/xsl"),
@@ -15,13 +15,10 @@ describe("sitemap", () => {
       ),
     );
 
-    assertEquals(
-      renderXMLDocument(sitemap),
-      `<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet href="/styles.xsl" type="text/xsl"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://example.com</loc></url><url><loc>https://example.com/about</loc></url><url><loc>https://example.com/contact</loc></url></urlset>`,
-    );
+    await assertSnapshot(t, renderXMLDocument(sitemap));
   });
 
-  it("sitemap index", () => {
+  it("sitemap index", async (t) => {
     const sitemap = s.document(
       s.doctype(),
       s.sitemapindex(
@@ -30,13 +27,10 @@ describe("sitemap", () => {
       ),
     );
 
-    assertEquals(
-      renderXMLDocument(sitemap),
-      `<?xml version="1.0" encoding="utf-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://example.com/sitemap1.xml</loc></sitemap><sitemap><loc>https://example.com/sitemap2.xml</loc></sitemap></sitemapindex>`,
-    );
+    await assertSnapshot(t, renderXMLDocument(sitemap));
   });
 
-  it("sample works", () => {
+  it("sample works", async (t) => {
     const sitemap = s.document(
       s.doctype(),
       s.urlset(
@@ -67,13 +61,10 @@ describe("sitemap", () => {
       ),
     );
 
-    assertEquals(
-      renderXMLDocument(sitemap),
-      `<?xml version="1.0" encoding="utf-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>http://www.example.com/</loc><lastmod>2005-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url><url><loc>http://www.example.com/catalog?item=12&amp;desc=vacation_hawaii</loc><changefreq>weekly</changefreq></url><url><loc>http://www.example.com/catalog?item=73&amp;desc=vacation_new_zealand</loc><lastmod>2004-12-23</lastmod><changefreq>weekly</changefreq></url><url><loc>http://www.example.com/catalog?item=74&amp;desc=vacation_newfoundland</loc><lastmod>2004-12-23</lastmod><priority>0.3</priority></url><url><loc>http://www.example.com/catalog?item=83&amp;desc=vacation_usa</loc><lastmod>2004-11-23</lastmod></url></urlset>`,
-    );
+    await assertSnapshot(t, renderXMLDocument(sitemap));
   });
 
-  it("sitemap index sample works", () => {
+  it("sitemap index sample works", async (t) => {
     const sitemap = s.document(
       s.doctype(),
       s.sitemapindex(
@@ -88,9 +79,6 @@ describe("sitemap", () => {
       ),
     );
 
-    assertEquals(
-      renderXMLDocument(sitemap),
-      `<?xml version="1.0" encoding="utf-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>http://www.example.com/sitemap1.xml.gz</loc><lastmod>2004-10-01</lastmod></sitemap><sitemap><loc>http://www.example.com/sitemap2.xml.gz</loc><lastmod>2005-01-01</lastmod></sitemap></sitemapindex>`,
-    );
+    await assertSnapshot(t, renderXMLDocument(sitemap));
   });
 });
