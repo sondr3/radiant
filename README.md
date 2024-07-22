@@ -25,8 +25,7 @@
 Simply import the tags and go to work. Example:
 
 ```ts
-import * as h from "./mod.ts";
-import { renderDocument } from "./mod.ts";
+import { h, renderDocument } from "./mod.ts";
 
 const doc = h.document(
   h.doctype(),
