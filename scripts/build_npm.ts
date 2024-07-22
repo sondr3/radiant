@@ -22,13 +22,13 @@ await build({
     author: "Sondre Aasemoen <sondre@eons.io> (https://www.eons.io)",
     description: "A simple, type-safe, and functional way to create HTML documents in TypeScript.",
     license: "MIT",
-    homepage: "https://github.com/sondr3/hdsl#readme",
+    homepage: "https://github.com/sondr3/radiant#readme",
     repository: {
       type: "git",
-      url: "git+https://github.com/sondr3/hdsl.git",
+      url: "git+https://github.com/sondr3/radiant.git",
     },
     bugs: {
-      url: "https://github.com/sondr3/hdsl/issues",
+      url: "https://github.com/sondr3/radiant/issues",
     },
     keywords: ["html", "dsl", "typescript", "type-safe", "template"],
     engines: {
