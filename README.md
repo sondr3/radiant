@@ -66,5 +66,5 @@ ergonomic in my opinion, but it's pretty close. Hence it's also named somewhat a
 MIT.
 
 [blaze]: https://jaspervdj.be/blaze/
-[luciv]: https://github.com/chrisdone/lucid/tree/master/lucid2
+[lucid]: https://github.com/chrisdone/lucid/tree/master/lucid2
 [smolder]: https://github.com/bodil/purescript-smolder
