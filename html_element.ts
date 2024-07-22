@@ -1,13 +1,16 @@
 import type { AllChildren } from "./content_categories.ts";
+import type { ELEMENT_MAP } from "./elements.ts";
 import type { HTMLTag, VoidHTMLTag } from "./tags.ts";
 
 const isHTMLElement = <T extends HTMLTag, A, C extends AllChildren>(obj: unknown): obj is BaseHTMLElement<T, A, C> => {
   return obj instanceof BaseHTMLElement;
 };
 
-const isVoidHTMLElement = <T extends Extract<HTMLTag, VoidHTMLTag>, A>(obj: unknown): obj is VoidBaseHTMLElement<T, A> => {
+const isVoidHTMLElement = <T extends Extract<HTMLTag, VoidHTMLTag>, A>(
+  obj: unknown,
+): obj is VoidBaseHTMLElement<T, A> => {
   return obj instanceof VoidBaseHTMLElement;
-}
+};
 
 export interface HTMLElement<T extends HTMLTag, A, C> {
   readonly tag: T;
@@ -15,7 +18,7 @@ export interface HTMLElement<T extends HTMLTag, A, C> {
   readonly children: Array<C>;
 }
 
-class BaseHTMLElement<T extends HTMLTag, A, C extends AllChildren> implements HTMLElement<T, A, C> {
+export class BaseHTMLElement<T extends HTMLTag, A, C> implements HTMLElement<T, A, C> {
   readonly tag: T;
   readonly attributes: A;
   readonly children: Array<C>;
@@ -28,7 +31,7 @@ class BaseHTMLElement<T extends HTMLTag, A, C extends AllChildren> implements HT
 }
 
 export class HTMLElementFactory {
-  static create<T extends HTMLTag, A, C extends AllChildren>(
+  static create<T extends HTMLTag, A, C>(
     tag: T,
     attributes: string | A | C | Array<C>,
     children: Array<C>,
@@ -67,9 +70,9 @@ export class Doctype {
 
 export class HTMLDocument {
   readonly doctype: Doctype;
-  readonly children: Array<Omit<AllChildren, "string">>;
+  readonly children: Array<Omit<AllChildren, "string"> | ELEMENT_MAP["html"]>;
 
-  constructor(doctype: Doctype, ...children: Array<AllChildren>) {
+  constructor(doctype: Doctype, ...children: Array<AllChildren | ELEMENT_MAP["html"]>) {
     this.doctype = doctype;
     this.children = children;
   }

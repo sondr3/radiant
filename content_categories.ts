@@ -1,4 +1,4 @@
-import * as e from "./elements.ts";
+import type { ELEMENT_MAP } from "./elements.ts";
 
 export type ContentCategory =
   | "MetadataContent"
@@ -10,291 +10,293 @@ export type ContentCategory =
   | "InteractiveContent"
   | "PalpableContent";
 
-type HtmlContent = e.HeadElement | e.BodyElement;
+type HtmlContent =
+  | ELEMENT_MAP["head"]
+  | ELEMENT_MAP["body"];
 
 type MetadataContent =
-  | e.BaseElement
-  | e.LinkElement
-  | e.MetaElement
-  | e.NoscriptElement
-  | e.ScriptElement
-  | e.StyleElement
-  | e.TemplateElement
-  | e.TitleElement;
+  | ELEMENT_MAP["base"]
+  | ELEMENT_MAP["link"]
+  | ELEMENT_MAP["meta"]
+  | ELEMENT_MAP["noscript"]
+  | ELEMENT_MAP["script"]
+  | ELEMENT_MAP["style"]
+  | ELEMENT_MAP["template"]
+  | ELEMENT_MAP["title"];
 
 type FlowContent =
-  | e.AElement
-  | e.AbbrElement
-  | e.AddressElement
-  | e.AreaElement
-  | e.ArticleElement
-  | e.AsideElement
-  | e.AudioElement
-  | e.BElement
-  | e.BdiElement
-  | e.BdoElement
-  | e.BlockquoteElement
-  | e.BrElement
-  | e.ButtonElement
-  | e.CanvasElement
-  | e.CiteElement
-  | e.CodeElement
-  | e.DataElement
-  | e.DatalistElement
-  | e.DelElement
-  | e.DetailsElement
-  | e.DfnElement
-  | e.DialogElement
-  | e.DivElement
-  | e.DlElement
-  | e.EmElement
-  | e.EmbedElement
-  | e.FieldsetElement
-  | e.FigureElement
-  | e.FooterElement
-  | e.FormElement
-  | e.H1Element
-  | e.H2Element
-  | e.H3Element
-  | e.H4Element
-  | e.H5Element
-  | e.H6Element
-  | e.HeaderElement
-  | e.HgroupElement
-  | e.HrElement
-  | e.IElement
-  | e.IframeElement
-  | e.ImgElement
-  | e.InputElement
-  | e.InsElement
-  | e.KbdElement
-  | e.LabelElement
-  | e.LinkElement
-  | e.MainElement
-  | e.MapElement
-  | e.MarkElement
-  | e.MathElement
-  | e.MenuElement
-  | e.MetaElement
-  | e.MeterElement
-  | e.NavElement
-  | e.NoscriptElement
-  | e.ObjectElement
-  | e.OlElement
-  | e.OutputElement
-  | e.PElement
-  | e.PictureElement
-  | e.PreElement
-  | e.ProgressElement
-  | e.QElement
-  | e.RubyElement
-  | e.SElement
-  | e.SampElement
-  | e.ScriptElement
-  | e.SearchElement
-  | e.SectionElement
-  | e.SelectElement
-  | e.SlotElement
-  | e.SmallElement
-  | e.SpanElement
-  | e.StrongElement
-  | e.SubElement
-  | e.SupElement
-  | e.SVGElement
-  | e.TableElement
-  | e.TemplateElement
-  | e.TextareaElement
-  | e.TimeElement
-  | e.UElement
-  | e.UlElement
-  | e.VarElement
-  | e.VideoElement
-  | e.WbrElement
-  | e.TextElement;
+  | string
+  | ELEMENT_MAP["a"]
+  | ELEMENT_MAP["abbr"]
+  | ELEMENT_MAP["address"]
+  | ELEMENT_MAP["area"]
+  | ELEMENT_MAP["article"]
+  | ELEMENT_MAP["aside"]
+  | ELEMENT_MAP["audio"]
+  | ELEMENT_MAP["b"]
+  | ELEMENT_MAP["bdi"]
+  | ELEMENT_MAP["bdo"]
+  | ELEMENT_MAP["blockquote"]
+  | ELEMENT_MAP["br"]
+  | ELEMENT_MAP["button"]
+  | ELEMENT_MAP["canvas"]
+  | ELEMENT_MAP["cite"]
+  | ELEMENT_MAP["code"]
+  | ELEMENT_MAP["data"]
+  | ELEMENT_MAP["datalist"]
+  | ELEMENT_MAP["del"]
+  | ELEMENT_MAP["details"]
+  | ELEMENT_MAP["dfn"]
+  | ELEMENT_MAP["dialog"]
+  | ELEMENT_MAP["div"]
+  | ELEMENT_MAP["dl"]
+  | ELEMENT_MAP["em"]
+  | ELEMENT_MAP["embed"]
+  | ELEMENT_MAP["fieldset"]
+  | ELEMENT_MAP["figure"]
+  | ELEMENT_MAP["footer"]
+  | ELEMENT_MAP["form"]
+  | ELEMENT_MAP["h1"]
+  | ELEMENT_MAP["h2"]
+  | ELEMENT_MAP["h3"]
+  | ELEMENT_MAP["h4"]
+  | ELEMENT_MAP["h5"]
+  | ELEMENT_MAP["h6"]
+  | ELEMENT_MAP["header"]
+  | ELEMENT_MAP["hgroup"]
+  | ELEMENT_MAP["hr"]
+  | ELEMENT_MAP["i"]
+  | ELEMENT_MAP["iframe"]
+  | ELEMENT_MAP["img"]
+  | ELEMENT_MAP["input"]
+  | ELEMENT_MAP["ins"]
+  | ELEMENT_MAP["kbd"]
+  | ELEMENT_MAP["label"]
+  | ELEMENT_MAP["link"]
+  | ELEMENT_MAP["main"]
+  | ELEMENT_MAP["map"]
+  | ELEMENT_MAP["mark"]
+  | ELEMENT_MAP["math"]
+  | ELEMENT_MAP["menu"]
+  | ELEMENT_MAP["meta"]
+  | ELEMENT_MAP["meter"]
+  | ELEMENT_MAP["nav"]
+  | ELEMENT_MAP["noscript"]
+  | ELEMENT_MAP["object"]
+  | ELEMENT_MAP["ol"]
+  | ELEMENT_MAP["output"]
+  | ELEMENT_MAP["p"]
+  | ELEMENT_MAP["picture"]
+  | ELEMENT_MAP["pre"]
+  | ELEMENT_MAP["progress"]
+  | ELEMENT_MAP["q"]
+  | ELEMENT_MAP["ruby"]
+  | ELEMENT_MAP["s"]
+  | ELEMENT_MAP["samp"]
+  | ELEMENT_MAP["script"]
+  | ELEMENT_MAP["search"]
+  | ELEMENT_MAP["section"]
+  | ELEMENT_MAP["select"]
+  | ELEMENT_MAP["slot"]
+  | ELEMENT_MAP["small"]
+  | ELEMENT_MAP["span"]
+  | ELEMENT_MAP["strong"]
+  | ELEMENT_MAP["sub"]
+  | ELEMENT_MAP["sup"]
+  | ELEMENT_MAP["svg"]
+  | ELEMENT_MAP["table"]
+  | ELEMENT_MAP["template"]
+  | ELEMENT_MAP["textarea"]
+  | ELEMENT_MAP["time"]
+  | ELEMENT_MAP["u"]
+  | ELEMENT_MAP["ul"]
+  | ELEMENT_MAP["var"]
+  | ELEMENT_MAP["video"]
+  | ELEMENT_MAP["wbr"];
 
 type PhrasingContent =
-  | e.AElement
-  | e.AbbrElement
-  | e.AreaElement
-  | e.AudioElement
-  | e.BElement
-  | e.BdiElement
-  | e.BdoElement
-  | e.BrElement
-  | e.ButtonElement
-  | e.CanvasElement
-  | e.CiteElement
-  | e.CodeElement
-  | e.DataElement
-  | e.DatalistElement
-  | e.DelElement
-  | e.DfnElement
-  | e.EmElement
-  | e.EmbedElement
-  | e.IElement
-  | e.IframeElement
-  | e.ImgElement
-  | e.InputElement
-  | e.InsElement
-  | e.KbdElement
-  | e.LabelElement
-  | e.LinkElement
-  | e.MapElement
-  | e.MarkElement
-  | e.MathElement
-  | e.MetaElement
-  | e.MeterElement
-  | e.NoscriptElement
-  | e.ObjectElement
-  | e.OutputElement
-  | e.PictureElement
-  | e.ProgressElement
-  | e.QElement
-  | e.RubyElement
-  | e.SElement
-  | e.SampElement
-  | e.ScriptElement
-  | e.SelectElement
-  | e.SlotElement
-  | e.SmallElement
-  | e.SpanElement
-  | e.StrongElement
-  | e.SubElement
-  | e.SupElement
-  | e.SVGElement
-  | e.TemplateElement
-  | e.TextareaElement
-  | e.TimeElement
-  | e.UElement
-  | e.VarElement
-  | e.VideoElement
-  | e.WbrElement
-  | e.TextElement;
+  | string
+  | ELEMENT_MAP["a"]
+  | ELEMENT_MAP["abbr"]
+  | ELEMENT_MAP["area"]
+  | ELEMENT_MAP["audio"]
+  | ELEMENT_MAP["b"]
+  | ELEMENT_MAP["bdi"]
+  | ELEMENT_MAP["bdo"]
+  | ELEMENT_MAP["br"]
+  | ELEMENT_MAP["button"]
+  | ELEMENT_MAP["canvas"]
+  | ELEMENT_MAP["cite"]
+  | ELEMENT_MAP["code"]
+  | ELEMENT_MAP["data"]
+  | ELEMENT_MAP["datalist"]
+  | ELEMENT_MAP["del"]
+  | ELEMENT_MAP["dfn"]
+  | ELEMENT_MAP["em"]
+  | ELEMENT_MAP["embed"]
+  | ELEMENT_MAP["i"]
+  | ELEMENT_MAP["iframe"]
+  | ELEMENT_MAP["img"]
+  | ELEMENT_MAP["input"]
+  | ELEMENT_MAP["ins"]
+  | ELEMENT_MAP["kbd"]
+  | ELEMENT_MAP["label"]
+  | ELEMENT_MAP["link"]
+  | ELEMENT_MAP["map"]
+  | ELEMENT_MAP["mark"]
+  | ELEMENT_MAP["math"]
+  | ELEMENT_MAP["meta"]
+  | ELEMENT_MAP["meter"]
+  | ELEMENT_MAP["noscript"]
+  | ELEMENT_MAP["object"]
+  | ELEMENT_MAP["output"]
+  | ELEMENT_MAP["picture"]
+  | ELEMENT_MAP["progress"]
+  | ELEMENT_MAP["q"]
+  | ELEMENT_MAP["ruby"]
+  | ELEMENT_MAP["s"]
+  | ELEMENT_MAP["samp"]
+  | ELEMENT_MAP["script"]
+  | ELEMENT_MAP["select"]
+  | ELEMENT_MAP["slot"]
+  | ELEMENT_MAP["small"]
+  | ELEMENT_MAP["span"]
+  | ELEMENT_MAP["strong"]
+  | ELEMENT_MAP["sub"]
+  | ELEMENT_MAP["sup"]
+  | ELEMENT_MAP["svg"]
+  | ELEMENT_MAP["template"]
+  | ELEMENT_MAP["textarea"]
+  | ELEMENT_MAP["time"]
+  | ELEMENT_MAP["u"]
+  | ELEMENT_MAP["var"]
+  | ELEMENT_MAP["video"]
+  | ELEMENT_MAP["wbr"];
 
 type EmbeddedContent =
-  | e.AudioElement
-  | e.CanvasElement
-  | e.EmbedElement
-  | e.IframeElement
-  | e.ImgElement
-  | e.MathElement
-  | e.ObjectElement
-  | e.PictureElement
-  | e.SvgElement
-  | e.VideoElement;
+  | ELEMENT_MAP["audio"]
+  | ELEMENT_MAP["canvas"]
+  | ELEMENT_MAP["embed"]
+  | ELEMENT_MAP["iframe"]
+  | ELEMENT_MAP["img"]
+  | ELEMENT_MAP["math"]
+  | ELEMENT_MAP["object"]
+  | ELEMENT_MAP["picture"]
+  | ELEMENT_MAP["svg"]
+  | ELEMENT_MAP["video"];
 
 type InteractiveContent =
-  | e.AElement
-  | e.AudioElement
-  | e.ButtonElement
-  | e.DetailsElement
-  | e.EmbedElement
-  | e.IframeElement
-  | e.ImgElement
-  | e.InputElement
-  | e.LabelElement
-  | e.SelectElement
-  | e.TextareaElement
-  | e.VideoElement;
+  | ELEMENT_MAP["a"]
+  | ELEMENT_MAP["audio"]
+  | ELEMENT_MAP["button"]
+  | ELEMENT_MAP["details"]
+  | ELEMENT_MAP["embed"]
+  | ELEMENT_MAP["iframe"]
+  | ELEMENT_MAP["img"]
+  | ELEMENT_MAP["input"]
+  | ELEMENT_MAP["label"]
+  | ELEMENT_MAP["select"]
+  | ELEMENT_MAP["textarea"]
+  | ELEMENT_MAP["video"];
 
 type SectioningContent =
-  | e.ArticleElement
-  | e.AsideElement
-  | e.NavElement
-  | e.SectionElement;
+  | ELEMENT_MAP["article"]
+  | ELEMENT_MAP["aside"]
+  | ELEMENT_MAP["nav"]
+  | ELEMENT_MAP["section"];
 
 type HeadingContent =
-  | e.H1Element
-  | e.H2Element
-  | e.H3Element
-  | e.H4Element
-  | e.H5Element
-  | e.H6Element
-  | e.HgroupElement;
+  | ELEMENT_MAP["h1"]
+  | ELEMENT_MAP["h2"]
+  | ELEMENT_MAP["h3"]
+  | ELEMENT_MAP["h4"]
+  | ELEMENT_MAP["h5"]
+  | ELEMENT_MAP["h6"]
+  | ELEMENT_MAP["hgroup"];
 
 type PalpableContent =
-  | e.AElement
-  | e.AbbrElement
-  | e.AddressElement
-  | e.ArticleElement
-  | e.AsideElement
-  | e.AudioElement
-  | e.BElement
-  | e.BdiElement
-  | e.BdoElement
-  | e.BlockquoteElement
-  | e.ButtonElement
-  | e.CanvasElement
-  | e.CiteElement
-  | e.CodeElement
-  | e.DataElement
-  | e.DelElement
-  | e.DetailsElement
-  | e.DfnElement
-  | e.DivElement
-  | e.DlElement
-  | e.EmElement
-  | e.EmbedElement
-  | e.FieldsetElement
-  | e.FigureElement
-  | e.FooterElement
-  | e.FormElement
-  | e.H1Element
-  | e.H2Element
-  | e.H3Element
-  | e.H4Element
-  | e.H5Element
-  | e.H6Element
-  | e.HeaderElement
-  | e.HgroupElement
-  | e.IElement
-  | e.IframeElement
-  | e.ImgElement
-  | e.InputElement
-  | e.InsElement
-  | e.KbdElement
-  | e.LabelElement
-  | e.MainElement
-  | e.MapElement
-  | e.MarkElement
-  | e.MathElement
-  | e.MenuElement
-  | e.MeterElement
-  | e.NavElement
-  | e.ObjectElement
-  | e.OlElement
-  | e.OutputElement
-  | e.PElement
-  | e.PictureElement
-  | e.PreElement
-  | e.ProgressElement
-  | e.QElement
-  | e.RubyElement
-  | e.SElement
-  | e.SampElement
-  | e.SearchElement
-  | e.SectionElement
-  | e.SelectElement
-  | e.SmallElement
-  | e.SpanElement
-  | e.StrongElement
-  | e.SubElement
-  | e.SupElement
-  | e.SvgElement
-  | e.TableElement
-  | e.TextareaElement
-  | e.TimeElement
-  | e.UElement
-  | e.UlElement
-  | e.VarElement
-  | e.VideoElement;
+  | string
+  | ELEMENT_MAP["a"]
+  | ELEMENT_MAP["abbr"]
+  | ELEMENT_MAP["address"]
+  | ELEMENT_MAP["article"]
+  | ELEMENT_MAP["aside"]
+  | ELEMENT_MAP["audio"]
+  | ELEMENT_MAP["b"]
+  | ELEMENT_MAP["bdi"]
+  | ELEMENT_MAP["bdo"]
+  | ELEMENT_MAP["blockquote"]
+  | ELEMENT_MAP["button"]
+  | ELEMENT_MAP["canvas"]
+  | ELEMENT_MAP["cite"]
+  | ELEMENT_MAP["code"]
+  | ELEMENT_MAP["data"]
+  | ELEMENT_MAP["del"]
+  | ELEMENT_MAP["details"]
+  | ELEMENT_MAP["dfn"]
+  | ELEMENT_MAP["div"]
+  | ELEMENT_MAP["dl"]
+  | ELEMENT_MAP["em"]
+  | ELEMENT_MAP["embed"]
+  | ELEMENT_MAP["fieldset"]
+  | ELEMENT_MAP["figure"]
+  | ELEMENT_MAP["footer"]
+  | ELEMENT_MAP["form"]
+  | ELEMENT_MAP["h1"]
+  | ELEMENT_MAP["h2"]
+  | ELEMENT_MAP["h3"]
+  | ELEMENT_MAP["h4"]
+  | ELEMENT_MAP["h5"]
+  | ELEMENT_MAP["h6"]
+  | ELEMENT_MAP["header"]
+  | ELEMENT_MAP["hgroup"]
+  | ELEMENT_MAP["i"]
+  | ELEMENT_MAP["iframe"]
+  | ELEMENT_MAP["img"]
+  | ELEMENT_MAP["input"]
+  | ELEMENT_MAP["ins"]
+  | ELEMENT_MAP["kbd"]
+  | ELEMENT_MAP["label"]
+  | ELEMENT_MAP["main"]
+  | ELEMENT_MAP["map"]
+  | ELEMENT_MAP["mark"]
+  | ELEMENT_MAP["math"]
+  | ELEMENT_MAP["menu"]
+  | ELEMENT_MAP["meter"]
+  | ELEMENT_MAP["nav"]
+  | ELEMENT_MAP["object"]
+  | ELEMENT_MAP["ol"]
+  | ELEMENT_MAP["output"]
+  | ELEMENT_MAP["p"]
+  | ELEMENT_MAP["picture"]
+  | ELEMENT_MAP["pre"]
+  | ELEMENT_MAP["progress"]
+  | ELEMENT_MAP["q"]
+  | ELEMENT_MAP["ruby"]
+  | ELEMENT_MAP["s"]
+  | ELEMENT_MAP["samp"]
+  | ELEMENT_MAP["search"]
+  | ELEMENT_MAP["section"]
+  | ELEMENT_MAP["select"]
+  | ELEMENT_MAP["small"]
+  | ELEMENT_MAP["span"]
+  | ELEMENT_MAP["strong"]
+  | ELEMENT_MAP["sub"]
+  | ELEMENT_MAP["sup"]
+  | ELEMENT_MAP["svg"]
+  | ELEMENT_MAP["table"]
+  | ELEMENT_MAP["textarea"]
+  | ELEMENT_MAP["time"]
+  | ELEMENT_MAP["u"]
+  | ELEMENT_MAP["ul"]
+  | ELEMENT_MAP["var"]
+  | ELEMENT_MAP["video"];
 
 type ScriptSupportingContent =
-  | e.ScriptElement
-  | e.TemplateElement;
+  | ELEMENT_MAP["script"]
+  | ELEMENT_MAP["template"];
 
 export type AllChildren =
-  | string
   | HeadingContent
   | MetadataContent
   | FlowContent
@@ -304,14 +306,14 @@ export type AllChildren =
   | PalpableContent
   | EmbeddedContent;
 
-export type CONTENT_CATEGORY_MAP = {
+export type CHILDREN_MAP = {
   a: PhrasingContent;
   abbr: PhrasingContent;
   address: FlowContent;
   area: void;
   article: FlowContent;
   aside: FlowContent;
-  audio: e.SourceElement | e.TrackElement | PhrasingContent;
+  audio: ELEMENT_MAP["source"] | ELEMENT_MAP["track"] | PhrasingContent;
   b: PhrasingContent;
   base: void;
   bdi: PhrasingContent;
@@ -325,22 +327,22 @@ export type CONTENT_CATEGORY_MAP = {
   cite: PhrasingContent;
   code: PhrasingContent;
   col: void;
-  colgroup: e.ColElement | e.TemplateElement;
+  colgroup: ELEMENT_MAP["col"] | ELEMENT_MAP["template"];
   data: PhrasingContent;
-  datalist: PhrasingContent | e.OptionElement | ScriptSupportingContent;
+  datalist: PhrasingContent | ELEMENT_MAP["option"] | ScriptSupportingContent;
   dd: FlowContent;
   del: PhrasingContent;
-  details: e.SummaryElement | FlowContent;
+  details: ELEMENT_MAP["summary"] | FlowContent;
   dfn: PhrasingContent;
   dialog: FlowContent;
   div: FlowContent;
-  dl: e.DtElement | e.DdElement | e.DivElement | ScriptSupportingContent;
+  dl: ELEMENT_MAP["dt"] | ELEMENT_MAP["dd"] | ELEMENT_MAP["div"] | ScriptSupportingContent;
   dt: FlowContent;
   em: PhrasingContent;
   embed: void;
-  fieldset: e.LegendElement | FlowContent;
+  fieldset: ELEMENT_MAP["legend"] | FlowContent;
   figcaption: FlowContent;
-  figure: e.FigcaptionElement | FlowContent;
+  figure: ELEMENT_MAP["figcaption"] | FlowContent;
   footer: FlowContent;
   form: FlowContent;
   h1: PhrasingContent;
@@ -368,18 +370,18 @@ export type CONTENT_CATEGORY_MAP = {
   map: PhrasingContent;
   mark: PhrasingContent;
   math: void;
-  menu: e.LiElement | ScriptSupportingContent;
+  menu: ELEMENT_MAP["li"] | ScriptSupportingContent;
   meta: void;
   meter: PhrasingContent;
   nav: FlowContent;
   noscript: void;
   object: PhrasingContent;
-  ol: e.LiElement | ScriptSupportingContent;
-  optgroup: e.OptionElement | ScriptSupportingContent;
+  ol: ELEMENT_MAP["li"] | ScriptSupportingContent;
+  optgroup: ELEMENT_MAP["option"] | ScriptSupportingContent;
   option: string;
   output: PhrasingContent;
   p: PhrasingContent;
-  picture: e.SourceElement | e.ImgElement | ScriptSupportingContent;
+  picture: ELEMENT_MAP["source"] | ELEMENT_MAP["img"] | ScriptSupportingContent;
   portal: FlowContent;
   pre: PhrasingContent;
   progress: PhrasingContent;
@@ -392,7 +394,7 @@ export type CONTENT_CATEGORY_MAP = {
   script: string;
   search: FlowContent;
   section: FlowContent;
-  select: e.OptionElement | e.OptgroupElement | ScriptSupportingContent;
+  select: ELEMENT_MAP["option"] | ELEMENT_MAP["optgroup"] | ScriptSupportingContent;
   slot: PhrasingContent;
   small: PhrasingContent;
   source: void;
@@ -404,27 +406,27 @@ export type CONTENT_CATEGORY_MAP = {
   sup: PhrasingContent;
   svg: void;
   table:
-    | e.CaptionElement
-    | e.ColgroupElement
-    | e.TheadElement
-    | e.TfootElement
-    | e.TbodyElement
-    | e.TrElement
+    | ELEMENT_MAP["caption"]
+    | ELEMENT_MAP["colgroup"]
+    | ELEMENT_MAP["thead"]
+    | ELEMENT_MAP["tfoot"]
+    | ELEMENT_MAP["tbody"]
+    | ELEMENT_MAP["tr"]
     | ScriptSupportingContent;
-  tbody: e.TrElement | ScriptSupportingContent;
+  tbody: ELEMENT_MAP["tr"] | ScriptSupportingContent;
   td: FlowContent;
   template: void;
   textarea: string;
-  tfoot: e.TrElement | ScriptSupportingContent;
+  tfoot: ELEMENT_MAP["tr"] | ScriptSupportingContent;
   th: FlowContent;
-  thead: e.TrElement | ScriptSupportingContent;
+  thead: ELEMENT_MAP["tr"] | ScriptSupportingContent;
   time: PhrasingContent;
   title: string;
-  tr: e.ThElement | e.TdElement | ScriptSupportingContent;
+  tr: ELEMENT_MAP["th"] | ELEMENT_MAP["td"] | ScriptSupportingContent;
   track: void;
   u: PhrasingContent;
-  ul: e.LiElement | ScriptSupportingContent;
+  ul: ELEMENT_MAP["li"] | ScriptSupportingContent;
   var: PhrasingContent;
-  video: e.SourceElement | e.TrackElement | PhrasingContent;
+  video: ELEMENT_MAP["source"] | ELEMENT_MAP["track"] | PhrasingContent;
   wbr: void;
 };
