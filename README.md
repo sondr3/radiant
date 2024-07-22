@@ -55,6 +55,39 @@ import { h } from "./mod.ts";
 const invalidA = h.a({ class: "link" }, "Missing href");
 ```
 
+## Sitemaps
+
+Also included is a very basic XML renderer with support for building and rendering sitemaps.
+
+```ts
+import { s } from "./sitemap.ts";
+import { renderXMLDocument } from "./render_xml.ts";
+
+const sitemap = s.document(
+  s.doctype(),
+  s.urlset(
+    s.url(
+      s.loc("http://www.example.com/"),
+      s.lastmod(new Date("2005-01-01")),
+      s.changefreq("monthly"),
+      s.priority(0.8),
+    ),
+    s.url(
+      s.loc("http://www.example.com/catalog?item=73&desc=vacation_new_zealand"),
+      s.lastmod(new Date("2004-12-23")),
+      s.changefreq("weekly"),
+    ),
+    s.url(
+      s.loc("http://www.example.com/catalog?item=74&desc=vacation_newfoundland"),
+      s.lastmod(new Date("2004-12-23T18:00:15Z")),
+      s.priority(0.3),
+    ),
+  ),
+);
+
+console.log(renderXMLDocument(sitemap));
+```
+
 ## Why
 
 After having used libraries like [blaze][blaze] and [lucid][lucid] in Haskell and [smolder][smolder] in PureScript, I
