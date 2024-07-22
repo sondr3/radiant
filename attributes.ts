@@ -297,7 +297,7 @@ type LinkAttributes = HTMLElementAttributes & {
   sizes?: string;
   imagesrcset?: string;
   imagesizes?: string;
-    referrerpolicy?:
+  referrerpolicy?:
     | "no-referrer"
     | "no-referrer-when-downgrade"
     | "origin"
@@ -311,7 +311,7 @@ type LinkAttributes = HTMLElementAttributes & {
   color?: string;
   disabled?: boolean;
   fetchpriority?: "auto" | "high" | "low";
-}
+};
 
 type MapAttributes = HTMLElementAttributes & {
   name: string;
@@ -319,11 +319,11 @@ type MapAttributes = HTMLElementAttributes & {
 
 type MetaAttributes = HTMLElementAttributes & {
   name?: string;
-  "http-equiv"?: "content-type" | "default-style" | "refresh" | "x-ua-compatible" | "content-security-policy"
+  "http-equiv"?: "content-type" | "default-style" | "refresh" | "x-ua-compatible" | "content-security-policy";
   charset?: "utf-8";
   content?: string;
   media?: string;
-}
+};
 
 type MeterAttributes = HTMLElementAttributes & {
   value?: number;
@@ -332,7 +332,7 @@ type MeterAttributes = HTMLElementAttributes & {
   low?: number;
   high?: number;
   optimum?: number;
-}
+};
 
 type ObjectAttributes = HTMLElementAttributes & {
   data?: string;
@@ -342,40 +342,40 @@ type ObjectAttributes = HTMLElementAttributes & {
   form?: string;
   width?: number;
   height?: number;
-}
+};
 
 type OlAttributes = HTMLElementAttributes & {
   reversed?: boolean;
   start?: number;
   type?: "1" | "a" | "A" | "i" | "I";
-}
+};
 
 type OptGroupAttributes = HTMLElementAttributes & {
   disabled?: boolean;
   label?: string;
-}
+};
 
 type OptionAttributes = HTMLElementAttributes & {
   disabled?: boolean;
   label?: string;
   selected?: boolean;
   value?: string;
-}
+};
 
 type OutputAttributes = HTMLElementAttributes & {
   for?: string;
   form?: string;
   name?: string;
-}
+};
 
 type ProgressAttributes = HTMLElementAttributes & {
   value?: number;
   max?: number;
-}
+};
 
 type QAttributes = HTMLElementAttributes & {
   cite?: string;
-}
+};
 
 type ScriptAttributes = HTMLElementAttributes & {
   src?: string;
@@ -396,7 +396,7 @@ type ScriptAttributes = HTMLElementAttributes & {
     | "unsafe-url";
   blocking?: boolean;
   fetchpriority?: "auto" | "high" | "low";
-}
+};
 
 type SelectAttributes = HTMLElementAttributes & {
   autocomplete?: "on" | "off" | boolean;
@@ -406,7 +406,7 @@ type SelectAttributes = HTMLElementAttributes & {
   name?: string;
   required?: boolean;
   size?: number;
-}
+};
 
 type SlotAttributes = MapAttributes;
 
@@ -418,30 +418,30 @@ type SourceAttributes = HTMLElementAttributes & {
   sizes?: string;
   width?: number;
   height?: number;
-}
+};
 
 type StyleAttributes = HTMLElementAttributes & {
   media?: string;
   blocking?: boolean;
-}
+};
 
 type TdAttributes = HTMLElementAttributes & {
   colspan?: number;
   rowspan?: number;
   headers?: string;
-}
+};
 
 type TemplateAttributes = HTMLElementAttributes & {
   shadowrootmode?: "open" | "closed";
   shadowrootdelegatesfocus?: boolean;
   shadowrootclonable?: boolean;
   shadowrootserializable?: boolean;
-}
+};
 
 type ThAttributes = TdAttributes & {
   scope?: "row" | "col" | "rowgroup" | "colgroup";
   abbr?: string;
-}
+};
 
 type TextAreaAttributes = HTMLElementAttributes & {
   autocomplete?: "on" | "off" | boolean;
@@ -457,11 +457,11 @@ type TextAreaAttributes = HTMLElementAttributes & {
   required?: boolean;
   rows?: number;
   wrap?: "hard" | "soft";
-}
+};
 
 type TimeAttributes = HTMLElementAttributes & {
   datetime?: string;
-}
+};
 
 type TrackAttributes = HTMLElementAttributes & {
   default?: boolean;
@@ -469,7 +469,7 @@ type TrackAttributes = HTMLElementAttributes & {
   label?: string;
   src?: string;
   srclang?: string;
-}
+};
 
 type VideoAttributes = HTMLElementAttributes & {
   src?: string;
@@ -483,7 +483,7 @@ type VideoAttributes = HTMLElementAttributes & {
   controls?: boolean;
   width?: number;
   height?: number;
-}
+};
 
 export type ATTRIBUTE_MAP = {
   a: AnchorAttributes;
