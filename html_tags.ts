@@ -4,9 +4,9 @@
 import { HTMLDocument, VoidBaseHTMLElement, Doctype, HTMLElementFactory } from "./html_element.ts";
 import type { ATTRIBUTE_MAP } from "./attributes.ts";
 import type { ELEMENT_MAP } from "./elements.ts";
-import type { AllChildren, CHILDREN_MAP } from "./content_categories.ts";
+import type { CHILDREN_MAP } from "./content_categories.ts";
 
-function documentElement(doctype: Doctype, ...children: Array<AllChildren | ELEMENT_MAP["html"]>): HTMLDocument {
+function documentElement(doctype: Doctype, ...children: Array<ELEMENT_MAP["html"]>): HTMLDocument {
   return new HTMLDocument(doctype, ...children);
 }
 

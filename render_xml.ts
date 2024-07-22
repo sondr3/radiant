@@ -58,7 +58,7 @@ export const renderElement = (tag: unknown): string => {
   }
 
   // This should never happen
-  return "UNREACHABLE";
+  throw new Error("Unsupported element type");
 };
 
 /**

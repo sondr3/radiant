@@ -124,16 +124,14 @@ export class Doctype {
  * Represents an HTML document.
  */
 export class HTMLDocument {
-  readonly doctype: Doctype;
-  readonly children: Array<Omit<AllChildren, "string"> | ELEMENT_MAP["html"]>;
+  readonly children: Array<Doctype | ELEMENT_MAP["html"]>;
 
   /**
    * Creates a new HTMLDocument instance.
    * @param doctype - The doctype of the HTML document.
    * @param children - The children elements of the HTML document.
    */
-  constructor(doctype: Doctype, ...children: Array<AllChildren | ELEMENT_MAP["html"]>) {
-    this.doctype = doctype;
-    this.children = children;
+  constructor(doctype: Doctype, ...children: Array<ELEMENT_MAP["html"]>) {
+    this.children = [doctype, ...children];
   }
 }

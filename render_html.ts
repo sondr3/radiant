@@ -3,7 +3,7 @@
  * @module
  */
 
-import { BaseHTMLElement, type Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html_element.ts";
+import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html_element.ts";
 import { stringifyAttributes } from "./render.ts";
 import type { HTMLTag, VoidHTMLTag } from "./tags.ts";
 
@@ -65,6 +65,10 @@ export const renderHtmlElement = <T extends HTMLTag, A, C>(
  * @returns The rendered element as a string.
  */
 export const renderElement = (tag: unknown): string => {
+  if (tag instanceof Doctype) {
+    return renderDoctype(tag);
+  }
+
   if (tag instanceof BaseHTMLElement) {
     return renderHtmlElement(tag);
   }
@@ -74,7 +78,7 @@ export const renderElement = (tag: unknown): string => {
   }
 
   // This should never happen
-  return "UNREACHABLE";
+  throw new Error("Unsupported element type");
 };
 
 /**
@@ -84,7 +88,7 @@ export const renderElement = (tag: unknown): string => {
  * @returns The rendered HTML document as a string.
  */
 export const renderDocument = (doc: HTMLDocument): string => {
-  let result = renderDoctype(doc.doctype);
+  let result = "";
 
   for (const child of doc.children) {
     result += renderElement(child);
