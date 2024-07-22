@@ -7,10 +7,9 @@ await build({
   importMap: "./deno.jsonc",
   esModule: true,
   outDir: "./npm",
+  test: false,
   shims: {
-    deno: {
-      test: true,
-    },
+    deno: true,
   },
   compilerOptions: {
     target: "ES2021",
