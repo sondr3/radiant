@@ -1,6 +1,6 @@
 import { assertEquals, assertObjectMatch } from "jsr:@std/assert";
 import { h } from "./mod.ts";
-import { renderElement } from "./render.ts";
+import { renderElement } from "./render_html.ts";
 import { it } from "jsr:@std/testing/bdd";
 import { elementToObject } from "./ast.ts";
 
