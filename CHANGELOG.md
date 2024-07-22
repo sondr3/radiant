@@ -1,3 +1,29 @@
+## v0.2.0
+
+> 2024-07-22
+
+## Summary
+
+Add XML and sitemap constructs to package.
+
+### Commits
+
+- [[`37418e1`](https://github.com/sondr3/radiant/commit/37418e1)] Fix NPM build
+- [[`99b1b15`](https://github.com/sondr3/radiant/commit/99b1b15)] Add pretty printing of XML
+- [[`ba31851`](https://github.com/sondr3/radiant/commit/ba31851)] Change types for HTMLDocument class
+- [[`81cd14c`](https://github.com/sondr3/radiant/commit/81cd14c)] Allow xsi attributes on sitemaps
+- [[`204f005`](https://github.com/sondr3/radiant/commit/204f005)] Make doctype required again, I liked it better
+  explicit
+- [[`a9ca309`](https://github.com/sondr3/radiant/commit/a9ca309)] Refactor XML types, add declarations
+- [[`9349d24`](https://github.com/sondr3/radiant/commit/9349d24)] Fix README code, again
+- [[`72b9814`](https://github.com/sondr3/radiant/commit/72b9814)] Make the sitemap DSL typesafe
+- [[`4d1b9d6`](https://github.com/sondr3/radiant/commit/4d1b9d6)] Move rendering around, make doctype optional in DSL
+- [[`7abc854`](https://github.com/sondr3/radiant/commit/7abc854)] Add sitemap and XML rendering/building
+- [[`8d7a79f`](https://github.com/sondr3/radiant/commit/8d7a79f)] Fix README link to lucid
+- [[`4c7f48d`](https://github.com/sondr3/radiant/commit/4c7f48d)] Remove redundant check in publish step
+- [[`a1e1439`](https://github.com/sondr3/radiant/commit/a1e1439)] Correct repo in NPM package
+- [[`caa2937`](https://github.com/sondr3/radiant/commit/caa2937)] Release v0.1.0
+
 ## v0.1.0
 
 > 2024-07-22
