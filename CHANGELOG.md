@@ -1,3 +1,17 @@
+## v0.2.3
+
+> 2024-07-23
+
+## Summary
+
+More documentation updates.
+
+### Commits
+
+- [[`ad09573`](https://github.com/sondr3/radiant/commit/ad09573)] Link to JSR
+- [[`41dd24c`](https://github.com/sondr3/radiant/commit/41dd24c)] Better module docs
+- [[`a68ad92`](https://github.com/sondr3/radiant/commit/a68ad92)] Update README
+
 ## v0.2.2
 
 > 2024-07-22

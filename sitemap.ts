@@ -1,9 +1,9 @@
 /**
  * A type-safe builder for XML elements in a sitemap.
- * 
+ *
  * ```ts
  * import { renderSitemap, s } from "jsr:@sondr3/radiant/sitemap";
- * 
+ *
  * const sitemap = s.document(
  *   s.doctype(),
  *   s.urlset(
@@ -25,10 +25,10 @@
  *     ),
  *   ),
  * );
- * 
+ *
  * console.log(renderSitemap(sitemap, { pretty: true }));
  * ```
- * 
+ *
  * @module
  */
 

@@ -1,10 +1,10 @@
 /**
  * A module for generating HTML documents in type-safe and ergonomic TypeScript.
- * 
+ *
  * ## Example
  * ```ts
  * import { h, renderDocument } from "jsr:@sondr3/radiant";
- * 
+ *
  * const doc = h.document(
  *   h.doctype(),
  *   h.html(
@@ -17,10 +17,10 @@
  *     ),
  *   ),
  * );
- * 
+ *
  * console.log(renderDocument(doc));
  * ```
- * 
+ *
  * @module
  */
 
