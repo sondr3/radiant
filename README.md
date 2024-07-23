@@ -10,25 +10,25 @@
 </p>
 
 - **Simple**: no magic templating, just regular functions and objects.
-- **TypeScript**: by exploiting the type system you can guard against invalid HTML
+- **No magic**: no template magics or string based APIs
+- **Type-safe**: by exploiting the TypeScript type system you can guard against invalid HTML and XML
 
 <details>
 <summary>Table of Contents</summary>
 <br />
 
-- [How](#how)
+- [Example](#example)
+- [Installation](#installation)
 - [Type safety](#type-safety)
 - [Why](#why)
 - [License](#license)
 
 </details>
 
-## How
-
-Simply import the tags and go to work. Example:
+## Example
 
 ```ts
-import { h, renderDocument } from "./mod.ts";
+import { h, renderDocument } from "jsr:@sondr3/radiant";
 
 const doc = h.document(
   h.doctype(),
@@ -46,13 +46,34 @@ const doc = h.document(
 console.log(renderDocument(doc));
 ```
 
+## Installation
+
+### Deno
+
+- `deno add @sondr3/radiant` and import it `import { h } from "@sondr3/radiant"`
+- Or import directly `import { h } from jsr:@sondr3/radiant`
+
+### Node
+
+- **`pnpm`**: `pnpm dlx jsr add @sondr3/radiant`
+- **`npm`**: `npx jsr add @sondr3/radiant`
+- **`yarn`**: `yarn dlx jsr add @sondr3/radiant`
+
+### Bun
+
+1. `bunx jsr add @sondr3/radiant`
+1. `import { h } from "@sondr3/radiant`
+
 ## Type safety
 
 ```ts
-import { h } from "./mod.ts";
+import { h } from "jsr:@sondr3/radiant";
 
-// @ts-expect-error example
-const invalidA = h.a({ class: "link" }, "Missing href");
+// @ts-expect-error missing href
+h.a({ class: "link" }, "Missing href");
+
+// @ts-expect-error invalid nesting
+h.p(h.head(h.title("Not valid")));
 ```
 
 ## Sitemaps
@@ -60,7 +81,7 @@ const invalidA = h.a({ class: "link" }, "Missing href");
 Also included is a very basic XML renderer with support for building and rendering sitemaps.
 
 ```ts
-import { renderSitemap, s } from "./sitemap.ts";
+import { renderSitemap, s } from "jsr:@sondr3/radiant/sitemap";
 
 const sitemap = s.document(
   s.doctype(),
