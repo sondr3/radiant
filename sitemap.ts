@@ -1,5 +1,34 @@
 /**
  * A type-safe builder for XML elements in a sitemap.
+ * 
+ * ```ts
+ * import { renderSitemap, s } from "jsr:@sondr3/radiant/sitemap";
+ * 
+ * const sitemap = s.document(
+ *   s.doctype(),
+ *   s.urlset(
+ *     s.url(
+ *       s.loc("http://www.example.com/"),
+ *       s.lastmod(new Date("2005-01-01")),
+ *       s.changefreq("monthly"),
+ *       s.priority(0.8),
+ *     ),
+ *     s.url(
+ *       s.loc("http://www.example.com/catalog?item=73&desc=vacation_new_zealand"),
+ *       s.lastmod(new Date("2004-12-23")),
+ *       s.changefreq("weekly"),
+ *     ),
+ *     s.url(
+ *       s.loc("http://www.example.com/catalog?item=74&desc=vacation_newfoundland"),
+ *       s.lastmod(new Date("2004-12-23T18:00:15Z")),
+ *       s.priority(0.3),
+ *     ),
+ *   ),
+ * );
+ * 
+ * console.log(renderSitemap(sitemap, { pretty: true }));
+ * ```
+ * 
  * @module
  */
 
