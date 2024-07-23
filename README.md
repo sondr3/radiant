@@ -46,6 +46,8 @@ const doc = h.document(
 console.log(renderDocument(doc));
 ```
 
+See more details and documentations at [JSR](https://jsr.io/@sondr3/radiant).
+
 ## Installation
 
 ### Deno
