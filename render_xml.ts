@@ -18,7 +18,7 @@ export const renderXMLElement = <T extends string, A extends XMLAttributes, C>(
   node: XMLElement<T, A, C> | VoidXMLElement<T, A> | XMLDeclaration<T, A>,
   opts?: { pretty: boolean },
 ): string => {
-  return new PrettyPrinter(opts?.pretty ?? false).printNode(node);
+  return new PrettyPrinter(opts?.pretty ?? false, "xml").printNode(node);
 };
 
 /**
@@ -28,5 +28,5 @@ export const renderXMLElement = <T extends string, A extends XMLAttributes, C>(
  * @returns The rendered XML document as a string.
  */
 export const renderXMLDocument = (doc: XMLDocument, opts?: { pretty: boolean }): string => {
-  return new PrettyPrinter(opts?.pretty ?? false).print(doc);
+  return new PrettyPrinter(opts?.pretty ?? false, "xml").print(doc);
 };

@@ -57,7 +57,7 @@ snapshot[`sitemap > sample works 1`] = `
   </url>
   <url>
     <loc>
-      http://www.example.com/catalog?item=12&desc=vacation_hawaii
+      http://www.example.com/catalog?item=12&amp;desc=vacation_hawaii
     </loc>
     <changefreq>
       weekly
@@ -65,7 +65,7 @@ snapshot[`sitemap > sample works 1`] = `
   </url>
   <url>
     <loc>
-      http://www.example.com/catalog?item=73&desc=vacation_new_zealand
+      http://www.example.com/catalog?item=73&amp;desc=vacation_new_zealand
     </loc>
     <lastmod>
       2004-12-23
@@ -76,7 +76,7 @@ snapshot[`sitemap > sample works 1`] = `
   </url>
   <url>
     <loc>
-      http://www.example.com/catalog?item=74&desc=vacation_newfoundland
+      http://www.example.com/catalog?item=74&amp;desc=vacation_newfoundland
     </loc>
     <lastmod>
       2004-12-23
@@ -87,7 +87,7 @@ snapshot[`sitemap > sample works 1`] = `
   </url>
   <url>
     <loc>
-      http://www.example.com/catalog?item=83&desc=vacation_usa
+      http://www.example.com/catalog?item=83&amp;desc=vacation_usa
     </loc>
     <lastmod>
       2004-11-23

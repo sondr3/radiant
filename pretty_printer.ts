@@ -1,6 +1,7 @@
 import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html_element.ts";
 import { stringifyAttributes } from "./render.ts";
 import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml.ts";
+import { escape } from "@std/html";
 
 type BaseAttributes = Record<string, string | boolean>;
 
@@ -11,6 +12,8 @@ interface BaseElement<T, A> {
 
 type HasChildren<T, C> = T extends { children: Array<C> } ? T : never;
 
+type FormatterMode = "html" | "xml";
+
 export const defaultPrettyPrinterOptions = {
   indent: "  ",
   level: 0,
@@ -20,6 +23,7 @@ export const defaultPrettyPrinterOptions = {
 export class PrettyPrinter {
   constructor(
     private readonly pretty: boolean = true,
+    private readonly mode: FormatterMode = "html",
     private readonly indent: string = "  ",
     private level: number = 0,
   ) {}
@@ -73,7 +77,8 @@ export class PrettyPrinter {
   }
 
   private printTextNode(text: string): string {
-    return `${this.getIndent()}${text}`;
+    const escaped = this.mode === "xml" ? escape(text) : text;
+    return `${this.getIndent()}${escaped}`;
   }
 
   printNode<T, A extends BaseAttributes, N extends Doctype | BaseElement<T, A> | string>(
