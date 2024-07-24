@@ -3,104 +3,22 @@
  * @module
  */
 
-import { escape } from "@std/html";
-import { stringifyAttributes } from "./render.ts";
-import { VoidXMLElement, type XMLAttributes, XMLDeclaration, type XMLDocument, XMLElement } from "./xml.ts";
-
-type XMLFormatOptions = {
-  depth?: number;
-  newline?: boolean;
-};
-
-/**
- * If formatter options are provided, calculate the indentation and newline values.
- * @param opts - The formatter options.
- * @returns - Values used to format XML documents
- */
-const optionValues = ({ depth, newline }: XMLFormatOptions) => ({
-  indent: depth !== undefined ? "  ".repeat(depth) : "",
-  newline: newline ? "\n" : "",
-});
-
-/**
- * Renders a void XML element as a string.
- *
- * @param element - The void XML element to render.
- * @returns The rendered XML string.
- */
-export const renderVoidXMLElement = <T extends string, A extends XMLAttributes>(
-  element: VoidXMLElement<T, A>,
-  opts?: XMLFormatOptions,
-) => {
-  const { indent, newline } = optionValues(opts ?? {});
-  return `${indent}<${element.tag}${stringifyAttributes(element.attributes ?? {})}>${newline}`;
-};
-
-/**
- * Renders an XML element as a string.
- *
- * @param element - The XML element to render.
- * @returns The rendered XML element as a string.
- */
-export const renderXMLElement = <T, A, C>(
-  element: XMLElement<T, A, C>,
-  opts?: XMLFormatOptions,
-) => {
-  const { indent, newline } = optionValues(opts ?? {});
-  let result = `${indent}<${element.tag}${stringifyAttributes(element.attributes ?? {})}>${newline}`;
-
-  for (const child of element.children) {
-    if (typeof child === "string") {
-      result += (indent.repeat(2)) + escape(child) + newline;
-    } else {
-      result += renderElement(child, { ...opts, depth: (opts?.depth ?? 0) + 1 });
-    }
-  }
-
-  result += `${indent}</${element.tag}>${newline}`;
-  return result;
-};
-
-/**
- * Renders an XML declaration.
- *
- * @template T - The type of the declaration tag.
- * @template A - The type of the declaration attributes.
- * @param {XMLDeclaration<T, A>} declaration - The XML declaration object.
- * @param {XMLFormatOptions} [opts] - The optional XML format options.
- * @returns {string} - The rendered XML declaration.
- */
-export const renderXMLDeclaration = <T extends string, A extends XMLAttributes>(
-  declaration: XMLDeclaration<T, A>,
-  opts?: XMLFormatOptions,
-) => {
-  const { indent, newline } = optionValues(opts ?? {});
-  return `${indent}<?${declaration.tag}${stringifyAttributes(declaration.attributes ?? {})}?>${newline}`;
-};
+import type { VoidXMLElement, XMLAttributes, XMLDeclaration, XMLDocument, XMLElement } from "./xml.ts";
+import { PrettyPrinter } from "./pretty_printer.ts";
 
 /**
  * Renders an XML element or declaration to a string.
  *
- * @param tag - The XML element or declaration to render.
+ * @param node - The XML element or declaration to render.
  * @param opts - Optional formatting options.
  * @returns The rendered XML as a string.
  * @throws Error if the element type is not supported.
  */
-export const renderElement = (tag: unknown, opts?: XMLFormatOptions): string => {
-  if (tag instanceof XMLDeclaration) {
-    return renderXMLDeclaration(tag, opts);
-  }
-
-  if (tag instanceof XMLElement) {
-    return renderXMLElement(tag, opts);
-  }
-
-  if (tag instanceof VoidXMLElement) {
-    return renderVoidXMLElement(tag, opts);
-  }
-
-  // This should never happen
-  throw new Error("Unsupported element type");
+export const renderXMLElement = <T extends string, A extends XMLAttributes, C>(
+  node: XMLElement<T, A, C> | VoidXMLElement<T, A> | XMLDeclaration<T, A>,
+  opts?: { pretty: boolean },
+): string => {
+  return new PrettyPrinter(opts?.pretty ?? false).printNode(node);
 };
 
 /**
@@ -110,9 +28,5 @@ export const renderElement = (tag: unknown, opts?: XMLFormatOptions): string => 
  * @returns The rendered XML document as a string.
  */
 export const renderXMLDocument = (doc: XMLDocument, opts?: { pretty: boolean }): string => {
-  let result = "";
-  for (const child of doc.children) {
-    result += renderElement(child, opts?.pretty ? { depth: 0, newline: true } : undefined);
-  }
-  return result;
+  return new PrettyPrinter(opts?.pretty ?? false).print(doc);
 };
