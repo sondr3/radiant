@@ -1,7 +1,29 @@
 import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html_element.ts";
-import { stringifyAttributes } from "./render.ts";
 import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml.ts";
 import { escape } from "@std/html";
+
+/**
+ * Converts an object of attributes into a string representation.
+ *
+ * @param attributes - The attributes to stringify.
+ * @returns The string representation of the attributes.
+ */
+export const stringifyAttributes = (attributes: Record<string, string | boolean>): string => {
+  const result = Array.from(Object.entries(attributes)).map(([key, value]) => {
+    const escapedKey = escape(key);
+    if (Array.isArray(value)) {
+      return `${escapedKey}="${escape(value.join(" "))}"`;
+    }
+
+    if (typeof value === "boolean") {
+      return value ? escapedKey : "";
+    }
+
+    return `${escapedKey}="${escape(value)}"`;
+  });
+
+  return result.length > 0 ? " " + result.join(" ") : "";
+};
 
 type BaseAttributes = Record<string, string | boolean>;
 
