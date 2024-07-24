@@ -71,6 +71,8 @@ export class PrettyPrinter {
 
     let result = `${this.getIndent()}<${tag}${stringifyAttributes(attributes)}`;
 
+    // TODO: Refactor this to recursively check length of children instead of this special casing
+    // TODO: Need to handle `pre` and such tags differently probably
     if (hasOneChild && typeof children[0] === "string") {
       const child = children[0] as string;
       const length = child.length;

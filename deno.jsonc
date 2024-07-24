@@ -6,7 +6,8 @@
     "./sitemap": "./sitemap.ts"
   },
   "tasks": {
-    "dev": "deno test --watch mod.ts",
+    "dev": "deno test --watch -A --doc",
+    "check": "deno fmt && deno lint && deno check *.ts",
     "test": "deno test --allow-read --doc",
     "gen": "deno task gen:tags && deno task gen:elems",
     "gen:tags": "deno run -A ./scripts/tag_generator.ts",
