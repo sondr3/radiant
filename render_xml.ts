@@ -14,7 +14,7 @@ import { PrettyPrinter } from "./pretty_printer.ts";
  * @returns The rendered XML as a string.
  * @throws Error if the element type is not supported.
  */
-export const renderXMLElement = <T extends string, A extends XMLAttributes, C>(
+export const renderElement = <T extends string, A extends XMLAttributes, C>(
   node: XMLElement<T, A, C> | VoidXMLElement<T, A> | XMLDeclaration<T, A>,
   opts?: { pretty: boolean },
 ): string => {
@@ -27,6 +27,6 @@ export const renderXMLElement = <T extends string, A extends XMLAttributes, C>(
  * @param doc - The XML document to render.
  * @returns The rendered XML document as a string.
  */
-export const renderXMLDocument = (doc: XMLDocument, opts?: { pretty: boolean }): string => {
+export const renderDocument = (doc: XMLDocument, opts?: { pretty: boolean }): string => {
   return new PrettyPrinter(opts?.pretty ?? false, "xml").print(doc);
 };

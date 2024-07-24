@@ -42,7 +42,7 @@ import {
   xmlStylesheet,
 } from "./xml.ts";
 import { format } from "@std/datetime";
-export { renderXMLDocument as renderSitemap } from "./render_xml.ts";
+export { renderDocument as renderSitemap } from "./render_xml.ts";
 
 type UrlSetAttributes = XMLAttributes & {
   xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9";

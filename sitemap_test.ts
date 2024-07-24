@@ -1,7 +1,7 @@
 import { describe, it } from "jsr:@std/testing/bdd";
 import { assertSnapshot } from "jsr:@std/testing/snapshot";
 import { s } from "./sitemap.ts";
-import { renderXMLDocument } from "./render_xml.ts";
+import { renderDocument } from "./render_xml.ts";
 
 describe("sitemap", () => {
   it("works", async (t) => {
@@ -15,7 +15,7 @@ describe("sitemap", () => {
       ),
     );
 
-    await assertSnapshot(t, renderXMLDocument(sitemap, { pretty: true }));
+    await assertSnapshot(t, renderDocument(sitemap, { pretty: true }));
   });
 
   it("sitemap index", async (t) => {
@@ -27,7 +27,7 @@ describe("sitemap", () => {
       ),
     );
 
-    await assertSnapshot(t, renderXMLDocument(sitemap, { pretty: true }));
+    await assertSnapshot(t, renderDocument(sitemap, { pretty: true }));
   });
 
   it("sample works", async (t) => {
@@ -61,7 +61,7 @@ describe("sitemap", () => {
       ),
     );
 
-    await assertSnapshot(t, renderXMLDocument(sitemap, { pretty: true }));
+    await assertSnapshot(t, renderDocument(sitemap, { pretty: true }));
   });
 
   it("sitemap index sample works", async (t) => {
@@ -79,6 +79,6 @@ describe("sitemap", () => {
       ),
     );
 
-    await assertSnapshot(t, renderXMLDocument(sitemap, { pretty: true }));
+    await assertSnapshot(t, renderDocument(sitemap, { pretty: true }));
   });
 });
