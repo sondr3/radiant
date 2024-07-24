@@ -66,38 +66,34 @@ export class PrettyPrinter {
     element: HasChildren<BaseElement<T, A> & { children: C[] }, C>,
   ): string {
     const { tag, children, attributes } = element;
-    const hasChildren = children.length > 0;
-    const hasOneChild = children.length === 1;
+    const result = `${this.getIndent()}<${tag}${stringifyAttributes(attributes)}`;
 
-    let result = `${this.getIndent()}<${tag}${stringifyAttributes(attributes)}`;
-
-    // TODO: Refactor this to recursively check length of children instead of this special casing
-    // TODO: Need to handle `pre` and such tags differently probably
-    if (hasOneChild && typeof children[0] === "string") {
-      const child = children[0] as string;
-      const length = child.length;
-
-      if (length < 100) {
-        result += `>${child}</${tag}>`;
-      } else {
-        result += ">";
-        this.increaseIndent();
-        result += this.pretty ? `\n${this.getIndent()}` : "";
-        result += child;
-        this.decreaseIndent();
-        result += this.pretty ? `\n${this.getIndent()}</${tag}>` : `</${tag}>`;
-      }
-    } else if (hasChildren) {
-      result += this.pretty ? ">\n" : ">";
-      this.increaseIndent();
-      result += children.map((child) => this.printNode(child)).join(this.pretty ? "\n" : "");
-      this.decreaseIndent();
-      result += this.pretty ? `\n${this.getIndent()}</${tag}>` : `</${tag}>`;
-    } else {
-      result += " />";
+    if (children.length === 0) {
+      return `${result} />`;
     }
 
-    return result;
+    return `${result}>${this.printChildren(children)}</${tag}>`;
+  }
+
+  private printChildren<C extends string | BaseElement<unknown, BaseAttributes>>(children: C[]): string {
+    if (children.length === 1 && typeof children[0] === "string") {
+      return this.printSingleTextChild(children[0]);
+    }
+
+    this.increaseIndent();
+    const childrenContent = children.map((child) => this.printNode(child)).join(this.pretty ? "\n" : "");
+    this.decreaseIndent();
+    return this.pretty ? `\n${childrenContent}\n${this.getIndent()}` : childrenContent;
+  }
+
+  private printSingleTextChild(child: string): string {
+    if (child.length < 100) {
+      return child;
+    }
+    this.increaseIndent();
+    const indentedChild = this.pretty ? `\n${this.getIndent()}${child}\n${this.getIndent()}` : child;
+    this.decreaseIndent();
+    return indentedChild;
   }
 
   private printVoidElement<T, A extends BaseAttributes>(element: BaseElement<T, A>): string {
