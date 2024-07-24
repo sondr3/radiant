@@ -1,5 +1,5 @@
 import { describe, it } from "jsr:@std/testing/bdd";
-import { renderDocument } from "./render_html.ts";
+import { renderDocument, renderElement } from "./render_html.ts";
 import { h } from "./html_tags.ts";
 import { assertSnapshot } from "jsr:@std/testing/snapshot";
 
@@ -34,5 +34,17 @@ describe("HTML rendering", () => {
     );
 
     await assertSnapshot(t, renderDocument(doc, { pretty: true }));
+  });
+
+  it("works with whitespace sensitive tags", async (t) => {
+    const doc = h.body(
+      h.p("This is some regular text..."),
+      h.pre(`     And this is a very long line of text that should be preserved
+        
+  this has
+some 
+    weird whitespace`),
+    );
+    await assertSnapshot(t, renderElement(doc, { pretty: true }));
   });
 });

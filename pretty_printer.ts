@@ -43,6 +43,8 @@ export const defaultPrettyPrinterOptions = {
 };
 
 export class PrettyPrinter {
+  private readonly preserveWhitespaceTags = new Set(["pre", "code", "textarea"]);
+
   constructor(
     private readonly pretty: boolean = true,
     private readonly mode: FormatterMode = "html",
@@ -70,6 +72,10 @@ export class PrettyPrinter {
 
     if (children.length === 0) {
       return `${result} />`;
+    }
+
+    if (this.preserveWhitespaceTags.has(tag as string)) {
+      return `${result}>${children.join("")}</${tag}>`;
     }
 
     return `${result}>${this.printChildren(children)}</${tag}>`;
