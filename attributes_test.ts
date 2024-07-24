@@ -26,6 +26,6 @@ describe("attributes", () => {
 
   it("attributes works", () => {
     const input = h.input({ type: "text", disabled: true });
-    assertEquals(renderElement(input), `<input type="text" disabled>`);
+    assertEquals(renderElement(input), `<input type="text" disabled />`);
   });
 });

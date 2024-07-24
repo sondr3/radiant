@@ -1,0 +1,30 @@
+export const snapshot = {};
+
+snapshot[`HTML rendering > works without pretty 1`] = `"<!DOCTYPE html><html><head><title>Hello, world!</title></head></html>"`;
+
+snapshot[`HTML rendering > works with pretty 1`] = `
+'<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Hello, world!
+    </title>
+  </head>
+  <body>
+    <h1 class="blah">
+      Hello, world!
+    </h1>
+    <p>
+      This is a bunch of text... blah blah blah
+    </p>
+    <p>
+      With some more 
+      <b>
+        bold
+      </b>
+       text.
+    </p>
+  </body>
+</html>'
+`;

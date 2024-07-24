@@ -46,7 +46,7 @@ it("it works redux ", () => {
 
   assertEquals(
     renderElement(doc),
-    `<html><head><meta charset="utf-8"><title>Hello, world!</title></head><body><h1 class="blah">Hello, world!</h1></body></html>`,
+    `<html><head><meta charset="utf-8" /><title>Hello, world!</title></head><body><h1 class="blah">Hello, world!</h1></body></html>`,
   );
 
   assertObjectMatch(elementToObject(doc), {
