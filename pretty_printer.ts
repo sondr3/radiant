@@ -67,10 +67,25 @@ export class PrettyPrinter {
   ): string {
     const { tag, children, attributes } = element;
     const hasChildren = children.length > 0;
+    const hasOneChild = children.length === 1;
 
     let result = `${this.getIndent()}<${tag}${stringifyAttributes(attributes)}`;
 
-    if (hasChildren) {
+    if (hasOneChild && typeof children[0] === "string") {
+      const child = children[0] as string;
+      const length = child.length;
+
+      if (length < 100) {
+        result += `>${child}</${tag}>`;
+      } else {
+        result += ">";
+        this.increaseIndent();
+        result += this.pretty ? `\n${this.getIndent()}` : "";
+        result += child;
+        this.decreaseIndent();
+        result += this.pretty ? `\n${this.getIndent()}</${tag}>` : `</${tag}>`;
+      }
+    } else if (hasChildren) {
       result += this.pretty ? ">\n" : ">";
       this.increaseIndent();
       result += children.map((child) => this.printNode(child)).join(this.pretty ? "\n" : "");
