@@ -19,7 +19,7 @@
 		"pnpm": ">=9.0.0"
 	},
 	"sideEffects": false,
-	"files": ["dist", "LICENSE", "README.md", "CHANGELOG.md", "package.json"],
+	"files": ["src", "dist", "LICENSE", "README.md", "CHANGELOG.md", "package.json"],
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"exports": {
