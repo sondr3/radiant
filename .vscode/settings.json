@@ -1,4 +1,5 @@
 {
-  "deno.enable": true,
-  "prettier.enable": false
+  "prettier.enable": false,
+  "biome.enabled": true,
+  "editor.defaultFormatter": "biomejs.biome"
 }

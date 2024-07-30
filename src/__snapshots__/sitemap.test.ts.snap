@@ -1,35 +1,7 @@
-export const snapshot = {};
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-snapshot[`sitemap > works 1`] = `
-'<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="/styles.xsl" type="text/xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://example.com</loc>
-  </url>
-  <url>
-    <loc>https://example.com/about</loc>
-  </url>
-  <url>
-    <loc>https://example.com/contact</loc>
-  </url>
-</urlset>'
-`;
-
-snapshot[`sitemap > sitemap index 1`] = `
-'<?xml version="1.0" encoding="utf-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://example.com/sitemap1.xml</loc>
-  </sitemap>
-  <sitemap>
-    <loc>https://example.com/sitemap2.xml</loc>
-  </sitemap>
-</sitemapindex>'
-`;
-
-snapshot[`sitemap > sample works 1`] = `
-'<?xml version="1.0" encoding="utf-8"?>
+exports[`sitemap > sample works 1`] = `
+"<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://www.example.com/</loc>
@@ -55,11 +27,23 @@ snapshot[`sitemap > sample works 1`] = `
     <loc>http://www.example.com/catalog?item=83&desc=vacation_usa</loc>
     <lastmod>2004-11-23</lastmod>
   </url>
-</urlset>'
+</urlset>"
 `;
 
-snapshot[`sitemap > sitemap index sample works 1`] = `
-'<?xml version="1.0" encoding="utf-8"?>
+exports[`sitemap > sitemap index 1`] = `
+"<?xml version="1.0" encoding="utf-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://example.com/sitemap1.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://example.com/sitemap2.xml</loc>
+  </sitemap>
+</sitemapindex>"
+`;
+
+exports[`sitemap > sitemap index sample works 1`] = `
+"<?xml version="1.0" encoding="utf-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>http://www.example.com/sitemap1.xml.gz</loc>
@@ -69,5 +53,21 @@ snapshot[`sitemap > sitemap index sample works 1`] = `
     <loc>http://www.example.com/sitemap2.xml.gz</loc>
     <lastmod>2005-01-01</lastmod>
   </sitemap>
-</sitemapindex>'
+</sitemapindex>"
+`;
+
+exports[`sitemap > works 1`] = `
+"<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/styles.xsl" type="text/xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://example.com</loc>
+  </url>
+  <url>
+    <loc>https://example.com/about</loc>
+  </url>
+  <url>
+    <loc>https://example.com/contact</loc>
+  </url>
+</urlset>"
 `;

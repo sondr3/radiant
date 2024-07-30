@@ -24,10 +24,10 @@
  * @module
  */
 
-export { elementToObject } from "./ast.ts";
-export { h } from "./html_tags.ts";
-export * from "./attributes.ts";
-export * from "./html_element.ts";
-export * from "./render_html.ts";
-export * from "./tags.ts";
-export type { ELEMENT_MAP } from "./elements.ts";
+export { elementToObject } from "./ast.js";
+export { h } from "./html_tags.js";
+export * from "./attributes.js";
+export * from "./html_element.js";
+export * from "./render_html.js";
+export * from "./tags.js";
+export type { ELEMENT_MAP } from "./elements.js";

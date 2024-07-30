@@ -1,14 +1,14 @@
-import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/tags.ts";
+import { HTML_TAGS, VOID_HTML_TAGS } from "../dist/tags.js";
+import {writeFile} from "node:fs/promises"
 
 const main = async () => {
   let elements = `
-// deno-fmt-ignore-file
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/tag-generator.ts to make changes.
-import { HTMLDocument, VoidBaseHTMLElement, Doctype, HTMLElementFactory } from "./html_element.ts";
-import type { ATTRIBUTE_MAP } from "./attributes.ts";
-import type { ELEMENT_MAP } from "./elements.ts";
-import type { CHILDREN_MAP } from "./content_categories.ts";
+import { HTMLDocument, VoidBaseHTMLElement, Doctype, HTMLElementFactory } from "./html_element.js"
+import type { ATTRIBUTE_MAP } from "./attributes.js"
+import type { ELEMENT_MAP } from "./elements.js"
+import type { CHILDREN_MAP } from "./content_categories.js"
 
 function documentElement(doctype: Doctype, ...children: Array<ELEMENT_MAP["html"]>): HTMLDocument {
   return new HTMLDocument(doctype, ...children);
@@ -20,7 +20,7 @@ function doctypeElement(): Doctype {
 
 `.trimStart();
   for (const tag of HTML_TAGS) {
-    const isVoid = VOID_HTML_TAGS.includes(tag as unknown as VoidHTMLTag);
+    const isVoid = VOID_HTML_TAGS.includes(tag);
 
     if (isVoid) {
       elements += `
@@ -66,7 +66,7 @@ export const h = {
 
   const result = elements + map;
 
-  await Deno.writeTextFile("./src/html_tags.ts", result);
+  await writeFile("./src/html_tags.ts", result, {encoding: "utf-8"});
 };
 
 await main();

@@ -3,8 +3,8 @@
  * @module
  */
 
-import type { VoidXMLElement, XMLAttributes, XMLDeclaration, XMLDocument, XMLElement } from "./xml.ts";
-import { PrettyPrinter } from "./pretty_printer.ts";
+import { PrettyPrinter } from "./pretty_printer.js";
+import type { VoidXMLElement, XMLAttributes, XMLDeclaration, XMLDocument, XMLElement } from "./xml.js";
 
 /**
  * Renders an XML element or declaration to a string.
@@ -15,10 +15,10 @@ import { PrettyPrinter } from "./pretty_printer.ts";
  * @throws Error if the element type is not supported.
  */
 export const renderElement = <T extends string, A extends XMLAttributes, C>(
-  node: XMLElement<T, A, C> | VoidXMLElement<T, A> | XMLDeclaration<T, A>,
-  opts?: { pretty: boolean },
+	node: XMLElement<T, A, C> | VoidXMLElement<T, A> | XMLDeclaration<T, A>,
+	opts?: { pretty: boolean },
 ): string => {
-  return new PrettyPrinter(opts?.pretty ?? false, "xml").printNode(node);
+	return new PrettyPrinter(opts?.pretty ?? false, "xml").printNode(node);
 };
 
 /**
@@ -28,5 +28,5 @@ export const renderElement = <T extends string, A extends XMLAttributes, C>(
  * @returns The rendered XML document as a string.
  */
 export const renderDocument = (doc: XMLDocument, opts?: { pretty: boolean }): string => {
-  return new PrettyPrinter(opts?.pretty ?? false, "xml").print(doc);
+	return new PrettyPrinter(opts?.pretty ?? false, "xml").print(doc);
 };

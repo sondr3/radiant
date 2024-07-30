@@ -3,10 +3,10 @@
  * @module
  */
 
-import type { HTMLElementAttributes } from "./attributes.ts";
-import type { HTMLDocument, HTMLElement, VoidHTMLElement } from "./html_element.ts";
-import { PrettyPrinter } from "./pretty_printer.ts";
-import type { HTMLTag, VoidHTMLTag } from "./tags.ts";
+import type { HTMLElementAttributes } from "./attributes.js";
+import type { HTMLDocument, HTMLElement, VoidHTMLElement } from "./html_element.js";
+import { PrettyPrinter } from "./pretty_printer.js";
+import type { HTMLTag, VoidHTMLTag } from "./tags.js";
 
 /**
  * Renders an HTML element or void element to a string.
@@ -16,10 +16,10 @@ import type { HTMLTag, VoidHTMLTag } from "./tags.ts";
  * @throws Error if the element type is not supported.
  */
 export const renderElement = <T extends HTMLTag, A extends HTMLElementAttributes, C>(
-  tag: HTMLElement<T, A, C> | VoidHTMLElement<Extract<HTMLTag, VoidHTMLTag>, A>,
-  opts?: { pretty: boolean },
+	tag: HTMLElement<T, A, C> | VoidHTMLElement<Extract<HTMLTag, VoidHTMLTag>, A>,
+	opts?: { pretty: boolean },
 ): string => {
-  return new PrettyPrinter(opts?.pretty ?? false, "html").printNode(tag);
+	return new PrettyPrinter(opts?.pretty ?? false, "html").printNode(tag);
 };
 
 /**
@@ -29,5 +29,5 @@ export const renderElement = <T extends HTMLTag, A extends HTMLElementAttributes
  * @returns The rendered HTML document as a string.
  */
 export const renderDocument = (doc: HTMLDocument, opts?: { pretty: boolean }): string => {
-  return new PrettyPrinter(opts?.pretty ?? false, "html").print(doc);
+	return new PrettyPrinter(opts?.pretty ?? false, "html").print(doc);
 };

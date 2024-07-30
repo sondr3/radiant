@@ -1,10 +1,9 @@
-// deno-fmt-ignore-file
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/tag-generator.ts to make changes.
-import { HTMLDocument, VoidBaseHTMLElement, Doctype, HTMLElementFactory } from "./html_element.ts";
-import type { ATTRIBUTE_MAP } from "./attributes.ts";
-import type { ELEMENT_MAP } from "./elements.ts";
-import type { CHILDREN_MAP } from "./content_categories.ts";
+import { HTMLDocument, VoidBaseHTMLElement, Doctype, HTMLElementFactory } from "./html_element.js"
+import type { ATTRIBUTE_MAP } from "./attributes.js"
+import type { ELEMENT_MAP } from "./elements.js"
+import type { CHILDREN_MAP } from "./content_categories.js"
 
 function documentElement(doctype: Doctype, ...children: Array<ELEMENT_MAP["html"]>): HTMLDocument {
   return new HTMLDocument(doctype, ...children);
