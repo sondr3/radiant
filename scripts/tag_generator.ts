@@ -4,7 +4,7 @@ const main = async () => {
   let elements = `
 // deno-fmt-ignore-file
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
-// See tag-generator.ts to make changes.
+// See ./scripts/tag-generator.ts to make changes.
 import { HTMLDocument, VoidBaseHTMLElement, Doctype, HTMLElementFactory } from "./html_element.ts";
 import type { ATTRIBUTE_MAP } from "./attributes.ts";
 import type { ELEMENT_MAP } from "./elements.ts";
