@@ -1,4 +1,4 @@
-import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../tags.ts";
+import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/tags.ts";
 import { toPascalCase } from "@std/text";
 
 const main = async () => {
@@ -39,7 +39,7 @@ export type ELEMENT_MAP = {
 
   const result = elements + map;
 
-  await Deno.writeTextFile("elements.ts", result);
+  await Deno.writeTextFile("./src/elements.ts", result);
 };
 
 await main();

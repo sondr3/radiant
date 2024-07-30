@@ -1,4 +1,4 @@
-import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../tags.ts";
+import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/tags.ts";
 
 const main = async () => {
   let elements = `
@@ -66,7 +66,7 @@ export const h = {
 
   const result = elements + map;
 
-  await Deno.writeTextFile("html_tags.ts", result);
+  await Deno.writeTextFile("./src/html_tags.ts", result);
 };
 
 await main();
