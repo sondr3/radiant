@@ -33,6 +33,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: 2.0.4
         version: 2.0.4(vitest@2.0.4(@types/node@20.14.13))
+      lefthook:
+        specifier: 1.7.11
+        version: 1.7.11
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -558,6 +561,50 @@ packages:
 
   jackspeak@3.4.3:
     resolution: {integrity: sha512-OGlZQpz2yfahA/Rd1Y8Cd9SIEsqvXkLVoSw/cgwhnhFMDbsQFeZYoJJ7bIZBS9BcamUW96asq/npPWugM+RQBw==}
+
+  lefthook-darwin-arm64@1.7.11:
+    resolution: {integrity: sha512-JQtGTM2uZF/3MGKmqb3jg8KG0B/V+2IU+H2jLvRtJULjHQxgiAQGsCJZKCYr8Uvq2/sbjaa+YdiKHROlqt7O6w==}
+    cpu: [arm64]
+    os: [darwin]
+
+  lefthook-darwin-x64@1.7.11:
+    resolution: {integrity: sha512-sfHzHklBh/xEiRGbCkIWZfkyf6gxg4nSryKuA7M6VgwooauXYN+0aXxNbK4CjXBPSMhSCSHh6uHXsqXWaVrTCQ==}
+    cpu: [x64]
+    os: [darwin]
+
+  lefthook-freebsd-arm64@1.7.11:
+    resolution: {integrity: sha512-UsEHI2xB0c+k3DfTNhl9STBuxZMkgMCUdOS2r6OkVoUY5Uf1PVUH+OTq7dvSAnsueSl6r+3xyCBz2tn48uVwbA==}
+    cpu: [arm64]
+    os: [freebsd]
+
+  lefthook-freebsd-x64@1.7.11:
+    resolution: {integrity: sha512-WJznUCrP8kb0nlxWvlvfWJm/SAW0TOJOv2VFeFLInYM1ylFVUVeV2fEvEHOjGIKyt96+uAnbiHOkqIYbhfc03g==}
+    cpu: [x64]
+    os: [freebsd]
+
+  lefthook-linux-arm64@1.7.11:
+    resolution: {integrity: sha512-4S+Gdr5jWmwrfHGokcuRQm/A92KLRwYotBgOMwf0etQa4n9B6FGXEi59IOuFNHeZXY4DpxA9A8AvplVdN5KSOA==}
+    cpu: [arm64]
+    os: [linux]
+
+  lefthook-linux-x64@1.7.11:
+    resolution: {integrity: sha512-3CwNNpRa1fHlymgtxjHQ0BqYMvvj3WXvX4eq1BT+w5NF7h5ZjVaK+nilpgEWUUTQyF66FLai+CGx6wfKvcPOag==}
+    cpu: [x64]
+    os: [linux]
+
+  lefthook-windows-arm64@1.7.11:
+    resolution: {integrity: sha512-DfLVQ4F1iQcudTDnX/Ru1WNSN2OBPrHwwcWVVdQ/KDYWSru6dd4f18M7g98TZ2X9nYHA5IWrX8w2DaBR6P0/bw==}
+    cpu: [arm64]
+    os: [win32]
+
+  lefthook-windows-x64@1.7.11:
+    resolution: {integrity: sha512-xAZP4tQr/6YKbKKvp0qMf6UnToXxo9RulzpKq+v5SiGWE5rz3G12XpyaNVslfrb1N30Yp8wUdZdlXBqhUvltYw==}
+    cpu: [x64]
+    os: [win32]
+
+  lefthook@1.7.11:
+    resolution: {integrity: sha512-IJ9KSk3+dkjTmKEsH2XJC4elocdgXzIznAHfbgr+5N/dJoB3fj8xNWfNx5fDhjT6so4eCJgdOrF9NJ7cS4wRvw==}
+    hasBin: true
 
   loupe@3.1.1:
     resolution: {integrity: sha512-edNu/8D5MKVfGVFRhFf8aAxiTM6Wumfz5XsaatSxlD3w4R1d/WEKUTydCdPGbl9K7QG/Ca3GnDV2sIKIpXRQcw==}
@@ -1234,6 +1281,41 @@ snapshots:
       '@isaacs/cliui': 8.0.2
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
+
+  lefthook-darwin-arm64@1.7.11:
+    optional: true
+
+  lefthook-darwin-x64@1.7.11:
+    optional: true
+
+  lefthook-freebsd-arm64@1.7.11:
+    optional: true
+
+  lefthook-freebsd-x64@1.7.11:
+    optional: true
+
+  lefthook-linux-arm64@1.7.11:
+    optional: true
+
+  lefthook-linux-x64@1.7.11:
+    optional: true
+
+  lefthook-windows-arm64@1.7.11:
+    optional: true
+
+  lefthook-windows-x64@1.7.11:
+    optional: true
+
+  lefthook@1.7.11:
+    optionalDependencies:
+      lefthook-darwin-arm64: 1.7.11
+      lefthook-darwin-x64: 1.7.11
+      lefthook-freebsd-arm64: 1.7.11
+      lefthook-freebsd-x64: 1.7.11
+      lefthook-linux-arm64: 1.7.11
+      lefthook-linux-x64: 1.7.11
+      lefthook-windows-arm64: 1.7.11
+      lefthook-windows-x64: 1.7.11
 
   loupe@3.1.1:
     dependencies:
