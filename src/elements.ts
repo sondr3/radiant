@@ -1,4 +1,3 @@
-// deno-fmt-ignore-file
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/element-generator.ts to make changes.
 import type { VoidHTMLElement, HTMLElement } from "./html_element.ts";

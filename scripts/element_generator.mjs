@@ -1,9 +1,11 @@
-import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/tags.ts";
-import { toPascalCase } from "@std/text";
+import { HTML_TAGS, VOID_HTML_TAGS } from "../dist/tags.js";
+import camelCase from 'camelcase';
+import {writeFile} from "node:fs/promises"
+
+const pascalCase = (str) => camelCase(str, { pascalCase: true });
 
 const main = async () => {
   let elements = `
-// deno-fmt-ignore-file
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/element-generator.ts to make changes.
 import type { VoidHTMLElement, HTMLElement } from "./html_element.ts";
@@ -11,15 +13,15 @@ import type { ATTRIBUTE_MAP } from "./attributes.ts";
 import type { CHILDREN_MAP } from "./content_categories.ts";
 `.trimStart();
   for (const tag of HTML_TAGS) {
-    const isVoid = VOID_HTML_TAGS.includes(tag as unknown as VoidHTMLTag);
+    const isVoid = VOID_HTML_TAGS.includes(tag);
 
     if (isVoid) {
       elements += `
-interface ${toPascalCase(tag)}Element extends VoidHTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"]> {}
+interface ${pascalCase(tag)}Element extends VoidHTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"]> {}
 `;
     } else {
       elements += `
-interface ${toPascalCase(tag)}Element extends HTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"], CHILDREN_MAP["${tag}"]> {}
+interface ${pascalCase(tag)}Element extends HTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"], CHILDREN_MAP["${tag}"]> {}
 `;
     }
   }
@@ -32,14 +34,14 @@ export type ELEMENT_MAP = {
   for (const tag of HTML_TAGS) {
     map += `
   /** A type-safe representation of the \`<${tag}>\` element. */
-  ${tag}: ${toPascalCase(tag)}Element;\n`;
+  ${tag}: ${pascalCase(tag)}Element;\n`;
   }
 
   map += `}`;
 
   const result = elements + map;
 
-  await Deno.writeTextFile("./src/elements.ts", result);
+  await writeFile("./src/elements.ts", result, {encoding: "utf-8"});
 };
 
 await main();
