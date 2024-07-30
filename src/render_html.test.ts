@@ -1,8 +1,8 @@
 // import { assertSnapshot } from "jsr:@std/testing/snapshot";
 import { describe, test } from "vitest";
-import { h } from "../src/html_tags.js";
+import { h } from "./html_tags.js";
 // import { describe, it } from "jsr:@std/testing/bdd";
-import { renderDocument, renderElement } from "../src/render_html.js";
+import { renderDocument, renderElement } from "./render_html.js";
 
 describe("HTML rendering", () => {
 	test("works without pretty", ({ expect }) => {

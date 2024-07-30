@@ -61,7 +61,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: npm build
-        run: pnpm build
+        run: pnpm release
 
       - name: publish NPM
         run: pnpm publish --access=public

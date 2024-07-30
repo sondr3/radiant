@@ -1,8 +1,8 @@
 {
-  "compilerOptions": {
-    "outDir": "dist",
-  },
-  "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/node22/tsconfig"],
-  "include": ["src/**/*", "tests/attributes.test.ts", "tests/html_tags.test.ts", "tests/render_html.test.ts", "tests/sitemap.test.ts"],
-  "exclude": ["node_modules", "dist"]
+	"compilerOptions": {
+		"outDir": "dist"
+	},
+	"extends": ["@tsconfig/recommended/tsconfig.json", "@tsconfig/strictest/tsconfig", "@tsconfig/node22/tsconfig"],
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist"]
 }
