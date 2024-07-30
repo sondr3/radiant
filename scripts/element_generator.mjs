@@ -37,7 +37,7 @@ export type ELEMENT_MAP = {
   ${tag}: ${pascalCase(tag)}Element;\n`;
 	}
 
-	map += `}`;
+	map += "}";
 
 	const result = elements + map;
 

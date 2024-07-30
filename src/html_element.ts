@@ -52,36 +52,31 @@ export class BaseHTMLElement<T extends HTMLTag, A, C> implements HTMLElement<T, 
 }
 
 /**
- * Factory class for creating HTML elements.
+ * Creates a new instance of `BaseHTMLElement` with the specified tag, attributes, and children.
+ *
+ * @template T - The HTML tag type.
+ * @template A - The type of the attributes object.
+ * @template C - The type of the children array elements.
+ * @param {T} tag - The HTML tag.
+ * @param {string | A | C | Array<C>} attributes - The attributes of the HTML element.
+ * @param {Array<C>} children - The children of the HTML element.
+ * @returns {BaseHTMLElement<T, A, C>} - The created `BaseHTMLElement` instance.
  */
-export class HTMLElementFactory {
-	/**
-	 * Creates a new instance of `BaseHTMLElement` with the specified tag, attributes, and children.
-	 *
-	 * @template T - The HTML tag type.
-	 * @template A - The type of the attributes object.
-	 * @template C - The type of the children array elements.
-	 * @param {T} tag - The HTML tag.
-	 * @param {string | A | C | Array<C>} attributes - The attributes of the HTML element.
-	 * @param {Array<C>} children - The children of the HTML element.
-	 * @returns {BaseHTMLElement<T, A, C>} - The created `BaseHTMLElement` instance.
-	 */
-	static create<T extends HTMLTag, A, C>(
-		tag: T,
-		attributes: string | A | C | Array<C>,
-		children: Array<C>,
-	): BaseHTMLElement<T, A, C> {
-		if (typeof attributes === "string" || isHTMLElement(attributes) || isVoidHTMLElement(attributes)) {
-			return new BaseHTMLElement(tag, {} as A, [attributes as unknown as C, ...children]);
-		}
-
-		if (Array.isArray(attributes)) {
-			return new BaseHTMLElement(tag, {} as A, [...attributes, ...children]);
-		}
-
-		return new BaseHTMLElement(tag, attributes as A, children);
+export const createHTMLElement = <T extends HTMLTag, A, C>(
+	tag: T,
+	attributes: string | A | C | Array<C>,
+	children: Array<C>,
+): BaseHTMLElement<T, A, C> => {
+	if (typeof attributes === "string" || isHTMLElement(attributes) || isVoidHTMLElement(attributes)) {
+		return new BaseHTMLElement(tag, {} as A, [attributes as unknown as C, ...children]);
 	}
-}
+
+	if (Array.isArray(attributes)) {
+		return new BaseHTMLElement(tag, {} as A, [...attributes, ...children]);
+	}
+
+	return new BaseHTMLElement(tag, attributes as A, children);
+};
 
 /**
  * Represents a void HTML element with a specific tag and attributes.

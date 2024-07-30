@@ -6,7 +6,7 @@ import { renderDocument, renderElement } from "./render_html.js";
 test("basic output", ({ expect }) => {
 	const input = h.document(h.doctype(), h.html(h.head(h.title("Hello, world!"))));
 
-	expect(renderDocument(input)).toBe(`<!DOCTYPE html><html><head><title>Hello, world!</title></head></html>`);
+	expect(renderDocument(input)).toBe("<!DOCTYPE html><html><head><title>Hello, world!</title></head></html>");
 });
 
 test("it works", ({ expect }) => {

@@ -5,7 +5,7 @@ const main = async () => {
 	let elements = `
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/tag-generator.ts to make changes.
-import { HTMLDocument, VoidBaseHTMLElement, Doctype, HTMLElementFactory } from "./html_element.js"
+import { HTMLDocument, VoidBaseHTMLElement, Doctype, createHTMLElement } from "./html_element.js"
 import type { ATTRIBUTE_MAP } from "./attributes.js"
 import type { ELEMENT_MAP } from "./elements.js"
 import type { CHILDREN_MAP } from "./content_categories.js"
@@ -17,7 +17,6 @@ function documentElement(doctype: Doctype, ...children: Array<ELEMENT_MAP["html"
 function doctypeElement(): Doctype {
   return new Doctype();
 }
-
 `.trimStart();
 	for (const tag of HTML_TAGS) {
 		const isVoid = VOID_HTML_TAGS.includes(tag);
@@ -37,7 +36,7 @@ function ${tag}Element(
   attrsOrChild: ATTRIBUTE_MAP["${tag}"] | CHILDREN_MAP["${tag}"] | Array<CHILDREN_MAP["${tag}"]>,
   ...children: Array<CHILDREN_MAP["${tag}"]>
 ): ELEMENT_MAP["${tag}"] {
-  return HTMLElementFactory.create<"${tag}", ATTRIBUTE_MAP["${tag}"], CHILDREN_MAP["${tag}"]>(
+  return createHTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"], CHILDREN_MAP["${tag}"]>(
     "${tag}",
     attrsOrChild,
     children,
@@ -62,7 +61,7 @@ export const h = {
   ${tag}: ${tag}Element,\n`;
 	}
 
-	map += `}`;
+	map += "}";
 
 	const result = elements + map;
 

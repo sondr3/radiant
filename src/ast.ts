@@ -17,19 +17,22 @@ export function elementToObject<T extends HTMLTag>(
 			children: element.children.map((child) => {
 				if (typeof child === "string") {
 					return child;
-				} else if (child instanceof BaseHTMLElement || child instanceof VoidBaseHTMLElement) {
-					return elementToObject(child);
-				} else {
-					return child;
 				}
+				if (child instanceof BaseHTMLElement || child instanceof VoidBaseHTMLElement) {
+					return elementToObject(child);
+				}
+
+				return child;
 			}),
 		};
-	} else if (element instanceof VoidBaseHTMLElement) {
+	}
+
+	if (element instanceof VoidBaseHTMLElement) {
 		return {
 			tag: element.tag,
 			attributes: element.attributes,
 		};
-	} else {
-		throw new Error("Unsupported element type");
 	}
+
+	throw new Error("Unsupported element type");
 }
