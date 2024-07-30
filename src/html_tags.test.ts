@@ -1,7 +1,7 @@
 import { test } from "vitest";
-import { elementToObject } from "../src/ast.js";
-import { h } from "../src/index.js";
-import { renderDocument, renderElement } from "../src/render_html.js";
+import { elementToObject } from "./ast.js";
+import { h } from "./index.js";
+import { renderDocument, renderElement } from "./render_html.js";
 
 test("basic output", ({ expect }) => {
 	const input = h.document(h.doctype(), h.html(h.head(h.title("Hello, world!"))));

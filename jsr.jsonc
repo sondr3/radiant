@@ -1,8 +1,8 @@
 {
-  "name": "@sondr3/radiant",
-  "version": "0.2.3",
-  "exports": {
-    ".": "./src/index.ts",
-    "./sitemap": "./src/sitemap.ts"
-  }
+	"name": "@sondr3/radiant",
+	"version": "0.2.3",
+	"exports": {
+		".": "./src/index.ts",
+		"./sitemap": "./src/sitemap.ts"
+	}
 }

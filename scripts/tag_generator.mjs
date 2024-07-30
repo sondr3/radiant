@@ -1,8 +1,8 @@
+import { writeFile } from "node:fs/promises";
 import { HTML_TAGS, VOID_HTML_TAGS } from "../dist/tags.js";
-import {writeFile} from "node:fs/promises"
 
 const main = async () => {
-  let elements = `
+	let elements = `
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/tag-generator.ts to make changes.
 import { HTMLDocument, VoidBaseHTMLElement, Doctype, HTMLElementFactory } from "./html_element.js"
@@ -19,18 +19,18 @@ function doctypeElement(): Doctype {
 }
 
 `.trimStart();
-  for (const tag of HTML_TAGS) {
-    const isVoid = VOID_HTML_TAGS.includes(tag);
+	for (const tag of HTML_TAGS) {
+		const isVoid = VOID_HTML_TAGS.includes(tag);
 
-    if (isVoid) {
-      elements += `
+		if (isVoid) {
+			elements += `
 function ${tag}Element(attrs: ATTRIBUTE_MAP["${tag}"]): ELEMENT_MAP["${tag}"] {
   return new VoidBaseHTMLElement("${tag}", attrs);
 }
 
 `.trimStart();
-    } else {
-      elements += `
+		} else {
+			elements += `
 function ${tag}Element(...children: Array<CHILDREN_MAP["${tag}"]>): ELEMENT_MAP["${tag}"];
 function ${tag}Element(attributes: ATTRIBUTE_MAP["${tag}"], ...children: Array<CHILDREN_MAP["${tag}"]>): ELEMENT_MAP["${tag}"];
 function ${tag}Element(
@@ -44,10 +44,10 @@ function ${tag}Element(
   );
 }
 `;
-    }
-  }
+		}
+	}
 
-  let map = `
+	let map = `
 /** A type-safe builder for all HTML elements. */
 export const h = {
   /** A type-safe builder for a HTML document. */
@@ -56,17 +56,17 @@ export const h = {
   doctype: doctypeElement,
 `;
 
-  for (const tag of HTML_TAGS) {
-    map += `  
+	for (const tag of HTML_TAGS) {
+		map += `  
   /** A type-safe builder for the \`<${tag}>\` element. */
   ${tag}: ${tag}Element,\n`;
-  }
+	}
 
-  map += `}`;
+	map += `}`;
 
-  const result = elements + map;
+	const result = elements + map;
 
-  await writeFile("./src/html_tags.ts", result, {encoding: "utf-8"});
+	await writeFile("./src/html_tags.ts", result, { encoding: "utf-8" });
 };
 
 await main();

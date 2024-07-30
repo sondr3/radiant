@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
-import { h } from "../src/html_tags.js";
-import { renderElement } from "../src/render_html.js";
+import { h } from "./html_tags.js";
+import { renderElement } from "./render_html.js";
 
 describe("attributes", () => {
 	test("html element attributes", ({ expect }) => {
