@@ -50,20 +50,20 @@ See more details and documentations at [JSR](https://jsr.io/@sondr3/radiant).
 
 ## Installation
 
+### Node
+
+- **`pnpm`**: `pnpm add @sondr3/radiant` (or with [JSR][jsr] `pnpm dlx jsr add @sondr3/radiant`)
+- **`npm`**: `npm add @sondr3/radiant` (or with [JSR][jsr] `npx jsr add @sondr3/radiant`)
+- **`yarn`**: `yarn add @sondr3/radiant` (or with [JSR]jsr] `yarn dlx jsr add @sondr3/radiant`)
+
 ### Deno
 
 - `deno add @sondr3/radiant` and import it `import { h } from "@sondr3/radiant"`
 - Or import directly `import { h } from jsr:@sondr3/radiant`
 
-### Node
-
-- **`pnpm`**: `pnpm dlx jsr add @sondr3/radiant`
-- **`npm`**: `npx jsr add @sondr3/radiant`
-- **`yarn`**: `yarn dlx jsr add @sondr3/radiant`
-
 ### Bun
 
-1. `bunx jsr add @sondr3/radiant`
+1. `bun add @sondr3/radiant` (or with [JSR][jsr] `bunx jsr add @sondr3/radiant`)
 1. `import { h } from "@sondr3/radiant`
 
 ## Type safety
@@ -123,3 +123,4 @@ MIT.
 [blaze]: https://jaspervdj.be/blaze/
 [lucid]: https://github.com/chrisdone/lucid/tree/master/lucid2
 [smolder]: https://github.com/bodil/purescript-smolder
+[jsr]: https://jsr.io/
