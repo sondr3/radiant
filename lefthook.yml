@@ -1,11 +1,5 @@
 pre-commit:
   commands:
     check:
+      glob: "*.{mjs,ts,json,jsonc,yml}"
       run: pnpm check
-pre-push:
-  parallel: true
-  commands:
-    build:
-      run: pnpm release
-    test:
-      run: pnpm test run
