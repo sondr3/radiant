@@ -2,7 +2,7 @@ import { stringifyEntities } from "stringify-entities";
 import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html_element.js";
 import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml.js";
 
-const escape = (text: string): string => {
+const escapeStr = (text: string): string => {
 	return stringifyEntities(text, { escapeOnly: true });
 };
 
@@ -14,19 +14,19 @@ const escape = (text: string): string => {
  */
 export const stringifyAttributes = (attributes: Record<string, string | boolean>): string => {
 	const result = Array.from(Object.entries(attributes)).map(([key, value]) => {
-		const escapedKey = escape(key);
+		const escapedKey = escapeStr(key);
 		if (Array.isArray(value)) {
-			return `${escapedKey}="${escape(value.join(" "))}"`;
+			return `${escapedKey}="${escapeStr(value.join(" "))}"`;
 		}
 
 		if (typeof value === "boolean") {
 			return value ? escapedKey : "";
 		}
 
-		return `${escapedKey}="${escape(value)}"`;
+		return `${escapedKey}="${escapeStr(value)}"`;
 	});
 
-	return result.length > 0 ? " " + result.join(" ") : "";
+	return result.length > 0 ? ` ${result.join(" ")}` : "";
 };
 
 type BaseAttributes = Record<string, string | boolean>;
@@ -120,22 +120,31 @@ export class PrettyPrinter {
 	}
 
 	private printTextNode(text: string): string {
-		const escaped = this.mode === "xml" ? escape(text) : text;
+		const escaped = this.mode === "xml" ? escapeStr(text) : text;
 		return `${this.getIndent()}${escaped}`;
 	}
 
 	printNode<T, A extends BaseAttributes, N extends Doctype | BaseElement<T, A> | string>(node: N): string {
 		if (node instanceof BaseHTMLElement || node instanceof XMLElement) {
 			return this.printElement(node);
-		} else if (node instanceof VoidBaseHTMLElement || node instanceof VoidXMLElement) {
+		}
+
+		if (node instanceof VoidBaseHTMLElement || node instanceof VoidXMLElement) {
 			return this.printVoidElement(node);
-		} else if (node instanceof Doctype) {
+		}
+
+		if (node instanceof Doctype) {
 			return this.printDoctype(node);
-		} else if (node instanceof XMLDeclaration) {
+		}
+
+		if (node instanceof XMLDeclaration) {
 			return this.printXMLDeclaration(node);
-		} else if (typeof node === "string") {
+		}
+
+		if (typeof node === "string") {
 			return this.printTextNode(node);
 		}
+
 		throw new Error(`Unsupported node type: ${node.constructor.name}`);
 	}
 
