@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
-import { renderDocument } from "./render_xml.js";
-import { s } from "./sitemap.js";
+import { renderDocument } from "../src/render_xml.js";
+import { s } from "../src/sitemap.js";
 
 describe("sitemap", () => {
 	test("works", ({ expect }) => {
