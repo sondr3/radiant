@@ -28,7 +28,7 @@
 ## Example
 
 ```ts
-import { h, renderDocument } from "jsr:@sondr3/radiant";
+import { h, renderDocument } from "@sondr3/radiant";
 
 const doc = h.document(
   h.doctype(),
@@ -59,7 +59,7 @@ See more details and documentations at [JSR](https://jsr.io/@sondr3/radiant).
 ### Deno
 
 - `deno add @sondr3/radiant` and import it `import { h } from "@sondr3/radiant"`
-- Or import directly `import { h } from jsr:@sondr3/radiant`
+- Or import directly `import { h } from "jsr"@sondr3/radiant"`
 
 ### Bun
 
@@ -69,7 +69,7 @@ See more details and documentations at [JSR](https://jsr.io/@sondr3/radiant).
 ## Type safety
 
 ```ts
-import { h } from "jsr:@sondr3/radiant";
+import { h } from "@sondr3/radiant";
 
 // @ts-expect-error missing href
 h.a({ class: "link" }, "Missing href");
@@ -83,7 +83,7 @@ h.p(h.head(h.title("Not valid")));
 Also included is a very basic XML renderer with support for building and rendering sitemaps.
 
 ```ts
-import { renderSitemap, s } from "jsr:@sondr3/radiant/sitemap";
+import { renderSitemap, s } from "@sondr3/radiant/sitemap";
 
 const sitemap = s.document(
   s.doctype(),
