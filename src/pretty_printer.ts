@@ -69,7 +69,7 @@ export class PrettyPrinter {
 		const result = `${this.getIndent()}<${tag}${stringifyAttributes(attributes)}`;
 
 		if (children.length === 0) {
-			return `${result} />`;
+			return `${result}><${result}/>`;
 		}
 
 		return `${result}>${this.printChildren(children, this.preserveWhitespaceTags.has(tag as string))}</${tag}>`;
