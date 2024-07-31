@@ -12,6 +12,7 @@ import type { HTMLTag, VoidHTMLTag } from "./tags.js";
  * Renders an HTML element or void element to a string.
  *
  * @param tag - The HTML element or void element to render.
+ * @param opts - HTML rendering options
  * @returns The rendered element as a string.
  * @throws Error if the element type is not supported.
  */
@@ -19,13 +20,14 @@ export const renderElement = <T extends HTMLTag, A extends HTMLElementAttributes
 	tag: HTMLElement<T, A, C> | VoidHTMLElement<Extract<HTMLTag, VoidHTMLTag>, A>,
 	opts?: { pretty: boolean },
 ): string => {
-	return new PrettyPrinter(opts?.pretty ?? false, "html").printNode(tag);
+	return new PrettyPrinter(opts?.pretty ?? false, "html").printNode(tag, false);
 };
 
 /**
  * Renders an HTML document to a string.
  *
  * @param doc - The HTML document to render.
+ * @param opts - HTML rendering options
  * @returns The rendered HTML document as a string.
  */
 export const renderDocument = (doc: HTMLDocument, opts?: { pretty: boolean }): string => {

@@ -18,7 +18,7 @@ export const renderElement = <T extends string, A extends XMLAttributes, C>(
 	node: XMLElement<T, A, C> | VoidXMLElement<T, A> | XMLDeclaration<T, A>,
 	opts?: { pretty: boolean },
 ): string => {
-	return new PrettyPrinter(opts?.pretty ?? false, "xml").printNode(node);
+	return new PrettyPrinter(opts?.pretty ?? false, "xml").printNode(node, whitespacePreserving);
 };
 
 /**

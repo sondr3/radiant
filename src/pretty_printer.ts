@@ -40,14 +40,8 @@ type HasChildren<T, C> = T extends { children: Array<C> } ? T : never;
 
 type FormatterMode = "html" | "xml";
 
-export const defaultPrettyPrinterOptions = {
-	indent: "  ",
-	level: 0,
-	pretty: true,
-};
-
 export class PrettyPrinter {
-	private readonly preserveWhitespaceTags = new Set(["pre", "code", "textarea", "script", "style"]);
+	private readonly preserveWhitespaceTags = new Set(["pre", "textarea", "script", "style"]);
 
 	constructor(
 		private readonly pretty: boolean = true,
@@ -78,31 +72,31 @@ export class PrettyPrinter {
 			return `${result} />`;
 		}
 
-		if (this.preserveWhitespaceTags.has(tag as string)) {
-			return `${result}>${children.join("")}</${tag}>`;
-		}
-
-		return `${result}>${this.printChildren(children)}</${tag}>`;
+		return `${result}>${this.printChildren(children, this.preserveWhitespaceTags.has(tag as string))}</${tag}>`;
 	}
 
-	private printChildren<C extends string | BaseElement<unknown, BaseAttributes>>(children: C[]): string {
+	private printChildren<C extends string | BaseElement<unknown, BaseAttributes>>(
+		children: C[],
+		whitespacePreserving: boolean,
+	): string {
 		if (children.length === 1 && typeof children[0] === "string") {
-			return this.printSingleTextChild(children[0]);
+			return this.printSingleTextChild(children[0], whitespacePreserving);
 		}
 
-		this.increaseIndent();
+		if (!whitespacePreserving) this.increaseIndent();
 		const childrenContent = children.map((child) => this.printNode(child)).join(this.pretty ? "\n" : "");
-		this.decreaseIndent();
+		if (!whitespacePreserving) this.decreaseIndent();
 		return this.pretty ? `\n${childrenContent}\n${this.getIndent()}` : childrenContent;
 	}
 
-	private printSingleTextChild(child: string): string {
+	private printSingleTextChild(child: string, whitespacePreserving: boolean): string {
 		if (child.length < 100) {
 			return child;
 		}
-		this.increaseIndent();
-		const indentedChild = this.pretty ? `\n${this.getIndent()}${child}\n${this.getIndent()}` : child;
-		this.decreaseIndent();
+		if (!whitespacePreserving) this.increaseIndent();
+		const indentedChild =
+			this.pretty && !whitespacePreserving ? `\n${this.getIndent()}${child}\n${this.getIndent()}` : child;
+		if (!whitespacePreserving) this.decreaseIndent();
 		return indentedChild;
 	}
 
