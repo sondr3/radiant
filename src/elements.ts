@@ -1,5 +1,5 @@
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
-// See ./scripts/element-generator.ts to make changes.
+// See ./scripts/element-generator.mts to make changes.
 import type { VoidHTMLElement, HTMLElement } from "./html_element.ts";
 import type { ATTRIBUTE_MAP } from "./attributes.ts";
 import type { CHILDREN_MAP } from "./content_categories.ts";

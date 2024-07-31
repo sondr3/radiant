@@ -1,5 +1,5 @@
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
-// See ./scripts/tag-generator.ts to make changes.
+// See ./scripts/tag-generator.mts to make changes.
 import { HTMLDocument, VoidBaseHTMLElement, Doctype, createHTMLElement } from "./html_element.js"
 import type { ATTRIBUTE_MAP } from "./attributes.js"
 import type { ELEMENT_MAP } from "./elements.js"
@@ -13,7 +13,7 @@ function doctypeElement(): Doctype {
   return new Doctype();
 }
 
-function aElement(...children: Array<CHILDREN_MAP["a"]>): ELEMENT_MAP["a"];
+
 function aElement(attributes: ATTRIBUTE_MAP["a"], ...children: Array<CHILDREN_MAP["a"]>): ELEMENT_MAP["a"];
 function aElement(
   attrsOrChild: ATTRIBUTE_MAP["a"] | CHILDREN_MAP["a"] | Array<CHILDREN_MAP["a"]>,
@@ -449,7 +449,6 @@ function footerElement(
   );
 }
 
-function formElement(...children: Array<CHILDREN_MAP["form"]>): ELEMENT_MAP["form"];
 function formElement(attributes: ATTRIBUTE_MAP["form"], ...children: Array<CHILDREN_MAP["form"]>): ELEMENT_MAP["form"];
 function formElement(
   attrsOrChild: ATTRIBUTE_MAP["form"] | CHILDREN_MAP["form"] | Array<CHILDREN_MAP["form"]>,
@@ -712,7 +711,6 @@ function mainElement(
   );
 }
 
-function mapElement(...children: Array<CHILDREN_MAP["map"]>): ELEMENT_MAP["map"];
 function mapElement(attributes: ATTRIBUTE_MAP["map"], ...children: Array<CHILDREN_MAP["map"]>): ELEMENT_MAP["map"];
 function mapElement(
   attrsOrChild: ATTRIBUTE_MAP["map"] | CHILDREN_MAP["map"] | Array<CHILDREN_MAP["map"]>,
@@ -1067,7 +1065,6 @@ function selectElement(
   );
 }
 
-function slotElement(...children: Array<CHILDREN_MAP["slot"]>): ELEMENT_MAP["slot"];
 function slotElement(attributes: ATTRIBUTE_MAP["slot"], ...children: Array<CHILDREN_MAP["slot"]>): ELEMENT_MAP["slot"];
 function slotElement(
   attrsOrChild: ATTRIBUTE_MAP["slot"] | CHILDREN_MAP["slot"] | Array<CHILDREN_MAP["slot"]>,

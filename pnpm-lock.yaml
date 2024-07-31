@@ -14,6 +14,9 @@ importers:
       stringify-entities:
         specifier: 4.0.4
         version: 4.0.4
+      type-fest:
+        specifier: 4.23.0
+        version: 4.23.0
     devDependencies:
       '@biomejs/biome':
         specifier: 1.8.3
@@ -36,6 +39,9 @@ importers:
       lefthook:
         specifier: 1.7.11
         version: 1.7.11
+      tsx:
+        specifier: 4.16.3
+        version: 4.16.3
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -517,6 +523,9 @@ packages:
     resolution: {integrity: sha512-VaUJspBffn/LMCJVoMvSAdmscJyS1auj5Zulnn5UoYcY531UWmdwhRWkcGKnGU93m5HSXP9LP2usOryrBtQowA==}
     engines: {node: '>=16'}
 
+  get-tsconfig@4.7.6:
+    resolution: {integrity: sha512-ZAqrLlu18NbDdRaHq+AKXzAmqIUPswPWKUchfytdAjiRFnCe5ojG2bstg6mRiZabkKfCoL/e98pbBELIV/YCeA==}
+
   glob@10.4.5:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
     hasBin: true
@@ -682,6 +691,9 @@ packages:
     resolution: {integrity: sha512-YF2kKIUzAofPMpfH6hOi2cGnv/HrUlfucspc7pDyvv7kGdqXrfj8SCl/t8owkEgKEuu8ZcRjSOxFxVLqwChZ2Q==}
     engines: {node: ^10 || ^12 || >=14}
 
+  resolve-pkg-maps@1.0.0:
+    resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
+
   rollup@4.19.1:
     resolution: {integrity: sha512-K5vziVlg7hTpYfFBI+91zHBEMo6jafYXpkMlqZjg7/zhIG9iHqazBf4xz9AVdjS9BruRn280ROqLI7G3OFRIlw==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
@@ -766,6 +778,15 @@ packages:
   to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
+
+  tsx@4.16.3:
+    resolution: {integrity: sha512-MP8AEUxVnboD2rCC6kDLxnpDBNWN9k3BSVU/0/nNxgm70bPBnfn+yCKcnOsIVPQwdkbKYoFOlKjjWZWJ2XCXUg==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+
+  type-fest@4.23.0:
+    resolution: {integrity: sha512-ZiBujro2ohr5+Z/hZWHESLz3g08BBdrdLMieYFULJO+tWc437sn8kQsWLJoZErY8alNhxre9K4p3GURAG11n+w==}
+    engines: {node: '>=16'}
 
   typescript@5.5.4:
     resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
@@ -1234,6 +1255,10 @@ snapshots:
 
   get-stream@8.0.1: {}
 
+  get-tsconfig@4.7.6:
+    dependencies:
+      resolve-pkg-maps: 1.0.0
+
   glob@10.4.5:
     dependencies:
       foreground-child: 3.2.1
@@ -1382,6 +1407,8 @@ snapshots:
       picocolors: 1.0.1
       source-map-js: 1.2.0
 
+  resolve-pkg-maps@1.0.0: {}
+
   rollup@4.19.1:
     dependencies:
       '@types/estree': 1.0.5
@@ -1468,6 +1495,15 @@ snapshots:
   tinyspy@3.0.0: {}
 
   to-fast-properties@2.0.0: {}
+
+  tsx@4.16.3:
+    dependencies:
+      esbuild: 0.21.5
+      get-tsconfig: 4.7.6
+    optionalDependencies:
+      fsevents: 2.3.3
+
+  type-fest@4.23.0: {}
 
   typescript@5.5.4: {}
 

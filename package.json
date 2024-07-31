@@ -42,8 +42,8 @@
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
 		"gen": "pnpm gen:tags && pnpm gen:elems",
-		"gen:tags": "node ./scripts/element_generator.mjs",
-		"gen:elems": "node ./scripts/tag_generator.mjs"
+		"gen:tags": "tsx ./scripts/element_generator.mts",
+		"gen:elems": "tsx ./scripts/tag_generator.mts"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
@@ -53,11 +53,13 @@
 		"@types/node": "^20.9.0",
 		"@vitest/coverage-v8": "2.0.4",
 		"lefthook": "1.7.11",
+		"tsx": "4.16.3",
 		"typescript": "5.5.4",
 		"vitest": "2.0.4"
 	},
 	"dependencies": {
 		"camelcase": "8.0.0",
-		"stringify-entities": "4.0.4"
+		"stringify-entities": "4.0.4",
+		"type-fest": "4.23.0"
 	}
 }

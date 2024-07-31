@@ -1,10 +1,12 @@
 import { writeFile } from "node:fs/promises";
-import { HTML_TAGS, VOID_HTML_TAGS } from "../dist/tags.js";
+import type { HasRequiredKeys } from "type-fest";
+import { ATTRIBUTE_MAP, HAS_REQUIRED_ATTRIBUTES_MAP, hasRequiredAttributes } from "../src/attributes.js";
+import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/tags.js";
 
 const main = async () => {
 	let elements = `
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
-// See ./scripts/tag-generator.ts to make changes.
+// See ./scripts/tag-generator.mts to make changes.
 import { HTMLDocument, VoidBaseHTMLElement, Doctype, createHTMLElement } from "./html_element.js"
 import type { ATTRIBUTE_MAP } from "./attributes.js"
 import type { ELEMENT_MAP } from "./elements.js"
@@ -17,9 +19,10 @@ function documentElement(doctype: Doctype, ...children: Array<ELEMENT_MAP["html"
 function doctypeElement(): Doctype {
   return new Doctype();
 }
+
 `.trimStart();
 	for (const tag of HTML_TAGS) {
-		const isVoid = VOID_HTML_TAGS.includes(tag);
+		const isVoid = VOID_HTML_TAGS.includes(tag as unknown as VoidHTMLTag);
 
 		if (isVoid) {
 			elements += `
@@ -29,8 +32,12 @@ function ${tag}Element(attrs: ATTRIBUTE_MAP["${tag}"]): ELEMENT_MAP["${tag}"] {
 
 `.trimStart();
 		} else {
+			if (!hasRequiredAttributes(tag)) {
+				elements += "\n";
+				elements += `function ${tag}Element(...children: Array<CHILDREN_MAP["${tag}"]>): ELEMENT_MAP["${tag}"];`;
+			}
+
 			elements += `
-function ${tag}Element(...children: Array<CHILDREN_MAP["${tag}"]>): ELEMENT_MAP["${tag}"];
 function ${tag}Element(attributes: ATTRIBUTE_MAP["${tag}"], ...children: Array<CHILDREN_MAP["${tag}"]>): ELEMENT_MAP["${tag}"];
 function ${tag}Element(
   attrsOrChild: ATTRIBUTE_MAP["${tag}"] | CHILDREN_MAP["${tag}"] | Array<CHILDREN_MAP["${tag}"]>,

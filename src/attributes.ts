@@ -3,6 +3,8 @@
  * @module
  */
 
+import type { HasRequiredKeys } from "type-fest";
+
 /**
  * Attributes that can be applied to any HTML element.
  *
@@ -102,24 +104,24 @@ type BlockquoteAttributes = HTMLElementAttributes & {
 };
 
 type BodyAttributes = HTMLElementAttributes & {
-	onafterprint: string;
-	onbeforeprint: string;
-	onbeforeunload: string;
-	onhashchange: string;
-	onlanguagechange: string;
-	onmessage: string;
-	onmessageerror: string;
-	onoffline: string;
-	ononline: string;
-	onpageswap: string;
-	onpagehide: string;
-	onpagereveal: string;
-	onpageshow: string;
-	onpopstate: string;
-	onrejectionhandled: string;
-	onstorage: string;
-	onunhandledrejection: string;
-	onunload: string;
+	onafterprint?: string;
+	onbeforeprint?: string;
+	onbeforeunload?: string;
+	onhashchange?: string;
+	onlanguagechange?: string;
+	onmessage?: string;
+	onmessageerror?: string;
+	onoffline?: string;
+	ononline?: string;
+	onpageswap?: string;
+	onpagehide?: string;
+	onpagereveal?: string;
+	onpageshow?: string;
+	onpopstate?: string;
+	onrejectionhandled?: string;
+	onstorage?: string;
+	onunhandledrejection?: string;
+	onunload?: string;
 };
 
 type ButtonAttributes = HTMLElementAttributes & {
@@ -172,17 +174,27 @@ type EmbedAttributes = HTMLElementAttributes & {
 
 type FieldSetAttributes = HTMLElementAttributes & Pick<ButtonAttributes, "disabled" | "form" | "name">;
 
-type FormAttributes = HTMLElementAttributes & {
-	"accept-charset"?: string;
-	action: "get" | "post" | "dialog";
-	autocomplete?: "on" | "off" | boolean;
-	enctype?: "application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain";
-	method?: "get" | "post" | "dialog";
-	name?: string;
-	novalidate?: boolean;
-	rel?: string;
-	target?: "_self" | "_blank" | "_parent" | "_top" | string;
-};
+type FormActionAttributes =
+	| {
+			action?: never;
+			method: "dialog";
+	  }
+	| {
+			action: string;
+			method: "get" | "post";
+	  };
+type FormAttributes = HTMLElementAttributes &
+	FormActionAttributes & {
+		"accept-charset"?: string;
+		// action: string;
+		autocomplete?: "on" | "off" | boolean;
+		enctype?: "application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain";
+		// method?: "get" | "post" | "dialog";
+		name?: string;
+		novalidate?: boolean;
+		rel?: string;
+		target?: "_self" | "_blank" | "_parent" | "_top" | string;
+	};
 
 type HTMLAttributes = HTMLElementAttributes & {
 	manifest?: string;
@@ -736,3 +748,127 @@ export type ATTRIBUTE_MAP = {
 	/** Attributes for the line break opportunity (`<wbr>`) element. */
 	wbr: HTMLElementAttributes;
 };
+
+export type HAS_REQUIRED_ATTRIBUTES_MAP = {
+	[K in keyof ATTRIBUTE_MAP]: HasRequiredKeys<Omit<ATTRIBUTE_MAP[K], `data-${string}`>> extends true ? true : false;
+};
+
+const hasRequiredAttributesMap: HAS_REQUIRED_ATTRIBUTES_MAP = {
+	a: true,
+	abbr: false,
+	address: false,
+	area: true,
+	article: false,
+	aside: false,
+	audio: false,
+	b: false,
+	base: true,
+	bdi: false,
+	bdo: false,
+	blockquote: false,
+	body: false,
+	br: false,
+	button: false,
+	canvas: false,
+	caption: false,
+	cite: false,
+	code: false,
+	col: false,
+	colgroup: false,
+	data: false,
+	datalist: false,
+	dd: false,
+	del: false,
+	details: false,
+	dfn: false,
+	dialog: false,
+	div: false,
+	dl: false,
+	dt: false,
+	em: false,
+	embed: false,
+	fieldset: false,
+	figcaption: false,
+	figure: false,
+	footer: false,
+	form: true,
+	h1: false,
+	h2: false,
+	h3: false,
+	h4: false,
+	h5: false,
+	h6: false,
+	head: false,
+	header: false,
+	hgroup: false,
+	hr: false,
+	html: false,
+	i: false,
+	iframe: false,
+	img: false,
+	input: false,
+	ins: false,
+	kbd: false,
+	label: false,
+	legend: false,
+	li: false,
+	link: true,
+	main: false,
+	map: true,
+	mark: false,
+	math: false,
+	menu: false,
+	meta: false,
+	meter: false,
+	nav: false,
+	noscript: false,
+	object: false,
+	ol: false,
+	optgroup: false,
+	option: false,
+	output: false,
+	p: false,
+	picture: false,
+	portal: false,
+	pre: false,
+	progress: false,
+	q: false,
+	rp: false,
+	rt: false,
+	ruby: false,
+	s: false,
+	samp: false,
+	script: false,
+	search: false,
+	section: false,
+	select: false,
+	slot: true,
+	small: false,
+	source: false,
+	span: false,
+	strong: false,
+	style: false,
+	sub: false,
+	summary: false,
+	sup: false,
+	svg: false,
+	table: false,
+	tbody: false,
+	td: false,
+	template: false,
+	textarea: false,
+	tfoot: false,
+	th: false,
+	thead: false,
+	time: false,
+	title: false,
+	tr: false,
+	track: false,
+	u: false,
+	ul: false,
+	var: false,
+	video: false,
+	wbr: false,
+};
+
+export const hasRequiredAttributes = <K extends keyof ATTRIBUTE_MAP>(tag: K): boolean => hasRequiredAttributesMap[tag];

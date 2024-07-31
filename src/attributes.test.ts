@@ -27,4 +27,15 @@ describe("attributes", () => {
 		const input = h.input({ type: "text", disabled: true });
 		expect(renderElement(input)).toBe(`<input type="text" disabled />`);
 	});
+
+	test("form attributes", ({ expect }) => {
+		const form = h.form({ method: "get", action: "" }, h.input({ type: "text" }));
+		expect(renderElement(form)).toBe(`<form method="get" action=""><input type="text" /></form>`);
+
+		const f2 = h.form({ method: "post", action: "" }, h.input({ type: "text" }));
+		expect(renderElement(f2)).toBe(`<form method="post" action=""><input type="text" /></form>`);
+
+		// @ts-expect-error dialog ignores action
+		h.form({ action: "get", method: "dialog" }, h.input({ type: "text" }));
+	});
 });
