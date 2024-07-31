@@ -1,3 +1,43 @@
+## v0.3.0
+> 2024-07-31
+
+## Summary
+
+Added a pretty printer so that both HTML and XML can be printed with 
+indentation and newlines instead of a single line. Also fixed that some
+HTML elements could be created without the required attributes.
+
+On the backside of the project it was converted from Deno to Node.
+
+### Commits
+- [[`ff58c46`](https://github.com/sondr3/radiant/commit/ff58c46)] Lock dependencies exactly
+- [[`3b70b51`](https://github.com/sondr3/radiant/commit/3b70b51)] Fix elements with required attributes constructor
+- [[`d746ddf`](https://github.com/sondr3/radiant/commit/d746ddf)] Include the src folder when publishing
+- [[`beebe85`](https://github.com/sondr3/radiant/commit/beebe85)] Add version to package.json, whoops
+- [[`ed7711f`](https://github.com/sondr3/radiant/commit/ed7711f)] Remove installation from JSR as the types don't work
+- [[`6419d22`](https://github.com/sondr3/radiant/commit/6419d22)] Update README
+- [[`52bd486`](https://github.com/sondr3/radiant/commit/52bd486)] Update lefthook config
+- [[`f4d6fc4`](https://github.com/sondr3/radiant/commit/f4d6fc4)] Remove .vscode folder
+- [[`c22cd4c`](https://github.com/sondr3/radiant/commit/c22cd4c)] Add lefthook for pre-commit hooks
+- [[`db4dd34`](https://github.com/sondr3/radiant/commit/db4dd34)] Fix linting issues
+- [[`268ad27`](https://github.com/sondr3/radiant/commit/268ad27)] Update publishing configuration
+- [[`d287118`](https://github.com/sondr3/radiant/commit/d287118)] Move tests to tests folder
+- [[`7a26578`](https://github.com/sondr3/radiant/commit/7a26578)] Update CI pipeline, add JSR config
+- [[`7dc68a8`](https://github.com/sondr3/radiant/commit/7dc68a8)] Convert from Deno to Node
+- [[`c9f8be3`](https://github.com/sondr3/radiant/commit/c9f8be3)] Move code into src
+- [[`624669e`](https://github.com/sondr3/radiant/commit/624669e)] Use correct path to scripts in generated files
+- [[`424a314`](https://github.com/sondr3/radiant/commit/424a314)] Handle whitespace sensitive tags in pretty printer
+- [[`35401ec`](https://github.com/sondr3/radiant/commit/35401ec)] Refactor and clean up pretty printing children
+- [[`769f364`](https://github.com/sondr3/radiant/commit/769f364)] Add TODOs, a 'check' command
+- [[`954ba37`](https://github.com/sondr3/radiant/commit/954ba37)] Handle the size of a single string child in renderer
+- [[`b721ad2`](https://github.com/sondr3/radiant/commit/b721ad2)] Update HTML renderer to use pretty printer
+- [[`dcba91a`](https://github.com/sondr3/radiant/commit/dcba91a)] Rename renderXML functions to remove XML from them
+- [[`a5880b5`](https://github.com/sondr3/radiant/commit/a5880b5)] Move stringifyAttributes into pretty printer file
+- [[`4cfc48b`](https://github.com/sondr3/radiant/commit/4cfc48b)] Escape XML strings in pretty printer
+- [[`06e8467`](https://github.com/sondr3/radiant/commit/06e8467)] Update tests for HTML
+- [[`d647d1c`](https://github.com/sondr3/radiant/commit/d647d1c)] Update XML renderer to use new PrettyPrinter
+- [[`5bad042`](https://github.com/sondr3/radiant/commit/5bad042)] Create a pretty printer that's generic across HTML and XML
+
 ## v0.2.3
 
 > 2024-07-23
