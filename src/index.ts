@@ -30,4 +30,5 @@ export * from "./attributes.js";
 export * from "./html_element.js";
 export * from "./render_html.js";
 export * from "./tags.js";
+export type { CHILDREN_MAP } from "./content_categories.js";
 export type { ELEMENT_MAP } from "./elements.js";
