@@ -33,7 +33,6 @@
 		}
 	},
 	"scripts": {
-		"prepare": "lefthook install",
 		"dev": "tsc --watch --incremental",
 		"build": "tsc",
 		"release": "tsc -p tsconfig.release.json",
