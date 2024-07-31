@@ -29,8 +29,7 @@ exports[`HTML rendering > works with whitespace sensitive tags 1`] = `
         
   this has
 some 
-    weird whitespace
-  </pre>
+    weird whitespace</pre>
 </body>"
 `;
 

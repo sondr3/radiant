@@ -74,7 +74,7 @@ export class PrettyPrinter {
 		}
 
 		const preserverWhitespace = this.preserveWhitespaceTags.has(tag as string);
-		if (isPhrasingTag(tag) && !preserverWhitespace) {
+		if (isPhrasingTag(tag)) {
 			const wasPretty = this.pretty;
 			this.pretty = false;
 			const nonPretty = this.printChildren(children, preserverWhitespace);
@@ -90,8 +90,7 @@ export class PrettyPrinter {
 		whitespacePreserving: boolean,
 	): string {
 		if (children.length === 1 && typeof children[0] === "string") {
-			const newline = whitespacePreserving ? `\n${this.getIndent()}` : "";
-			return `${this.printSingleTextChild(children[0])}${newline}`;
+			return this.printSingleTextChild(children[0]);
 		}
 
 		if (!whitespacePreserving) this.increaseIndent();
