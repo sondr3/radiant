@@ -64,11 +64,11 @@ jobs:
         run: pnpm release
 
       - name: publish NPM
-        run: pnpm publish --access=public
+        run: pnpm publish --access=public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish package
+      - name: publish JSR
         run: pnpm dlx jsr publish
 
       - name: create release
