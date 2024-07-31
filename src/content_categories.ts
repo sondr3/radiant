@@ -422,3 +422,64 @@ export type CHILDREN_MAP = {
 	video: ELEMENT_MAP["source"] | ELEMENT_MAP["track"] | PhrasingContent;
 	wbr: undefined;
 };
+
+type ElementsWithPhrasingContent = {
+	[K in keyof CHILDREN_MAP]: CHILDREN_MAP[K] extends PhrasingContent ? K : never;
+}[keyof CHILDREN_MAP];
+
+const phrasingElementsMap: Record<ElementsWithPhrasingContent, boolean> = {
+	a: true,
+	abbr: true,
+	b: true,
+	bdi: true,
+	bdo: true,
+	button: true,
+	cite: true,
+	code: true,
+	data: true,
+	del: true,
+	dfn: true,
+	em: true,
+	h1: true,
+	h2: true,
+	h3: true,
+	h4: true,
+	h5: true,
+	h6: true,
+	i: true,
+	ins: true,
+	kbd: true,
+	label: true,
+	map: true,
+	mark: true,
+	meter: true,
+	object: true,
+	option: true,
+	output: true,
+	p: true,
+	pre: true,
+	progress: true,
+	q: true,
+	rp: true,
+	rt: true,
+	ruby: true,
+	s: true,
+	samp: true,
+	script: true,
+	slot: true,
+	small: true,
+	span: true,
+	strong: true,
+	style: true,
+	sub: true,
+	sup: true,
+	textarea: true,
+	time: true,
+	title: true,
+	u: true,
+	var: true,
+};
+
+export const isPhrasingTag = <T>(tag: T): boolean => {
+	return phrasingElementsMap[tag] ?? false;
+};

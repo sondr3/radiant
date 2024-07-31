@@ -10,11 +10,7 @@ exports[`HTML rendering > works with pretty 1`] = `
   <body>
     <h1 class="blah">Hello, world!</h1>
     <p>This is a bunch of text... blah blah blah</p>
-    <p>
-      With some more 
-      <b>bold</b>
-       text.
-    </p>
+    <p>With some more <b>bold</b> text.</p>
   </body>
 </html>"
 `;

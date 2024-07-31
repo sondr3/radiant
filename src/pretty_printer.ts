@@ -1,4 +1,5 @@
 import { stringifyEntities } from "stringify-entities";
+import { isPhrasingTag } from "./content_categories.js";
 import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html_element.js";
 import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml.js";
 
@@ -44,7 +45,7 @@ export class PrettyPrinter {
 	private readonly preserveWhitespaceTags = new Set(["pre", "textarea", "script", "style"]);
 
 	constructor(
-		private readonly pretty: boolean = true,
+		private pretty = true,
 		private readonly mode: FormatterMode = "html",
 		private readonly indent: string = "  ",
 		private level = 0,
@@ -72,6 +73,14 @@ export class PrettyPrinter {
 			return `${result}><${result}/>`;
 		}
 
+		if (isPhrasingTag(tag)) {
+			const wasPretty = this.pretty;
+			this.pretty = false;
+			const nonPretty = this.printChildren(children, this.preserveWhitespaceTags.has(tag as string));
+			this.pretty = wasPretty;
+			return `${result}>${nonPretty}</${tag}>`;
+		}
+
 		return `${result}>${this.printChildren(children, this.preserveWhitespaceTags.has(tag as string))}</${tag}>`;
 	}
 
@@ -80,7 +89,7 @@ export class PrettyPrinter {
 		whitespacePreserving: boolean,
 	): string {
 		if (children.length === 1 && typeof children[0] === "string") {
-			return this.printSingleTextChild(children[0], whitespacePreserving);
+			return this.printSingleTextChild(children[0]);
 		}
 
 		if (!whitespacePreserving) this.increaseIndent();
@@ -89,15 +98,8 @@ export class PrettyPrinter {
 		return this.pretty ? `\n${childrenContent}\n${this.getIndent()}` : childrenContent;
 	}
 
-	private printSingleTextChild(child: string, whitespacePreserving: boolean): string {
-		if (child.length < 100) {
-			return child;
-		}
-		if (!whitespacePreserving) this.increaseIndent();
-		const indentedChild =
-			this.pretty && !whitespacePreserving ? `\n${this.getIndent()}${child}\n${this.getIndent()}` : child;
-		if (!whitespacePreserving) this.decreaseIndent();
-		return indentedChild;
+	private printSingleTextChild(child: string): string {
+		return child;
 	}
 
 	private printVoidElement<T, A extends BaseAttributes>(element: BaseElement<T, A>): string {
