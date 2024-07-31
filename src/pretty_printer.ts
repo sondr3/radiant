@@ -47,7 +47,7 @@ export const defaultPrettyPrinterOptions = {
 };
 
 export class PrettyPrinter {
-	private readonly preserveWhitespaceTags = new Set(["pre", "code", "textarea"]);
+	private readonly preserveWhitespaceTags = new Set(["pre", "code", "textarea", "script", "style"]);
 
 	constructor(
 		private readonly pretty: boolean = true,
