@@ -20,7 +20,7 @@ export const renderElement = <T extends HTMLTag, A extends HTMLElementAttributes
 	tag: HTMLElement<T, A, C> | VoidHTMLElement<Extract<HTMLTag, VoidHTMLTag>, A>,
 	opts?: { pretty: boolean },
 ): string => {
-	return new PrettyPrinter(opts?.pretty ?? false, "html").printNode(tag, false);
+	return new PrettyPrinter(opts?.pretty ?? false, "html").printNode(tag);
 };
 
 /**
