@@ -73,15 +73,16 @@ export class PrettyPrinter {
 			return `${result}><${result}/>`;
 		}
 
-		if (isPhrasingTag(tag)) {
+		const preserverWhitespace = this.preserveWhitespaceTags.has(tag as string);
+		if (isPhrasingTag(tag) && !preserverWhitespace) {
 			const wasPretty = this.pretty;
 			this.pretty = false;
-			const nonPretty = this.printChildren(children, this.preserveWhitespaceTags.has(tag as string));
+			const nonPretty = this.printChildren(children, preserverWhitespace);
 			this.pretty = wasPretty;
 			return `${result}>${nonPretty}</${tag}>`;
 		}
 
-		return `${result}>${this.printChildren(children, this.preserveWhitespaceTags.has(tag as string))}</${tag}>`;
+		return `${result}>${this.printChildren(children, preserverWhitespace)}</${tag}>`;
 	}
 
 	private printChildren<C extends string | BaseElement<unknown, BaseAttributes>>(
@@ -89,7 +90,8 @@ export class PrettyPrinter {
 		whitespacePreserving: boolean,
 	): string {
 		if (children.length === 1 && typeof children[0] === "string") {
-			return this.printSingleTextChild(children[0]);
+			const newline = whitespacePreserving ? `\n${this.getIndent()}` : "";
+			return `${this.printSingleTextChild(children[0])}${newline}`;
 		}
 
 		if (!whitespacePreserving) this.increaseIndent();

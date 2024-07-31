@@ -1,5 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`HTML rendering > nesting pre and code works 1`] = `
+"<pre><code>
+  def some_code():
+    pass
+</code></pre>"
+`;
+
 exports[`HTML rendering > works with pretty 1`] = `
 "<!DOCTYPE html>
 <html>
@@ -22,7 +29,8 @@ exports[`HTML rendering > works with whitespace sensitive tags 1`] = `
         
   this has
 some 
-    weird whitespace</pre>
+    weird whitespace
+  </pre>
 </body>"
 `;
 

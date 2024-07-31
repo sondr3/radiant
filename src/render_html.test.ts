@@ -42,6 +42,6 @@ some
 
 	test("nesting pre and code works", ({ expect }) => {
 		const elem = h.pre(h.code("\n  def some_code():\n    pass\n"));
-		expect(renderElement(elem)).toBe("<pre><code>\n  def some_code():\n    pass\n</code></pre>");
+		expect(renderElement(elem)).toMatchSnapshot();
 	});
 });
