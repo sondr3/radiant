@@ -1,6 +1,6 @@
 {
 	"name": "@sondr3/radiant",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"description": "A simple, type-safe, and functional way to create HTML documents in TypeScript.",
 	"keywords": ["html", "dsl", "typescript", "type-safe", "template"],
 	"author": "Sondre Aasemoen <sondre@eons.io> (https://www.eons.io)",

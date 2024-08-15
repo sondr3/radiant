@@ -1,3 +1,24 @@
+## v0.3.1
+> 2024-08-15
+
+## Summary
+
+Fixed exports in `package.json` thanks to @coracuity, and fixes for the pretty printer
+when handling white space sensitive tags.
+
+## Commits
+- [[`5073325`]](https://github.com/sondr3/radiant/commit/5073325) Add packageManager field for corepack 
+- [[`aca8e2a`]](https://github.com/sondr3/radiant/commit/aca8e2a) Re-order export conditions 
+- [[`5c0ba66`]](https://github.com/sondr3/radiant/commit/5c0ba66) Revert pre change, not sure it is correct 
+- [[`583dd2e`]](https://github.com/sondr3/radiant/commit/583dd2e) Even more pretty printing fixing 
+- [[`d48c798`]](https://github.com/sondr3/radiant/commit/d48c798) Further pretty printer fixes for phrasing content 
+- [[`b7bb19b`]](https://github.com/sondr3/radiant/commit/b7bb19b) Non-void elements need two tags 
+- [[`812e214`]](https://github.com/sondr3/radiant/commit/812e214) Don't run `lefthook install` in `prepare` script 
+- [[`dd40ae5`]](https://github.com/sondr3/radiant/commit/dd40ae5) Fix build errors 
+- [[`d01640c`]](https://github.com/sondr3/radiant/commit/d01640c) Export CHILDREN_MAP in index.ts 
+- [[`bddead7`]](https://github.com/sondr3/radiant/commit/bddead7) Handle whitespace sensitive tags correctly 
+- [[`6d57565`]](https://github.com/sondr3/radiant/commit/6d57565) Fix README 
+
 ## v0.3.0
 > 2024-07-31
 
