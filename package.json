@@ -24,12 +24,12 @@
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
-			"default": "./dist/index.js",
-			"types": "./dist/index.d.ts"
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
 		},
 		"./sitemap": {
-			"default": "./dist/sitemap.js",
-			"types": "./dist/sitemap.d.ts"
+			"types": "./dist/sitemap.d.ts",
+			"default": "./dist/sitemap.js"
 		}
 	},
 	"scripts": {
