@@ -3,9 +3,22 @@ import { isPhrasingTag } from "./content_categories.js";
 import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html_element.js";
 import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml.js";
 
-const escapeStr = (text: string): string => {
+const escapeXml = (text: string): string => {
 	return stringifyEntities(text, { escapeOnly: true });
 };
+
+const ESCAPE_HTML = {
+	"&": "&amp;",
+	"<": "&lt;",
+	">": "&gt;",
+	"'": "&#39;",
+	'"': "&quot;",
+} as const;
+
+const escapeHtml = (text: string): string =>
+	text.replaceAll(/[&<>'"]/g, (match) => ESCAPE_HTML[match as keyof typeof ESCAPE_HTML]);
+
+const escapeText = (mode: FormatterMode, text: string): string => (mode === "xml" ? escapeXml(text) : escapeHtml(text));
 
 /**
  * Converts an object of attributes into a string representation.
@@ -13,18 +26,18 @@ const escapeStr = (text: string): string => {
  * @param attributes - The attributes to stringify.
  * @returns The string representation of the attributes.
  */
-export const stringifyAttributes = (attributes: Record<string, string | boolean>): string => {
+export const stringifyAttributes = (mode: FormatterMode, attributes: Record<string, string | boolean>): string => {
 	const result = Array.from(Object.entries(attributes)).map(([key, value]) => {
-		const escapedKey = escapeStr(key);
+		const escapedKey = escapeText(mode, key);
 		if (Array.isArray(value)) {
-			return `${escapedKey}="${escapeStr(value.join(" "))}"`;
+			return `${escapedKey}="${escapeText(mode, value.join(" "))}"`;
 		}
 
 		if (typeof value === "boolean") {
 			return value ? escapedKey : "";
 		}
 
-		return `${escapedKey}="${escapeStr(value)}"`;
+		return `${escapedKey}="${escapeText(mode, value)}"`;
 	});
 
 	return result.length > 0 ? ` ${result.join(" ")}` : "";
@@ -51,6 +64,10 @@ export class PrettyPrinter {
 		private level = 0,
 	) {}
 
+	private escape(text: string): string {
+		return escapeText(this.mode, text);
+	}
+
 	private increaseIndent() {
 		this.level++;
 	}
@@ -67,10 +84,11 @@ export class PrettyPrinter {
 		element: HasChildren<BaseElement<T, A> & { children: C[] }, C>,
 	): string {
 		const { tag, children, attributes } = element;
-		const result = `${this.getIndent()}<${tag}${stringifyAttributes(attributes)}`;
+		const openingTag = `${this.getIndent()}<${tag}${attributes ? stringifyAttributes(this.mode, attributes) : ""}>`;
+		const closingTag = `</${tag}>`;
 
 		if (children.length === 0) {
-			return `${result}><${result}/>`;
+			return `${openingTag}${closingTag}`;
 		}
 
 		const preserverWhitespace = this.preserveWhitespaceTags.has(tag as string);
@@ -79,10 +97,10 @@ export class PrettyPrinter {
 			this.pretty = false;
 			const nonPretty = this.printChildren(children, preserverWhitespace);
 			this.pretty = wasPretty;
-			return `${result}>${nonPretty}</${tag}>`;
+			return `${openingTag}${nonPretty}${closingTag}`;
 		}
 
-		return `${result}>${this.printChildren(children, preserverWhitespace)}</${tag}>`;
+		return `${openingTag}${this.printChildren(children, preserverWhitespace)}${closingTag}`;
 	}
 
 	private printChildren<C extends string | BaseElement<unknown, BaseAttributes>>(
@@ -90,7 +108,7 @@ export class PrettyPrinter {
 		whitespacePreserving: boolean,
 	): string {
 		if (children.length === 1 && typeof children[0] === "string") {
-			return this.printSingleTextChild(children[0]);
+			return this.printSingleTextChild(this.escape(children[0]));
 		}
 
 		if (!whitespacePreserving) this.increaseIndent();
@@ -105,7 +123,7 @@ export class PrettyPrinter {
 
 	private printVoidElement<T, A extends BaseAttributes>(element: BaseElement<T, A>): string {
 		const { tag, attributes } = element;
-		return `${this.getIndent()}<${tag}${stringifyAttributes(attributes)} />`;
+		return `${this.getIndent()}<${tag}${stringifyAttributes(this.mode, attributes)} />`;
 	}
 
 	private printDoctype(_doctype: Doctype): string {
@@ -113,12 +131,11 @@ export class PrettyPrinter {
 	}
 
 	private printXMLDeclaration<T extends string, A extends BaseAttributes>(declaration: BaseElement<T, A>): string {
-		return `${this.getIndent()}<?${declaration.tag}${stringifyAttributes(declaration.attributes)}?>`;
+		return `${this.getIndent()}<?${declaration.tag}${stringifyAttributes(this.mode, declaration.attributes)}?>`;
 	}
 
 	private printTextNode(text: string): string {
-		const escaped = this.mode === "xml" ? escapeStr(text) : text;
-		return `${this.getIndent()}${escaped}`;
+		return `${this.getIndent()}${this.escape(text)}`;
 	}
 
 	printNode<T, A extends BaseAttributes, N extends Doctype | BaseElement<T, A> | string>(node: N): string {

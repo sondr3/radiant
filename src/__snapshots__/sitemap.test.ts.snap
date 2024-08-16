@@ -10,21 +10,21 @@ exports[`sitemap > sample works 1`] = `
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://www.example.com/catalog?item=12&desc=vacation_hawaii</loc>
+    <loc>http://www.example.com/catalog?item=12&#x26;desc=vacation_hawaii</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://www.example.com/catalog?item=73&desc=vacation_new_zealand</loc>
+    <loc>http://www.example.com/catalog?item=73&#x26;desc=vacation_new_zealand</loc>
     <lastmod>2004-12-23</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://www.example.com/catalog?item=74&desc=vacation_newfoundland</loc>
+    <loc>http://www.example.com/catalog?item=74&#x26;desc=vacation_newfoundland</loc>
     <lastmod>2004-12-23</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>http://www.example.com/catalog?item=83&desc=vacation_usa</loc>
+    <loc>http://www.example.com/catalog?item=83&#x26;desc=vacation_usa</loc>
     <lastmod>2004-11-23</lastmod>
   </url>
 </urlset>"

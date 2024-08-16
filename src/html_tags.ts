@@ -51,8 +51,8 @@ function addressElement(
     children,
   );
 }
-function areaElement(attrs: ATTRIBUTE_MAP["area"]): ELEMENT_MAP["area"] {
-  return new VoidBaseHTMLElement("area", attrs);
+function areaElement(attrs?: ATTRIBUTE_MAP["area"]): ELEMENT_MAP["area"] {
+  return new VoidBaseHTMLElement("area", attrs ?? {} as ATTRIBUTE_MAP["area"]);
 }
 
 
@@ -107,8 +107,8 @@ function bElement(
     children,
   );
 }
-function baseElement(attrs: ATTRIBUTE_MAP["base"]): ELEMENT_MAP["base"] {
-  return new VoidBaseHTMLElement("base", attrs);
+function baseElement(attrs?: ATTRIBUTE_MAP["base"]): ELEMENT_MAP["base"] {
+  return new VoidBaseHTMLElement("base", attrs ?? {} as ATTRIBUTE_MAP["base"]);
 }
 
 
@@ -163,8 +163,8 @@ function bodyElement(
     children,
   );
 }
-function brElement(attrs: ATTRIBUTE_MAP["br"]): ELEMENT_MAP["br"] {
-  return new VoidBaseHTMLElement("br", attrs);
+function brElement(attrs?: ATTRIBUTE_MAP["br"]): ELEMENT_MAP["br"] {
+  return new VoidBaseHTMLElement("br", attrs ?? {} as ATTRIBUTE_MAP["br"]);
 }
 
 
@@ -232,8 +232,8 @@ function codeElement(
     children,
   );
 }
-function colElement(attrs: ATTRIBUTE_MAP["col"]): ELEMENT_MAP["col"] {
-  return new VoidBaseHTMLElement("col", attrs);
+function colElement(attrs?: ATTRIBUTE_MAP["col"]): ELEMENT_MAP["col"] {
+  return new VoidBaseHTMLElement("col", attrs ?? {} as ATTRIBUTE_MAP["col"]);
 }
 
 
@@ -392,8 +392,8 @@ function emElement(
     children,
   );
 }
-function embedElement(attrs: ATTRIBUTE_MAP["embed"]): ELEMENT_MAP["embed"] {
-  return new VoidBaseHTMLElement("embed", attrs);
+function embedElement(attrs?: ATTRIBUTE_MAP["embed"]): ELEMENT_MAP["embed"] {
+  return new VoidBaseHTMLElement("embed", attrs ?? {} as ATTRIBUTE_MAP["embed"]);
 }
 
 
@@ -577,8 +577,8 @@ function hgroupElement(
     children,
   );
 }
-function hrElement(attrs: ATTRIBUTE_MAP["hr"]): ELEMENT_MAP["hr"] {
-  return new VoidBaseHTMLElement("hr", attrs);
+function hrElement(attrs?: ATTRIBUTE_MAP["hr"]): ELEMENT_MAP["hr"] {
+  return new VoidBaseHTMLElement("hr", attrs ?? {} as ATTRIBUTE_MAP["hr"]);
 }
 
 
@@ -620,12 +620,12 @@ function iframeElement(
     children,
   );
 }
-function imgElement(attrs: ATTRIBUTE_MAP["img"]): ELEMENT_MAP["img"] {
-  return new VoidBaseHTMLElement("img", attrs);
+function imgElement(attrs?: ATTRIBUTE_MAP["img"]): ELEMENT_MAP["img"] {
+  return new VoidBaseHTMLElement("img", attrs ?? {} as ATTRIBUTE_MAP["img"]);
 }
 
-function inputElement(attrs: ATTRIBUTE_MAP["input"]): ELEMENT_MAP["input"] {
-  return new VoidBaseHTMLElement("input", attrs);
+function inputElement(attrs?: ATTRIBUTE_MAP["input"]): ELEMENT_MAP["input"] {
+  return new VoidBaseHTMLElement("input", attrs ?? {} as ATTRIBUTE_MAP["input"]);
 }
 
 
@@ -693,8 +693,8 @@ function liElement(
     children,
   );
 }
-function linkElement(attrs: ATTRIBUTE_MAP["link"]): ELEMENT_MAP["link"] {
-  return new VoidBaseHTMLElement("link", attrs);
+function linkElement(attrs?: ATTRIBUTE_MAP["link"]): ELEMENT_MAP["link"] {
+  return new VoidBaseHTMLElement("link", attrs ?? {} as ATTRIBUTE_MAP["link"]);
 }
 
 
@@ -761,8 +761,8 @@ function menuElement(
     children,
   );
 }
-function metaElement(attrs: ATTRIBUTE_MAP["meta"]): ELEMENT_MAP["meta"] {
-  return new VoidBaseHTMLElement("meta", attrs);
+function metaElement(attrs?: ATTRIBUTE_MAP["meta"]): ELEMENT_MAP["meta"] {
+  return new VoidBaseHTMLElement("meta", attrs ?? {} as ATTRIBUTE_MAP["meta"]);
 }
 
 
@@ -1089,8 +1089,8 @@ function smallElement(
     children,
   );
 }
-function sourceElement(attrs: ATTRIBUTE_MAP["source"]): ELEMENT_MAP["source"] {
-  return new VoidBaseHTMLElement("source", attrs);
+function sourceElement(attrs?: ATTRIBUTE_MAP["source"]): ELEMENT_MAP["source"] {
+  return new VoidBaseHTMLElement("source", attrs ?? {} as ATTRIBUTE_MAP["source"]);
 }
 
 
@@ -1327,8 +1327,8 @@ function trElement(
     children,
   );
 }
-function trackElement(attrs: ATTRIBUTE_MAP["track"]): ELEMENT_MAP["track"] {
-  return new VoidBaseHTMLElement("track", attrs);
+function trackElement(attrs?: ATTRIBUTE_MAP["track"]): ELEMENT_MAP["track"] {
+  return new VoidBaseHTMLElement("track", attrs ?? {} as ATTRIBUTE_MAP["track"]);
 }
 
 
@@ -1383,8 +1383,8 @@ function videoElement(
     children,
   );
 }
-function wbrElement(attrs: ATTRIBUTE_MAP["wbr"]): ELEMENT_MAP["wbr"] {
-  return new VoidBaseHTMLElement("wbr", attrs);
+function wbrElement(attrs?: ATTRIBUTE_MAP["wbr"]): ELEMENT_MAP["wbr"] {
+  return new VoidBaseHTMLElement("wbr", attrs ?? {} as ATTRIBUTE_MAP["wbr"]);
 }
 
 
