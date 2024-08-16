@@ -26,8 +26,8 @@ function doctypeElement(): Doctype {
 
 		if (isVoid) {
 			elements += `
-function ${tag}Element(attrs: ATTRIBUTE_MAP["${tag}"]): ELEMENT_MAP["${tag}"] {
-  return new VoidBaseHTMLElement("${tag}", attrs);
+function ${tag}Element(attrs?: ATTRIBUTE_MAP["${tag}"]): ELEMENT_MAP["${tag}"] {
+  return new VoidBaseHTMLElement("${tag}", attrs ?? {} as ATTRIBUTE_MAP["${tag}"]);
 }
 
 `.trimStart();

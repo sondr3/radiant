@@ -51,3 +51,18 @@ test("it works redux ", ({ expect }) => {
 		],
 	});
 });
+
+test("it renders empty elements correctly", ({ expect }) => {
+	expect(renderElement(h.div())).toBe("<div></div>");
+	expect(renderElement(h.div({ class: "foo" }))).toBe(`<div class="foo"></div>`);
+	expect(renderElement(h.br())).toBe("<br />");
+	expect(renderElement(h.br({ class: "foo" }))).toBe(`<br class="foo" />`);
+});
+
+test("it renders html-unsafe characters correctly", ({ expect }) => {
+	expect(renderElement(h.div(`'&"><`))).toBe("<div>&#39;&amp;&quot;&gt;&lt;</div>");
+	expect(renderElement(h.div({ class: `'&"><` }))).toBe(`<div class="&#39;&amp;&quot;&gt;&lt;"></div>`);
+	expect(renderElement(h.div({ class: `'&"><` }, `'&"><`, h.div(`'&"><`), `'&"><`))).toBe(
+		`<div class="&#39;&amp;&quot;&gt;&lt;">&#39;&amp;&quot;&gt;&lt;<div>&#39;&amp;&quot;&gt;&lt;</div>&#39;&amp;&quot;&gt;&lt;</div>`,
+	);
+});
