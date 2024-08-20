@@ -60,9 +60,9 @@ test("it renders empty elements correctly", ({ expect }) => {
 });
 
 test("it renders html-unsafe characters correctly", ({ expect }) => {
-	expect(renderElement(h.div(`'&"><`))).toBe("<div>&#39;&amp;&quot;&gt;&lt;</div>");
-	expect(renderElement(h.div({ class: `'&"><` }))).toBe(`<div class="&#39;&amp;&quot;&gt;&lt;"></div>`);
+	expect(renderElement(h.div(`'&"><`))).toBe("<div>&#x27;&amp;&quot;&gt;&lt;</div>");
+	expect(renderElement(h.div({ class: `'&"><` }))).toBe(`<div class="&#x27;&amp;&quot;&gt;&lt;"></div>`);
 	expect(renderElement(h.div({ class: `'&"><` }, `'&"><`, h.div(`'&"><`), `'&"><`))).toBe(
-		`<div class="&#39;&amp;&quot;&gt;&lt;">&#39;&amp;&quot;&gt;&lt;<div>&#39;&amp;&quot;&gt;&lt;</div>&#39;&amp;&quot;&gt;&lt;</div>`,
+		`<div class="&#x27;&amp;&quot;&gt;&lt;">&#x27;&amp;&quot;&gt;&lt;<div>&#x27;&amp;&quot;&gt;&lt;</div>&#x27;&amp;&quot;&gt;&lt;</div>`,
 	);
 });
