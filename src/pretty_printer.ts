@@ -3,20 +3,8 @@ import { isPhrasingTag } from "./content_categories.js";
 import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html_element.js";
 import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml.js";
 
-const escapeXml = (text: string): string => {
-	return stringifyEntities(text, { escapeOnly: true });
-};
-
-const ESCAPE_HTML = {
-	"&": "&amp;",
-	"<": "&lt;",
-	">": "&gt;",
-	"'": "&#39;",
-	'"': "&quot;",
-} as const;
-
-const escapeHtml = (text: string): string =>
-	text.replaceAll(/[&<>'"]/g, (match) => ESCAPE_HTML[match as keyof typeof ESCAPE_HTML]);
+const escapeXml = (text: string): string => stringifyEntities(text, { escapeOnly: true });
+const escapeHtml = (text: string): string => stringifyEntities(text, { escapeOnly: true, useNamedReferences: true });
 
 const escapeText = (mode: FormatterMode, text: string): string => (mode === "xml" ? escapeXml(text) : escapeHtml(text));
 
