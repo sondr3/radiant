@@ -25,10 +25,11 @@
  */
 
 export { elementToObject } from "./ast.js";
-export { h } from "./html_tags.js";
+export { h } from "./h.js";
 export * from "./attributes.js";
 export * from "./html_element.js";
 export * from "./render_html.js";
 export * from "./tags.js";
 export type { CHILDREN_MAP } from "./content_categories.js";
 export type { ELEMENT_MAP } from "./elements.js";
+export type { ChildrenOf, AttributesOf } from "./types.js";
