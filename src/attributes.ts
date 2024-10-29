@@ -3,7 +3,7 @@
  * @module
  */
 
-import type { HasRequiredKeys } from "type-fest";
+import type { HasRequiredKeys, Merge } from "type-fest";
 
 /**
  * Attributes that can be applied to any HTML element.
@@ -41,14 +41,21 @@ export type GlobalAttributes = {
 /**
  * Attributes that can be applied to any user-defined data attribute.
  */
-export type UserDataAttributes = GlobalAttributes & {
+export type UserDataAttributes = {
 	[key: `data-${string}`]: string | boolean;
+};
+
+/**
+ * ARIA attributes, for now without full typing.
+ */
+export type AriaAttributes = {
+	[key: `aria-${string}`]: string;
 };
 
 /**
  * The base attributes for any HTML element.
  */
-export type DefaultAttributes = UserDataAttributes;
+export type DefaultAttributes = Merge<GlobalAttributes, Merge<UserDataAttributes, AriaAttributes>>;
 
 /**
  * Attributes that can be applied to any HTML element.
@@ -353,6 +360,7 @@ type MetaAttributes = HTMLElementAttributes & {
 	charset?: "utf-8";
 	content?: string;
 	media?: string;
+	property?: string;
 };
 
 type MeterAttributes = HTMLElementAttributes & {
@@ -750,7 +758,9 @@ export type ATTRIBUTE_MAP = {
 };
 
 export type HAS_REQUIRED_ATTRIBUTES_MAP = {
-	[K in keyof ATTRIBUTE_MAP]: HasRequiredKeys<Omit<ATTRIBUTE_MAP[K], `data-${string}`>> extends true ? true : false;
+	[K in keyof ATTRIBUTE_MAP]: HasRequiredKeys<Omit<ATTRIBUTE_MAP[K], `data-${string}` | `aria-${string}`>> extends true
+		? true
+		: false;
 };
 
 const hasRequiredAttributesMap: HAS_REQUIRED_ATTRIBUTES_MAP = {
