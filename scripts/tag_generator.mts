@@ -1,6 +1,5 @@
 import { writeFile } from "node:fs/promises";
-import type { HasRequiredKeys } from "type-fest";
-import { ATTRIBUTE_MAP, HAS_REQUIRED_ATTRIBUTES_MAP, hasRequiredAttributes } from "../src/attributes.js";
+import { hasRequiredAttributes } from "../src/attributes.js";
 import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/tags.js";
 
 const main = async () => {
