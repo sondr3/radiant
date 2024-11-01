@@ -6,6 +6,11 @@
 import type { HasRequiredKeys, Merge } from "type-fest";
 
 /**
+ * Optional, allow-all attributes for any element, but prefixed with a underscore.
+ */
+export type OptionalAttributes = { [key: `_${string}`]: string | boolean | number | undefined };
+
+/**
  * Attributes that can be applied to any HTML element.
  *
  * See https://html.spec.whatwg.org/dev/dom.html#global-attributes
@@ -523,6 +528,17 @@ type VideoAttributes = HTMLElementAttributes & {
 	height?: number;
 };
 
+type SVGElementAttributes = HTMLElementAttributes & {
+	xmlns?: string;
+	height?: string;
+	width?: string;
+	preserveaspectratio?: string;
+	version?: number;
+	viewBox?: string;
+	x?: string;
+	y?: string;
+} & OptionalAttributes;
+
 /** A mapping of attributes for each HTML element. */
 export type ATTRIBUTE_MAP = {
 	/** Attributes for the anchor (`<a>`) element. */
@@ -720,7 +736,7 @@ export type ATTRIBUTE_MAP = {
 	/** Attributes for the superscript (`<sup>`) element. */
 	sup: HTMLElementAttributes;
 	/** Attributes for the SVG (`<svg>`) element. */
-	svg: HTMLElementAttributes;
+	svg: SVGElementAttributes;
 	/** Attributes for the table (`<table>`) element. */
 	table: HTMLElementAttributes;
 	/** Attributes for the table body (`<tbody>`) element. */
@@ -758,7 +774,9 @@ export type ATTRIBUTE_MAP = {
 };
 
 export type HAS_REQUIRED_ATTRIBUTES_MAP = {
-	[K in keyof ATTRIBUTE_MAP]: HasRequiredKeys<Omit<ATTRIBUTE_MAP[K], `data-${string}` | `aria-${string}`>> extends true
+	[K in keyof ATTRIBUTE_MAP]: HasRequiredKeys<
+		Omit<ATTRIBUTE_MAP[K], `data-${string}` | `aria-${string}` | `_${string}`>
+	> extends true
 		? true
 		: false;
 };

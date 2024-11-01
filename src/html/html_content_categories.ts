@@ -1,3 +1,4 @@
+import type { SVGContent } from "../svg/svg_children.js";
 import type { ELEMENT_MAP } from "./html_elements.js";
 
 export type ContentCategory =
@@ -396,7 +397,7 @@ export type CHILDREN_MAP = {
 	sub: PhrasingContent;
 	summary: PhrasingContent | HeadingContent;
 	sup: PhrasingContent;
-	svg: undefined;
+	svg: SVGContent;
 	table:
 		| ELEMENT_MAP["caption"]
 		| ELEMENT_MAP["colgroup"]

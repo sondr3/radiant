@@ -27,9 +27,13 @@
 			"types": "./dist/index.d.ts",
 			"default": "./dist/index.js"
 		},
+		"./svg": {
+			"types": "./dist/svg/index.d.ts",
+			"default": "./dist/svg/index.js"
+		},
 		"./sitemap": {
-			"types": "./dist/sitemap.d.ts",
-			"default": "./dist/sitemap.js"
+			"types": "./dist/sitemap/sitemap.d.ts",
+			"default": "./dist/sitemap/sitemap.js"
 		}
 	},
 	"scripts": {
@@ -40,9 +44,7 @@
 		"fix": "biome check --write",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"gen": "pnpm gen:tags && pnpm gen:elems",
-		"gen:tags": "tsx ./scripts/element_generator.mts",
-		"gen:elems": "tsx ./scripts/tag_generator.mts"
+		"gen": "tsx scripts/generate.mts"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",

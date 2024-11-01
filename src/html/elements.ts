@@ -1,8 +1,8 @@
+import type { ATTRIBUTE_MAP } from "./html_attributes.ts";
+import type { CHILDREN_MAP } from "./html_content_categories.ts";
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/element-generator.mts to make changes.
-import type { ATTRIBUTE_MAP } from "./html_attributes.js";
-import type { CHILDREN_MAP } from "./html_content_categories.js";
-import type { HTMLElement, VoidHTMLElement } from "./html_element.js";
+import type { HTMLElement, VoidHTMLElement } from "./html_element.ts";
 
 interface AElement extends HTMLElement<"a", ATTRIBUTE_MAP["a"], CHILDREN_MAP["a"]> {}
 

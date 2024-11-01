@@ -25,4 +25,11 @@
  */
 
 export { elementToObject } from "./ast.js";
-export * from "./html/index.js";
+export type { CHILDREN_MAP } from "./html/html_content_categories.js";
+export type { ELEMENT_MAP } from "./html/html_elements.js";
+export type { ChildrenOf, AttributesOf } from "./html/html_types.js";
+export * from "./html/html_attributes.js";
+export * from "./html/html_element.js";
+export * from "./html/render_html.js";
+export * from "./html/html_tags.js";
+export { h } from "./html/index.js";

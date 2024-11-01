@@ -2,14 +2,14 @@ import { writeFile } from "node:fs/promises";
 import { hasRequiredAttributes } from "../src/html/html_attributes.js";
 import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/html/html_tags.js";
 
-const main = async () => {
+export const main = async () => {
 	let elements = `
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/tag-generator.mts to make changes.
 import { HTMLDocument, VoidBaseHTMLElement, Doctype, createHTMLElement } from "./html_element.js"
-import type { ATTRIBUTE_MAP } from "./attributes.js"
-import type { ELEMENT_MAP } from "./elements.js"
-import type { CHILDREN_MAP } from "./content_categories.js"
+import type { ATTRIBUTE_MAP } from "./html_attributes.js"
+import type { ELEMENT_MAP } from "./html_elements.js"
+import type { CHILDREN_MAP } from "./html_content_categories.js"
 
 function documentElement(doctype: Doctype, ...children: Array<ELEMENT_MAP["html"]>): HTMLDocument {
   return new HTMLDocument(doctype, ...children);
@@ -73,5 +73,3 @@ export const h = {
 
 	await writeFile("./src/html/html_builders.ts", result, { encoding: "utf-8" });
 };
-
-await main();

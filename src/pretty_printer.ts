@@ -1,13 +1,14 @@
 import { stringifyEntities } from "stringify-entities";
 import { isPhrasingTag } from "./html/html_content_categories.js";
 import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html/html_element.js";
+import { SVGElement } from "./svg/index.js";
 import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml/xml.js";
 
 const escapeXml = (text: string): string => stringifyEntities(text, { escapeOnly: true });
 const escapeHtml = (text: string): string => stringifyEntities(text, { escapeOnly: true, useNamedReferences: true });
 
 const escapeText = (mode: FormatterMode, text: string): string => (mode === "xml" ? escapeXml(text) : escapeHtml(text));
-
+const trimSvgAttribute = (attribute: string): string => (attribute.startsWith("_") ? attribute.slice(1) : attribute);
 /**
  * Converts an object of attributes into a string representation.
  *
@@ -16,7 +17,7 @@ const escapeText = (mode: FormatterMode, text: string): string => (mode === "xml
  */
 export const stringifyAttributes = (mode: FormatterMode, attributes: Record<string, string | boolean>): string => {
 	const result = Array.from(Object.entries(attributes)).map(([key, value]) => {
-		const escapedKey = escapeText(mode, key);
+		const escapedKey = escapeText(mode, mode === "svg" ? trimSvgAttribute(key) : key);
 		if (Array.isArray(value)) {
 			return `${escapedKey}="${escapeText(mode, value.join(" "))}"`;
 		}
@@ -40,7 +41,7 @@ interface BaseElement<T, A> {
 
 type HasChildren<T, C> = T extends { children: Array<C> } ? T : never;
 
-type FormatterMode = "html" | "xml";
+type FormatterMode = "html" | "xml" | "svg";
 
 export class PrettyPrinter {
 	private readonly preserveWhitespaceTags = new Set(["pre", "textarea", "script", "style"]);
@@ -127,6 +128,10 @@ export class PrettyPrinter {
 	}
 
 	printNode<T, A extends BaseAttributes, N extends Doctype | BaseElement<T, A> | string>(node: N): string {
+		if (node instanceof SVGElement) {
+			return this.printVoidElement(node);
+		}
+
 		if (node instanceof BaseHTMLElement || node instanceof XMLElement) {
 			return this.printElement(node);
 		}

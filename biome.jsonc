@@ -1,7 +1,16 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
 	"files": {
-		"ignore": ["node_modules", "dist", "coverage", "docs", "./src/html/html_tags.ts", "./src/html/elements.ts"]
+		"ignore": [
+			"node_modules",
+			"dist",
+			"coverage",
+			"docs",
+			"./src/html/html_builders.ts",
+			"./src/html/html_elements.ts",
+			"./src/svg/svg_builders.ts",
+			"./src/svg/svg_elements.ts"
+		]
 	},
 	"organizeImports": {
 		"enabled": true
