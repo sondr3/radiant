@@ -1,6 +1,6 @@
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/svg-tag-generator.mts to make changes.
-import { type SVGAttributes, createSVGElement } from "./index.js"
+import { type SVGAttributes, createSVGElement } from "./svg.js"
 import type { ELEMENT_MAP } from "./svg_elements.js"
 import type { CHILDREN_MAP } from "./svg_children.js"
 function aElement(...children: Array<CHILDREN_MAP["a"]>): ELEMENT_MAP["a"];

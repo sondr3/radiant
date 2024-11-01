@@ -1,6 +1,6 @@
 import { test } from "vitest";
 import { h } from "../index.js";
-import type { SVGElement } from "./index.js";
+import type { SVGElement } from "./svg.js";
 import { s } from "./svg_builders.js";
 
 test("basic SVG element", ({ expect }) => {

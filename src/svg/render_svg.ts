@@ -4,7 +4,7 @@
  */
 
 import { PrettyPrinter } from "../pretty_printer.js";
-import type { SVGElement } from "./index.js";
+import type { SVGElement } from "./svg.js";
 
 /**
  * Renders an XML element or declaration to a string.

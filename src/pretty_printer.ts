@@ -1,7 +1,7 @@
 import { stringifyEntities } from "stringify-entities";
 import { isPhrasingTag } from "./html/html_content_categories.js";
 import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html/html_element.js";
-import { SVGElement } from "./svg/index.js";
+import { SVGElement } from "./svg/svg.js";
 import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml/xml.js";
 
 const escapeXml = (text: string): string => stringifyEntities(text, { escapeOnly: true });
