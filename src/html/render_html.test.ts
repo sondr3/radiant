@@ -1,5 +1,5 @@
 import { describe, test } from "vitest";
-import { h } from "./html_builders.js";
+import { h } from "./index.js";
 import { renderDocument, renderElement } from "./render_html.js";
 
 describe("HTML rendering", () => {
@@ -40,6 +40,11 @@ some
 
 	test("nesting pre and code works", ({ expect }) => {
 		const elem = h.pre(h.code("\n  def some_code():\n    pass\n"));
+		expect(renderElement(elem)).toMatchSnapshot();
+	});
+
+	test("it renders raw HTML correctly", ({ expect }) => {
+		const elem = h.div(h.p("Hello, world!"), h.raw("<p>Raw <span>frickin'</span> HTML</p>"));
 		expect(renderElement(elem)).toMatchSnapshot();
 	});
 });

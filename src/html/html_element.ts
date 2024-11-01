@@ -18,6 +18,13 @@ const isVoidHTMLElement = <T extends Extract<HTMLTag, VoidHTMLTag>, A>(
 };
 
 /**
+ * Represents raw HTML content, to avoid string escaping.
+ */
+export class RawHTML {
+	constructor(public readonly content: string) {}
+}
+
+/**
  * Represents an HTML element.
  *
  * @template T - The HTML tag type.

@@ -1,4 +1,5 @@
 import type { SVGContent } from "../svg/svg_children.js";
+import type { RawHTML } from "./html_element.js";
 import type { ELEMENT_MAP } from "./html_elements.js";
 
 export type ContentCategory =
@@ -25,6 +26,7 @@ type MetadataContent =
 
 type FlowContent =
 	| string
+	| RawHTML
 	| ELEMENT_MAP["a"]
 	| ELEMENT_MAP["abbr"]
 	| ELEMENT_MAP["address"]
@@ -115,6 +117,7 @@ type FlowContent =
 
 type PhrasingContent =
 	| string
+	| RawHTML
 	| ELEMENT_MAP["a"]
 	| ELEMENT_MAP["abbr"]
 	| ELEMENT_MAP["area"]

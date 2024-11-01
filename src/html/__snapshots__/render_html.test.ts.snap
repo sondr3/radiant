@@ -1,5 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`HTML rendering > it renders raw HTML correctly 1`] = `"<div><p>Hello, world!</p><p>Raw <span>frickin'</span> HTML</p></div>"`;
+
 exports[`HTML rendering > nesting pre and code works 1`] = `
 "<pre><code>
   def some_code():

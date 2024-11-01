@@ -1,6 +1,6 @@
 import { stringifyEntities } from "stringify-entities";
 import { isPhrasingTag } from "./html/html_content_categories.js";
-import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html/html_element.js";
+import { BaseHTMLElement, Doctype, type HTMLDocument, RawHTML, VoidBaseHTMLElement } from "./html/html_element.js";
 import { SVGElement } from "./svg/svg.js";
 import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml/xml.js";
 
@@ -130,6 +130,10 @@ export class PrettyPrinter {
 	printNode<T, A extends BaseAttributes, N extends Doctype | BaseElement<T, A> | string | null>(node: N): string {
 		if (node === null) {
 			return "";
+		}
+
+		if (node instanceof RawHTML) {
+			return `${this.getIndent()}${node.content}`;
 		}
 
 		if (node instanceof SVGElement) {
