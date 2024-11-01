@@ -32,8 +32,8 @@
 			"default": "./dist/svg/index.js"
 		},
 		"./sitemap": {
-			"types": "./dist/sitemap/sitemap.d.ts",
-			"default": "./dist/sitemap/sitemap.js"
+			"types": "./dist/sitemap/index.d.ts",
+			"default": "./dist/sitemap/index.js"
 		}
 	},
 	"scripts": {
