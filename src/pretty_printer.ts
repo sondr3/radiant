@@ -127,7 +127,11 @@ export class PrettyPrinter {
 		return `${this.getIndent()}${this.escape(text)}`;
 	}
 
-	printNode<T, A extends BaseAttributes, N extends Doctype | BaseElement<T, A> | string>(node: N): string {
+	printNode<T, A extends BaseAttributes, N extends Doctype | BaseElement<T, A> | string | null>(node: N): string {
+		if (node === null) {
+			return "";
+		}
+
 		if (node instanceof SVGElement) {
 			return this.printVoidElement(node);
 		}

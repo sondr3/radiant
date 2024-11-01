@@ -299,7 +299,7 @@ export type AllChildren =
 	| PalpableContent
 	| EmbeddedContent;
 
-export type CHILDREN_MAP = {
+type BASE_CHILDREN_MAP = {
 	a: PhrasingContent;
 	abbr: PhrasingContent;
 	address: FlowContent;
@@ -422,6 +422,10 @@ export type CHILDREN_MAP = {
 	var: PhrasingContent;
 	video: ELEMENT_MAP["source"] | ELEMENT_MAP["track"] | PhrasingContent;
 	wbr: undefined;
+};
+
+export type CHILDREN_MAP = {
+	[K in keyof BASE_CHILDREN_MAP]: BASE_CHILDREN_MAP[K] | null;
 };
 
 type ElementsWithPhrasingContent = {

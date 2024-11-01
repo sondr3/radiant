@@ -66,3 +66,13 @@ test("it renders html-unsafe characters correctly", ({ expect }) => {
 		`<div class="&#x27;&amp;&quot;&gt;&lt;">&#x27;&amp;&quot;&gt;&lt;<div>&#x27;&amp;&quot;&gt;&lt;</div>&#x27;&amp;&quot;&gt;&lt;</div>`,
 	);
 });
+
+test("addIf works", ({ expect }) => {
+	const head = h.head(
+		h.meta({ charset: "utf-8" }),
+		h.addIf(true, h.title("Hello, world!")),
+		h.addIf(false, h.title("Goodbye, world!")),
+	);
+	expect(head.children).toHaveLength(3);
+	expect(renderElement(head)).toBe('<head><meta charset="utf-8" /><title>Hello, world!</title></head>');
+});
