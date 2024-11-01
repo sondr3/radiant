@@ -8,7 +8,7 @@ const escapeXml = (text: string): string => stringifyEntities(text, { escapeOnly
 const escapeHtml = (text: string): string => stringifyEntities(text, { escapeOnly: true, useNamedReferences: true });
 
 const escapeText = (mode: FormatterMode, text: string): string => (mode === "xml" ? escapeXml(text) : escapeHtml(text));
-const trimSvgAttribute = (attribute: string): string => (attribute.startsWith("_") ? attribute.slice(1) : attribute);
+const trimAttribute = (attribute: string): string => (attribute.startsWith("_") ? attribute.slice(1) : attribute);
 /**
  * Converts an object of attributes into a string representation.
  *
@@ -17,7 +17,7 @@ const trimSvgAttribute = (attribute: string): string => (attribute.startsWith("_
  */
 export const stringifyAttributes = (mode: FormatterMode, attributes: Record<string, string | boolean>): string => {
 	const result = Array.from(Object.entries(attributes)).map(([key, value]) => {
-		const escapedKey = escapeText(mode, mode === "svg" ? trimSvgAttribute(key) : key);
+		const escapedKey = escapeText(mode, trimAttribute(key));
 		if (Array.isArray(value)) {
 			return `${escapedKey}="${escapeText(mode, value.join(" "))}"`;
 		}
@@ -50,6 +50,7 @@ export class PrettyPrinter {
 		private pretty = true,
 		private readonly mode: FormatterMode = "html",
 		private readonly indent: string = "  ",
+		private skipEscape = false,
 		private level = 0,
 	) {}
 
@@ -81,6 +82,7 @@ export class PrettyPrinter {
 		}
 
 		const preserverWhitespace = this.preserveWhitespaceTags.has(tag as string);
+		this.skipEscape = preserverWhitespace;
 		if (isPhrasingTag(tag)) {
 			const wasPretty = this.pretty;
 			this.pretty = false;
@@ -97,7 +99,7 @@ export class PrettyPrinter {
 		whitespacePreserving: boolean,
 	): string {
 		if (children.length === 1 && typeof children[0] === "string") {
-			return this.printSingleTextChild(this.escape(children[0]));
+			return this.printSingleTextChild(this.skipEscape ? children[0] : this.escape(children[0]));
 		}
 
 		if (!whitespacePreserving) this.increaseIndent();
@@ -124,7 +126,7 @@ export class PrettyPrinter {
 	}
 
 	private printTextNode(text: string): string {
-		return `${this.getIndent()}${this.escape(text)}`;
+		return `${this.getIndent()}${this.skipEscape ? text : this.escape(text)}`;
 	}
 
 	printNode<T, A extends BaseAttributes, N extends Doctype | BaseElement<T, A> | string | null>(node: N): string {
