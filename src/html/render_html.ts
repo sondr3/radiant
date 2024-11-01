@@ -3,10 +3,10 @@
  * @module
  */
 
-import type { HTMLElementAttributes } from "./attributes.js";
+import { PrettyPrinter } from "../pretty_printer.js";
+import type { HTMLElementAttributes } from "./html_attributes.js";
 import type { HTMLDocument, HTMLElement, VoidHTMLElement } from "./html_element.js";
-import { PrettyPrinter } from "./pretty_printer.js";
-import type { HTMLTag, VoidHTMLTag } from "./tags.js";
+import type { HTMLTag, VoidHTMLTag } from "./html_tags.js";
 
 /**
  * Renders an HTML element or void element to a string.

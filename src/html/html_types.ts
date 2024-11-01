@@ -1,6 +1,6 @@
-import type { ATTRIBUTE_MAP } from "./attributes.js";
-import type { CHILDREN_MAP } from "./content_categories.js";
-import type { HTMLTag } from "./tags.js";
+import type { ATTRIBUTE_MAP } from "./html_attributes.js";
+import type { CHILDREN_MAP } from "./html_content_categories.js";
+import type { HTMLTag } from "./html_tags.js";
 
 /**
  * Gets the allowed children types for a given HTML element

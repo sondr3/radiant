@@ -1,5 +1,5 @@
-import { BaseHTMLElement, VoidBaseHTMLElement } from "./html_element.js";
-import type { HTMLTag, VoidHTMLTag } from "./tags.js";
+import { BaseHTMLElement, VoidBaseHTMLElement } from "./html/html_element.js";
+import type { HTMLTag, VoidHTMLTag } from "./html/html_tags.js";
 
 /**
  * Converts an HTML element (BaseHTMLElement or VoidBaseHTMLElement) into a regular object.

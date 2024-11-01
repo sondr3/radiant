@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises";
-import { hasRequiredAttributes } from "../src/attributes.js";
-import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/tags.js";
+import { hasRequiredAttributes } from "../src/html/html_attributes.js";
+import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/html/html_tags.js";
 
 const main = async () => {
 	let elements = `
@@ -71,7 +71,7 @@ export const h = {
 
 	const result = elements + map;
 
-	await writeFile("./src/html_tags.ts", result, { encoding: "utf-8" });
+	await writeFile("./src/html/html_builders.ts", result, { encoding: "utf-8" });
 };
 
 await main();

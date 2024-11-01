@@ -3,9 +3,9 @@
  * @module
  */
 
-import type { AllChildren } from "./content_categories.js";
-import type { ELEMENT_MAP } from "./elements.js";
-import type { HTMLTag, VoidHTMLTag } from "./tags.js";
+import type { AllChildren } from "./html_content_categories.js";
+import type { ELEMENT_MAP } from "./html_elements.js";
+import type { HTMLTag, VoidHTMLTag } from "./html_tags.js";
 
 const isHTMLElement = <T extends HTMLTag, A, C extends AllChildren>(obj: unknown): obj is BaseHTMLElement<T, A, C> => {
 	return obj instanceof BaseHTMLElement;

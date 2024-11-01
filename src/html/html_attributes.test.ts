@@ -1,5 +1,5 @@
 import { describe, test } from "vitest";
-import { h } from "./html_tags.js";
+import { h } from "./html_builders.js";
 import { renderElement } from "./render_html.js";
 
 describe("attributes", () => {

@@ -1,4 +1,4 @@
-import type { SitemapElements } from "./sitemap.js";
+import type { SitemapElements } from "../sitemap/sitemap.js";
 
 export type XMLAttributes = Record<string, string | boolean>;
 

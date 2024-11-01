@@ -1,7 +1,7 @@
 import { stringifyEntities } from "stringify-entities";
-import { isPhrasingTag } from "./content_categories.js";
-import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html_element.js";
-import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml.js";
+import { isPhrasingTag } from "./html/html_content_categories.js";
+import { BaseHTMLElement, Doctype, type HTMLDocument, VoidBaseHTMLElement } from "./html/html_element.js";
+import { VoidXMLElement, XMLDeclaration, type XMLDocument, XMLElement } from "./xml/xml.js";
 
 const escapeXml = (text: string): string => stringifyEntities(text, { escapeOnly: true });
 const escapeHtml = (text: string): string => stringifyEntities(text, { escapeOnly: true, useNamedReferences: true });

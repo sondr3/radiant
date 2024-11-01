@@ -1,8 +1,16 @@
-import type { HTMLElementAttributes } from "./attributes.js";
-import type { CHILDREN_MAP } from "./content_categories.js";
+import type { HTMLElementAttributes } from "./html_attributes.js";
+import { h as h_ } from "./html_builders.js";
+import type { CHILDREN_MAP } from "./html_content_categories.js";
 import type { BaseHTMLElement, VoidBaseHTMLElement } from "./html_element.js";
-import { h as h_ } from "./html_tags.js";
-import type { HTMLTag, VoidHTMLTag } from "./tags.js";
+import type { HTMLTag, VoidHTMLTag } from "./html_tags.js";
+
+export type { CHILDREN_MAP } from "./html_content_categories.js";
+export type { ELEMENT_MAP } from "./html_elements.js";
+export type { ChildrenOf, AttributesOf } from "./html_types.js";
+export * from "./html_attributes.js";
+export * from "./html_element.js";
+export * from "./render_html.js";
+export * from "./html_tags.js";
 
 /**
  * Conditionally renders an HTML element

@@ -1,4 +1,4 @@
-import type { ELEMENT_MAP } from "./elements.js";
+import type { ELEMENT_MAP } from "./html_elements.js";
 
 export type ContentCategory =
 	| "MetadataContent"

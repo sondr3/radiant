@@ -3,7 +3,7 @@
  * @module
  */
 
-import { PrettyPrinter } from "./pretty_printer.js";
+import { PrettyPrinter } from "../pretty_printer.js";
 import type { VoidXMLElement, XMLAttributes, XMLDeclaration, XMLDocument, XMLElement } from "./xml.js";
 
 /**

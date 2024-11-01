@@ -1,6 +1,6 @@
 import { test } from "vitest";
-import { elementToObject } from "./ast.js";
-import { h } from "./index.js";
+import { elementToObject } from "../ast.js";
+import { h } from "../index.js";
 import { renderDocument, renderElement } from "./render_html.js";
 
 test("basic output", ({ expect }) => {

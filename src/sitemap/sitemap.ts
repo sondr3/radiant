@@ -32,7 +32,7 @@
  * @module
  */
 
-import { formatDate } from "./utils.js";
+import { formatDate } from "../utils.js";
 import {
 	type XMLAttributes,
 	type XMLDeclarationType,
@@ -41,8 +41,8 @@ import {
 	type XMLStyleSheet,
 	xmlDoctype,
 	xmlStylesheet,
-} from "./xml.js";
-export { renderDocument as renderSitemap } from "./render_xml.js";
+} from "../xml/xml.js";
+export { renderDocument as renderSitemap } from "../xml/render_xml.js";
 
 type UrlSetAttributes = XMLAttributes & {
 	xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9";

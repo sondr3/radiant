@@ -1,5 +1,5 @@
 import { describe, test } from "vitest";
-import { renderDocument } from "./render_xml.js";
+import { renderDocument } from "../xml/render_xml.js";
 import { s } from "./sitemap.js";
 
 describe("sitemap", () => {

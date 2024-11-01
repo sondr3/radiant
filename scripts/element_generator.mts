@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises";
 import camelCase from "camelcase";
-import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/tags.js";
+import { HTML_TAGS, VOID_HTML_TAGS, type VoidHTMLTag } from "../src/html/html_tags.js";
 
 const pascalCase = (str: string) => camelCase(str, { pascalCase: true });
 
@@ -41,7 +41,7 @@ export type ELEMENT_MAP = {
 
 	const result = elements + map;
 
-	await writeFile("./src/elements.ts", result, { encoding: "utf-8" });
+	await writeFile("./src/html/elements.ts", result, { encoding: "utf-8" });
 };
 
 await main();
