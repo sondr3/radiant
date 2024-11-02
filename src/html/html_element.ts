@@ -3,18 +3,17 @@
  * @module
  */
 
-import type { AllChildren } from "./html_content_categories.js";
 import type { ELEMENT_MAP } from "./html_elements.js";
 import type { HTMLTag, VoidHTMLTag } from "./html_tags.js";
 
-const isHTMLElement = <T extends HTMLTag, A, C extends AllChildren>(obj: unknown): obj is BaseHTMLElement<T, A, C> => {
-	return obj instanceof BaseHTMLElement;
+type AnyHTMLElement = BaseHTMLElement<HTMLTag, unknown, unknown> | VoidBaseHTMLElement<VoidHTMLTag, unknown>;
+const isHTMLElement = (value: unknown): value is AnyHTMLElement => {
+	return value instanceof BaseHTMLElement || value instanceof VoidBaseHTMLElement;
 };
-
-const isVoidHTMLElement = <T extends Extract<HTMLTag, VoidHTMLTag>, A>(
-	obj: unknown,
-): obj is VoidBaseHTMLElement<T, A> => {
-	return obj instanceof VoidBaseHTMLElement;
+export const isAttributes = <A>(value: unknown): value is A => {
+	if (value === null || typeof value !== "object") return false;
+	if (Array.isArray(value)) return false;
+	return !isHTMLElement(value);
 };
 
 /**
@@ -65,24 +64,28 @@ export class BaseHTMLElement<T extends HTMLTag, A, C> implements HTMLElement<T, 
  * @template A - The type of the attributes object.
  * @template C - The type of the children array elements.
  * @param {T} tag - The HTML tag.
- * @param {string | A | C | Array<C>} attributes - The attributes of the HTML element.
- * @param {Array<C>} children - The children of the HTML element.
+ * @param {string | A | C | Array<C>} attrsOrChild - The attributes or first child of the HTML element.
+ * @param {Array<C>} restOfChildren - The remaining children of the HTML element.
  * @returns {BaseHTMLElement<T, A, C>} - The created `BaseHTMLElement` instance.
  */
 export const createHTMLElement = <T extends HTMLTag, A, C>(
 	tag: T,
-	attributes: string | A | C | Array<C>,
-	children: Array<C>,
+	attrsOrChild: string | A | C | Array<C> | null | undefined,
+	restOfChildren: Array<C>,
 ): BaseHTMLElement<T, A, C> => {
-	if (typeof attributes === "string" || isHTMLElement(attributes) || isVoidHTMLElement(attributes)) {
-		return new BaseHTMLElement(tag, {} as A, [attributes as unknown as C, ...children]);
+	if (!attrsOrChild) {
+		return new BaseHTMLElement<T, A, C>(tag, {} as A, []);
 	}
 
-	if (Array.isArray(attributes)) {
-		return new BaseHTMLElement(tag, {} as A, [...attributes, ...children]);
+	if (isAttributes<A>(attrsOrChild)) {
+		return new BaseHTMLElement(tag, attrsOrChild, restOfChildren);
 	}
 
-	return new BaseHTMLElement(tag, attributes as A, children);
+	const children = Array.isArray(attrsOrChild)
+		? [...attrsOrChild, ...restOfChildren]
+		: [attrsOrChild as C, ...restOfChildren];
+
+	return new BaseHTMLElement(tag, {} as A, children);
 };
 
 /**

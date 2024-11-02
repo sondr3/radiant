@@ -44,7 +44,7 @@
 		"fix": "biome check --write",
 		"test": "vitest",
 		"coverage": "vitest run --coverage",
-		"gen": "tsx scripts/generate.mts"
+		"gen": "tsx scripts/generate.ts"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",

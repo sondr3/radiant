@@ -1,6 +1,6 @@
 // THIS FILE IS AUTO-GENERATED, DO NOT MODIFY.
 // See ./scripts/svg-element-generator.mts to make changes.
-import type { SVGElement } from "./svg.ts";
+import type { SVGElement } from "./svg.js";
 import type { CHILDREN_MAP } from "./svg_children.ts";
 
 interface AElement extends SVGElement<"a", CHILDREN_MAP["a"]> {}

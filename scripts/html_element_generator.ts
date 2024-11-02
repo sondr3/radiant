@@ -17,11 +17,11 @@ import type { CHILDREN_MAP } from "./html_content_categories.ts";
 
 		if (isVoid) {
 			elements += `
-interface ${pascalCase(tag)}Element extends VoidHTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"]> {}
+export interface ${pascalCase(tag)}Element extends VoidHTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"]> {}
 `;
 		} else {
 			elements += `
-interface ${pascalCase(tag)}Element extends HTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"], CHILDREN_MAP["${tag}"]> {}
+export interface ${pascalCase(tag)}Element extends HTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"], CHILDREN_MAP["${tag}"]> {}
 `;
 		}
 	}
@@ -41,5 +41,5 @@ export type ELEMENT_MAP = {
 
 	const result = elements + map;
 
-	await writeFile("./src/html/elements.ts", result, { encoding: "utf-8" });
+	await writeFile("./src/html/html_elements.ts", result, { encoding: "utf-8" });
 };

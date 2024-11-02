@@ -42,11 +42,11 @@ function ${tag}Element(
   attrsOrChild: ATTRIBUTE_MAP["${tag}"] | CHILDREN_MAP["${tag}"] | Array<CHILDREN_MAP["${tag}"]>,
   ...children: Array<CHILDREN_MAP["${tag}"]>
 ): ELEMENT_MAP["${tag}"] {
-  return createHTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"], CHILDREN_MAP["${tag}"]>(
-    "${tag}",
-    attrsOrChild,
-    children,
-  );
+	return createHTMLElement<"${tag}", ATTRIBUTE_MAP["${tag}"], CHILDREN_MAP["${tag}"]>(
+		"${tag}",
+		attrsOrChild,
+		children,
+	);
 }
 `;
 		}
