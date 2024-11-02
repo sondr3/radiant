@@ -114,7 +114,8 @@ export class PrettyPrinter {
 
 	private printVoidElement<T, A extends BaseAttributes>(element: BaseElement<T, A>): string {
 		const { tag, attributes } = element;
-		return `${this.getIndent()}<${tag}${stringifyAttributes(this.mode, attributes)} />`;
+		const isSvgElement = element instanceof SVGElement;
+		return `${this.getIndent()}<${tag}${stringifyAttributes(this.mode, attributes)}${isSvgElement ? "/" : ""}>`;
 	}
 
 	private printDoctype(_doctype: Doctype): string {

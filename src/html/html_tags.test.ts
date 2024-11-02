@@ -29,7 +29,7 @@ test("it works redux ", ({ expect }) => {
 	);
 
 	expect(renderElement(doc)).toBe(
-		`<html><head><meta charset="utf-8" /><title>Hello, world!</title></head><body><h1 class="blah">Hello, world!</h1></body></html>`,
+		`<html><head><meta charset="utf-8"><title>Hello, world!</title></head><body><h1 class="blah">Hello, world!</h1></body></html>`,
 	);
 
 	expect(elementToObject(doc)).toMatchObject({
@@ -55,8 +55,8 @@ test("it works redux ", ({ expect }) => {
 test("it renders empty elements correctly", ({ expect }) => {
 	expect(renderElement(h.div())).toBe("<div></div>");
 	expect(renderElement(h.div({ class: "foo" }))).toBe(`<div class="foo"></div>`);
-	expect(renderElement(h.br())).toBe("<br />");
-	expect(renderElement(h.br({ class: "foo" }))).toBe(`<br class="foo" />`);
+	expect(renderElement(h.br())).toBe("<br>");
+	expect(renderElement(h.br({ class: "foo" }))).toBe(`<br class="foo">`);
 });
 
 test("it renders html-unsafe characters correctly", ({ expect }) => {
@@ -74,5 +74,5 @@ test("addIf works", ({ expect }) => {
 		h.addIf(false, h.title("Goodbye, world!")),
 	);
 	expect(head.children).toHaveLength(3);
-	expect(renderElement(head)).toBe('<head><meta charset="utf-8" /><title>Hello, world!</title></head>');
+	expect(renderElement(head)).toBe('<head><meta charset="utf-8"><title>Hello, world!</title></head>');
 });
